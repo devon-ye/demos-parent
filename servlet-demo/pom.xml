@@ -33,46 +33,34 @@
     <groupId>com.demos.parent</groupId>
     <artifactId>servlet-demo</artifactId>
     <properties>
-        <servlet.version>4.0.0</servlet.version>
-        <logback.version>1.2.0</logback.version>
-        <slf4j-api.version>1.7.25</slf4j-api.version>
-        <log4j.version>1.2.17</log4j.version>
+
         <jetty_version>6.1.26</jetty_version>
     </properties>
-
 
 
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
-           <!-- <scope>provided</scope>-->
+           <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>${logback.version}</version>
+
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
+
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j-api.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mortbay.jetty</groupId>
-            <artifactId>maven-jetty-plugin</artifactId>
-            <version>6.1.25</version>
         </dependency>
 
     </dependencies>
