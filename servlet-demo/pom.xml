@@ -35,8 +35,6 @@
     <properties>
         <jetty_version>6.1.26</jetty_version>
     </properties>
-
-
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
