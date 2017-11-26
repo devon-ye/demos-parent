@@ -11,6 +11,7 @@
     <modules>
         <module>servlet-demo</module>
         <module>java-demo</module>
+        <module>rest-demo</module>
     </modules>
 
     <properties>

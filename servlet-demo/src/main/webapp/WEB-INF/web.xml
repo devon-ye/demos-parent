@@ -88,12 +88,12 @@
     - Declare Spring request listener which sets up the required RequestAttributes
     - to support Springs and Cocoon custom bean scopes like the request scope or the
     - session scope.
-
+    -->
 
   <listener>
-    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    <listener-class>com.servlet.listener.ApplicationListener</listener-class>
   </listener>
-  -->
+
 
   <!-- Servlet Configuration ========================================== -->
 

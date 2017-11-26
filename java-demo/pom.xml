@@ -104,11 +104,11 @@
 						<goals><goal>launch4j</goal></goals>
 						<configuration>
 							<headerType>console</headerType>
-							<outfile>target/java-demos.exe</outfile>
+							<outfile>target/java-demo.exe</outfile>
 							<jar>target/java.demos-1.0.0-SNAPSHOT.jar</jar>
 							<errTitle>java-demo-error</errTitle>
 							<classPath>
-								<mainClass>com.demo.JavaDemos</mainClass>
+								<mainClass>com.demo.JavaDemo</mainClass>
 								<addDependencies>false</addDependencies>
 								<preCp>anything</preCp>
 							</classPath>
@@ -125,8 +125,8 @@
 								<copyright>my copyright</copyright>
 								<productVersion>4.3.2.1</productVersion>
 								<txtProductVersion>txt product version</txtProductVersion>
-								<productName>Java-demos</productName>
-								<internalName>java-demos</internalName>
+								<productName>Java-demo</productName>
+								<internalName>java-demo</internalName>
 								<originalFilename>original.exe</originalFilename>
 							</versionInfo>
 						</configuration>
