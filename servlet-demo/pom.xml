@@ -33,7 +33,6 @@
     <groupId>com.demos.parent</groupId>
     <artifactId>servlet-demo</artifactId>
     <properties>
-
         <jetty_version>6.1.26</jetty_version>
     </properties>
 
