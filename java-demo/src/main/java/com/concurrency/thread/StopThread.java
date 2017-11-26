@@ -1,0 +1,61 @@
+package com.concurrency.thread;
+
+import java.util.concurrent.TimeUnit;
+
+/**
+ * Created by lenovo on 2017/11/19.
+ */
+public class StopThread {
+    private static boolean stopRequested;
+
+    private static synchronized void requetStop(){
+        stopRequested = true;
+    }
+
+    private static synchronized boolean stopRequested(){
+        return  stopRequested;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread backgroundThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int i = 0;
+                while (!stopRequested()){
+                    i++;
+                }
+            }
+        });
+        backgroundThread.start();
+
+        TimeUnit.SECONDS.sleep(1);
+        requetStop();
+
+    }
+
+
+
+   /* private static boolean volatile stopRequested;
+    public static void main(String[] args) throws InterruptedException {
+        Thread backgroundThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int i = 0;
+                while (!stopRequested){
+                    i++;
+                }
+            }
+        });
+        backgroundThread.start();
+
+        TimeUnit.SECONDS.sleep(1);
+        stopRequested=false;
+
+    }*/
+
+
+
+
+
+
+}
