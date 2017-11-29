@@ -16,8 +16,8 @@
 
     <properties>
         <skip_maven_deploy>false</skip_maven_deploy>
-        <java_source_version>1.7</java_source_version>
-        <java_target_version>1.7</java_target_version>
+        <java_source_version>1.8</java_source_version>
+        <java_target_version>1.8</java_target_version>
         <file_encoding>UTF-8</file_encoding>
         <junit_version>4.12</junit_version>
         <easymock_version>3.4</easymock_version>

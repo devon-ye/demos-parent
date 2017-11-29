@@ -1,7 +1,9 @@
 package com.collections.map;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public class HashMapDemo {
 
@@ -28,6 +30,14 @@ public class HashMapDemo {
 		for (Map.Entry<String, String> entry : map.entrySet()) {
 			System.out.print(entry.getKey() + "=" + entry.getValue() + "  ");
 		}
+		//方法四
+        Set<Map.Entry<String,String>> entrySet = map.entrySet();
+       Iterator< Map.Entry<String,String>> iterator =  entrySet.iterator();
+        while (iterator.hasNext()){
+            Map.Entry<String,String> entry = iterator.next();
+            entry.getKey();
+            entry.getValue();
+        }
 	}
 
 }
