@@ -17,6 +17,7 @@ public class EchoThreadServer {
             while (true) {
                 Socket socket = serverSocket.accept();
                 EchoThread echoThread = new EchoThread(socket);
+
                 Thread thread = new Thread(echoThread);
                 thread.start();
             }

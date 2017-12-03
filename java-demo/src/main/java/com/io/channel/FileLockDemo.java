@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 
@@ -21,7 +20,7 @@ public class FileLockDemo {
 
             FileLock fileLock =fileChannel.lock();
           //  FileLock fileLock =fileChannel.tryLock();
-           // FileLock fileLock =fileChannel.tryLock(0,0,true);
+           //  fileLock =fileChannel.tryLock(0,0,true);
             if(fileLock!= null) {
                 Thread.sleep(300);
                 fileLock.release();

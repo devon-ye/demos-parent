@@ -43,4 +43,8 @@ public class EchoThread  implements  Runnable{
 
         }
     }
+
+    private void  print() {
+
+    }
 }
