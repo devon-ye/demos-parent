@@ -1,4 +1,4 @@
-#Spring
+# Spring
 
 ## 什么是Spring
     是一个轻量级的控制反转(Ioc)和面向切面（AOP）的容器框架
@@ -9,18 +9,18 @@
     --管理对象的配置和生命周期
     --简单组建的组合配置
     
-##Spring的特征
+## Spring的特征
      
       简单、方便、快捷的开发复杂的JavaEE
       
-##Spring 适用范围
+## Spring 适用范围
       构建企业应用（SpringMVC+Spring+Hibernate/ibatis）
       Bean管理
       AOP切面处理
 
-##IOC 控制反转
+## IOC 控制反转
 
-###面向接口编程
+### 面向接口编程
     
    * 结构设计中，分清层次及调用关系，每层只向上（外）层提供一组功能接口，各层间仅依赖接口而非实现类
    * 接口实现的变动不影响各层间的调用，这一点在公共服务中尤为重要
@@ -28,7 +28,7 @@
 ### 什么是IOC
     
      控制权的转移，应用程序本身不负责依赖对象的创建和维护，而是由外部容器负责创建和维护
-####DI(依赖注入)是控制反转的一种实现方式
+#### DI(依赖注入)是控制反转的一种实现方式
      目的：创建对象并且组装对象之间的关系
            
            
@@ -81,7 +81,7 @@
         
         注意：byName配置自动装配方式需要bean配置声明id，byType和constructor自动装配配置不需要声明beanId
 
-####Spring的Resource
+#### Spring的Resource
 
      针对资源文件的统一入口
      
@@ -96,6 +96,17 @@
     --ByteArrayResource         针对字节数组封装的资源
 
   
-####Spring注入
+#### Spring注入
     *构造注入
     *设置注入
+#### Spring的注解
+
+
+    @component  是一个通用注解，可用于任何Bean
+    @Repository 通常用于注解DAO,即持久层
+    @Service    通常用于注解Service类
+    @Controller 通常用于注解Controlller类，即控制层(MVC)
+    @Autowiring
+    @Required   通常注解在Bean属性的setter方法，表示受影响的bean属性在配置时被填充，通过在bean定义或自动装配一个明确的属性值
+    @Scope
+    
