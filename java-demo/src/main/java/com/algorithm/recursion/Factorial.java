@@ -13,6 +13,18 @@ public class Factorial {
         }
     }
 
+    public int factorialAge(int n) {
+        if(n <= 0) {
+            return 0;
+        }else if( n == 1) {
+            return 10;
+        }else {
+            return 2+ factorial(n-1);
+        }
+
+
+    }
+
 
     public static void main(String[] args) {
         Factorial factorial = new Factorial();
