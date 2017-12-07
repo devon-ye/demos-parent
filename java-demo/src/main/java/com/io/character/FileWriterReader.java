@@ -1,4 +1,4 @@
-package com.io.demo;
+package com.io.character;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

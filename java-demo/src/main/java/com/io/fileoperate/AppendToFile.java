@@ -1,6 +1,6 @@
 package com.io.fileoperate;
 
-import com.io.demo.ReadFromFile;
+import com.io.bytes.ReadFromFile;
 
 import java.io.FileWriter;
 import java.io.IOException;
