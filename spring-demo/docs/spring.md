@@ -123,8 +123,19 @@
     
 #### Spring的AOP(ASPECT ORIENTED PROGRAMMING)
 
+
+##### 编程范式
      
-      散布于应用中多处的功能点被称为横切关注点（cross-cutting concern），通常这些横切关注点与业务逻辑是分离的
+     面向过程编程
+     面向对象编程
+     面向切面编程
+     函数式编程
+     事件驱动编程
+
+##### 面向切面的概念
+
+     
+      散布于应用中多处的功能点被称为横切关注点（cross-cutting concern），通常这些横切关注点与业务逻辑是分离的，即功能性需求和非功能性需求分离
       
       * spring提供四种类型的AOP支持
         --基于代理的经典Spirng AOP
