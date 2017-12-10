@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Properties;
 
-public class ServletDemo extends HttpServlet implements SingleThreadModel {
+public class ServletApp extends HttpServlet implements SingleThreadModel {
     private Logger log = LoggerFactory.getLogger(getClass());
 
 

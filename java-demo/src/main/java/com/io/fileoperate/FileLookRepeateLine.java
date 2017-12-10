@@ -14,9 +14,9 @@ import java.util.Map;
  */
 public class FileLookRepeateLine {
     private static Logger logger = LoggerFactory.getLogger(FileLookRepeateLine.class);
-    private Map<String,List<Integer>> repeateLineMap = new HashMap<>();
+    private Map <String, List <Integer>> repeateLineMap = new HashMap <>();
 
-    public void  readFileByBufferedReader(String fileName) {
+    public void readFileByBufferedReader(String fileName) {
 
         BufferedReader bufferedReader = null;
         FileReader fileReader = null;
@@ -37,17 +37,17 @@ public class FileLookRepeateLine {
 
             fileReader = new FileReader(fileRead);
             bufferedReader = new BufferedReader(fileReader);
-            String  value= "";
+            String value = "";
             int i = 1;
             while ((value = bufferedReader.readLine()) != null) {
-                if(!repeateLineMap.containsKey(value)) {
-                    List<Integer> lineList = new ArrayList<>();
+                if (!repeateLineMap.containsKey(value)) {
+                    List <Integer> lineList = new ArrayList <>();
                     lineList.add(i);
-                    repeateLineMap.put(value,lineList);
-                }else {
-                    List<Integer> lineList = repeateLineMap.get(value);
+                    repeateLineMap.put(value, lineList);
+                } else {
+                    List <Integer> lineList = repeateLineMap.get(value);
                     lineList.add(i);
-                    repeateLineMap.put(value,lineList);
+                    repeateLineMap.put(value, lineList);
                 }
                 i++;
             }
@@ -56,34 +56,34 @@ public class FileLookRepeateLine {
         } catch (IOException e) {
             logger.error("readFileByCharacterStream,  is error! FileNotFoundException:", e);
 
-        }finally {
-            if(fileReader != null) {
+        } finally {
+            if (fileReader != null) {
                 try {
                     fileReader.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if(bufferedReader != null) {
+            if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
 
-    private void printRepeateLine(){
-        for(Map.Entry entry  :repeateLineMap.entrySet()) {
-           List<Integer> lineList = (List <Integer>) entry.getValue();
-           if(lineList.size() >1) {
-               if(entry.getKey() ==  null || entry.getKey().toString().trim().length() == 0) {
-                   System.out.println("detail:" +entry.getKey() +",blank lineList:" +entry.getValue());
-               }else {
-                   System.out.println("detail:" +entry.getKey() +",lineList:" +entry.getValue());
-               }
-           }
+    private void printRepeateLine() {
+        for (Map.Entry entry : repeateLineMap.entrySet()) {
+            List <Integer> lineList = (List <Integer>) entry.getValue();
+            if (lineList.size() > 1) {
+                if (entry.getKey() == null || entry.getKey().toString().trim().length() == 0) {
+                    System.out.println("detail:" + entry.getKey() + ",blank lineList:" + entry.getValue());
+                } else {
+                    System.out.println("detail:" + entry.getKey() + ",lineList:" + entry.getValue());
+                }
+            }
         }
     }
 

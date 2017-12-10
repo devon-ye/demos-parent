@@ -30,6 +30,7 @@
      控制权的转移，应用程序本身不负责依赖对象的创建和维护，而是由外部容器负责创建和维护
 #### DI(依赖注入)是控制反转的一种实现方式
      目的：创建对象并且组装对象之间的关系
+     
            
            
            
@@ -106,7 +107,27 @@
     @Repository 通常用于注解DAO,即持久层
     @Service    通常用于注解Service类
     @Controller 通常用于注解Controlller类，即控制层(MVC)
-    @Autowiring
-    @Required   通常注解在Bean属性的setter方法，表示受影响的bean属性在配置时被填充，通过在bean定义或自动装配一个明确的属性值
-    @Scope
+    @Autowired  (required=false),每个类只能有一个构造器被标记为（required=true）
+    @Required   通常注解在Bean属性的setter方法，表示受影响的bean属性在配置时被填充，
+    @Scope通过在bean定义或自动装配一个明确的属性值
     
+#### Spring的配置
+    
+    
+     <beans>
+          <context:conponent-scan base-package="org.example"
+                   scan-resolver="org.example.resolver" 
+                   scoped-proxy = "no/interfaces/targetClass"
+                   />
+     </beans>
+    
+#### Spring的AOP(ASPECT ORIENTED PROGRAMMING)
+
+     
+      散布于应用中多处的功能点被称为横切关注点（cross-cutting concern），通常这些横切关注点与业务逻辑是分离的
+      
+      * spring提供四种类型的AOP支持
+        --基于代理的经典Spirng AOP
+        --纯POJO
+        --@AspectJ注解驱动的切面
+        --注入式AspectJ切面

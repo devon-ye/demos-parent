@@ -12,6 +12,9 @@
         <module>servlet-demo</module>
         <module>java-demo</module>
         <module>rest-demo</module>
+        <module>web-service</module>
+        <module>ECAS</module>
+        <module>spring-mvc-demo</module>
     </modules>
 
     <properties>
@@ -23,11 +26,13 @@
         <easymock_version>3.4</easymock_version>
         <jmockit_version>1.33</jmockit_version>
         <spring_version>4.3.10.RELEASE</spring_version>
+        <mybatis_version>3.4.0</mybatis_version>
         <servlet_version>4.0.0</servlet_version>
         <slf4j_version>1.7.25</slf4j_version>
         <log4j_version>1.2.16</log4j_version>
         <logback_version>1.2.2</logback_version>
         <jcl_version>1.2</jcl_version>
+        <jetty_version>6.1.26</jetty_version>
     </properties>
     <dependencies>
         <dependency>
@@ -42,23 +47,7 @@
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>4.3.10.RELEASE</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>4.3.10.RELEASE</version>
-            <scope>test</scope>
-        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -98,6 +87,13 @@
                 <artifactId>spring-tx</artifactId>
                 <version>${spring_version}</version>
             </dependency>
+            <!-- mybatis lib -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis_version}</version>
+            </dependency>
+
             <!-- Servlet libs-->
             <dependency>
                 <groupId>javax.servlet</groupId>
@@ -205,6 +201,21 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>${jetty_version}</version>
+                <configuration>
+                    <contextPath>/</contextPath>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <connectors>
+                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>8080</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                </configuration>
             </plugin>
         </plugins>
     </build>
