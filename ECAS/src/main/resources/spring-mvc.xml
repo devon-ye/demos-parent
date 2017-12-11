@@ -4,13 +4,13 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
        http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc-3.2.xsd">
-    //自动扫描控制器类包
-    <context:component-scan base-package="ecas.controller" ></context:component-scan>
+       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+    <!--自动扫描控制器类包 -->
+    <context:component-scan base-package="ecas.controller"></context:component-scan>
 
     <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
     <bean id="mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
@@ -22,39 +22,39 @@
 
     </bean>
 
-    <bean  class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <ref bean ="mappingJackson2HttpMessageConverter"/>
+                <ref bean="mappingJackson2HttpMessageConverter"/>
             </list>
         </property>
     </bean>
-    <!--Spring mvc 拦截器配置 -->
-   <mvc:interceptors>
-       <mvc:interceptor>
-            <!--拦截路径-->
-            <mvc:mapping path="ecas/*.do"/>
-           <!-- 拦截实现-->
-            <bean class="com.ecas.base.interceptor.SessionInterceptor"></bean>
-       </mvc:interceptor>
-       <mvc:interceptor>
-           <mvc:mapping path="ecas/*.do"/>
-           <bean class="com.ecas.base.interceptor.HTMLInterceptor"></bean>
-       </mvc:interceptor>
-       <mvc:interceptor>
-           <mvc:mapping path="ecas/*.do"/>
-           <bean class="com.ecas.base.interceptor.SpringMVCInterceptor"></bean>
-       </mvc:interceptor>
+    <!-- Spring mvc 拦截器配置 -->
 
-   </mvc:interceptors>
 
-    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="defaultEncoding">
-            <value>UTF-8</value>
-        </property>
-        <property name="maxInMemorySize">
-            <value>4096</value>
-        </property>
-    </bean>
+     <mvc:interceptors>
+         <mvc:interceptor>
+             <mvc:mapping path="/ecas/*.do"/>
+             <bean class="com.ecas.base.interceptor.SessionInterceptor"/>
+         </mvc:interceptor>
+         <mvc:interceptor>
+             <mvc:mapping path="/ecas/*.do"/>
+             <bean class="com.ecas.base.interceptor.HTMLInterceptor"/>
+         </mvc:interceptor>
+         <mvc:interceptor>
+             <mvc:mapping path="/ecas/*.do"/>
+             <bean class="com.ecas.base.interceptor.SpringMVCInterceptor"/>
+         </mvc:interceptor>
 
-</beans>
+     </mvc:interceptors>
+
+     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+         <property name="defaultEncoding">
+             <value>UTF-8</value>
+         </property>
+         <property name="maxInMemorySize">
+             <value>4096</value>
+         </property>
+     </bean>
+
+ </beans>

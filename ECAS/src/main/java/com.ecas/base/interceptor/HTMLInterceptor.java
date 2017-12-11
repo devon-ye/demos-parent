@@ -16,7 +16,7 @@ public class HTMLInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
-        return false;
+        return true;
     }
 
     @Override

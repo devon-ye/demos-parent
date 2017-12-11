@@ -22,7 +22,7 @@ public class LoginController extends BaseController {
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(params = "cmd=list")
+    @RequestMapping(params = "cmd=login")
     public String list(Login login, ModelMap model, HttpServletRequest request) {
 
         PageContext pageContext = PageContext.getContext(request, rolPerPases);
