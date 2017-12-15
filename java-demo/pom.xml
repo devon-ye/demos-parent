@@ -10,7 +10,9 @@
 	<groupId>com.demos.parent</groupId>
 	<artifactId>java-demo</artifactId>
 	<packaging>pom</packaging>
-
+    <properties>
+        <mysql_version>5.1.17</mysql_version>
+    </properties>
 	<dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -67,6 +69,12 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 		</dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql_version}</version>
+        </dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
