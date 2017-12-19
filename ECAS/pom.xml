@@ -11,8 +11,8 @@
     <packaging>war</packaging>
 
     <properties>
-        <spring_version>4.2.0.RELEASE</spring_version>
-        <mybatis_version>3.1.1</mybatis_version>
+        <spring_version>4.0.2.RELEASE</spring_version>
+        <mybatis_version>3.2.6</mybatis_version>
         <mybatis-spring_version>1.1.1</mybatis-spring_version>
     </properties>
 

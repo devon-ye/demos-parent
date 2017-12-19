@@ -4,6 +4,8 @@ import com.ecas.dao.LoginDao;
 import com.ecas.model.Login;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +14,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class LoginDaoImpl implements LoginDao {
-
+    private static Logger logger = LoggerFactory.getLogger(LoginDaoImpl.class);
     @Autowired
     private SqlSessionFactory sqlSessionFactory;
 
@@ -28,9 +30,14 @@ public class LoginDaoImpl implements LoginDao {
     @Override
     public Login selectUserByID(long loginId) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
+
         Login login = null;
         try {
             LoginDao loginDao =  sqlSession.getMapper(LoginDao.class);
+            if(loginDao == null) {
+                logger.error("selectUserByID, loginId is null!");
+                return login;
+            }
              login = loginDao.selectUserByID(loginId);
         }catch (Exception e){
             e.printStackTrace();

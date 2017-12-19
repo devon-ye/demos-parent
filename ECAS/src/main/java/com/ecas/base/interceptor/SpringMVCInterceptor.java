@@ -18,11 +18,13 @@ public class SpringMVCInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler) throws Exception {
+        System.out.println("selectUserByID");
         BaseController baseController = (BaseController)handler ;
         baseController.setRequest(httpServletRequest);
         baseController.setResponse(httpServletResponse);
         baseController.setSession(httpServletRequest.getSession());
         baseController.setLogin((Login)httpServletRequest.getSession().getAttribute("login"));
+        System.out.println("selectUserByID");
         return true;
     }
 

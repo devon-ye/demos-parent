@@ -19,7 +19,7 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         log.debug("preHandle,start");
-
+        System.out.println("selectUserByID");
         Login login = (Login) httpServletRequest.getSession().getAttribute("login");
         if (null == login) {
             log.debug("此用户未登录,禁止访问此URL.");

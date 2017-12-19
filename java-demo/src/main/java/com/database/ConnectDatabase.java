@@ -30,9 +30,9 @@ public class ConnectDatabase {
     public static void main(String[] args) {
         ConnectionConfig con= new ConnectionConfig();
         con.setDriverClass("com.mysql.jdbc.Driver");
-        con.setUrl("jdbc:mysql://192.168.1.6:3306/test1");
-        con.setUserName("test_user");
-        con.setPassword("test_user");
+        con.setUrl("jdbc:mysql://localhost:3306/test1");
+        con.setUserName("root");
+        con.setPassword("admin");
        Connection connection = ConnectDatabase.getConnection(con);
     }
 }

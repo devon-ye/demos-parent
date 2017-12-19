@@ -4,11 +4,11 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
        http://www.springframework.org/schema/mvc
-       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd"
+       http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd"
    default-autowire="byName">
     <!--自动扫描控制器类包 -->
 
@@ -32,6 +32,44 @@
         </property>
     </bean>
 
+
+    <!-- Spring mvc 拦截器配置 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/*.do"/>
+            <bean class="com.ecas.base.interceptor.SessionInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/*.do"/>
+            <bean class="com.ecas.base.interceptor.HTMLInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/*.do"/>
+            <bean class="com.ecas.base.interceptor.SpringMVCInterceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
+
+    <!-- 配置ViewResolver 。可用多个ViewResolver 。使用order属性排序。   InternalResourceViewResolver 放在最后-->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1"></property>
+        <property name="mediaTypes">
+            <map>
+                <!-- 告诉视图解析器，返回的类型为json格式 -->
+                <entry key="json" value="application/json" />
+                <entry key="xml" value="application/xml" />
+                <entry key="htm" value="text/htm" />
+            </map>
+        </property>
+        <property name="defaultViews">
+            <list>
+                <!-- ModelAndView里的数据变成JSON -->
+                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+            </list>
+        </property>
+        <property name="ignoreAcceptHeader" value="true"></property>
+    </bean>
+
     <!-- 定义跳转的文件的前后缀 ，视图模式配置-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
@@ -39,22 +77,7 @@
         <property name="suffix" value=".do" />
     </bean>
 
-    <!-- Spring mvc 拦截器配置 -->
-     <mvc:interceptors>
-         <mvc:interceptor>
-             <mvc:mapping path="/ecas/*.do"/>
-             <bean class="com.ecas.base.interceptor.SessionInterceptor"/>
-         </mvc:interceptor>
-         <mvc:interceptor>
-             <mvc:mapping path="/ecas/*.do"/>
-             <bean class="com.ecas.base.interceptor.HTMLInterceptor"/>
-         </mvc:interceptor>
-         <mvc:interceptor>
-             <mvc:mapping path="/ecas/*.do"/>
-             <bean class="com.ecas.base.interceptor.SpringMVCInterceptor"/>
-         </mvc:interceptor>
 
-     </mvc:interceptors>
 
      <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
          <property name="defaultEncoding">

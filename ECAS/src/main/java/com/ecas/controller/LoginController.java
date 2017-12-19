@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,7 +21,7 @@ import java.util.Date;
  * Created by lenovo on 2017/12/9.
  */
 @Controller
-@RequestMapping
+@RequestMapping("/ecas")
 public class LoginController extends BaseController {
 
 
@@ -34,9 +35,10 @@ public class LoginController extends BaseController {
         this.loginService = loginService;
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public void selectUserByID(Login login, ModelMap model, String verifyCode, HttpSession session, HttpServletRequest request){
         loginService.selectUserByID(login.getUserId());
+        System.out.println("selectUserByID");
     }
 
     @RequestMapping("/login1")
