@@ -1,9 +1,10 @@
 
 
 SET FOREIGN_KEY_CHECKS=0;
+/*
 CREATE USER 'ecas'@'%' IDENTIFIED BY 'ecasoptr';
-
-IF NOT EXISTS  CREATE DATABASE ecasdb;
+CREATE DATABASE ecasdb;
+*/
 DROP  TABLE IF EXISTS   ecasdb.ecas_login_oauth;
 CREATE TABLE ecasdb.ecas_login_oauth(
    user_id varchar(36) NOT  null,
