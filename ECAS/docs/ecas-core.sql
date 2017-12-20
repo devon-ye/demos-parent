@@ -2,6 +2,7 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 /*
+
 CREATE USER 'ecas'@'%' IDENTIFIED BY 'ecasoptr';
 CREATE DATABASE ecasdb;
 */
@@ -39,7 +40,7 @@ CREATE TABLE ecasdb.ecas_role_info(
    modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
 ) DEFAULT CHARSET=utf8;
 
-DROP  TABLE IF EXISTS   ecasdb.ecas_role_info;
+DROP  TABLE IF EXISTS   ecasdb.ecas_menu_info;
 CREATE TABLE ecasdb.ecas_menu_info(
    menu_id varchar(36) NOT  null,
    menu_name VARCHAR(36) DEFAULT NULL,
@@ -48,5 +49,23 @@ CREATE TABLE ecasdb.ecas_menu_info(
    create_time datetime not null,
    modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
 )DEFAULT CHARSET=utf8;
+
+DROP  TABLE IF EXISTS   ecasdb.ecas_user_role;
+CREATE TABLE ecasdb.ecas_user_role(
+   user_id varchar(36) NOT  NULL,
+   role_id varchar(36) NOT  null,
+   create_time datetime not null,
+   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+) DEFAULT CHARSET=utf8;
+
+DROP  TABLE IF EXISTS   ecasdb.ecas_role_menu;
+CREATE TABLE ecasdb.ecas_role_menu(
+   role_id VARCHAR (36) NOT NULL,
+   menu_id varchar(36) NOT  null,
+   create_time datetime not null,
+   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+)DEFAULT CHARSET=utf8;
+
+
 
 
