@@ -66,6 +66,35 @@ CREATE TABLE ecasdb.ecas_role_menu(
    modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
 )DEFAULT CHARSET=utf8;
 
+DROP  TABLE IF EXISTS   ecasdb.ecas_resource_info;
+CREATE TABLE ecasdb.ecas_resource_info(
+   resource_id VARCHAR (36) NOT NULL,
+   resource_name varchar(50) NOT  null,
+   resource_type  char(1) DEFAULT NULL,
+   create_time datetime not null,
+   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+)DEFAULT CHARSET=utf8;
+
+DROP  TABLE IF EXISTS   ecasdb.ecas_role_resource;
+CREATE TABLE ecasdb.ecas_role_resource(
+   role_id VARCHAR (36) NOT NULL,
+   resource_id varchar(50) NOT  null,
+   create_time datetime not null,
+   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+)DEFAULT CHARSET=utf8;
+
+
+DROP  TABLE IF EXISTS   ecasdb.ecas_department_info;
+CREATE TABLE ecasdb.ecas_department_info(
+   department_id VARCHAR (36) NOT NULL,
+   department_name varchar(50) NOT  NULL,
+   create_time datetime NOT NULL ,
+   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+)DEFAULT CHARSET=utf8;
+
+
+
+
 
 
 
