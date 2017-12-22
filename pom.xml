@@ -31,6 +31,7 @@
         <aspectjrt_version>1.8.11</aspectjrt_version>
         <mybatis_version>3.4.0</mybatis_version>
         <mybatis-spring_version>1.1.1</mybatis-spring_version>
+        <javax.batch-api_version>1.0.1</javax.batch-api_version>
         <jackson_version>2.7.4</jackson_version>
         <fastjson_version>1.2.30</fastjson_version>
         <servlet_version>4.0.0</servlet_version>
@@ -133,6 +134,13 @@
                 <groupId>org.codehaus.jackson</groupId>
                 <artifactId>jackson-mapper-asl</artifactId>
                 <version>1.9.13</version>
+            </dependency>
+
+            <!-- batch lib -->
+            <dependency>
+                <groupId>javax.batch</groupId>
+                <artifactId>javax.batch-api</artifactId>
+                <version>${javax.batch-api_version}</version>
             </dependency>
 
             <!-- json lib -->

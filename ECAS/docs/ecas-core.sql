@@ -93,7 +93,13 @@ CREATE TABLE ecasdb.ecas_department_info(
 )DEFAULT CHARSET=utf8;
 
 
-
+DROP  TABLE IF EXISTS   ecasdb.ecas_user_department;
+CREATE TABLE ecasdb.ecas_ecas_user_department(
+   user_id VARCHAR(36) NOT NULL ,
+   department_id VARCHAR (36) NOT NULL,
+   create_time datetime NOT NULL ,
+   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+)DEFAULT CHARSET=utf8;
 
 
 
