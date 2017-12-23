@@ -15,8 +15,8 @@
 <head>
     <meta http-equiv="content-type" content="text/xml" charset="UTF-8"/>
     <title>教务综合管理系统</title>
-    <%@include file="./pages/common/taglibs.jsp"%>
-    <%@include file="./pages/common/inc.jsp"%>
+    <%@include file="../pages/common/taglibs.jsp"%>
+    <%@include file="../pages/common/inc.jsp"%>
     <script type="text/javascript">
         function loginClick() {
             loginform.submit();
@@ -68,13 +68,13 @@
 </head>
 <body>
 <form id="loginform" method="post"
-      action="<%=contextPath%>/ecas/login">
+      action="<%=contextPath%>/ecas/doLogin.do">
     <img src="${ctx}/image/login/bg.jpg" width="100%" height="100%" style="z-index:-100;position:absolute;left:0;top:0">
     <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:100px">
         <tr>
             <td height="200" style="text-align: center">
                 <span><img src="${ctx}/image/login/logo.png" width="40" height="20"><span>
-                <span style="font-size: 30px;font-weight:800">中小学综合测评系统</span>
+                <span style="font-size: 30px;font-weight:800">XXX学综合测评系统</span>
 
             </td>
         </tr>
@@ -86,7 +86,7 @@
                     <tr>
                         <td width="25%"><span class="STYLE2">账  号：</span></td>                    <td width="75%">
                         <div class="div1">
-                            <input name="username" type="text" id="username"
+                            <input name="userName" type="text" id="userName"
                                    style="height:22px;width:137px;outline:none; vertical-align:middle;"/>
                         </div>
                         <strong class="red">${msg}</strong>

@@ -4,13 +4,17 @@ import com.ecas.constants.Constants;
 import com.ecas.model.Login;
 
 import com.ecas.model.SessionInfo;
+import com.ecas.model.User;
+import com.ecas.service.IUserService;
 import com.ecas.service.LoginService;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,20 +26,54 @@ import java.util.Date;
  */
 @Controller
 @RequestMapping("/ecas")
-public class LoginController extends BaseController {
+public class LoginManagerController extends BaseController {
 
 
     @Autowired
     private LoginService loginService;
 
-    public LoginController() {
+    @Autowired
+    private IUserService userService;
+
+    public LoginManagerController() {
     }
 
-    public LoginController(LoginService loginService) {
+    public LoginManagerController(LoginService loginService) {
         this.loginService = loginService;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/doLogin",method = RequestMethod.POST)
+    public String doLogin( Login login, String verifyCode,ModelMap modelMap, HttpSession session, HttpServletRequest request) {
+        String userName = login.getUserName();
+        String password = login.getPassword();
+        if(userName!= null && userName.trim().length() > 0) {
+            User user = new User();
+            user.setUserName(userName);
+            user.setPassword(password);
+        //    userService.getUser(user);
+            return "redirect:/WEB-INF/login.jsp";
+           // return  "redirect:/index.jsp";
+        }else {
+            modelMap.put("errorMessage","409");
+            return "/login.jsp";
+        }
+
+
+
+    }
+
+    @RequestMapping(value = "/doLogout", params = "login" ,method = RequestMethod.POST)
+    public String doLogout(Login login, HttpSession session, HttpServletRequest request) {
+
+        login.setLoginStatu(false);
+        login.setUserName("");
+        login.setPassword("");
+
+        return "ecas/login.jsp";
+    }
+
+
+    @RequestMapping(value = "/login1ss", method = RequestMethod.POST)
     public void selectUserByID(Login login, ModelMap model, String verifyCode, HttpSession session, HttpServletRequest request){
         loginService.selectUserByID(login.getUserId());
         System.out.println("selectUserByID");

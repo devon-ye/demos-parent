@@ -35,6 +35,7 @@
         <jackson_version>2.7.4</jackson_version>
         <fastjson_version>1.2.30</fastjson_version>
         <servlet_version>4.0.0</servlet_version>
+        <jstl_version>1.2</jstl_version>
         <commons-fileupload_version>1.3.3</commons-fileupload_version>
         <commons-dbcp_version>1.2.2</commons-dbcp_version>
         <mysql_version>5.1.30</mysql_version>
@@ -172,6 +173,11 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${servlet_version}</version>
                 <!-- <scope>provided</scope>-->
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${jstl_version}</version>
             </dependency>
 
             <!-- file upload -->

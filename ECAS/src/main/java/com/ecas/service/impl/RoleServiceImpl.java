@@ -7,4 +7,6 @@ import com.ecas.service.IRoleService;
  */
 public class RoleServiceImpl implements IRoleService {
 
+    public RoleServiceImpl() {
+    }
 }
