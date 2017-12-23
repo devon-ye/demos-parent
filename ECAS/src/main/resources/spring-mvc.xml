@@ -33,8 +33,8 @@
             </list>
         </property>
     </bean>
-
-
+    <!-- 静态资源拦截处理 -->
+    <mvc:default-servlet-handler />
     <!-- Spring mvc 拦截器配置 -->
     <mvc:interceptors>
         <mvc:interceptor>

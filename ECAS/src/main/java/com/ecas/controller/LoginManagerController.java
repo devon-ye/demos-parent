@@ -1,6 +1,8 @@
 package com.ecas.controller;
 
+import com.ecas.base.TokenManager;
 import com.ecas.constants.Constants;
+import com.ecas.model.AbstractUser;
 import com.ecas.model.Login;
 
 import com.ecas.model.SessionInfo;
@@ -8,6 +10,7 @@ import com.ecas.model.User;
 import com.ecas.service.IUserService;
 import com.ecas.service.LoginService;
 
+import com.ecas.util.CookieUtil;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Date;
 
 
@@ -43,7 +48,31 @@ public class LoginManagerController extends BaseController {
     }
 
     @RequestMapping(value = "/doLogin",method = RequestMethod.POST)
-    public String doLogin( Login login, String verifyCode,ModelMap modelMap, HttpSession session, HttpServletRequest request) {
+    public String doLogin( Login login, String verifyCode,ModelMap modelMap) {
+        String vt = CookieUtil.getCookie("VT",request);
+
+        if(vt == null) {
+            String lt = CookieUtil.getCookie("LT",request);
+            if(lt == null) {
+                return  "/WEB-INF/login.jsp";
+            }else {
+                //TODO  auto login implement
+                return null;
+            }
+
+        }else {
+            AbstractUser user = TokenManager.validate(vt);
+            if(user != null) {
+                try {
+                    return   validateSuccess("",vt,response,modelMap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }else {
+                return "/WEB-INF/login.jsp";
+            }
+
+        }
         String userName = login.getUserName();
         String password = login.getPassword();
         if(userName!= null && userName.trim().length() > 0) {
@@ -142,6 +171,17 @@ public class LoginManagerController extends BaseController {
 
     }*/
 
+   private  static String  validateSuccess(String backUrl,String vt,HttpServletResponse response,ModelMap model) throws IOException {
+       if(backUrl != null) {
+            response.sendRedirect("");
+            return  null;
+       }else {
+           model.put("sysList","");
+           model.put("vt",vt);
+           return Constants.LOGIN_PAGE;
+       }
+
+   }
 
     public LoginService getLoginService() {
         return loginService;
