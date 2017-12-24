@@ -16,6 +16,7 @@
         <module>ECAS</module>
         <module>spring-mvc-demo</module>
         <module>mybatis-demo</module>
+        <module>SSO-Server</module>
     </modules>
 
     <properties>
