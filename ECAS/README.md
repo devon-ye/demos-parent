@@ -1,0 +1,1 @@
+educational comprehensive administration system simple name is ECAS

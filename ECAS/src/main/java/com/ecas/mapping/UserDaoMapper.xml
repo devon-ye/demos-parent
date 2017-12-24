@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecas.dao.IUserDao">
+    <resultMap id="userResultMap" type="com.ecas.model.User">
+
+    </resultMap>
+
+    <select id="getUser" resultMap="userResultMap" parameterType="com.ecas.model.User">
+        SELECT 
+        <include refid="Column_List"/>
+
+    </select>
+</mapper>

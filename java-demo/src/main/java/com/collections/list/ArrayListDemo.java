@@ -19,6 +19,13 @@ public class ArrayListDemo {
 		while (iter.hasNext()) {
 			System.out.print(iter.next() + " ");
 		}
+		//使用Iterrator错误的remove方法
+        while(iter.hasNext()) {
+		    arrList.remove("c");
+		    //正确的方式时Iterrator的remove
+            iter.remove();
+        }
+
 		System.out.println();
 		// 使用For Each输出结合
 		for (String e : arrList) {
