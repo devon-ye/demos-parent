@@ -1,5 +1,4 @@
 # demos-parent
-[![Crates.io](https://img.shields.io/crates/l/rustc-serialize.svg)](github.com/Devonmusa/demos-parent.git)
 [![License](https://img.shields.io/badge/license-Apache-blue.svg)](http://opensource.org/licenses/Apache)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Devonmusa/demos-parent/pulls)
 [![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://github.com/Devonmusa/demos-parent)
