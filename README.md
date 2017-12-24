@@ -1,5 +1,4 @@
 # demos-parent
-## version
 [![License](https://img.shields.io/badge/license-Apache-blue.svg)](http://opensource.org/licenses/Apache)
 [![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/Devonmusa/demos-parent)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Devonmusa/demos-parent/pulls)
