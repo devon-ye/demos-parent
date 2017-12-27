@@ -6,7 +6,7 @@
 
     </resultMap>
 
-    <select id="getUser" resultMap="userResultMap" parameterType="com.ecas.model.User">
+    <select id="getUserById" resultMap="userResultMap" parameterType="com.ecas.model.User">
         SELECT 
         <include refid="Column_List"/>
 

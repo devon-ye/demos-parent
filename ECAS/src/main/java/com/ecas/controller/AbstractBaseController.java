@@ -12,7 +12,7 @@ import java.util.List;
  * Created by lenovo on 2017/12/9.
  */
 @Controller
-public abstract class BaseController {
+public abstract class AbstractBaseController {
 
     public int rolPerPases = 10;
     public List colRols;

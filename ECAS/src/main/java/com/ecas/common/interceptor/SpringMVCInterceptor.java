@@ -1,6 +1,6 @@
-package com.ecas.base.interceptor;
+package com.ecas.common.interceptor;
 
-import com.ecas.controller.BaseController;
+import com.ecas.controller.AbstractBaseController;
 import com.ecas.model.Login;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,11 +19,11 @@ public class SpringMVCInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler) throws Exception {
         System.out.println("selectUserByID");
-        BaseController baseController = (BaseController)handler ;
-        baseController.setRequest(httpServletRequest);
-        baseController.setResponse(httpServletResponse);
-        baseController.setSession(httpServletRequest.getSession());
-        baseController.setLogin((Login)httpServletRequest.getSession().getAttribute("login"));
+        AbstractBaseController abstractBaseController = (AbstractBaseController)handler ;
+        abstractBaseController.setRequest(httpServletRequest);
+        abstractBaseController.setResponse(httpServletResponse);
+        abstractBaseController.setSession(httpServletRequest.getSession());
+        abstractBaseController.setLogin((Login)httpServletRequest.getSession().getAttribute("login"));
         System.out.println("selectUserByID");
         return true;
     }

@@ -1,5 +1,6 @@
 package com.ecas.service.impl;
 
+import com.ecas.dao.IRoleDao;
 import com.ecas.dao.IUserDao;
 import com.ecas.model.User;
 import com.ecas.service.IUserService;
@@ -14,12 +15,15 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private IUserDao userDao;
+    private IRoleDao roleDao;
     public UserServiceImpl() {
     }
 
     @Override
     public String getUser(User user) {
-        userDao.getUser(user);
+
+        User  user1 = userDao.getUser(user);
+       // roleDao.
         return  "/pages/background/index.jsp";
     }
 }

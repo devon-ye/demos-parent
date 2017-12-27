@@ -5,7 +5,7 @@
   Time: 18:00
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"  %>
 <%
     String contextPath = request.getContextPath();
 %>
@@ -22,6 +22,7 @@
             loginform.submit();
         }
     </script>
+    <script>var BACK_URL = '${param.backurl}';</script>
     <style type="text/css">
         body {
             MARGIN: 0px;
@@ -68,14 +69,13 @@
 </head>
 <body>
 <form id="loginform" method="post"
-      action="<%=contextPath%>/ecas/doLogin.do">
+      action="<%=contextPath%>/ecas/login.do">
     <img src="${ctx}/image/login/bg.jpg" width="100%" height="100%" style="z-index:-100;position:absolute;left:0;top:0">
     <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:100px">
         <tr>
             <td height="200" style="text-align: center">
                 <span><img src="${ctx}/image/login/logo.png" width="40" height="20"><span>
-                <span style="font-size: 30px;font-weight:800">XXX学综合测评系统</span>
-
+                <span style="font-size: 30px;font-weight:800">大学综合测评系统</span>
             </td>
         </tr>
     </table>

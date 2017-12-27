@@ -3,8 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 定义操作user表的sql映射文件userMapper.xml  -->
-<mapper namespace="com.ecas.dao.LoginDao">
-    <resultMap id="loginResultMap" type="com.ecas.model.Login">
+<mapper namespace="com.ecas.dao.IRoleDao">
+    <resultMap id="loginResultMap" type="com.ecas.model.Role">
         <id column="userId"  javaType="java.lang.Long"></id>
         <result column="userName"  javaType="java.lang.String"/>
         <result column="password"  javaType="java.lang.String"/>
@@ -13,7 +13,7 @@
         <result column="loginStatu"  javaType="java.lang.Boolean"/>
         <result column="roleId"  javaType="java.lang.String"/>
     </resultMap>
-    <select id="selectUserByID" parameterType="long" resultType="com.ecas.model.Login">
-        select * from Login where loginId = #{loginId}
+    <select id="getRoleByUserId" parameterType="long" resultType="com.ecas.model.Role">
+        select * from ecas.ecas_user_role eur where user_id = #{user_id}
     </select>
 </mapper>

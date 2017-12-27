@@ -1,4 +1,4 @@
-package com.ecas.base;
+package com.ecas.common;
 
 import com.ecas.model.AbstractUser;
 import org.slf4j.Logger;
@@ -38,7 +38,7 @@ public class TokenManager {
                     }
                 }
             }
-        },30);
+        },60);
     }
 
     private  TokenManager(){};

@@ -5,7 +5,7 @@ import com.ecas.model.User;
 /**
  * Created by lenovo on 2017/12/20.
  */
-public interface IUserDao {
+public interface IUserDao extends  IDao{
 
-    User getUser(User user);
+    public User  getUserById(String userId);
 }

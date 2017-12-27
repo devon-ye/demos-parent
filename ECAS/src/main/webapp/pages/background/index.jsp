@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String contextPath = request.getContextPath();
+    Cookie[] cookies = request.getCookies();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -13,7 +14,14 @@
     <script type="text/javascript"/>
 </head>
 <body>
+
      登录成功
+     <%
+         for(Cookie cookie: cookies){
+           cookie.getValue();
+         }
+
+     %>
 
     <table>
         <tr>

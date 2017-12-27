@@ -1,4 +1,4 @@
-package com.ecas.constants;
+package com.ecas.common.constants;
 
 /**
  * Created by lenovo on 2017/12/12.
