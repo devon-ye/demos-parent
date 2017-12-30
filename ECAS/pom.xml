@@ -16,7 +16,7 @@
         <mybatis-spring_version>1.1.1</mybatis-spring_version>
     </properties>
 
-    <name>ECAS Maven Webapp</name>
+    <name>ECAS</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>

@@ -19,11 +19,9 @@ public class UserServiceImpl implements IUserService {
     public UserServiceImpl() {
     }
 
-    @Override
-    public String getUser(User user) {
 
-        User  user1 = userDao.getUser(user);
-       // roleDao.
-        return  "/pages/background/index.jsp";
+    @Override
+    public User getUserById(String userId) {
+        return null;
     }
 }

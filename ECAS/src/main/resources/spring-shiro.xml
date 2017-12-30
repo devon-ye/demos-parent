@@ -21,7 +21,7 @@
     <!-- 重写authc过滤器 -->
 
     <!-- 强制退出会话过滤器 -->
-    <bean id="upmsSessionForceLogout" class="com.zheng.upms.client.shiro.filter.UpmsSessionForceLogoutFilter"/>
+    <bean id="upmsSessionForceLogout" class="com.ecas.common.shiro.filter.EcasSessionForceLogoutFilter"/>
 
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
