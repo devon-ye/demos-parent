@@ -28,6 +28,9 @@
         <junit_version>4.12</junit_version>
         <easymock_version>3.4</easymock_version>
         <jmockit_version>1.33</jmockit_version>
+
+        <mail_version>1.4.7</mail_version>
+        <httpclient_version>4.5.2</httpclient_version>
         <spring_version>4.3.10.RELEASE</spring_version>
         <aspectjweaver_version>1.8.11</aspectjweaver_version>
         <aspectjrt_version>1.8.11</aspectjrt_version>
@@ -44,6 +47,7 @@
         <mysql_version>5.1.30</mysql_version>
         <druid_version>1.1.6</druid_version>
         <commons-lang3_version>3.7</commons-lang3_version>
+        <jedis_version>2.9.0</jedis_version>
         <slf4j_version>1.7.25</slf4j_version>
         <log4j_version>1.2.16</log4j_version>
         <logback_version>1.2.2</logback_version>
@@ -68,6 +72,18 @@
     </dependencies>
     <dependencyManagement>
         <dependencies>
+            <!-- java mail -->
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>${mail_version}</version>
+            </dependency>
+            <!-- httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient_version}</version>
+            </dependency>
             <!--Spring  libs -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -235,6 +251,14 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3_version}</version>
+            </dependency>
+
+            <!-- cache -->
+
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis_version}</version>
             </dependency>
 
             <!-- Log libs -->

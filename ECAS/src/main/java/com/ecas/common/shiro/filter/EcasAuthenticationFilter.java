@@ -1,17 +1,41 @@
 package com.ecas.common.shiro.filter;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.ecas.common.shiro.session.EcasSessiondDao;
+import com.ecas.util.PropertiesFileUtil;
+import com.ecas.util.RedisUtil;
+import com.ecas.util.RequestParameterUtil;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.AuthenticationFilter;
 
+import org.apache.shiro.web.util.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import redis.clients.jedis.Jedis;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -28,7 +52,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
     private final static String ZHENG_UPMS_CLIENT_SESSION_IDS = "zheng-upms-client-session-ids";
 
     @Autowired
-    EcasSessiondDao upmsSessionDao;
+    EcasSessiondDao ecasSessionDao;
 
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
@@ -48,7 +72,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-      /*  StringBuffer ssoServerUrl = new StringBuffer(PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.sso.server.url"));
+        StringBuffer ssoServerUrl = new StringBuffer(PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.sso.server.url"));
         // server需要登录
         String upmsType = PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.type");
         if ("server".equals(upmsType)) {
@@ -64,7 +88,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
             backurl.append("?").append(queryString);
         }
         ssoServerUrl.append("&").append("backurl").append("=").append(URLEncoder.encode(backurl.toString(), "utf-8"));
-        WebUtils.toHttp(response).sendRedirect(ssoServerUrl.toString());*/
+        WebUtils.toHttp(response).sendRedirect(ssoServerUrl.toString());
         return false;
     }
 
@@ -75,7 +99,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
     private boolean validateClient(ServletRequest request, ServletResponse response) {
         Subject subject = getSubject(request, response);
         Session session = subject.getSession();
-       /* String sessionId = session.getId().toString();
+       String sessionId = session.getId().toString();
         int timeOut = (int) session.getTimeout() / 1000;
         // 判断局部会话是否登录
         String cacheClientSession = RedisUtil.get(ZHENG_UPMS_CLIENT_SESSION_ID + "_" + session.getId());
@@ -105,7 +129,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
             // HttpPost去校验code
             try {
                 StringBuffer ssoServerUrl = new StringBuffer(PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.sso.server.url"));
-                HttpClient httpclient = new DefaultHttpClient();
+                DefaultHttpClient httpclient = new DefaultHttpClient();
                 HttpPost httpPost = new HttpPost(ssoServerUrl.toString() + "/sso/code");
 
                 List<NameValuePair> nameValuePairs = new ArrayList<>();
@@ -142,7 +166,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
             } catch (IOException e) {
                 LOGGER.error("验证token失败：", e);
             }
-        }*/
+        }
         return false;
     }
 
