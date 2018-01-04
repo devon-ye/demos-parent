@@ -21,36 +21,45 @@
     </modules>
 
     <properties>
+        <jetty_port>8089</jetty_port>
         <skip_maven_deploy>false</skip_maven_deploy>
         <java_source_version>1.8</java_source_version>
         <java_target_version>1.8</java_target_version>
         <file_encoding>UTF-8</file_encoding>
+
         <junit_version>4.12</junit_version>
         <easymock_version>3.4</easymock_version>
         <jmockit_version>1.33</jmockit_version>
 
+        <slf4j_version>1.7.25</slf4j_version>
+        <log4j_version>1.2.16</log4j_version>
+        <logback_version>1.2.2</logback_version>
+
         <mail_version>1.4.7</mail_version>
         <httpclient_version>4.5.2</httpclient_version>
+
         <spring_version>4.3.10.RELEASE</spring_version>
         <aspectjweaver_version>1.8.11</aspectjweaver_version>
         <aspectjrt_version>1.8.11</aspectjrt_version>
         <shiro.version>1.3.2</shiro.version>
         <mybatis_version>3.4.0</mybatis_version>
         <mybatis-spring_version>1.1.1</mybatis-spring_version>
+
         <javax.batch-api_version>1.0.1</javax.batch-api_version>
+        <protobuf-java_version>3.5.0</protobuf-java_version>
         <jackson_version>2.7.4</jackson_version>
         <fastjson_version>1.2.30</fastjson_version>
+
         <servlet_version>4.0.0</servlet_version>
         <jstl_version>1.2</jstl_version>
         <commons-fileupload_version>1.3.3</commons-fileupload_version>
+
         <commons-dbcp_version>1.2.2</commons-dbcp_version>
         <mysql_version>5.1.30</mysql_version>
         <druid_version>1.1.6</druid_version>
         <commons-lang3_version>3.7</commons-lang3_version>
         <jedis_version>2.9.0</jedis_version>
-        <slf4j_version>1.7.25</slf4j_version>
-        <log4j_version>1.2.16</log4j_version>
-        <logback_version>1.2.2</logback_version>
+
         <jcl_version>1.2</jcl_version>
         <cglib_version>3.2.4</cglib_version>
         <jetty_version>6.1.26</jetty_version>
@@ -68,7 +77,6 @@
             <groupId>org.jmockit</groupId>
             <artifactId>jmockit</artifactId>
         </dependency>
-
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -183,6 +191,13 @@
                 <groupId>javax.batch</groupId>
                 <artifactId>javax.batch-api</artifactId>
                 <version>${javax.batch-api_version}</version>
+            </dependency>
+            <!-- Transport protocol-->
+            <!-- google-protobuf -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>${protobuf-java_version}</version>
             </dependency>
 
             <!-- json lib -->
@@ -312,7 +327,7 @@
     <build>
         <pluginManagement>
             <plugins>
-                
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
@@ -373,7 +388,7 @@
                         <scanIntervalSeconds>10</scanIntervalSeconds>
                         <connectors>
                             <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-                                <port>8089</port>
+                                <port>${jetty_port}</port>
                                 <maxIdleTime>60000</maxIdleTime>
                             </connector>
                         </connectors>
@@ -405,10 +420,6 @@
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>com.akathist.maven.plugins.launch4j</groupId>
-                <artifactId>launch4j-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
