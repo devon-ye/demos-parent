@@ -14,7 +14,7 @@
 
     <!-- 引入配置文件 -->
 
-    <context:property-placeholder  location="classpath:shiro.properties"/>
+    <context:property-placeholder  location="classpath:shiro.properties" ignore-unresolvable="true"/>
 
     <!-- Shiro的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
@@ -42,7 +42,7 @@
     <bean id="ecasAuthenticationFilter" class="com.ecas.common.shiro.filter.EcasAuthenticationFilter"/>
 
     <!-- 强制退出会话过滤器 -->
-    <bean id="upmsSessionForceLogout" class="com.ecas.common.shiro.filter.EcasSessionForceLogoutFilter"/>
+    <bean id="ecasSessionForceLogout" class="com.ecas.common.shiro.filter.EcasSessionForceLogoutFilter"/>
 
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">

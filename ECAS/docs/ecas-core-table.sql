@@ -55,7 +55,7 @@ CREATE TABLE ecasdb.ecas_permission_info(
 
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_menu_info;
-CREATE TABLE ecasdb.ecas_menu_info(
+CREATE TABLE ecasdb.ecas_menu_info (
    menu_id varchar(64) NOT  null,
    menu_name VARCHAR(64) DEFAULT NULL,
    menu_level char(1) DEFAULT NULL ,
