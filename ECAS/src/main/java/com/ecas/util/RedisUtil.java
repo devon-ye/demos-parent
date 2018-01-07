@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.Protocol;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -67,7 +68,9 @@ public class RedisUtil {
 			config.setMaxIdle(MAX_IDLE);
 			config.setMaxWaitMillis(MAX_WAIT);
 			config.setTestOnBorrow(TEST_ON_BORROW);
-			jedisPool = new JedisPool(config, IP, PORT, TIMEOUT);
+		//	jedisPool = new JedisPool(config, IP, PORT, TIMEOUT,PASSWORD, Protocol.DEFAULT_DATABASE);
+
+			jedisPool = new JedisPool(new JedisPoolConfig(), IP, PORT, TIMEOUT);
 		} catch (Exception e) {
 			LOGGER.error("First create JedisPool error : " + e);
 		}
@@ -97,7 +100,7 @@ public class RedisUtil {
 				//jedis.set("userName","redissss");
 				try {
 					jedis.auth(PASSWORD);
-					jedis.connect();
+					//jedis.connect();
 				} catch (Exception e) {
 
 				}
@@ -309,10 +312,6 @@ public class RedisUtil {
 		long value = jedis.decr(key);
 		jedis.close();
 		return value;
-	}
-
-	public static void main(String[] args) {
-		RedisUtil.set("key112313","values");
 	}
 
 }
