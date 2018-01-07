@@ -4,6 +4,8 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.SessionContext;
 import org.apache.shiro.session.mgt.SessionFactory;
 import org.apache.shiro.web.session.mgt.WebSessionContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by lenovo on 2017/12/28.
  */
 public class EcasSessionFactory implements SessionFactory {
+    private static final Logger LOGGER = LoggerFactory.getLogger(EcasSessionFactory.class);
 
     @Override
     public Session createSession(SessionContext sessionContext) {
@@ -21,6 +24,7 @@ public class EcasSessionFactory implements SessionFactory {
             session.setHost(request.getRemoteAddr());
             session.setUserAgent(request.getHeader("User-Agent"));
         }
+        LOGGER.debug("createSession, session:{}",session);
         return session;
     }
 }
