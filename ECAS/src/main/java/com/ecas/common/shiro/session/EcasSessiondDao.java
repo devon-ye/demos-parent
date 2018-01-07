@@ -46,7 +46,8 @@ public class EcasSessiondDao extends CachingSessionDAO {
     protected Serializable doCreate(Session session) {
         Serializable sessionId = generateSessionId(session);
         assignSessionId(session, sessionId);
-        //TODO cache Session
+        RedisUtil.set(SHIRO_SESSION_ID + "_" + session.getId(), SerializationUtil.serilaze(session));
+
         LOGGER.debug("doCreate, sessionId:{}", sessionId);
         return sessionId;
     }

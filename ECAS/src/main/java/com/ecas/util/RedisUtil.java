@@ -93,8 +93,11 @@ public class RedisUtil {
 		try {
 			if (null != jedisPool) {
 				jedis = jedisPool.getResource();
+				//jedis = new Jedis("127.0.0.1");
+				//jedis.set("userName","redissss");
 				try {
 					jedis.auth(PASSWORD);
+					jedis.connect();
 				} catch (Exception e) {
 
 				}
@@ -115,9 +118,11 @@ public class RedisUtil {
 			value = StringUtils.isBlank(value) ? "" : value;
 			Jedis jedis = getJedis();
 			jedis.set(key, value);
+
 			jedis.close();
 		} catch (Exception e) {
 			LOGGER.error("Set key error : " + e);
+			e.printStackTrace();
 		}
 	}
 
@@ -304,6 +309,10 @@ public class RedisUtil {
 		long value = jedis.decr(key);
 		jedis.close();
 		return value;
+	}
+
+	public static void main(String[] args) {
+		RedisUtil.set("key112313","values");
 	}
 
 }
