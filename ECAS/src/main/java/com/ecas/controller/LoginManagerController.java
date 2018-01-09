@@ -9,9 +9,14 @@ import com.ecas.service.LoginService;
 import com.ecas.util.CookieUtil;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,6 +36,7 @@ import java.util.Date;
 @Controller
 @RequestMapping("/ecas")
 public class LoginManagerController extends AbstractBaseController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginManagerController.class);
 
 
 
@@ -39,11 +45,13 @@ public class LoginManagerController extends AbstractBaseController {
     private IUserService userService;
 
     public LoginManagerController() {
+        LOGGER.debug("LoginManagerController() constructure.");
     }
 
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(String verifyCode, ModelMap modelMap, HttpServletRequest request) {
+        LOGGER.debug("login, verifyCode:{},modelMap:{},request:{}",verifyCode,modelMap,request);
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         String serverSessionId = session.getId().toString();
@@ -67,8 +75,18 @@ public class LoginManagerController extends AbstractBaseController {
         }else {
             usernamePasswordToken.setRememberMe(false);
         }
-        subject.login(usernamePasswordToken);
-       return  null;
+        try {
+            subject.login(usernamePasswordToken);
+        }catch (UnknownAccountException e) {
+            LOGGER.error("帐号不存在！");
+        } catch (IncorrectCredentialsException e) {
+            LOGGER.error("密码错误！");
+        } catch (LockedAccountException e) {
+            LOGGER.error("帐号已锁定！");
+        }
+
+        LOGGER.debug("login, usernamePasswordToken:{}",usernamePasswordToken);
+        return  "redirect:/pages/background/index.jsp";
 
     }
 
@@ -85,8 +103,8 @@ public class LoginManagerController extends AbstractBaseController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Login login, ModelMap model, String verifyCode, HttpSession session, HttpServletRequest request) {
+        LOGGER.debug("login, login:{},modelMap:{},verifyCode:{},session:{},request:{}",login,model,verifyCode,session,request);
         try {
-
             if (null != login.getUserName() && null != login.getPassword()) {//判断是否录入用户名和密码
                 login.setPassword(login.getPassword());
                 // login = iLoginService.login(login);//获取用户信息

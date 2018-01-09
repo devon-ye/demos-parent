@@ -8,4 +8,6 @@ import com.ecas.model.User;
 public interface IUserDao extends  IDao{
 
     public User  getUserById(String userId);
+
+    public User getUserByName(String userName);
 }
