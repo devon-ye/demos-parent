@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.Protocol;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -67,7 +68,9 @@ public class RedisUtil {
 			config.setMaxIdle(MAX_IDLE);
 			config.setMaxWaitMillis(MAX_WAIT);
 			config.setTestOnBorrow(TEST_ON_BORROW);
-			jedisPool = new JedisPool(config, IP, PORT, TIMEOUT);
+		//	jedisPool = new JedisPool(config, IP, PORT, TIMEOUT,PASSWORD, Protocol.DEFAULT_DATABASE);
+
+			jedisPool = new JedisPool(new JedisPoolConfig(), IP, PORT, TIMEOUT);
 		} catch (Exception e) {
 			LOGGER.error("First create JedisPool error : " + e);
 		}
@@ -93,8 +96,11 @@ public class RedisUtil {
 		try {
 			if (null != jedisPool) {
 				jedis = jedisPool.getResource();
+				//jedis = new Jedis("127.0.0.1");
+				//jedis.set("userName","redissss");
 				try {
 					jedis.auth(PASSWORD);
+					//jedis.connect();
 				} catch (Exception e) {
 
 				}
@@ -115,21 +121,23 @@ public class RedisUtil {
 			value = StringUtils.isBlank(value) ? "" : value;
 			Jedis jedis = getJedis();
 			jedis.set(key, value);
+
 			jedis.close();
 		} catch (Exception e) {
 			LOGGER.error("Set key error : " + e);
+			e.printStackTrace();
 		}
 	}
 
 	/**
 	 * 设置 byte[]
-	 * @param key
-	 * @param value
-	 */
-	public synchronized static void set(byte[] key, byte[] value) {
+     * @param key
+     * @param value
+     */
+	public synchronized static void set(String key, long value) {
 		try {
 			Jedis jedis = getJedis();
-			jedis.set(key, value);
+			jedis.set(key, value+"");
 			jedis.close();
 		} catch (Exception e) {
 			LOGGER.error("Set key error : " + e);

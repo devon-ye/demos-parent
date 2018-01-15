@@ -7,8 +7,7 @@
     </resultMap>
 
     <select id="getUserById" resultMap="userResultMap" parameterType="com.ecas.model.User">
-        SELECT 
+        SELECT *  from  user_info where use_name = ${userName};
         <include refid="Column_List"/>
-
     </select>
 </mapper>

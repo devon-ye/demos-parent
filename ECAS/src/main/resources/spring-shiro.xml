@@ -110,7 +110,6 @@
         <property name="arguments" ref="securityManager"/>
     </bean>
 
-
     <!-- 开启Shiro Spring AOP权限注解@RequiresPermissions的支持 -->
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
 

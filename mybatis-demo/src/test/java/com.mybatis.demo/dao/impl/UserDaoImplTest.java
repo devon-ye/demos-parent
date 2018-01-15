@@ -36,7 +36,7 @@ public class UserDaoImplTest {
     @Test
     public void testGetUserById() {
        IUserDao iUserDao = sqlSession.getMapper(IUserDao.class);
-       User user = iUserDao.getUserById(1);
+       User user = iUserDao.getUserById("");
 
     }
 
