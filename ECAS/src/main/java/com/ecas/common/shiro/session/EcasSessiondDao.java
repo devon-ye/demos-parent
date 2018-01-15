@@ -1,5 +1,6 @@
 package com.ecas.common.shiro.session;
 
+import com.ecas.common.constants.Constants;
 import com.ecas.util.RedisUtil;
 import com.ecas.util.SerializationUtil;
 import org.apache.shiro.session.Session;
@@ -57,5 +58,15 @@ public class EcasSessiondDao extends CachingSessionDAO {
         String sessionStr = RedisUtil.get(SHIRO_SESSION_ID + "_" + sessionId);
         LOGGER.debug("doReadSession, serializable:{}", sessionId);
         return SerializationUtil.deSerilaze(sessionStr);
+    }
+
+    public void updateStatus(Serializable sessionId,EcasSession.OnlineStatus onlineStatus) {
+        EcasSession ecasSession = (EcasSession) doReadSession(sessionId);
+        if(ecasSession == null) {
+            return;
+        }
+        ecasSession.setStatus(onlineStatus);
+        RedisUtil.set(Constants.SHIRO_SESSION_ID + "_" + SerializationUtil.serilaze(ecasSession),ecasSession.getTimeout()/1000);
+
     }
 }

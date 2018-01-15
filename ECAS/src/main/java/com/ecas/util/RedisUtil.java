@@ -131,13 +131,13 @@ public class RedisUtil {
 
 	/**
 	 * 设置 byte[]
-	 * @param key
-	 * @param value
-	 */
-	public synchronized static void set(byte[] key, byte[] value) {
+     * @param key
+     * @param value
+     */
+	public synchronized static void set(String key, long value) {
 		try {
 			Jedis jedis = getJedis();
-			jedis.set(key, value);
+			jedis.set(key, value+"");
 			jedis.close();
 		} catch (Exception e) {
 			LOGGER.error("Set key error : " + e);

@@ -1,12 +1,15 @@
 package com.ecas.controller;
 
 import com.ecas.common.constants.Constants;
+import com.ecas.common.shiro.session.EcasSession;
+import com.ecas.common.shiro.session.EcasSessiondDao;
 import com.ecas.model.Login;
 import com.ecas.model.SessionInfo;
 import com.ecas.model.User;
 import com.ecas.service.IUserService;
 import com.ecas.service.LoginService;
 import com.ecas.util.CookieUtil;
+import com.ecas.util.RedisUtil;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -28,6 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
+import java.util.UUID;
 
 
 /**
@@ -39,10 +43,10 @@ public class LoginManagerController extends AbstractBaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginManagerController.class);
 
 
-
-
     @Autowired
     private IUserService userService;
+    @Autowired
+    private EcasSessiondDao ecasSessiondDao;
 
     public LoginManagerController() {
         LOGGER.debug("LoginManagerController() constructure.");
@@ -51,11 +55,11 @@ public class LoginManagerController extends AbstractBaseController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(String verifyCode, ModelMap modelMap, HttpServletRequest request) {
-        LOGGER.debug("login, verifyCode:{},modelMap:{},request:{}",verifyCode,modelMap,request);
+        LOGGER.debug("login, verifyCode:{},modelMap:{},request:{}", verifyCode, modelMap, request);
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         String serverSessionId = session.getId().toString();
-        if(verifyCode==null) {
+        if (verifyCode == null) {
             //TODO 验证码校验
         }
         String backUrl = request.getParameter("backUrl");
@@ -68,25 +72,34 @@ public class LoginManagerController extends AbstractBaseController {
             modelMap.put("errorMessage", "409");
             return "/login.jsp";
         }
+        String sessionIdStr = RedisUtil.get(Constants.SHIRO_SESSION_ID + "_" + serverSessionId);
+        if (sessionIdStr == null || serverSessionId.length() == 0) {
 
-        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userName,password,request.getRemoteHost());
-        if(BooleanUtils.toBoolean(rememberMe)) {
-            usernamePasswordToken.setRememberMe(true);
-        }else {
-            usernamePasswordToken.setRememberMe(false);
-        }
-        try {
-            subject.login(usernamePasswordToken);
-        }catch (UnknownAccountException e) {
-            LOGGER.error("帐号不存在！");
-        } catch (IncorrectCredentialsException e) {
-            LOGGER.error("密码错误！");
-        } catch (LockedAccountException e) {
-            LOGGER.error("帐号已锁定！");
+            UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userName, password, request.getRemoteHost());
+            if (BooleanUtils.toBoolean(rememberMe)) {
+                usernamePasswordToken.setRememberMe(true);
+            } else {
+                usernamePasswordToken.setRememberMe(false);
+            }
+            try {
+                subject.login(usernamePasswordToken);
+            } catch (UnknownAccountException e) {
+                LOGGER.error("帐号不存在！");
+            } catch (IncorrectCredentialsException e) {
+                LOGGER.error("密码错误！");
+            } catch (LockedAccountException e) {
+                LOGGER.error("帐号已锁定！");
+            }
+
+            ecasSessiondDao.updateStatus(sessionIdStr,EcasSession.OnlineStatus.on_line);
+
+            RedisUtil.lpush(Constants.SHIRO_SESSION_ID, sessionIdStr.toString());
+            String uuid = UUID.randomUUID().toString();
+            //TODO
+            LOGGER.debug("login, usernamePasswordToken:{}", usernamePasswordToken);
         }
 
-        LOGGER.debug("login, usernamePasswordToken:{}",usernamePasswordToken);
-        return  "redirect:/pages/background/index.jsp";
+        return "redirect:/pages/background/main.jsp";
 
     }
 
@@ -103,7 +116,7 @@ public class LoginManagerController extends AbstractBaseController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Login login, ModelMap model, String verifyCode, HttpSession session, HttpServletRequest request) {
-        LOGGER.debug("login, login:{},modelMap:{},verifyCode:{},session:{},request:{}",login,model,verifyCode,session,request);
+        LOGGER.debug("login, login:{},modelMap:{},verifyCode:{},session:{},request:{}", login, model, verifyCode, session, request);
         try {
             if (null != login.getUserName() && null != login.getPassword()) {//判断是否录入用户名和密码
                 login.setPassword(login.getPassword());
@@ -136,7 +149,7 @@ public class LoginManagerController extends AbstractBaseController {
 
     @RequestMapping(value = "/login1ss", method = RequestMethod.POST)
     public void selectUserByID(Login login, ModelMap model, String verifyCode, HttpSession session, HttpServletRequest request) {
-       // loginService.selectUserByID(login.getUserId());
+        // loginService.selectUserByID(login.getUserId());
         System.out.println("selectUserByID");
     }
 
