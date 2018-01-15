@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/role")
-public class RoleManagerController extends BaseController{
+public class RoleManagerController extends AbstractBaseController {
 
     @RequestMapping(value = "/getRolesByUserId", method= RequestMethod.GET)
     public List<Role> getRolesByUserId(String userId){

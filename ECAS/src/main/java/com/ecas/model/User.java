@@ -6,10 +6,11 @@ import java.util.Date;
  * Created by lenovo on 2017/12/20.
  */
 public class User {
-    private int userId;
+    private String userId;
     private String userName;
     private String password;
     private String gender;
+    private boolean enable = false;
     private int age;
     private Date birthday;
     private int phone;
@@ -18,11 +19,11 @@ public class User {
     public User() {
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -80,6 +81,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 
     @Override

@@ -39,15 +39,15 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/*"/>
-            <bean class="com.ecas.base.interceptor.SessionInterceptor"/>
+            <bean class="com.ecas.common.interceptor.SessionInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/*"/>
-            <bean class="com.ecas.base.interceptor.HTMLInterceptor"/>
+            <bean class="com.ecas.common.interceptor.HTMLInterceptor"/>
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/*"/>
-            <bean class="com.ecas.base.interceptor.SpringMVCInterceptor"/>
+            <bean class="com.ecas.common.interceptor.SpringMVCInterceptor"/>
         </mvc:interceptor>
 
     </mvc:interceptors>
@@ -100,5 +100,8 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />
     </bean>
+
+
+
 
 </beans>

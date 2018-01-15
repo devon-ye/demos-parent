@@ -1,5 +1,6 @@
 package com.ecas.service.impl;
 
+import com.ecas.model.Role;
 import com.ecas.service.IRoleService;
 
 /**
@@ -8,5 +9,10 @@ import com.ecas.service.IRoleService;
 public class RoleServiceImpl implements IRoleService {
 
     public RoleServiceImpl() {
+    }
+
+    @Override
+    public Role getRole(String userId) {
+        return null;
     }
 }

@@ -10,7 +10,7 @@
 	<!-- <version>1.0.0-SNAPSHOT</version> -->
 	<packaging>jar</packaging>
 
-	<name>utils</name>
+	<name>java-utils</name>
 	<url>http://maven.aliyun.com/nexus/content/groups/public</url>
 
 	<properties>
@@ -30,6 +30,7 @@
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
+			<version>${protobuf-java_version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>

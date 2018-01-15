@@ -5,9 +5,9 @@ import com.ecas.model.User;
 /**
  * Created by lenovo on 2017/12/20.
  */
-public interface IUserService {
+public interface IUserService  extends IService{
 
-      String getUser(User user);
+     public User  getUserById(String userId);
 
-
+     public User getUserByName(String userName);
 }
