@@ -5,10 +5,63 @@ package com.ecas.model;
  */
 public class Menu {
 
-//    menu_id varchar(64) NOT  null,
-//    menu_name VARCHAR(64) DEFAULT NULL,
-//    menu_level char(1) DEFAULT NULL ,
-//    menu_type char(1),
-//    parent_menu_id VARCHAR (64),
-//    child_menu_id VARCHAR (64),
+    private String menuId;
+    private String menuName;
+    private String menuLevel;
+    private String menuType;
+    private String childMenuId;
+
+    public Menu() {
+    }
+
+    public String getMenuId() {
+        return menuId;
+    }
+
+    public void setMenuId(String menuId) {
+        this.menuId = menuId;
+    }
+
+    public String getMenuName() {
+        return menuName;
+    }
+
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
+    }
+
+    public String getMenuLevel() {
+        return menuLevel;
+    }
+
+    public void setMenuLevel(String menuLevel) {
+        this.menuLevel = menuLevel;
+    }
+
+    public String getMenuType() {
+        return menuType;
+    }
+
+    public void setMenuType(String menuType) {
+        this.menuType = menuType;
+    }
+
+    public String getChildMenuId() {
+        return childMenuId;
+    }
+
+    public void setChildMenuId(String childMenuId) {
+        this.childMenuId = childMenuId;
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "menuId='" + menuId + '\'' +
+                ", menuName='" + menuName + '\'' +
+                ", menuLevel='" + menuLevel + '\'' +
+                ", menuType='" + menuType + '\'' +
+                ", childMenuId='" + childMenuId + '\'' +
+                '}';
+    }
 }
