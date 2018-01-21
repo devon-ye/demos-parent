@@ -13,7 +13,7 @@ public class User {
     private String userName;
     private String password;
     private String gender;
-    private boolean enable = false;
+    private int activeStatus = 0;
     private int age;
     private Date birthday;
     private int phone;
@@ -86,12 +86,12 @@ public class User {
         this.email = email;
     }
 
-    public boolean isEnable() {
-        return enable;
+    public int getActiveStatus() {
+        return activeStatus;
     }
 
-    public void setEnable(boolean enable) {
-        this.enable = enable;
+    public void setActiveStatus(int activeStatus) {
+        this.activeStatus = activeStatus;
     }
 
     @Override
