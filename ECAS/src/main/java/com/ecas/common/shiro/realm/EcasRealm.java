@@ -1,6 +1,9 @@
 package com.ecas.common.shiro.realm;
 
+import com.ecas.model.Role;
 import com.ecas.model.User;
+import com.ecas.service.IRoleService;
+import com.ecas.service.IUserRoleService;
 import com.ecas.service.IUserService;
 import com.ecas.util.MD5Util;
 import com.ecas.util.PropertiesFileUtil;
@@ -19,7 +22,13 @@ public class EcasRealm extends AuthorizingRealm {
     private static final Logger LOGGER = LoggerFactory.getLogger(EcasRealm.class);
 
     @Autowired
-   private  IUserService userService;
+    private  IUserService userService;
+
+    @Autowired
+    private IUserRoleService userRoleService;
+
+    @Autowired
+    private IRoleService roleService;
 
     /**
      * Shiro登录认证(原理：用户提交 用户名和密码 --- shiro 封装令牌 ---- realm 通过用户名将密码查询返回 ----
@@ -37,22 +46,37 @@ public class EcasRealm extends AuthorizingRealm {
             LOGGER.error("current login user not exist!");
             throw new UnknownAccountException();
         }
-        if(user.isEnable()) {
-
-        }
-        // client无密认证
-        String ecasType = PropertiesFileUtil.getInstance("shiro").get("ecas.type");
-        LOGGER.debug("doGetAuthenticationInfo,authenticationToken:{},ecasType:{}",authenticationToken,ecasType);
-        if ("client".equals(ecasType)) {
-            return new SimpleAuthenticationInfo(user.getUserName(), user.getPassword(), getName());
+        if(user.getActiveStatus() == 0) {
+            LOGGER.error("current login user is disabled!");
+           throw new DisabledAccountException();
         }
 
-        if(!user.getPassword().equals(MD5Util.md5(user.getPassword()))) {
-            throw new IncorrectCredentialsException();
-        }
-        if(!user.isEnable()) {
+        if(user.getActiveStatus() == 2) {
+            LOGGER.error("current login user is Locked!");
             throw new LockedAccountException();
         }
+
+        if(!token.getPassword().equals(MD5Util.md5(user.getPassword()))) {
+            LOGGER.error("current login user password incorrect!");
+            throw new IncorrectCredentialsException();
+        }
+
+         String roleId = userRoleService.getRoleIdByUserId(user.getUserId());
+         if(roleId == null) {
+             LOGGER.error("current login user is disabled!");
+             throw new DisabledAccountException();
+         }
+         Role role = roleService.getRole(roleId);
+         if(role == null) {
+             LOGGER.error("current login user is disabled!");
+             throw new DisabledAccountException();
+         }
+         // client无密认证
+//        String ecasType = PropertiesFileUtil.getInstance("shiro").get("ecas.type");
+//        if ("client".equals(ecasType)) {
+//            return new SimpleAuthenticationInfo(user.getUserName(), user.getPassword(), getName());
+//        }
+
         return new SimpleAuthenticationInfo(user.getUserName(), user.getPassword(), getName());
 
     }
