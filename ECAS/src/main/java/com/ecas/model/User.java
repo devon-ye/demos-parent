@@ -1,10 +1,13 @@
 package com.ecas.model;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
  * Created by lenovo on 2017/12/20.
  */
+@Data
 public class User {
     private String userId;
     private String userName;

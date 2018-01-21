@@ -8,4 +8,6 @@ public class Constants {
     public static final String LOGIN_PAGE="/WEB-INF/login.jsp";
 
     public static final String SHIRO_SESSION_ID = "shiro-session-id";
+    public static final String SHIRO_SESSION_CODE = "shiro-session-code";
+
 }

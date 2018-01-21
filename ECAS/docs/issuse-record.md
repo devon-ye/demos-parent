@@ -15,3 +15,7 @@
 
 #### 解决方式：
 <context:property-placeholder location="classpath:aa.properties" ignore-unresolvable="true" />
+
+
+### 2.无法加载到×DaoMapper.xml 配置
+  放到src/main/java路径下后打包时，无法打到包中，一般配置到src/main/resources路径下比较好
