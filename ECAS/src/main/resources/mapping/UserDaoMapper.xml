@@ -9,7 +9,7 @@
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="gender" property="gender" jdbcType="TINYINT"/>
-        <result column="is_enable" property="isEnable" jdbcType="TINYINT"/>
+        <result column="active_status" property="activeStatus" jdbcType="TINYINT"/>
         <result column="age" property="age" jdbcType="TINYINT"/>
         <result column="birthday" property="birthday" jdbcType="TIMESTAMP"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
@@ -18,7 +18,7 @@
     </resultMap>
 
     <!--sql -->
-    <sql id="select_column_sql" >SELECT user_id,user_name,password,gender,is_enable,age,birthday,phone,email,address</sql>
+    <sql id="select_column_sql" >SELECT user_id,user_name,password,gender,active_status,age,birthday,phone,email,address</sql>
     <sql id="from_table_sql">FROM ecas_user_info </sql>
 
    <!-- 完整sql -->

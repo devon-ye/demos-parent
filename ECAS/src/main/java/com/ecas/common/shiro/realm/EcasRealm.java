@@ -2,7 +2,6 @@ package com.ecas.common.shiro.realm;
 
 import com.ecas.model.User;
 import com.ecas.service.IUserService;
-import com.ecas.service.impl.UserServiceImpl;
 import com.ecas.util.MD5Util;
 import com.ecas.util.PropertiesFileUtil;
 import org.apache.shiro.authc.*;
@@ -37,6 +36,9 @@ public class EcasRealm extends AuthorizingRealm {
         if(user == null) {
             LOGGER.error("current login user not exist!");
             throw new UnknownAccountException();
+        }
+        if(user.isEnable()) {
+
         }
         // client无密认证
         String ecasType = PropertiesFileUtil.getInstance("shiro").get("ecas.type");

@@ -23,7 +23,7 @@ CREATE TABLE ecasdb.ecas_user_info (
     user_name VARCHAR(64) DEFAULT NULL,
     password VARCHAR(256) NOT NULL,
     gender CHAR(1) DEFAULT NULL,
-    is_enable TINYINT DEFAULT "0",
+    active_status TINYINT DEFAULT "0",
     age TINYINT(3),
     email VARCHAR(256) DEFAULT NULL,
     phone VARCHAR(11),
