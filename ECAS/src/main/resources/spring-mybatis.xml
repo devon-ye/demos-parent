@@ -4,6 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:aop="http://www.springframework.org/schema/aop"
+
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
@@ -11,7 +12,7 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx.xsd"
+       http://www.springframework.org/schema/tx/spring-tx.xsd"
        >
 
      <context:component-scan base-package="com.ecas.dao"/>
@@ -44,15 +45,19 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource"  ref="dataSource" />
-
-        <property name="plugins">
+        <!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:/mapping/*Mapper.xml</value>
+            </list>
+        </property>
+        <!--<property name="plugins">
             <array>
                 <ref bean="paginationInterceptor" />
                 <ref bean="mapIntercaptor"/>
             </array>
-        </property>
-        <!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-        <property name="mapperLocations" value="classpath*:com/**/mapping/*.xml"/>
+        </property>-->
+
     </bean>
 
 

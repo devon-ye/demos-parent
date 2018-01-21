@@ -31,6 +31,9 @@
         <easymock_version>3.4</easymock_version>
         <jmockit_version>1.33</jmockit_version>
 
+        <swagger-annotations_version>1.5.17</swagger-annotations_version>
+        <lombok_version>1.16.20</lombok_version>
+
         <slf4j_version>1.7.25</slf4j_version>
         <log4j_version>1.2.16</log4j_version>
         <logback_version>1.2.2</logback_version>
@@ -282,6 +285,21 @@
                 <artifactId>jedis</artifactId>
                 <version>${jedis_version}</version>
             </dependency>
+
+            <!-- restAPI lib -->
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-annotations_version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok_version}</version>
+                <scope>provided</scope>
+            </dependency>
+
 
             <!-- Log libs -->
 
