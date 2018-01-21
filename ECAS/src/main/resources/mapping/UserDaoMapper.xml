@@ -11,19 +11,19 @@
         <result column="gender" property="gender" jdbcType="TINYINT"/>
         <result column="is_enable" property="isEnable" jdbcType="TINYINT"/>
         <result column="age" property="age" jdbcType="TINYINT"/>
-        <result column="birthdry" property="birthdry" jdbcType="TIMESTAMP"/>
+        <result column="birthday" property="birthday" jdbcType="TIMESTAMP"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
         <result column="address" property="address" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--sql -->
-    <sql id="select_column_sql" >SELECT user_id,user_name,password,gender,is_enable,age,birthdry,phone,email,address</sql>
-    <sql id="from_table_sql">FROM user_info </sql>
+    <sql id="select_column_sql" >SELECT user_id,user_name,password,gender,is_enable,age,birthday,phone,email,address</sql>
+    <sql id="from_table_sql">FROM ecas_user_info </sql>
 
    <!-- 完整sql -->
     <!--<select id="getUserById" resultMap="userResultMap" parameterType="java.lang.String">
-        SELECT * from user_info where use_name = ${userName};
+        SELECT * from user_info where user_name = ${userName};
         <include refid="Column_List"/>
     </select>-->
 
@@ -32,7 +32,7 @@
         <include refid="from_table_sql"/>
         <where>
             <if test="userName!=null">
-                use_name = #{userName}
+                user_name = #{userName}
             </if>
         </where>
     </select>
