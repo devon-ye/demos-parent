@@ -5,11 +5,10 @@ import com.ecas.common.shiro.session.EcasSession;
 import com.ecas.common.shiro.session.EcasSessiondDao;
 import com.ecas.model.Login;
 import com.ecas.model.SessionInfo;
-import com.ecas.model.User;
 import com.ecas.service.IUserService;
-import com.ecas.service.LoginService;
-import com.ecas.util.CookieUtil;
 import com.ecas.util.RedisUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -35,8 +34,9 @@ import java.util.UUID;
 
 
 /**
- * Created by lenovo on 2017/12/9.
+ * Created by devon on 2017/12/9.
  */
+@Api(value = "登录管理" ,tags="1.0.0",produces = "ecas",protocols = "http-1.1")
 @Controller
 @RequestMapping("/ecas")
 public class LoginManagerController extends AbstractBaseController {
@@ -52,27 +52,34 @@ public class LoginManagerController extends AbstractBaseController {
         LOGGER.debug("LoginManagerController() constructure.");
     }
 
-
+    @ApiOperation(value = "登录",httpMethod = "POST")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(String verifyCode, ModelMap modelMap, HttpServletRequest request) {
         LOGGER.debug("login, verifyCode:{},modelMap:{},request:{}", verifyCode, modelMap, request);
-        Subject subject = SecurityUtils.getSubject();
-        Session session = subject.getSession();
-        String serverSessionId = session.getId().toString();
-        if (verifyCode == null) {
-            //TODO 验证码校验
-        }
         String backUrl = request.getParameter("backUrl");
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
         String rememberMe = request.getParameter("rememberMe");
 
+        // 读取用户访问真实ip
+        String realIp = getRealIpAddress(request);
+        boolean  isLegalIp = isLegalIp(realIp,userName);
+
+
+        if (verifyCode == null) {
+            //TODO 验证码校验
+        }
 
         if (userName == null && userName.trim().length() <= 0) {
             modelMap.put("errorMessage", "409");
             return "/login.jsp";
         }
-        String sessionIdStr = RedisUtil.get(Constants.SHIRO_SESSION_ID + "_" + serverSessionId);
+        Subject subject = SecurityUtils.getSubject();
+        Session session = subject.getSession();
+        String serverSessionId = session.getId().toString();
+        String sessionIdStr = RedisUtil.get(Constants.SHIRO_SESSION_CODE + "_" + serverSessionId);
+        LOGGER.debug("login, 开始认证登录  subject sessionIdStr:{}",sessionIdStr);
+
         if (sessionIdStr == null || serverSessionId.length() == 0) {
 
             UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userName, password, request.getRemoteHost());
@@ -91,18 +98,21 @@ public class LoginManagerController extends AbstractBaseController {
                 LOGGER.error("帐号已锁定！");
             }
 
+           String userNames = (String) subject.getPrincipal();
+            LOGGER.debug("login, 认证登录完成！ userName：{}",userNames);
             ecasSessiondDao.updateStatus(sessionIdStr,EcasSession.OnlineStatus.on_line);
 
             RedisUtil.lpush(Constants.SHIRO_SESSION_ID, sessionIdStr.toString());
             String uuid = UUID.randomUUID().toString();
-            //TODO
+            RedisUtil.set(Constants.SHIRO_SESSION_CODE +"_" + uuid,session.getTimeout());
+
             LOGGER.debug("login, usernamePasswordToken:{}", usernamePasswordToken);
         }
 
         return "redirect:/pages/background/main.jsp";
 
     }
-
+    @ApiOperation(value = "登出" ,httpMethod = "POST")
     @RequestMapping(value = "/doLogout", method = RequestMethod.POST)
     public String doLogout(Login login, HttpSession session, HttpServletRequest request) {
 
@@ -147,26 +157,7 @@ public class LoginManagerController extends AbstractBaseController {
         }
     }
 
-    @RequestMapping(value = "/login1ss", method = RequestMethod.POST)
-    public void selectUserByID(Login login, ModelMap model, String verifyCode, HttpSession session, HttpServletRequest request) {
-        // loginService.selectUserByID(login.getUserId());
-        System.out.println("selectUserByID");
-    }
 
-
-
-
-   /* public String list(Login login, ModelMap model, HttpServletRequest request) {
-
-        PageContext pageContext = PageContext.getContext(request, rolPerPases);
-        pageContext.setPageState(true);
-        List <Login> logins = iLoginService.list(login);
-        model.put("list", logins);
-        model.put("login", login);
-        model.put("pageContext", pageContext);
-        return "/ecas/login/list";
-
-    }*/
 
     private static String validateSuccess(String backUrl, String vt, HttpServletResponse response, ModelMap model) throws IOException {
         if (backUrl != null) {
@@ -178,6 +169,33 @@ public class LoginManagerController extends AbstractBaseController {
             return Constants.LOGIN_PAGE;
         }
 
+    }
+
+    private String getRealIpAddress(HttpServletRequest request) {
+        String ip = request.getHeader("x-forwarded-for");
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        if ("0:0:0:0:0:0:0:1".equals(ip)) {
+            ip = "127.0.0.1";
+        }
+        return ip;
+    }
+
+    public boolean isLegalIp(String realIp,String userId){
+        return true;
     }
 
 
