@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ecas.dao.IUserDao">
+<mapper namespace="com.ecas.dao.IUserRoleDao">
 
     <!-- result costruct -->
-    <resultMap id="userResultMap" type="com.ecas.model.User">
-        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
+    <resultMap id="userRoleResultMap" type="com.ecas.model.UserRole">
+       <!-- <result column="user_id" property="userId" jdbcType="VARCHAR"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
         <result column="gender" property="gender" jdbcType="TINYINT"/>
@@ -14,20 +14,16 @@
         <result column="birthday" property="birthday" jdbcType="TIMESTAMP"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
-        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>-->
     </resultMap>
 
     <!--sql -->
     <sql id="select_column_sql" >SELECT user_id,user_name,password,gender,active_status,age,birthday,phone,email,address</sql>
     <sql id="from_table_sql">FROM ecas_user_info </sql>
 
-   <!-- 完整sql -->
-    <!--<select id="getUserById" resultMap="userResultMap" parameterType="java.lang.String">
-        SELECT * from user_info where user_name = ${userName};
-        <include refid="Column_List"/>
-    </select>-->
 
-    <select id="getUserByName" resultMap="userResultMap" parameterType="java.lang.String">
+
+    <select id="getRoleIdByUserId" resultMap="userRoleResultMap" parameterType="java.lang.String">
         <include refid="select_column_sql"/>
         <include refid="from_table_sql"/>
         <where>

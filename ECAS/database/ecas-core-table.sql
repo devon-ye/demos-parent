@@ -23,16 +23,16 @@ CREATE TABLE ecasdb.ecas_user_info (
     user_name VARCHAR(64) DEFAULT NULL,
     password VARCHAR(256) NOT NULL,
     gender CHAR(1) DEFAULT NULL,
-    is_enable TINYINT DEFAULT "0",
+    active_status TINYINT DEFAULT "0",
     age TINYINT(3),
-    email VARCHAR(256) DEFAULT NULL,
+    email VARCHAR(125) NOT NULL,
     phone VARCHAR(11),
     birthday DATETIME DEFAULT NULL,
     address VARCHAR(512) DEFAULT NULL,
     create_time DATETIME NOT NULL,
     create_user varchar(64) NOT NULL,
     modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    modify_user varchar(64) NOT NULL
+    modify_user varchar(64) DEFAULT ""
 )  DEFAULT CHARSET=UTF8;
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_role_info;

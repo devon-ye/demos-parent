@@ -39,4 +39,11 @@ public class MD5Util {
         }
     }
 
+
+    public static void main(String[] args) {
+        String password = MD5Util.md5("admin");
+        System.out.print(password);
+
+    }
+
 }

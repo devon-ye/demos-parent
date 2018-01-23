@@ -7,5 +7,5 @@ import com.ecas.model.Role;
  */
 public interface IRoleService extends IService {
 
-    Role getRole(String userId);
+   public  Role getRole(String userId);
 }
