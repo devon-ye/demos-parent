@@ -6,14 +6,14 @@ import com.ecas.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service(value = "userRoleService")
+@Service( "userRoleService")
 public class UserRoleServiceImpl extends ServiceImpl implements IUserRoleService {
 
     @Autowired
     private IUserRoleDao userRoleDao;
 
     @Override
-    public long getRoleIdByUserId(long userId) {
+    public String getRoleIdByUserId(String userId) {
         return userRoleDao.getRoleIdByUserId(userId);
     }
 }

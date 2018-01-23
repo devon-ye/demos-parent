@@ -97,10 +97,11 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
+                "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", gender='" + gender + '\'' +
+                ", activeStatus=" + activeStatus +
                 ", age=" + age +
                 ", birthday=" + birthday +
                 ", phone=" + phone +
