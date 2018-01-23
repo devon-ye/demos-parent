@@ -12,13 +12,14 @@ import org.springframework.stereotype.Service;
 /**
  * Created by lenovo on 2017/12/20.
  */
-@Service(value = "userService")
+@Service("userService")
 public class UserServiceImpl extends ServiceImpl implements IUserService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     private IUserDao userDao;
 
+    @Autowired
     private IRoleDao roleDao;
 
     public UserServiceImpl() {
