@@ -7,6 +7,7 @@ import com.ecas.model.Login;
 import com.ecas.model.SessionInfo;
 import com.ecas.service.IUserService;
 import com.ecas.util.RedisUtil;
+import com.ecas.util.SerializationUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.BooleanUtils;
@@ -77,11 +78,11 @@ public class LoginManagerController extends AbstractBaseController {
         Subject subject = SecurityUtils.getSubject();
         Session session = subject.getSession();
         String serverSessionId = session.getId().toString();
-        String sessionIdStr = RedisUtil.get(Constants.SHIRO_SESSION_CODE + "_" + serverSessionId);
+        String sessionIdStr = RedisUtil.get(Constants.SHIRO_SESSION_ID + "_" + serverSessionId);
         LOGGER.debug("login, 开始认证登录  subject sessionIdStr:{}",sessionIdStr);
 
-        if (sessionIdStr == null || serverSessionId.length() == 0) {
-
+        if (sessionIdStr != null || serverSessionId.length() != 0) {
+            LOGGER.debug("password 输入：" + password);
             UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userName, password, request.getRemoteHost());
             if (BooleanUtils.toBoolean(rememberMe)) {
                 usernamePasswordToken.setRememberMe(true);
@@ -102,9 +103,9 @@ public class LoginManagerController extends AbstractBaseController {
             LOGGER.debug("login, 认证登录完成！ userName：{}",userNames);
             ecasSessiondDao.updateStatus(sessionIdStr,EcasSession.OnlineStatus.on_line);
 
-            RedisUtil.lpush(Constants.SHIRO_SESSION_ID, sessionIdStr.toString());
+            RedisUtil.lpush(Constants.SHIRO_SESSION_ID+ "_"+SerializationUtil.serilaze(session), (session.getTimeout()/1000)+"");
             String uuid = UUID.randomUUID().toString();
-            RedisUtil.set(Constants.SHIRO_SESSION_CODE +"_" + uuid,session.getTimeout());
+            RedisUtil.set(Constants.SHIRO_SESSION_CODE +"_" + serverSessionId,session.getTimeout());
 
             LOGGER.debug("login, usernamePasswordToken:{}", usernamePasswordToken);
         }
