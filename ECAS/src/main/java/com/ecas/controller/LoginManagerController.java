@@ -103,9 +103,9 @@ public class LoginManagerController extends AbstractBaseController {
             LOGGER.debug("login, 认证登录完成！ userName：{}",userNames);
             ecasSessiondDao.updateStatus(sessionIdStr,EcasSession.OnlineStatus.on_line);
 
-            RedisUtil.lpush(Constants.SHIRO_SESSION_ID+ "_"+SerializationUtil.serilaze(session), (session.getTimeout()/1000)+"");
+            RedisUtil.lpush(Constants.SHIRO_SESSION_ID+ "_"+SerializationUtil.serilaze(session),  SerializationUtil.serilaze(session));
             String uuid = UUID.randomUUID().toString();
-            RedisUtil.set(Constants.SHIRO_SESSION_CODE +"_" + serverSessionId,session.getTimeout());
+            RedisUtil.set(Constants.SHIRO_SESSION_CODE +"_" + serverSessionId, SerializationUtil.serilaze(session));
 
             LOGGER.debug("login, usernamePasswordToken:{}", usernamePasswordToken);
         }
