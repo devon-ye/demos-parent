@@ -18,7 +18,7 @@
     </resultMap>
 
     <!--sql -->
-    <sql id="select_column_sql" >SELECT user_id,user_name,password,gender,active_status,age,birthday,phone,email,address</sql>
+    <sql id="select_column_sql" >SELECT user_id,role_id</sql>
     <sql id="from_table_sql">FROM ecas_user_info </sql>
 
 
