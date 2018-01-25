@@ -66,7 +66,7 @@ public class EcasSessiondDao extends CachingSessionDAO {
             return;
         }
         ecasSession.setStatus(onlineStatus);
-        RedisUtil.set(Constants.SHIRO_SESSION_ID + "_" + SerializationUtil.serilaze(ecasSession),ecasSession.getTimeout()/1000);
+        RedisUtil.set(Constants.SHIRO_SESSION_ID + "_" + SerializationUtil.serilaze(ecasSession),SerializationUtil.serilaze(ecasSession));
 
     }
 }

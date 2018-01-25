@@ -30,7 +30,6 @@ public class SerializationUtil {
         ObjectInputStream objectInputStream = null;
         try {
             objectInputStream = new ObjectInputStream(byteArrayInputStream);
-
             return (Session) objectInputStream.readObject();
         } catch (IOException e) {
             LOGGER.error("serilaze, sessionStr:{},Exception:{}", sessionStr, e);
