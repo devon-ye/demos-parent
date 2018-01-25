@@ -82,7 +82,7 @@ public class LoginManagerController extends AbstractBaseController {
         LOGGER.debug("login, 开始认证登录  subject sessionIdStr:{}",sessionIdStr);
 
         if (sessionIdStr != null || serverSessionId.length() != 0) {
-            LOGGER.debug("password 输入：" + password);
+            LOGGER.debug("password 输入：" + password.toString());
             UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userName, password, request.getRemoteHost());
             if (BooleanUtils.toBoolean(rememberMe)) {
                 usernamePasswordToken.setRememberMe(true);
