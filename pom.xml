@@ -21,7 +21,7 @@
     </modules>
 
     <properties>
-        <jetty_port>8089</jetty_port>
+        <jetty_port>8088</jetty_port>
         <skip_maven_deploy>false</skip_maven_deploy>
         <java_source_version>1.8</java_source_version>
         <java_target_version>1.8</java_target_version>
