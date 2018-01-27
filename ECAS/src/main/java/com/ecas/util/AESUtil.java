@@ -1,5 +1,9 @@
 package com.ecas.util;
 
+
+
+
+
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -129,7 +133,7 @@ public class AESUtil {
 
     public static void main(String[] args) {
         String[] keys = {
-               "myredis",
+               "admin",
         };
         System.out.println("key | AESEncode | AESDecode");
         for (String key : keys) {

@@ -37,6 +37,23 @@
     <mvc:default-servlet-handler />
     <!-- Spring mvc 拦截器配置 -->
     <mvc:interceptors>
+        <!-- Controller拦截器-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/easyui/**"/>
+            <mvc:exclude-mapping path="/js/**"/>
+            <mvc:exclude-mapping path="/html/**"/>
+            <mvc:exclude-mapping path="/diagram-viewer/**"/>
+            <mvc:exclude-mapping path="/captcha.jpg"/>
+            <mvc:exclude-mapping path="/editor-app/**"/>
+            <mvc:exclude-mapping path="/static/**"/>
+            <mvc:exclude-mapping path="/front/**"/>
+            <mvc:exclude-mapping path="/error/**"/>
+            <mvc:exclude-mapping path="/datarepairout/**"/>
+            <mvc:exclude-mapping path="/timetask/**"/>
+            <mvc:exclude-mapping path="/ib/**"/>
+            <bean class="com.ecas.common.interceptor.ControllerCostLogInterceptor"/>
+        </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/*"/>
             <bean class="com.ecas.common.interceptor.SessionInterceptor"/>

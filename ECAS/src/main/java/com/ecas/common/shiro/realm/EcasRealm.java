@@ -1,12 +1,12 @@
 package com.ecas.common.shiro.realm;
 
+import com.ecas.common.constants.Constants;
 import com.ecas.model.Role;
 import com.ecas.model.User;
 import com.ecas.service.IRoleService;
 import com.ecas.service.IUserRoleService;
 import com.ecas.service.IUserService;
-import com.ecas.util.MD5Util;
-import com.ecas.util.PropertiesFileUtil;
+import com.ecas.util.*;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -56,28 +56,32 @@ public class EcasRealm extends AuthorizingRealm {
             throw new LockedAccountException();
         }
 
-        if(!token.getPassword().equals(MD5Util.md5(user.getPassword()))) {
+        LOGGER.debug("password:"+token.getCredentials());
+        LOGGER.debug("token password:" + token.getPassword().toString());
+        LOGGER.debug("database password:" +user.getPassword());
+        LOGGER.debug("decode password:"+AESUtil.aesDecode(user.getPassword()));
+        if(token.getPassword().equals(AESUtil.aesDecode(user.getPassword()))) {
             LOGGER.error("current login user password incorrect!");
             throw new IncorrectCredentialsException();
         }
 
-         String roleId = userRoleService.getRoleIdByUserId(user.getUserId());
+         /*String roleId = userRoleService.getRoleIdByUserId(user.getUserId());
          if(roleId == null) {
              LOGGER.error("current login user is disabled!");
              throw new DisabledAccountException();
-         }
-         Role role = roleService.getRole(roleId);
+         }*/
+         /*Role role = roleService.getRole(roleId);
          if(role == null) {
              LOGGER.error("current login user is disabled!");
              throw new DisabledAccountException();
-         }
+         }*/
          // client无密认证
 //        String ecasType = PropertiesFileUtil.getInstance("shiro").get("ecas.type");
 //        if ("client".equals(ecasType)) {
 //            return new SimpleAuthenticationInfo(user.getUserName(), user.getPassword(), getName());
 //        }
 
-        return new SimpleAuthenticationInfo(user.getUserName(), user.getPassword(), getName());
+        return new SimpleAuthenticationInfo(user.getUserName(), token.getPassword(), getName());
 
     }
 
