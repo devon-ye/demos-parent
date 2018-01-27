@@ -1,6 +1,5 @@
 package com.ecas.common.shiro.security;
 
-import com.sun.org.apache.xml.internal.security.Init;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.Assert;
@@ -37,4 +36,9 @@ public class MyPasswordHash implements InitializingBean {
     public void setHashIterations(int hashIterations) {
         this.hashIterations = hashIterations;
     }
+
+
+
+
+
 }
