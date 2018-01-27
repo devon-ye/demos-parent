@@ -1,4 +1,4 @@
-package java.com.devonmusa.shiro.demo;
+package com.devonmusa.shiro.demo;
 
 import junit.framework.Assert;
 import org.apache.shiro.SecurityUtils;

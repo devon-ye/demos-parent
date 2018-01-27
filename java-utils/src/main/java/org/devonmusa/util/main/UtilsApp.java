@@ -20,7 +20,7 @@ public class UtilsApp
     	String name=args[0];
     	switch(name){
     	case  "Log":
-    	     LogConfigLoadUtil.init("path");
+    	    // LogConfigLoadUtil.init("path");
     	     logger.info("###########################  Log Config Loaded Success  ########################");
     	     break;
     	case "Jdbc":
