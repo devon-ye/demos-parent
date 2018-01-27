@@ -1,4 +1,4 @@
-package com.ecas.common.base;
+package com.ecas.common.base.model;
 
 import java.util.HashMap;
 import java.util.List;
