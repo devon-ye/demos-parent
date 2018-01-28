@@ -6,5 +6,5 @@ package com.ecas.common.base.service;
  * @Description: TODO
  * @date ${date} ${time}
  */
-public interface BaseService {
+public interface BaseService<T> {
 }

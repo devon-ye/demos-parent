@@ -9,15 +9,23 @@ import java.util.Date;
  */
 @Data
 public class User {
+    /**
+     *
+     */
     private String userId;
     private String userName;
     private String password;
+    private String salt;
     private String gender;
     private int activeStatus = 0;
     private int age;
-    private Date birthday;
+    private long birthday;
     private int phone;
-    private  String email;
+    private String email;
+    /**
+     *地址
+     */
+    private String address;
 
     public User() {
     }
@@ -62,13 +70,6 @@ public class User {
         this.age = age;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
 
     public int getPhone() {
         return phone;

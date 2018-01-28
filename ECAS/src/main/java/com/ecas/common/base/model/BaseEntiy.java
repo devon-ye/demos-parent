@@ -19,7 +19,6 @@ public class BaseEntiy implements Serializable {
     *  主键　序列号
     */
     private long serialNo;
-
     /**
     *创建时间
     */
@@ -28,7 +27,6 @@ public class BaseEntiy implements Serializable {
     *创建者ｉｄ
     */
     private long createId;
-
     /**
      *创建者名称
      */
