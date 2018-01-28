@@ -34,7 +34,7 @@ public class EcasSessiondDao extends CachingSessionDAO {
 
         RedisUtil.set(SHIRO_SESSION_ID + "_" + session.getId(), SerializationUtil.serilaze(session));
 
-        LOGGER.debug("doUpdate, session:{}", session);
+    //    LOGGER.debug("doUpdate, session:{}", session);
 
     }
 

@@ -4,6 +4,7 @@ import com.ecas.common.constants.Constants;
 import com.ecas.common.shiro.service.CaptchaCacheService;
 import com.ecas.model.Role;
 import com.ecas.model.User;
+import com.ecas.model.UserRole;
 import com.ecas.service.IRoleService;
 import com.ecas.service.IUserRoleService;
 import com.ecas.service.IUserService;
@@ -12,6 +13,7 @@ import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.DefaultPasswordService;
 import org.apache.shiro.authc.credential.PasswordService;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.slf4j.Logger;
@@ -107,7 +109,14 @@ public class EcasRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         LOGGER.debug("doGetAuthorizationInfo, principalCollection:{}",principalCollection);
-        return null;
+        String userName = (String) principalCollection.getPrimaryPrincipal();
+        User user = (User) userService.getUserByName(userName);
+        String roleId = userRoleService.getRoleIdByUserId(user.getUserId());
+        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+        //TODO
+      //  simpleAuthorizationInfo.setRoles();
+      //  simpleAuthorizationInfo.setStringPermissions();
+        return simpleAuthorizationInfo;
     }
 
 

@@ -37,13 +37,14 @@
                user  验证通过或RememberMe登录的都可以
             -->
             <value>
+                /index.jsp = anon
                 /manage/** = ecasSessionForceLogout,authc
                 /manage/index = user
                 /druid/** = user
                 /swagger-ui.html = user
                 /resources/** = anon
-               <!-- /login.jsp = authc -->
-                /** = anon
+                /login.jsp = authc
+                /** = user,authc
             </value>
         </property>
     </bean>
