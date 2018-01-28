@@ -43,18 +43,13 @@
             <mvc:exclude-mapping path="/easyui/**"/>
             <mvc:exclude-mapping path="/js/**"/>
             <mvc:exclude-mapping path="/html/**"/>
-            <mvc:exclude-mapping path="/diagram-viewer/**"/>
-            <mvc:exclude-mapping path="/captcha.jpg"/>
-            <mvc:exclude-mapping path="/editor-app/**"/>
             <mvc:exclude-mapping path="/static/**"/>
             <mvc:exclude-mapping path="/front/**"/>
             <mvc:exclude-mapping path="/error/**"/>
-            <mvc:exclude-mapping path="/datarepairout/**"/>
-            <mvc:exclude-mapping path="/timetask/**"/>
             <mvc:exclude-mapping path="/ib/**"/>
             <bean class="com.ecas.common.interceptor.ControllerCostLogInterceptor"/>
         </mvc:interceptor>
-        <mvc:interceptor>
+       <!-- <mvc:interceptor>
             <mvc:mapping path="/*"/>
             <bean class="com.ecas.common.interceptor.SessionInterceptor"/>
         </mvc:interceptor>
@@ -65,7 +60,7 @@
         <mvc:interceptor>
             <mvc:mapping path="/*"/>
             <bean class="com.ecas.common.interceptor.SpringMVCInterceptor"/>
-        </mvc:interceptor>
+        </mvc:interceptor>-->
 
     </mvc:interceptors>
 
@@ -92,7 +87,7 @@
     <!-- 定义跳转的文件的前后缀 ，视图模式配置-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
-        <property name="prefix" value="/WEB-INF/VIEW" />
+        <property name="prefix" value="/WEB-INF/views" />
         <property name="suffix" value=".jps" />
     </bean>
 
@@ -117,8 +112,4 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />
     </bean>
-
-
-
-
 </beans>

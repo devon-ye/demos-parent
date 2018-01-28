@@ -8,7 +8,7 @@
     
     <context-param>
         <param-name>log4jConfigFile</param-name>
-        <param-value>classpath*:log4j.properties</param-value>
+        <param-value>classpath*:log/log4j.properties</param-value>
     </context-param>
 
     <context-param>
@@ -24,9 +24,9 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:spring.xml,
-            classpath:spring-mybatis.xml
-            classpath:spring-shiro.xml
+            classpath:spring/spring-shiro.xml
+            classpath:spring/spring-mybatis.xml
+            classpath:spring/spring.xml,
         </param-value>
     </context-param>
 
@@ -62,15 +62,56 @@
     </filter>
     <filter-mapping>
         <filter-name>shiroFilter</filter-name>
-        <url-pattern>/*.do</url-pattern>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
+
+    <!-- Servlet 配置 START -->
+    <!-- 连接池 启用Web监控统计功能 -->
+    <servlet>
+        <servlet-name>DruidStatView</servlet-name>
+        <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+        <init-param>
+            <!-- 允许清空统计数据 -->
+            <param-name>resetEnable</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <!--
+            deny优先于allow，如果在deny列表中，就算在allow列表中，也会被拒绝。
+            如果allow没有配置或者为空，则允许所有访问
+         -->
+        <!--<init-param>-->
+            <!--<param-name>allow</param-name>-->
+            <!--<param-value>128.242.127.1/24,127.0.0.1</param-value>-->
+        <!--</init-param>-->
+        <init-param>
+            <param-name>deny</param-name>
+            <param-value>192.168.1.118</param-value>
+        </init-param>
+        <init-param>
+            <!-- 用户名 -->
+            <param-name>loginUsername</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+        <init-param>
+            <!-- 密码 -->
+            <param-name>loginPassword</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DruidStatView</servlet-name>
+        <url-pattern>/druid/*</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>spring-mvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring-mvc.xml</param-value>
+            <param-value>classpath:spring/spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
@@ -78,11 +119,11 @@
     
     <servlet-mapping>
         <servlet-name>spring-mvc</servlet-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
     
     <welcome-file-list>
-        <welcome-file>/WEB-INF/login.jsp</welcome-file>
+        <welcome-file>/WEB-INF/views/login.jsp</welcome-file>
     </welcome-file-list>
 
     <!-- 错误页面 -->

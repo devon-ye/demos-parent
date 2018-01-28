@@ -1,6 +1,5 @@
 package org.devonmusa.util.main;
 
-import org.devonmusa.util.config.load.LogConfigLoadUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +19,7 @@ public class UtilsApp
     	String name=args[0];
     	switch(name){
     	case  "Log":
-    	     LogConfigLoadUtil.init("path");
+    	    // LogConfigLoadUtil.init("path");
     	     logger.info("###########################  Log Config Loaded Success  ########################");
     	     break;
     	case "Jdbc":

@@ -18,12 +18,10 @@
      <context:component-scan base-package="com.ecas.dao"/>
 
     <!-- 引入配置文件 -->
-    <context:property-placeholder location="classpath:jdbc.properties" ignore-unresolvable="true" />
-    <!--<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:jdbc.properties" />
-    </bean>-->
+    <context:property-placeholder location="classpath:db/jdbc.properties" ignore-unresolvable="true" />
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  destroy-method="close">
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"  init-method="init" destroy-method="close">
         <property name="driverClassName" value="${driver}" />
         <property name="url" value="${url}" />
         <property name="username" value="${username}" />
@@ -32,8 +30,6 @@
         <property name="initialSize" value="${initialSize}"></property>
         <!-- 连接池最大数量 -->
         <property name="maxActive" value="${maxActive}"></property>
-        <!-- 连接池最大空闲 -->
-        <property name="maxIdle" value="${maxIdle}"></property>
         <!-- 连接池最小空闲 -->
         <property name="minIdle" value="${minIdle}"></property>
         <!-- 获取连接最大等待时间 -->

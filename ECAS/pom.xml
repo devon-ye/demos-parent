@@ -268,6 +268,9 @@
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
+                <configuration>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                </configuration>
             </plugin>
         </plugins>
     </build>
