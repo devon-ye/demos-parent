@@ -1,6 +1,5 @@
 package org.devonmusa.util.main;
 
-import org.devonmusa.util.config.load.LogConfigLoadUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
