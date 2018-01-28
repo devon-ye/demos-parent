@@ -28,3 +28,43 @@
            env-entry：元素声明Web应用的环境项。
            ejb-ref：元素声明一个EJB的主目录的引用。
            ejb-local-ref：元素声明一个EJB的本地主目录的应用。
+
+## Filer配置详解
+　　　　　　
+　　　
+ 　　　　
+ 　　　　 <filter>
+            <!-- 名称-->
+
+            <filter-name>MyFilter</filter-name>
+            <!-- 类实现详解　-->
+            <filter-class>servlet.filter.MyFilter</filter-class>
+            <!-- 实现类初始化参数　-->
+            <init-param>
+                <param-name>name</param-name>
+                <param-value>Sam-Sho</param-value>
+            </init-param>
+        </filter>
+        <filter-mapping>
+            <filter-name>MyFilter</filter-name>
+            <!-- url 规则，可配置多个 -->
+            <url-pattern>/jsp/*</url-pattern>
+            <url-pattern> *.do</url-pattern>
+　　　　　　　<!-- servlet 方式　包括以下四种
+                # REQUEST ：表示仅当直接请求servlet时才生效。
+
+                # FORWARD ：表示仅当某servlet通过forward转发到该servlet时才生效。
+
+                # INCLUDE ：Jsp中可以通过<jsp:include/>请求某servlet， 只有这种情况才有效。
+
+                # ERROR ：Jsp中可以通过<%@page errorPage="error.jsp" %>指定错误处理页面，仅在这种情况下才生效。
+ 　　　　　　　　-->
+　　　　　　　
+            <dispatcher>REQUEST</dispatcher>
+            <dispatcher>FORWARD</dispatcher>
+        </filter-mapping>
+
+      注意：<url-pattern>和<dispatcher> 是且的关系，只有满足<url-pattern>的条件，且满足<dispatcher>的条件，该Filter 才能生效。
+
+　　
+　　　
