@@ -55,8 +55,8 @@
               <!--  FORWARD ：表示仅当某servlet通过forward转发到该servlet时才生效。  -->
               <!--  INCLUDE ：Jsp中可以通过<jsp:include/>请求某servlet， 只有这种情况才有效。  -->
               <!-- 　 ERROR ：Jsp中可以通过<%@page errorPage="error.jsp" %>指定错误处理页面，仅在这种情况下才生效。  -->　　　　　　
-            <dispatcher>REQUEST</dispatcher>
-            <dispatcher>FORWARD</dispatcher>
+              <dispatcher>REQUEST</dispatcher>
+              <dispatcher>FORWARD</dispatcher>
         </filter-mapping>
 
 
