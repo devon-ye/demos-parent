@@ -18,8 +18,11 @@
 
     <!-- Shiro的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- 安全管理器　-->
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="${loginUrl}"></property>
+        <!-- 默认的　登录url-->
+        <property name="loginUrl" value="/login"></property>
+        <!-- 登录跳转url -->
         <property name="successUrl" value="${ecas.successUrl}"></property>
         <property name="unauthorizedUrl" value="${ecas.unauthorizedUrl}"></property>
         <property name="filters">
@@ -28,12 +31,18 @@
             </util:map>
         </property>
         <property name="filterChainDefinitions">
+            <!--
+               anon  不需要认证
+               authc 需要认证
+               user  验证通过或RememberMe登录的都可以
+            -->
             <value>
                 /manage/** = ecasSessionForceLogout,authc
                 /manage/index = user
                 /druid/** = user
                 /swagger-ui.html = user
                 /resources/** = anon
+               <!-- /login.jsp = authc -->
                 /** = anon
             </value>
         </property>

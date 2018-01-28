@@ -15,8 +15,8 @@
 <head>
     <meta http-equiv="content-type" content="text/xml" charset="UTF-8"/>
     <title>教务综合管理系统</title>
-    <%@include file="../pages/common/taglibs.jsp"%>
-    <%@include file="../pages/common/inc.jsp"%>
+    <%@include file="../../pages/common/taglibs.jsp"%>
+    <%@include file="../../pages/common/inc.jsp"%>
     <script type="text/javascript">
         function loginClick() {
             loginform.submit();
@@ -69,7 +69,7 @@
 </head>
 <body>
 <form id="loginform" method="post"
-      action="<%=contextPath%>/ecas/login.do">
+      action="<%=contextPath%>/ecas/login">
     <img src="${ctx}/image/login/bg.jpg" width="100%" height="100%" style="z-index:-100;position:absolute;left:0;top:0">
     <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:100px">
         <tr>

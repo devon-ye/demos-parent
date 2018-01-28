@@ -17,14 +17,28 @@ public class EcasSessionFactory implements SessionFactory {
 
     @Override
     public Session createSession(SessionContext sessionContext) {
+
         EcasSession session = new EcasSession();
-        if(sessionContext!= null && sessionContext instanceof WebSessionContext) {
-            WebSessionContext webSessionContext = (WebSessionContext) sessionContext;
-            HttpServletRequest request = (HttpServletRequest) webSessionContext;
-            session.setHost(request.getRemoteAddr());
-            session.setUserAgent(request.getHeader("User-Agent"));
+        try {
+
+
+            if (sessionContext != null && sessionContext instanceof WebSessionContext) {
+                WebSessionContext webSessionContext = (WebSessionContext) sessionContext;
+             //   LOGGER.debug("----------->request:{}, ------------>response:{}", webSessionContext.getServletRequest(), webSessionContext.getServletResponse());
+
+               if(webSessionContext != null && webSessionContext instanceof HttpServletRequest) {
+                   HttpServletRequest request = (HttpServletRequest) webSessionContext;
+                   session.setHost(request.getRemoteAddr());
+                   session.setUserAgent(request.getHeader("User-Agent"));
+               }else {
+                   LOGGER.error("webSessionContext class name:{}",webSessionContext.getClass().getName());
+               }
+            }
+         //   LOGGER.debug("createSession, session:{}", session);
+        }catch (Exception e){
+            e.printStackTrace();
+            LOGGER.error("Exception:",e);
         }
-        LOGGER.debug("createSession, session:{}",session);
         return session;
     }
 }

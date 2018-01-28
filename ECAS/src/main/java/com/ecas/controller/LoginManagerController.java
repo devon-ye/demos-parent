@@ -110,7 +110,7 @@ public class LoginManagerController extends AbstractBaseController {
             LOGGER.debug("login, usernamePasswordToken:{}", usernamePasswordToken);
         }
 
-        return "redirect:/pages/background/main.jsp";
+        return "redirect:main";
 
     }
     @ApiOperation(value = "登出" ,httpMethod = "POST")

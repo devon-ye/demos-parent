@@ -1,6 +1,7 @@
 package com.ecas.common.shiro.realm;
 
 import com.ecas.common.constants.Constants;
+import com.ecas.common.shiro.service.CaptchaCacheService;
 import com.ecas.model.Role;
 import com.ecas.model.User;
 import com.ecas.service.IRoleService;
@@ -8,6 +9,8 @@ import com.ecas.service.IUserRoleService;
 import com.ecas.service.IUserService;
 import com.ecas.util.*;
 import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.credential.DefaultPasswordService;
+import org.apache.shiro.authc.credential.PasswordService;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -29,6 +32,14 @@ public class EcasRealm extends AuthorizingRealm {
 
     @Autowired
     private IRoleService roleService;
+
+//    @Autowired
+//    private CaptchaCacheService captchaCacheService;
+//
+//    @Autowired
+//    private DefaultPasswordService defaultPasswordService;
+
+
 
     /**
      * Shiro登录认证(原理：用户提交 用户名和密码 --- shiro 封装令牌 ---- realm 通过用户名将密码查询返回 ----
@@ -60,6 +71,9 @@ public class EcasRealm extends AuthorizingRealm {
         LOGGER.debug("token password:" + token.getPassword().toString());
         LOGGER.debug("database password:" +user.getPassword());
         LOGGER.debug("decode password:"+AESUtil.aesDecode(user.getPassword()));
+
+     //   defaultPasswordService.encryptPassword(token.getPassword());
+
         if(token.getPassword().equals(AESUtil.aesDecode(user.getPassword()))) {
             LOGGER.error("current login user password incorrect!");
             throw new IncorrectCredentialsException();

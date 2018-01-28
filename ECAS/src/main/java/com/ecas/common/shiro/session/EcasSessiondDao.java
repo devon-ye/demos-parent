@@ -56,7 +56,7 @@ public class EcasSessiondDao extends CachingSessionDAO {
     @Override
     protected Session doReadSession(Serializable sessionId) {
         String sessionStr = RedisUtil.get(SHIRO_SESSION_ID + "_" + sessionId);
-        LOGGER.debug("doReadSession, serializable:{}", sessionId);
+     //   LOGGER.debug("doReadSession, serializable:{}", sessionId);
         return SerializationUtil.deSerilaze(sessionStr);
     }
 

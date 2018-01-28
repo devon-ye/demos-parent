@@ -15,14 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 public class ControllerCostLogInterceptor extends HandlerInterceptorAdapter {
     private static final Logger LOGGER = LoggerFactory.getLogger(ControllerCostLogInterceptor.class);
 
+    @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         ThreadLocalUtil.putTime(System.currentTimeMillis());
         return true;
     }
 
+    @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
     }
 
+    @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         if(!(handler instanceof HandlerMethod)) {
             return;
@@ -47,7 +50,9 @@ public class ControllerCostLogInterceptor extends HandlerInterceptorAdapter {
         LOGGER.trace(stringBuilder.toString());
     }
 
+    @Override
     public void afterConcurrentHandlingStarted(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
     }
 
 }

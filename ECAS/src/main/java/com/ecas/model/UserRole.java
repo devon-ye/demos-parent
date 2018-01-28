@@ -9,11 +9,11 @@ import java.util.Date;
 @Data
 @ToString
 public class UserRole {
-  private long  serial_number  ;
-  private String  user_id;
-  private String  role_id;
-  private String  create_user;
-  private String modify_user;
-  private Date create_time ;
-  private Date  modify_time ;
+  private long serialNumber;
+  private String  userＩd;
+  private String  roleＩd;
+  private String  createＵser;
+  private String modifyUser;
+  private Date createＴime ;
+  private Date modifyTime;
 }
