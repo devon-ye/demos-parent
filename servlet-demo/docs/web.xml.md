@@ -35,7 +35,7 @@
 
 
           <filter>
-             < !-- 名称-- >
+             <!-- 名称-->
              <filter-name>MyFilter</filter-name>
              <!-- 类实现详解　-->
              <filter-class>servlet.filter.MyFilter</filter-class>
@@ -47,14 +47,14 @@
           </filter>
           <filter-mapping>
              <filter-name>MyFilter</filter-name>
-             < !-- url 规则，可配置多个 -- >
+             <!-- url 规则，可配置多个 -->
              <url-pattern>/jsp/*</url-pattern>
              <url-pattern> *.do</url-pattern>
             　<!--dispatcher 方式有以下四种　-->
-              <! -- REQUEST ：表示仅当直接请求servlet时才生效。  -- >
-              <! --  FORWARD ：表示仅当某servlet通过forward转发到该servlet时才生效。  -- >
-              <!--  INCLUDE ：Jsp中可以通过<jsp:include/>请求某servlet， 只有这种情况才有效。  -- >
-              <!-- 　 ERROR ：Jsp中可以通过<%@page errorPage="error.jsp" %>指定错误处理页面，仅在这种情况下才生效。  -- >　　　　　　
+              <!-- REQUEST ：表示仅当直接请求servlet时才生效。  -->
+              <!--  FORWARD ：表示仅当某servlet通过forward转发到该servlet时才生效。  -->
+              <!--  INCLUDE ：Jsp中可以通过<jsp:include/>请求某servlet， 只有这种情况才有效。  -->
+              <!-- 　 ERROR ：Jsp中可以通过<%@page errorPage="error.jsp" %>指定错误处理页面，仅在这种情况下才生效。  -->　　　　　　
             <dispatcher>REQUEST</dispatcher>
             <dispatcher>FORWARD</dispatcher>
         </filter-mapping>
