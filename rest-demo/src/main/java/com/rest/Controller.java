@@ -16,4 +16,10 @@ public class Controller {
     }
 
 
+    @RequestMapping("/downloadExcelTemplate")
+    public void downloadExcelTemplate() {
+
+    }
+
+
 }
