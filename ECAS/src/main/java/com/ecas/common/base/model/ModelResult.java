@@ -16,6 +16,7 @@ public final class ModelResult<T> {
     public final static String FAIL = "fail";
     private int code;
     private String message;
+    private PageResult pageResult;
     private final Map<String,Object> data = new HashMap<>();
 
     public ModelResult() {
@@ -29,6 +30,8 @@ public final class ModelResult<T> {
         this.code = code;
         this.message = message;
     }
+
+
 
     public void setList(List<T> list) {
         data.put("list",list);
@@ -46,4 +49,11 @@ public final class ModelResult<T> {
         return (T) data.get("entity");
     }
 
+    public PageResult getPageResult() {
+        return pageResult;
+    }
+
+    public void setPageResult(PageResult pageResult) {
+        this.pageResult = pageResult;
+    }
 }
