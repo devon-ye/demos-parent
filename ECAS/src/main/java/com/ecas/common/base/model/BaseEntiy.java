@@ -14,7 +14,9 @@ import java.io.Serializable;
 @Data
 @ToString
 public class BaseEntiy implements Serializable {
-    
+
+
+    private static final long serialVersionUID = 4516453202928851645L;
     /**
     *  主键　序列号
     */
