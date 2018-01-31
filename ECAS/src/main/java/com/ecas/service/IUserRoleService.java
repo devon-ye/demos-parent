@@ -1,6 +1,6 @@
 package com.ecas.service;
 
-public interface IUserRoleService extends IService{
+public interface IUserRoleService {
 
     public String getRoleIdByUserId(String userId);
 }
