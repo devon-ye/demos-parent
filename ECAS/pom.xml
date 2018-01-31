@@ -272,6 +272,11 @@
                     <scanIntervalSeconds>0</scanIntervalSeconds>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>${mybatis-generator_version}</version>
+            </plugin>
         </plugins>
     </build>
 </project>

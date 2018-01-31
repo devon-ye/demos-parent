@@ -10,6 +10,9 @@ import java.util.Date;
  */
 @Data
 public class User extends BaseEntiy{
+
+
+    private static final long serialVersionUID = 7666464856078879205L;
     /**
      *
      */
