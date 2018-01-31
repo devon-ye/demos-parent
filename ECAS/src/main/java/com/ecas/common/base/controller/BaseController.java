@@ -8,5 +8,7 @@ import com.ecas.common.base.service.BaseService;
  * @Description: TODO
  * @date ${date} ${time}
  */
-public class BaseController <T extends BaseService<T>> extends HttpController {
+public class BaseController <S extends BaseService<T>,T> extends HttpController {
+
+    private S service;
 }

@@ -1,5 +1,6 @@
 package com.ecas.model;
 
+import com.ecas.common.base.model.BaseEntiy;
 import lombok.Data;
 
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.Date;
  * Created by lenovo on 2017/12/20.
  */
 @Data
-public class User {
+public class User extends BaseEntiy{
     /**
      *
      */
