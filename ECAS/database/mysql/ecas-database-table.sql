@@ -15,77 +15,98 @@ CREATE TABLE ecasdb.ecas_login_oauth(
    auth_expires int(10),
    auth_time    timestamp NOT NULL default CURRENT_TIMESTAMP,
    auth_ip  VARCHAR (256)
-) DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=100000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户认证表';
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_user_info;
 CREATE TABLE ecasdb.ecas_user_info (
-    user_id VARCHAR(64) NOT NULL,
-    user_name VARCHAR(64) DEFAULT NULL,
-    password VARCHAR(256) NOT NULL,
-    gender CHAR(1) DEFAULT NULL,
-    active_status TINYINT DEFAULT "0",
-    age TINYINT(3),
-    email VARCHAR(125) NOT NULL,
-    phone VARCHAR(11),
-    birthday DATETIME DEFAULT NULL,
-    address VARCHAR(512) DEFAULT NULL,
-    create_time DATETIME NOT NULL,
-    create_user varchar(64) NOT NULL,
-    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    modify_user varchar(64) DEFAULT ""
-)  DEFAULT CHARSET=UTF8;
+    serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+    user_id VARCHAR(64) NOT NULL COMMENT '、用户ID',
+    user_name VARCHAR(64) DEFAULT NULL COMMENT '用户名',
+    password VARCHAR(256) NOT NULL COMMENT '密码',
+    id_card  VARCHAR(19) NOT NULL  COMMENT '证件号',
+    id_type  TINYINT(1) DEFAULT 1  COMMENT '证件类型：１身份证，２护照',
+    gender TINYINT(1) DEFAULT NULL COMMENT '性别：1 男，2 女',
+    active_status TINYINT(1) DEFAULT 0 COMMENT '用户状态：０锁定，１活动，２注销',
+    email VARCHAR(125) NOT NULL COMMENT '电子邮箱',
+    marrige CHAR(1) NOT NULL DEFAULT '' COMMENT '婚姻状态：１未婚，２已婚，３离异',
+    phone VARCHAR(11)  COMMENT '联系电话',
+    birthday DATETIME DEFAULT NULL COMMENT '生日',
+    address VARCHAR(512) DEFAULT NULL COMMENT '住址',
+    create_time DATETIME NOT NULL  COMMENT '创建时间',
+    create_id varchar(64) NOT NULL COMMENT '创建人id',
+    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
+)  ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户信息表'
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_role_info;
 CREATE TABLE ecasdb.ecas_role_info(
-   role_id varchar(64) NOT  null,
-   role_name VARCHAR(64) DEFAULT NULL,
-   role_type char(1),
-   create_time datetime not null,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
-) DEFAULT CHARSET=utf8;
+　　serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   role_id varchar(64) NOT  null　COMMENT '角色编码',
+   role_name VARCHAR(64) DEFAULT NULL　COMMENT '角色名称',
+   role_type char(1) COMMENT '角色类型',
+   remark VARCHAR(128) COMMENT '备注',
+   create_time DATETIME NOT NULL  COMMENT '创建时间',
+   create_id varchar(64) NOT NULL COMMENT '创建人id',
+   modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+   modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+   PRIMARY KEY (serial_no)
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='角色信息表'
 
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_permission_info;
 CREATE TABLE ecasdb.ecas_permission_info(
-   permission_id varchar(64) NOT  null,
-   permission_name VARCHAR(64) DEFAULT NULL,
-   permission_desc VARCHAR(255) DEFAULT NULL,
-   security_level  VARCHAR (4) NOT NULL,
-   create_user VARCHAR(40) NOT NULL ,
-   create_time datetime not null,
-   modify_user VARCHAR(40) NOT NULL,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
-) DEFAULT CHARSET=utf8;
+   serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   permission_id varchar(64) NOT  null　COMMENT '权限编码',
+   permission_name VARCHAR(64) DEFAULT NULL　COMMENT '权限名称',
+   permission_desc VARCHAR(255) DEFAULT NULL　COMMENT '权限描述',
+   security_level  VARCHAR (4) NOT NULL　COMMENT '权限等级',
+   create_time DATETIME NOT NULL  COMMENT '创建时间',
+   create_id varchar(64) NOT NULL COMMENT '创建人id',
+   modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+   modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='权限信息表'
 
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_menu_info;
 CREATE TABLE ecasdb.ecas_menu_info (
-   menu_id varchar(64) NOT  null,
-   menu_name VARCHAR(64) DEFAULT NULL,
-   menu_level char(1) DEFAULT NULL ,
-   menu_type char(1),
-   parent_menu_id VARCHAR (64),
-   child_menu_id VARCHAR (64),
-   create_time datetime not null,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
-)DEFAULT CHARSET=utf8;
+   serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   menu_id varchar(64) NOT  null　COMMENT '菜单编码',
+   menu_name VARCHAR(128) NOT NULL　COMMENT '菜单名称',
+   mennu_en_name VARCHAR(128) DEFAULT NULL COMMENT '菜单英文名称',
+   menu_level char(1) DEFAULT NULL COMMENT '菜单等级',
+   menu_type char(1)　COMMENT '菜单类型',
+   child_menu_id VARCHAR (64)　COMMENT '子菜单编码',
+   create_time DATETIME NOT NULL  COMMENT '创建时间',
+   create_id varchar(64) NOT NULL COMMENT '创建人id',
+   modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+   modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+   PRIMARY KEY (serial_no)
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='菜单信息表'
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_user_role;
 CREATE TABLE ecasdb.ecas_user_role(
-   serial_number int(32) NOT NULL,
-   user_id varchar(64) NOT  NULL,
-   role_id varchar(64) NOT  null,
-   create_time datetime not null,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
-) DEFAULT CHARSET=utf8;
+   serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   user_id varchar(64) NOT  NULL　COMMENT '用户ID',
+   role_id varchar(64) NOT  null　COMMENT '角色ID',
+    create_time DATETIME NOT NULL  COMMENT '创建时间',
+    create_id varchar(64) NOT NULL COMMENT '创建人id',
+    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户角色管理表'
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_role_permission;
 CREATE TABLE ecasdb.ecas_role_permission(
-   serial_number int(32) NOT NULL,
-   role_id VARCHAR (64) NOT NULL,
-   permission_id varchar(64) NOT  null,
-   create_time datetime not null,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+    serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+    role_id VARCHAR (64) NOT NULL COMMENT '',
+    permission_id varchar(64) NOT  null COMMENT '',
+    create_time DATETIME NOT NULL  COMMENT '创建时间',
+    create_id varchar(64) NOT NULL COMMENT '创建人id',
+    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
 )DEFAULT CHARSET=utf8;
 
 
@@ -93,81 +114,99 @@ CREATE TABLE ecasdb.ecas_role_permission(
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_permission_menu;
 CREATE TABLE ecasdb.ecas_permission_menu(
-   serial_number int(32) NOT NULL,
-   permission_id VARCHAR (64) NOT NULL,
-   menu_id varchar(64) NOT  null,
-   create_time datetime not null,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+   serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   permission_id VARCHAR (64) NOT NULL COMMENT '',
+   menu_id varchar(64) NOT  null COMMENT '',
+    create_time DATETIME NOT NULL  COMMENT '创建时间',
+    create_id varchar(64) NOT NULL COMMENT '创建人id',
+    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
 )DEFAULT CHARSET=utf8;
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_resource_info;
 CREATE TABLE ecasdb.ecas_resource_info(
-   resource_id VARCHAR (64) NOT NULL,
-   resource_name varchar(50) NOT  null,
-   resource_type  char(1) DEFAULT NULL,
-   create_time datetime not null,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+   serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   resource_id VARCHAR (64) NOT NULL COMMENT '资源编码',
+   resource_name varchar(50) NOT  null COMMENT '资源名称',
+   resource_type  char(1) DEFAULT NULL COMMENT '资源类型',
+   create_time DATETIME NOT NULL  COMMENT '创建时间',
+   create_id varchar(64) NOT NULL COMMENT '创建人id',
+   modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+   modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
 )DEFAULT CHARSET=utf8;
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_role_resource;
 CREATE TABLE ecasdb.ecas_role_resource(
-   serial_number int(32) NOT NULL,
-   role_id VARCHAR (64) NOT NULL,
-   resource_id varchar(50) NOT  null,
-   create_time datetime not null,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+   serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   role_id VARCHAR (64) NOT NULL　COMMENT　'',
+   resource_id varchar(50) NOT  null COMMENT '',
+    create_time DATETIME NOT NULL  COMMENT '创建时间',
+    create_id varchar(64) NOT NULL COMMENT '创建人id',
+    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
 )DEFAULT CHARSET=utf8;
 
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_department_info;
 CREATE TABLE ecasdb.ecas_department_info(
-   department_id VARCHAR (64) NOT NULL,
-   department_name varchar(128) NOT  NULL,
-   department_desc VARCHAR(255) DEFAULT NULL,
-   department_level char(1) NOT NULL,
-   parent_depart_id VARCHAR(64),
-   child_depart_id VARCHAR (64),
-  create_user VARCHAR(40) NOT NULL ,
-   create_time datetime not null,
-   modify_user VARCHAR(40) NOT NULL,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+   serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   department_name varchar(128) NOT  NULL COMMENT '',
+   department_desc VARCHAR(255) DEFAULT NULL COMMENT '',
+   department_level char(1) NOT NULL COMMENT '',
+   parent_depart_id VARCHAR(64) COMMENT '',
+   child_depart_id VARCHAR (64) COMMENT '',
+    create_time DATETIME NOT NULL  COMMENT '创建时间',
+    create_id varchar(64) NOT NULL COMMENT '创建人id',
+    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
 )DEFAULT CHARSET=utf8;
 
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_user_department;
 CREATE TABLE ecasdb.ecas_ecas_user_department(
-   serial_number int(32) NOT NULL,
-   user_id VARCHAR(64) NOT NULL ,
-   department_id VARCHAR (64) NOT NULL,
-   create_time datetime NOT NULL ,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+   serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   user_id VARCHAR(64) NOT NULL COMMENT '',
+   department_id VARCHAR (64) NOT NULL COMMENT '',
+    create_time DATETIME NOT NULL  COMMENT '创建时间',
+    create_id varchar(64) NOT NULL COMMENT '创建人id',
+    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
 )DEFAULT CHARSET=utf8;
 
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_organization_info;
 CREATE TABLE ecasdb.ecas_organization_info(
-   organization_id VARCHAR (64) NOT NULL,
-   organization_name varchar(50) NOT  NULL,
-   organization_desc varchar(255) DEFAULT NULL,
-   organization_level char(1) NOT NULL,
-   parent_id     VARCHAR(64) ,
-   child_id    VARCHAR (64),
-   registration_code varchar(50),
-   create_user VARCHAR(40) NOT NULL ,
-   create_time datetime not null,
-   modify_user VARCHAR(40) NOT NULL,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+   serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   organization_id VARCHAR (64) NOT NULL COMMENT '',
+   organization_name varchar(50) NOT  NULL COMMENT'',
+   organization_desc varchar(255) DEFAULT NULL COMMENT '',
+   organization_level char(1) NOT NULL COMMENT'',
+   parent_id     VARCHAR(64) COMMENT '',
+   child_id    VARCHAR (64) COMMENT '',
+   registration_code varchar(50) COMMENT '',
+    create_time DATETIME NOT NULL  COMMENT '创建时间',
+    create_id varchar(64) NOT NULL COMMENT '创建人id',
+    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
 )DEFAULT CHARSET=utf8;
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_permission_group_info;
 CREATE TABLE ecasdb.ecas_permission_group_info(
-   permission_group_id varchar(64) NOT  null,
-   permission_group_name VARCHAR(64) DEFAULT NULL,
-   security_level  VARCHAR (4) NOT NULL,
-   create_user VARCHAR(40) NOT NULL ,
-   create_time datetime not null,
-   modify_user VARCHAR(40) NOT NULL,
-   modify_time timestamp NOT NULL default CURRENT_TIMESTAMP
+   serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   permission_group_id varchar(64) NOT  null COMMENT '',
+   permission_group_name VARCHAR(64) DEFAULT NULL COMMENT '',
+   security_level  VARCHAR (4) NOT NULL COMMENT '',
+   create_time DATETIME NOT NULL  COMMENT '创建时间',
+   create_id varchar(64) NOT NULL COMMENT '创建人id',
+   modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+   modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+    PRIMARY KEY (serial_no)
 ) DEFAULT CHARSET=utf8;
 
 
