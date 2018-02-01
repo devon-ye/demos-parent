@@ -10,8 +10,6 @@ public class Role {
     private String roleName;
     private String roleType;
     private String roleLevel;
-    private Date createTime;
-    private Date modifyTime;
 
 
     public Role() {
@@ -49,31 +47,5 @@ public class Role {
         this.roleLevel = roleLevel;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getModifyTime() {
-        return modifyTime;
-    }
-
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "roleId=" + roleId +
-                ", roleName='" + roleName + '\'' +
-                ", roleType='" + roleType + '\'' +
-                ", roleLevel='" + roleLevel + '\'' +
-                ", createTime=" + createTime +
-                ", modifyTime=" + modifyTime +
-                '}';
-    }
 }

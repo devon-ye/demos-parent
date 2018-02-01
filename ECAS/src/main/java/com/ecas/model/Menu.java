@@ -5,6 +5,7 @@ package com.ecas.model;
  */
 public class Menu {
 
+
     private String menuId;
     private String menuName;
     private String menuLevel;

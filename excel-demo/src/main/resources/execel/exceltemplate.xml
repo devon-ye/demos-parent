@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <excel id="" name="">
+        <sheet>
+            <title></title>
+            <header>
+                <col id="contractno">合同号</col>
+                <col id="idcard">身份证号</col>
+                <col id=""></col>
+            </header>
+        </sheet>
+    </excel>
+    <excel id="" name="">
+        <sheet>
+            <title></title>
+            <header>
+                <col id="contractno">合同号</col>
+                <col id="idcard">身份证号</col>
+                <col id=""></col>
+            </header>
+        </sheet>
+    </excel>
+    <excel id="" name="">
+        <sheet>
+            <title></title>
+            <header>
+                <col id="contractno">合同号</col>
+                <col id="idcard">身份证号</col>
+                <col id=""></col>
+            </header>
+        </sheet>
+    </excel>
+    <excel id="" name="">
+        <sheet>
+            <title></title>
+            <header>
+                <col id="contractno">合同号</col>
+                <col id="idcard">身份证号</col>
+                <col id=""></col>
+            </header>
+        </sheet>
+    </excel>
+</templates>

@@ -11,3 +11,10 @@
 ## mybatis注解
 
 ## mybatis得map配置
+
+## mybatis-generate-tool
+
+
+property——>plugin——>commentGenerator——>jdbcConnection——>
+javaTypeResolver——>javaModelGenerator——>sqlMapGenerator——>
+javaClientGenerator——>table+

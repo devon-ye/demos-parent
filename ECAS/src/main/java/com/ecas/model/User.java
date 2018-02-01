@@ -1,5 +1,6 @@
 package com.ecas.model;
 
+import com.ecas.common.base.model.BaseEntiy;
 import lombok.Data;
 
 import java.util.Date;
@@ -8,16 +9,27 @@ import java.util.Date;
  * Created by lenovo on 2017/12/20.
  */
 @Data
-public class User {
+public class User extends BaseEntiy{
+
+
+    private static final long serialVersionUID = 7666464856078879205L;
+    /**
+     *
+     */
     private String userId;
     private String userName;
     private String password;
+    private String salt;
     private String gender;
     private int activeStatus = 0;
     private int age;
-    private Date birthday;
+    private long birthday;
     private int phone;
-    private  String email;
+    private String email;
+    /**
+     *地址
+     */
+    private String address;
 
     public User() {
     }
@@ -62,13 +74,6 @@ public class User {
         this.age = age;
     }
 
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
 
     public int getPhone() {
         return phone;

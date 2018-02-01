@@ -59,6 +59,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
         LOGGER.debug("isAccessAllowed,request:{}, response:{},mappedValue:{}",request,response,mappedValue);
         Subject subject = getSubject(request, response);
         Session session = subject.getSession();
+        //TODO
 //        // 判断请求类型
 //        String upmsType = PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.type");
 //        session.setAttribute(UpmsConstant.UPMS_TYPE, upmsType);
@@ -68,13 +69,13 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
 //        if ("server".equals(upmsType)) {
 //            return subject.isAuthenticated();
 //        }
-        return false;
+        return subject.isAuthenticated();
     }
 
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         LOGGER.debug("onAccessDenied,request:{}, response:{}",request,response);
-
+        //TODO
         StringBuffer ssoServerUrl = new StringBuffer(PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.sso.server.url"));
         // server需要登录
         String upmsType = PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.type");
