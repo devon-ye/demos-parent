@@ -69,6 +69,7 @@
         <jedis_version>2.9.0</jedis_version>
 
         <jcl_version>1.2</jcl_version>
+        <jmockit_version>1.33</jmockit_version>
         <cglib_version>3.2.4</cglib_version>
         <jetty_version>6.1.26</jetty_version>
     </properties>
@@ -344,7 +345,7 @@
             <dependency>
                 <groupId>org.jmockit</groupId>
                 <artifactId>jmockit</artifactId>
-                <version>1.33</version>
+                <version>${jmockit_version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
