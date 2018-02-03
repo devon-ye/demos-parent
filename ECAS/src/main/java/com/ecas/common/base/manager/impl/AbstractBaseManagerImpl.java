@@ -1,81 +1,83 @@
-package com.ecas.common.base.service.impl;
+package com.ecas.common.base.manager.impl;
 
-
-
-
+import com.ecas.common.base.dao.BaseDao;
 import com.ecas.common.base.manager.BaseManager;
-import com.ecas.common.base.service.BaseService;
+import com.ecas.common.base.model.BaseEntiy;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 /**
  * @author devon
  * @version V1.0
- * @Description: TODO
- * @date 18-1-31 上午12:49
+ * @Description: 通用业务处理实现和第三方RPC接口调用实现
+ * @date 2/3/18 11:13 PM
  */
-public  class BaseServiceImpl<M extends BaseManager<T>,T> implements BaseService<T> {
+public class AbstractBaseManagerImpl<D extends BaseDao<E>, E extends BaseEntiy,T> implements BaseManager<T> {
 
-
-    public M manager;
+    @Autowired
+    protected D dao;
 
     @Override
     public void save(T t) {
-       manager.save(t);
+        BaseEntiy entiy = new BaseEntiy();
+//        BaseEntiy ent = BeanUtils.
+//        dao.inser(entiy);
     }
 
     @Override
     public void saveBatch(List<T> list) {
-        manager.saveBatch(list);
+
     }
 
     @Override
     public void removeById(Long id) {
-        manager.removeById(id);
+
     }
 
     @Override
     public void removeBatch(List<Long> idList) {
-       manager.removeBatch(idList);
+
     }
 
     @Override
     public void removeByParam(T t) {
-        manager.removeByParam(t);
+
     }
 
     @Override
     public void modify(T t) {
-        manager.modify(t);
+
     }
 
     @Override
     public void modifyBatch(List<T> list) {
-       manager.modifyBatch(list);
+
     }
 
     @Override
     public T getById(Long id) {
-        return manager.getById(id);
+        return null;
     }
 
     @Override
     public List<T> listByObject(T t) {
-        return manager.listByObject(t);
+        return null;
     }
 
     @Override
     public List<T> listByIds(List<Long> ids) {
-        return manager.listByIds(ids);
+        return null;
     }
 
     @Override
     public List<T> listPage(T t, Integer size, Integer offset) {
-        return manager.listPage(t,size,offset);
+        return null;
     }
 
     @Override
     public Integer countParam(T t) {
-        return manager.countParam(t);
+        return null;
     }
 }

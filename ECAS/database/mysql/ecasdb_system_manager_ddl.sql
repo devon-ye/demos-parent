@@ -41,7 +41,7 @@ CREATE TABLE ecasdb.sm_user_info (
 
 DROP  TABLE IF EXISTS   ecasdb.sm_role_info;
 CREATE TABLE ecasdb.sm_role_info(
-   id BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
+   id  BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
    role_id varchar(64) NOT  NULL COMMENT '角色编码',
    role_name VARCHAR(64) DEFAULT NULL COMMENT '角色名称',
    role_type char(1) COMMENT '角色类型',

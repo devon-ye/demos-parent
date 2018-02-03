@@ -10,18 +10,18 @@ import java.util.List;
  * @Description: TODO
  * @date 18-1-31 上午12:57
  */
-public interface BaseDao <T> {
+public interface BaseDao <E extends BaseEntiy> {
     /**
      * 单条记录存储
-     * @param t
+     * @param entiy
      */
-    void inser(T t);
+    void inser(E entiy);
 
     /**
      * 批量存储
      * @param list
      */
-    void insertBatch(List<T> list);
+    void insertBatch(List<E> list);
 
     /**
      * 根据ＩＤ删除
@@ -37,55 +37,55 @@ public interface BaseDao <T> {
 
     /**
      * 根据参数删除
-     * @param t
+     * @param entiy
      */
-    void deleteByParam(T t);
+    void deleteByParam(E entiy);
 
     /**
      *修改单条记录
-     * @param t
+     * @param entiy
      */
-    void update(T t);
+    void update(E entiy);
 
     /**
      *批量修改记录
      * @param list
      */
-    void updateBatch(List<T> list);
+    void updateBatch(List<E> list);
 
 
     /**
      *根据Ｉｄ查询
      */
-    T selectById(Long id);
+    E selectById(Long id);
 
     /**
      *根据对象查询集合
-     * @param t
+     * @param entiy
      * @return
      */
-    List<T> selectList(T t);
+    List<E> selectList(E entiy);
 
     /**
      *根据ＩＤ集合查询对象集合
      * @param ids
      * @return
      */
-    List<T> selectByIds(List<Long> ids);
+    List<E> selectByIds(List<Long> ids);
 
     /**
      *分页查询
-     * @param t
+     * @param entiy
      * @param size
      * @param offset
      * @return
      */
-    List<T> selectPage(T t, Integer size, Integer offset);
+    List<E> selectPage(E entiy, Integer size, Integer offset);
 
     /**
      *根据参数
-     * @param t
+     * @param entiy
      * @return
      */
-    Integer countParam(T t);
+    Integer countParam(E entiy);
 }

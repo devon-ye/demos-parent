@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.ecas.common.base.service.BaseService;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.atomic.LongAdder;
 
 /**
  * @author devon
@@ -32,7 +30,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param list
      */
    protected void saveBatch(List<T> list){
-
+       service.saveBatch(list);
    }
 
     /**
@@ -40,7 +38,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param id
      */
    protected void removeById(Long id){
-
+       service.removeById(id);
    }
 
     /**
@@ -48,7 +46,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param idList
      */
    protected void removeBatch(List<Long> idList){
-
+        service.removeBatch(idList);
    }
 
     /**
@@ -56,7 +54,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param t
      */
    protected void removeByParam(T t){
-
+        service.removeByParam(t);
    }
 
     /**
@@ -64,7 +62,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param t
      */
    protected void modify(T t){
-
+     service.modify(t);
    }
 
     /**
@@ -72,7 +70,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param list
      */
    protected void modifyBatch(List<T> list){
-
+        service.modifyBatch(list);
     }
 
 
@@ -80,7 +78,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      *根据Ｉｄ查询
      */
    protected T getById(Long id){
-
+        return  service.getById(id);
     }
 
     /**
@@ -89,7 +87,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @return
      */
    protected List<T>  listByObject(T t){
-
+        return  service.listByObject(t);
    }
 
     /**
@@ -98,7 +96,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @return
      */
    protected List<T> listByIds(List<Long> ids){
-
+        return  service.listByIds(ids);
    }
 
     /**
@@ -109,7 +107,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @return
      */
     protected List<T> listPage(T t, Integer size, Integer offset){
-
+            return service.listPage(t,size,offset);
     }
 
     /**
@@ -118,7 +116,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @return
      */
     protected Integer countParam(T t){
-
+        return service.countParam(t);
     }
 
 
