@@ -107,7 +107,7 @@ CREATE TABLE ecasdb.ecas_role_permission(
     modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
     modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
     PRIMARY KEY (serial_no)
-)DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='角色权限管理表';
 
 
 
@@ -117,12 +117,12 @@ CREATE TABLE ecasdb.ecas_permission_menu(
    serial_no BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
    permission_id VARCHAR (64) NOT NULL COMMENT '',
    menu_id varchar(64) NOT  null COMMENT '',
-    create_time DATETIME NOT NULL  COMMENT '创建时间',
-    create_id varchar(64) NOT NULL COMMENT '创建人id',
-    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
-    PRIMARY KEY (serial_no)
-)DEFAULT CHARSET=utf8;
+   create_time DATETIME NOT NULL  COMMENT '创建时间',
+   create_id varchar(64) NOT NULL COMMENT '创建人id',
+   modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+   modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+   PRIMARY KEY (serial_no)
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='权限菜单管理表';
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_resource_info;
 CREATE TABLE ecasdb.ecas_resource_info(
@@ -135,7 +135,7 @@ CREATE TABLE ecasdb.ecas_resource_info(
    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
     PRIMARY KEY (serial_no)
-)DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='资源信息表';
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_role_resource;
 CREATE TABLE ecasdb.ecas_role_resource(
@@ -163,7 +163,7 @@ CREATE TABLE ecasdb.ecas_department_info(
     modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
     modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
     PRIMARY KEY (serial_no)
-)DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='部门信息表';
 
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_user_department;
@@ -176,7 +176,7 @@ CREATE TABLE ecasdb.ecas_ecas_user_department(
     modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
     modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
     PRIMARY KEY (serial_no)
-)DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户部门管理表';
 
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_organization_info;
@@ -186,15 +186,14 @@ CREATE TABLE ecasdb.ecas_organization_info(
    organization_name varchar(50) NOT  NULL COMMENT'',
    organization_desc varchar(255) DEFAULT NULL COMMENT '',
    organization_level char(1) NOT NULL COMMENT'',
-   parent_id     VARCHAR(64) COMMENT '',
    child_id    VARCHAR (64) COMMENT '',
    registration_code varchar(50) COMMENT '',
-    create_time DATETIME NOT NULL  COMMENT '创建时间',
-    create_id varchar(64) NOT NULL COMMENT '创建人id',
-    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
-    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
-    PRIMARY KEY (serial_no)
-)DEFAULT CHARSET=utf8;
+   create_time DATETIME NOT NULL  COMMENT '创建时间',
+   create_id varchar(64) NOT NULL COMMENT '创建人id',
+   modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+   modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
+   PRIMARY KEY (serial_no)
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='组织信息表';
 
 DROP  TABLE IF EXISTS   ecasdb.ecas_permission_group_info;
 CREATE TABLE ecasdb.ecas_permission_group_info(
@@ -206,8 +205,8 @@ CREATE TABLE ecasdb.ecas_permission_group_info(
    create_id varchar(64) NOT NULL COMMENT '创建人id',
    modify_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
    modify_id varchar(64) DEFAULT "" COMMENT '更新人id',
-    PRIMARY KEY (serial_no)
-) DEFAULT CHARSET=utf8;
+   PRIMARY KEY (serial_no)
+) ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='权限组信息表';
 
 
 
