@@ -1,5 +1,6 @@
 package com.ecas.common.base.controller;
 
+import com.ecas.common.base.model.ModelResult;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ecas.common.base.service.BaseService;
@@ -23,6 +24,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      */
    protected void save(T t){
      service.save(t);
+     responseMessage(ModelResult.CODE_200,ModelResult.SUCCESS);
    }
 
     /**
@@ -77,8 +79,8 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
     /**
      *根据Ｉｄ查询
      */
-   protected T getById(Long id){
-        return  service.getById(id);
+   protected void getById(Long id){
+          service.getById(id);
     }
 
     /**
@@ -86,8 +88,8 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param t
      * @return
      */
-   protected List<T>  listByObject(T t){
-        return  service.listByObject(t);
+   protected void   listByObject(T t){
+         service.listByObject(t);
    }
 
     /**
@@ -95,8 +97,8 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param ids
      * @return
      */
-   protected List<T> listByIds(List<Long> ids){
-        return  service.listByIds(ids);
+   protected void listByIds(List<Long> ids){
+          service.listByIds(ids);
    }
 
     /**
@@ -106,8 +108,8 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param offset
      * @return
      */
-    protected List<T> listPage(T t, Integer size, Integer offset){
-            return service.listPage(t,size,offset);
+    protected void listPage(T t, Integer size, Integer offset){
+             service.listPage(t,size,offset);
     }
 
     /**
@@ -115,8 +117,8 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param t
      * @return
      */
-    protected Integer countParam(T t){
-        return service.countParam(t);
+    protected void countParam(T t){
+         service.countParam(t);
     }
 
 
