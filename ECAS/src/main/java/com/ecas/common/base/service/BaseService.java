@@ -56,21 +56,21 @@ public interface BaseService<T> {
     /**
      *根据Ｉｄ查询
      */
-    T getById(Long id);
+    T queryById(Long id);
 
     /**
      *根据对象查询集合
      * @param t
      * @return
      */
-    List<T> find(T t);
+    List<T> queryListByObject(T t);
 
     /**
      *根据ＩＤ集合查询对象集合
      * @param ids
      * @return
      */
-    List<T> getByIds(List<Long> ids);
+    List<T> queryByIds(List<Long> ids);
 
     /**
      *分页查询
@@ -79,10 +79,10 @@ public interface BaseService<T> {
      * @param offset
      * @return
      */
-    List<T> page(T t, Integer size, Integer offset);
+    List<T> queryPage(T t, Integer size, Integer offset);
 
     /**
-     *根据参数
+     *根据参数统计
      * @param t
      * @return
      */
