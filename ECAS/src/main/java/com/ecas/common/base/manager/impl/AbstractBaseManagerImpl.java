@@ -6,6 +6,7 @@ import com.ecas.common.base.model.BaseEntiy;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 /**
@@ -14,56 +15,56 @@ import java.util.List;
  * @Description: 通用业务处理实现和第三方RPC接口调用实现
  * @date 2/3/18 11:13 PM
  */
-public class AbstractBaseManagerImpl<D extends BaseDao<E>, E extends BaseEntiy,T> implements BaseManager<T> {
+public abstract  class AbstractBaseManagerImpl<D extends BaseDao<E>, E extends BaseEntiy,T> implements BaseManager<T> {
 
     @Autowired
     protected D dao;
 
     @Override
     public int save(T t) {
-        BaseEntiy entiy = new BaseEntiy();
-//        BaseEntiy ent = BeanUtils.
-//        dao.inser(entiy);
+       E entiy = transferToEntity(t);
+      return dao.inser(entiy);
     }
 
     @Override
     public int saveBatch(List<T> list) {
-
+         return  dao.insertBatch(transferToEntiyList(list));
     }
 
     @Override
     public int removeById(Long id) {
-
+         return dao.deleteById(id);
     }
 
     @Override
     public int removeBatch(List<Long> idList) {
-
+        return dao.deleteBatch(idList);
     }
 
     @Override
     public int removeByParam(T t) {
-
+            return dao.deleteByParam(transferToEntity(t));
     }
 
     @Override
     public int modify(T t) {
-
+            return dao.update(transferToEntity(t));
     }
 
     @Override
     public int modifyBatch(List<T> list) {
-
+            return dao.updateBatch(transferToEntiyList(list));
     }
 
     @Override
     public T getById(Long id) {
-        return null;
+        E entiy = dao.selectById(id);
+        return transferToDTO(entiy);
     }
 
     @Override
     public List<T> listByObject(T t) {
-        return null;
+        return transferToDTOList(dao.selectList(transferToEntity(t)));
     }
 
     @Override
@@ -80,4 +81,9 @@ public class AbstractBaseManagerImpl<D extends BaseDao<E>, E extends BaseEntiy,T
     public int countParam(T t) {
         return 0;
     }
+
+    protected abstract E transferToEntity(T dto);
+    protected abstract List<E> transferToEntiyList(List<T> dtoList);
+    protected abstract T transferToDTO(E entiy);
+    protected abstract List<T> transferToDTOList(List<E> entiyList);
 }
