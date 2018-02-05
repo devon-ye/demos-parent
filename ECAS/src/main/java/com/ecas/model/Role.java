@@ -1,11 +1,13 @@
 package com.ecas.model;
 
+import com.ecas.common.base.model.BaseEntiy;
+
 import java.util.Date;
 
 /**
  * Created by lenovo on 2017/12/20.
  */
-public class Role {
+public class Role extends BaseEntiy {
     private int roleId;
     private String roleName;
     private String roleType;

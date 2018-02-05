@@ -1,9 +1,11 @@
 package com.ecas.model;
 
+import com.ecas.common.base.model.BaseEntiy;
+
 /**
  * Created by lenovo on 2017/12/23.
  */
-public class Menu {
+public class Menu extends BaseEntiy {
 
 
     private String menuId;

@@ -20,39 +20,39 @@ public class AbstractBaseManagerImpl<D extends BaseDao<E>, E extends BaseEntiy,T
     protected D dao;
 
     @Override
-    public void save(T t) {
+    public int save(T t) {
         BaseEntiy entiy = new BaseEntiy();
 //        BaseEntiy ent = BeanUtils.
 //        dao.inser(entiy);
     }
 
     @Override
-    public void saveBatch(List<T> list) {
+    public int saveBatch(List<T> list) {
 
     }
 
     @Override
-    public void removeById(Long id) {
+    public int removeById(Long id) {
 
     }
 
     @Override
-    public void removeBatch(List<Long> idList) {
+    public int removeBatch(List<Long> idList) {
 
     }
 
     @Override
-    public void removeByParam(T t) {
+    public int removeByParam(T t) {
 
     }
 
     @Override
-    public void modify(T t) {
+    public int modify(T t) {
 
     }
 
     @Override
-    public void modifyBatch(List<T> list) {
+    public int modifyBatch(List<T> list) {
 
     }
 
@@ -77,7 +77,7 @@ public class AbstractBaseManagerImpl<D extends BaseDao<E>, E extends BaseEntiy,T
     }
 
     @Override
-    public Integer countParam(T t) {
-        return null;
+    public int countParam(T t) {
+        return 0;
     }
 }

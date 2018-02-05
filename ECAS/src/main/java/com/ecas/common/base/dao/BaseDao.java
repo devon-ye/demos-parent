@@ -15,43 +15,43 @@ public interface BaseDao <E extends BaseEntiy> {
      * 单条记录存储
      * @param entiy
      */
-    void inser(E entiy);
+    int inser(E entiy);
 
     /**
      * 批量存储
      * @param list
      */
-    void insertBatch(List<E> list);
+    int insertBatch(List<E> list);
 
     /**
      * 根据ＩＤ删除
      * @param id
      */
-    void deleteById(Long id);
+    int deleteById(Long id);
 
     /**
      * 根据集合删除
      * @param idList
      */
-    void deleteBatch(List<Long> idList);
+    int deleteBatch(List<Long> idList);
 
     /**
      * 根据参数删除
      * @param entiy
      */
-    void deleteByParam(E entiy);
+    int deleteByParam(E entiy);
 
     /**
      *修改单条记录
      * @param entiy
      */
-    void update(E entiy);
+    int update(E entiy);
 
     /**
      *批量修改记录
      * @param list
      */
-    void updateBatch(List<E> list);
+    int updateBatch(List<E> list);
 
 
     /**
@@ -87,5 +87,5 @@ public interface BaseDao <E extends BaseEntiy> {
      * @param entiy
      * @return
      */
-    Integer countParam(E entiy);
+    int countParam(E entiy);
 }

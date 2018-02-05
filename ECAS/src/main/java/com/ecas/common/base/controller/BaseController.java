@@ -23,8 +23,8 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param t
      */
    protected void save(T t){
-     service.save(t);
-     responseMessage(ModelResult.CODE_200,ModelResult.SUCCESS);
+     int result = service.save(t);
+     responseMessage(result == 1 ? ModelResult.CODE_200:ModelResult.CODE_500,result == 1?ModelResult.SUCCESS:ModelResult.FAIL);
    }
 
     /**
@@ -32,7 +32,9 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param list
      */
    protected void saveBatch(List<T> list){
-       service.saveBatch(list);
+     int result =   service.saveBatch(list);
+       responseMessage(result == 1 ? ModelResult.CODE_200:ModelResult.CODE_500,result == 1?ModelResult.SUCCESS:ModelResult.FAIL);
+
    }
 
     /**
@@ -40,7 +42,9 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param id
      */
    protected void removeById(Long id){
-       service.removeById(id);
+       int result = service.removeById(id);
+       responseMessage(result == 1 ? ModelResult.CODE_200:ModelResult.CODE_500,result == 1?ModelResult.SUCCESS:ModelResult.FAIL);
+
    }
 
     /**
@@ -48,7 +52,9 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param idList
      */
    protected void removeBatch(List<Long> idList){
-        service.removeBatch(idList);
+       int result = service.removeBatch(idList);
+       responseMessage(result == 1 ? ModelResult.CODE_200:ModelResult.CODE_500,result == 1?ModelResult.SUCCESS:ModelResult.FAIL);
+
    }
 
     /**
@@ -56,7 +62,9 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param t
      */
    protected void removeByParam(T t){
-        service.removeByParam(t);
+       int result =  service.removeByParam(t);
+       responseMessage(result == 1 ? ModelResult.CODE_200:ModelResult.CODE_500,result == 1?ModelResult.SUCCESS:ModelResult.FAIL);
+
    }
 
     /**
@@ -64,7 +72,9 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param t
      */
    protected void modify(T t){
-     service.modify(t);
+    int result=     service.modify(t);
+       responseMessage(result == 1 ? ModelResult.CODE_200:ModelResult.CODE_500,result == 1?ModelResult.SUCCESS:ModelResult.FAIL);
+
    }
 
     /**
@@ -72,16 +82,19 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @param list
      */
    protected void modifyBatch(List<T> list){
-        service.modifyBatch(list);
-    }
+        int result = service.modifyBatch(list);
+       responseMessage(result == 1 ? ModelResult.CODE_200:ModelResult.CODE_500,result == 1?ModelResult.SUCCESS:ModelResult.FAIL);
+   }
 
 
     /**
      *根据Ｉｄ查询
      */
    protected void getById(Long id){
-          service.getById(id);
-    }
+        T result =   service.getById(id);
+       resonseEntiy(result);
+
+   }
 
     /**
      *根据对象查询集合
@@ -89,7 +102,8 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @return
      */
    protected void   listByObject(T t){
-         service.listByObject(t);
+        List<T> list = service.listByObject(t);
+        resonseList(list);
    }
 
     /**
@@ -98,7 +112,8 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @return
      */
    protected void listByIds(List<Long> ids){
-          service.listByIds(ids);
+       List<T> list = service.listByIds(ids);
+       resonseList(list);
    }
 
     /**
@@ -109,7 +124,10 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @return
      */
     protected void listPage(T t, Integer size, Integer offset){
-             service.listPage(t,size,offset);
+
+        //TODO check size and offset
+        List<T> list =    service.listPage(t,size,offset);
+        resonseList(list);
     }
 
     /**
@@ -118,7 +136,7 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @return
      */
     protected void countParam(T t){
-         service.countParam(t);
+        int count = service.countParam(t);
     }
 
 

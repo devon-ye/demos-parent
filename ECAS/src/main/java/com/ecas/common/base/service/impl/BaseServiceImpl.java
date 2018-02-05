@@ -20,38 +20,38 @@ public  class BaseServiceImpl<M extends BaseManager<T>,T> implements BaseService
     public M manager;
 
     @Override
-    public void save(T t) {
-       manager.save(t);
+    public int save(T t) {
+      return manager.save(t);
     }
 
     @Override
-    public void saveBatch(List<T> list) {
-        manager.saveBatch(list);
+    public int saveBatch(List<T> list) {
+        return manager.saveBatch(list);
     }
 
     @Override
-    public void removeById(Long id) {
-        manager.removeById(id);
+    public int removeById(Long id) {
+        return manager.removeById(id);
     }
 
     @Override
-    public void removeBatch(List<Long> idList) {
-       manager.removeBatch(idList);
+    public int removeBatch(List<Long> idList) {
+        return manager.removeBatch(idList);
     }
 
     @Override
-    public void removeByParam(T t) {
-        manager.removeByParam(t);
+    public int removeByParam(T t) {
+        return manager.removeByParam(t);
     }
 
     @Override
-    public void modify(T t) {
-        manager.modify(t);
+    public int modify(T t) {
+        return manager.modify(t);
     }
 
     @Override
-    public void modifyBatch(List<T> list) {
-       manager.modifyBatch(list);
+    public int modifyBatch(List<T> list) {
+        return manager.modifyBatch(list);
     }
 
     @Override
@@ -75,7 +75,7 @@ public  class BaseServiceImpl<M extends BaseManager<T>,T> implements BaseService
     }
 
     @Override
-    public Integer countParam(T t) {
+    public int countParam(T t) {
         return manager.countParam(t);
     }
 }

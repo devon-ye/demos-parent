@@ -14,43 +14,43 @@ public interface BaseService<T> {
      * 单条记录存储
      * @param t
      */
-    void save(T t);
+    int save(T t);
 
     /**
      * 批量存储
      * @param list
      */
-    void saveBatch(List<T> list);
+    int saveBatch(List<T> list);
 
     /**
      * 根据ＩＤ删除
      * @param id
      */
-    void removeById(Long id);
+    int removeById(Long id);
 
     /**
      * 根据集合删除
      * @param idList
      */
-    void removeBatch(List<Long> idList);
+    int removeBatch(List<Long> idList);
 
     /**
      * 根据参数删除
      * @param t
      */
-    void removeByParam(T t);
+    int removeByParam(T t);
 
     /**
      *修改单条记录
      * @param t
      */
-    void modify(T t);
+    int modify(T t);
 
     /**
      *批量修改记录
      * @param list
      */
-    void modifyBatch(List<T> list);
+    int modifyBatch(List<T> list);
 
 
     /**
@@ -86,7 +86,7 @@ public interface BaseService<T> {
      * @param t
      * @return
      */
-    Integer countParam(T t);
+    int countParam(T t);
 
 
 }
