@@ -262,6 +262,25 @@
             <version>2.9.1</version>
         </dependency>
     </dependencies>
+    <!--多环境配置 -->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <resourcePath>dev</resourcePath>
+            </properties>
+        </profile>
+        <profile>
+            <id>proc</id>
+            <properties>
+                <resourcePath>proc</resourcePath>
+            </properties>
+        </profile>
+
+    </profiles>
     <build>
         <finalName>ECAS</finalName>
         <plugins>

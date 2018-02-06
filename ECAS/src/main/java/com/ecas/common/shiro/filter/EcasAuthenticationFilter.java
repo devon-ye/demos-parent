@@ -30,10 +30,8 @@ import redis.clients.jedis.Jedis;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,6 +65,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
         Subject subject = getSubject(request, response);
         if( ! subject.isAuthenticated() && !subject.isRemembered()) {
             //验证不通过走验证流程
+            LOGGER.debug("isAccessAllowed is  refuse! it will onAccessDenied method");
             return true;
         }
         Session session = subject.getSession();
