@@ -54,10 +54,21 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
     @Autowired
     EcasSessiondDao ecasSessionDao;
 
+    /**
+     * 身份验证
+     * @param request
+     * @param response
+     * @param mappedValue
+     * @return
+     */
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
         LOGGER.debug("isAccessAllowed,request:{}, response:{},mappedValue:{}",request,response,mappedValue);
         Subject subject = getSubject(request, response);
+        if( ! subject.isAuthenticated() && !subject.isRemembered()) {
+            //验证不通过走验证流程
+            return true;
+        }
         Session session = subject.getSession();
         //TODO
 //        // 判断请求类型
@@ -76,7 +87,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         LOGGER.debug("onAccessDenied,request:{}, response:{}",request,response);
         //TODO
-        StringBuffer ssoServerUrl = new StringBuffer(PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.sso.server.url"));
+       /* StringBuffer ssoServerUrl = new StringBuffer(PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.sso.server.url"));
         // server需要登录
         String upmsType = PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.type");
         if ("server".equals(upmsType)) {
@@ -92,8 +103,9 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
             backurl.append("?").append(queryString);
         }
         ssoServerUrl.append("&").append("backurl").append("=").append(URLEncoder.encode(backurl.toString(), "utf-8"));
-        WebUtils.toHttp(response).sendRedirect(ssoServerUrl.toString());
-        return false;
+        WebUtils.toHttp(response).sendRedirect(ssoServerUrl.toString());*/
+
+        return true;
     }
 
     /**
