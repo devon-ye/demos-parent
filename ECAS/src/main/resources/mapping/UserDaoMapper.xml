@@ -4,7 +4,7 @@
 <mapper namespace="com.ecas.dao.IUserDao">
 
     <!-- result costruct -->
-    <resultMap id="userResultMap" type="com.ecas.model.User">
+    <resultMap id="userResultMap" type="com.ecas.entiy.User">
         <result column="user_id" property="userId" jdbcType="VARCHAR"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>

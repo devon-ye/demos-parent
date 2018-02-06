@@ -1,15 +1,16 @@
-package com.ecas.common.base.service;
+package com.ecas.common.base.manager;
+
+import com.ecas.common.base.model.BaseEntiy;
 
 import java.util.List;
 
 /**
  * @author devon
  * @version V1.0
- * @Description: TODO
- * @date ${date} ${time}
+ * @Description: 通用业务处理及第三方RPC接口的封装接口
+ * @date 2/3/18 11:12 PM
  */
-public interface BaseService<T> {
-
+public interface BaseManager<T> {
     /**
      * 单条记录存储
      * @param t
@@ -87,6 +88,5 @@ public interface BaseService<T> {
      * @return
      */
     int countParam(T t);
-
 
 }

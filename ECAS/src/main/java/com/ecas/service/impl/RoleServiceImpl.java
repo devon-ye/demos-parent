@@ -1,7 +1,9 @@
 package com.ecas.service.impl;
 
+import com.ecas.common.base.manager.BaseManager;
+import com.ecas.common.base.service.impl.BaseServiceImpl;
 import com.ecas.dao.IRoleDao;
-import com.ecas.model.Role;
+import com.ecas.entiy.Role;
 import com.ecas.service.IRoleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service("roleService")
-public class RoleServiceImpl extends ServiceImpl implements IRoleService {
+public class RoleServiceImpl extends BaseServiceImpl<BaseManager<Role>,Role> implements IRoleService {
 
     @Autowired
     private IRoleDao roleDao;

@@ -2,8 +2,8 @@ package com.ecas.common.base.service.impl;
 
 
 
-import com.ecas.common.base.dao.BaseDao;
-import com.ecas.common.base.model.BaseEntiy;
+
+import com.ecas.common.base.manager.BaseManager;
 import com.ecas.common.base.service.BaseService;
 
 import java.util.List;
@@ -14,68 +14,68 @@ import java.util.List;
  * @Description: TODO
  * @date 18-1-31 上午12:49
  */
-public   class BaseServiceImpl<D extends BaseDao<T>,T> implements BaseService<T> {
+public  class BaseServiceImpl<M extends BaseManager<T>,T> implements BaseService<T> {
 
 
-    public D dao;
+    public M manager;
 
     @Override
-    public void save(T t) {
-       dao.inser(t);
+    public int save(T t) {
+      return manager.save(t);
     }
 
     @Override
-    public void saveBatch(List<T> list) {
-        dao.insertBatch(list);
+    public int saveBatch(List<T> list) {
+        return manager.saveBatch(list);
     }
 
     @Override
-    public void removeById(Long id) {
-        dao.deleteById(id);
+    public int removeById(Long id) {
+        return manager.removeById(id);
     }
 
     @Override
-    public void removeBatch(List<Long> idList) {
-       dao.deleteBatch(idList);
+    public int removeBatch(List<Long> idList) {
+        return manager.removeBatch(idList);
     }
 
     @Override
-    public void removeByParam(T t) {
-        dao.deleteByParam(t);
+    public int removeByParam(T t) {
+        return manager.removeByParam(t);
     }
 
     @Override
-    public void modify(T t) {
-        dao.update(t);
+    public int modify(T t) {
+        return manager.modify(t);
     }
 
     @Override
-    public void modifyBatch(List<T> list) {
-       dao.updateBatch(list);
+    public int modifyBatch(List<T> list) {
+        return manager.modifyBatch(list);
     }
 
     @Override
     public T getById(Long id) {
-        return dao.selectById(id);
+        return manager.getById(id);
     }
 
     @Override
-    public List<T> find(T t) {
-        return dao.selectList(t);
+    public List<T> listByObject(T t) {
+        return manager.listByObject(t);
     }
 
     @Override
-    public List<T> getByIds(List<Long> ids) {
-        return dao.selectByIds(ids);
+    public List<T> listByIds(List<Long> ids) {
+        return manager.listByIds(ids);
     }
 
     @Override
-    public List<T> page(T t, Integer size, Integer offset) {
-        return dao.selectPage(t,size,offset);
+    public List<T> listPage(T t, Integer size, Integer offset) {
+        return manager.listPage(t,size,offset);
     }
 
     @Override
-    public Integer countParam(T t) {
-        return dao.countParam(t);
+    public int countParam(T t) {
+        return manager.countParam(t);
     }
 }

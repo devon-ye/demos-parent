@@ -1,10 +1,12 @@
 package com.ecas.controller;
 
+import com.ecas.common.base.controller.BaseController;
 import com.ecas.common.constants.Constants;
 import com.ecas.common.shiro.session.EcasSession;
 import com.ecas.common.shiro.session.EcasSessiondDao;
-import com.ecas.model.Login;
-import com.ecas.model.SessionInfo;
+import com.ecas.entiy.Login;
+import com.ecas.entiy.SessionInfo;
+import com.ecas.entiy.User;
 import com.ecas.service.IUserService;
 import com.ecas.util.RedisUtil;
 import com.ecas.util.SerializationUtil;
@@ -40,12 +42,10 @@ import java.util.UUID;
 @Api(value = "登录管理" ,tags="1.0.0",produces = "ecas",protocols = "http-1.1")
 @Controller
 @RequestMapping("/ecas")
-public class LoginManagerController extends AbstractBaseController {
+public class LoginManagerController extends BaseController<IUserService,User> {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginManagerController.class);
 
 
-    @Autowired
-    private IUserService userService;
     @Autowired
     private EcasSessiondDao ecasSessiondDao;
 

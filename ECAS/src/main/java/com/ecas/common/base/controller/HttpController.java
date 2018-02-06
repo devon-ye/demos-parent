@@ -37,7 +37,7 @@ public class HttpController {
     protected  final void  resonseEntiy(Object entiy){
         int code = 0;
         String message = "";
-       if(entiy != null) {
+        if(entiy != null) {
           code = ModelResult.CODE_200;
            message = ModelResult.SUCCESS;
        }else {
@@ -47,7 +47,20 @@ public class HttpController {
         resonseEntiy(code,message,entiy);
     }
 
-    protected  final void  resonseEntiy(int code,String message,List list){
+    protected  final void  resonseList(List list){
+        int code = 0;
+        String message = "";
+        if(list != null) {
+            code = ModelResult.CODE_200;
+            message = ModelResult.SUCCESS;
+        }else {
+            code = ModelResult.CODE_500;
+            message = ModelResult.FAIL;
+        }
+        resonseList(code,message,list);
+    }
+
+    protected  final void  resonseList(int code,String message,List list){
         ModelResult modelResult = new ModelResult(code,message);
         modelResult.setList(list);
         httpServletRequest.setAttribute(RESULT_KEY,modelResult);

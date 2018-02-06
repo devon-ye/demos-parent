@@ -1,8 +1,10 @@
 package com.ecas.dao;
 
+import com.ecas.common.base.dao.BaseDao;
+import com.ecas.entiy.UserRole;
 import org.apache.ibatis.annotations.Param;
 
-public interface IUserRoleDao {
+public interface IUserRoleDao extends BaseDao<UserRole>{
 
-    public String getRoleIdByUserId(@Param("userId") String userId);
+     String getRoleIdByUserId(@Param("userId") String userId);
 }

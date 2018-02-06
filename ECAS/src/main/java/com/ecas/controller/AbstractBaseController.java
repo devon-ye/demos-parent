@@ -1,6 +1,6 @@
 package com.ecas.controller;
 
-import com.ecas.model.Login;
+import com.ecas.entiy.Login;
 import org.springframework.stereotype.Controller;
 
 import javax.servlet.http.HttpServletRequest;

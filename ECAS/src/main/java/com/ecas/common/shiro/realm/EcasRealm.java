@@ -1,17 +1,11 @@
 package com.ecas.common.shiro.realm;
 
-import com.ecas.common.constants.Constants;
-import com.ecas.common.shiro.service.CaptchaCacheService;
-import com.ecas.model.Role;
-import com.ecas.model.User;
-import com.ecas.model.UserRole;
+import com.ecas.entiy.User;
 import com.ecas.service.IRoleService;
 import com.ecas.service.IUserRoleService;
 import com.ecas.service.IUserService;
 import com.ecas.util.*;
 import org.apache.shiro.authc.*;
-import org.apache.shiro.authc.credential.DefaultPasswordService;
-import org.apache.shiro.authc.credential.PasswordService;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
