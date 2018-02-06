@@ -69,17 +69,17 @@ public abstract  class AbstractBaseManagerImpl<D extends BaseDao<E>, E extends B
 
     @Override
     public List<T> listByIds(List<Long> ids) {
-        return null;
+        return transferToDTOList(dao.selectByIds(ids));
     }
 
     @Override
     public List<T> listPage(T t, Integer size, Integer offset) {
-        return null;
+        return transferToDTOList(dao.selectPage(transferToEntity(t),size,offset));
     }
 
     @Override
     public int countParam(T t) {
-        return 0;
+        return dao.countParam(transferToEntity(t));
     }
 
     protected abstract E transferToEntity(T dto);

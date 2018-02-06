@@ -124,7 +124,6 @@ public class BaseController <S extends BaseService<T>,T> extends HttpController 
      * @return
      */
     protected void listPage(T t, Integer size, Integer offset){
-
         //TODO check size and offset
         List<T> list =    service.listPage(t,size,offset);
         resonseList(list);
