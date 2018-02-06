@@ -1,4 +1,4 @@
-package com.ecas.model;
+package com.ecas.entiy;
 
 
 import org.springframework.stereotype.Component;

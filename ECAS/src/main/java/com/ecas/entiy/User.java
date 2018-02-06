@@ -1,4 +1,4 @@
-package com.ecas.model;
+package com.ecas.entiy;
 
 import com.ecas.common.base.model.BaseEntiy;
 import lombok.Data;

@@ -1,7 +1,7 @@
 package com.ecas.dao;
 
 import com.ecas.common.base.dao.BaseDao;
-import com.ecas.model.User;
+import com.ecas.entiy.User;
 import org.apache.ibatis.annotations.Param;
 
 /**

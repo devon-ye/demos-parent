@@ -1,6 +1,6 @@
 package com.ecas.controller;
 
-import com.ecas.model.Role;
+import com.ecas.entiy.Role;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

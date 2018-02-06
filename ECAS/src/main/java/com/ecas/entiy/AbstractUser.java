@@ -1,4 +1,4 @@
-package com.ecas.model;
+package com.ecas.entiy;
 
 import java.io.Serializable;
 
