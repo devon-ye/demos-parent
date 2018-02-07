@@ -5,7 +5,7 @@
 <!-- 该配置文件说明插件需要如何生成，以及生成对应的包名，路径等信息。
       还有重要的就是我们要生成的实体类所对应的的表或者试图 -->
 <generatorConfiguration>
-    <properties resource="mybatis_generator/mybatis_generator.properties"/>
+    <properties resource="dev/mybatis_generator/mybatis_generator.properties"/>
 
     <!--
     context:生成一组对象的环境

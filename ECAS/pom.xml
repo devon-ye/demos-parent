@@ -135,6 +135,7 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson_version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -260,6 +261,14 @@
             <groupId>xerces</groupId>
             <artifactId>xercesImpl</artifactId>
             <version>2.9.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <version>3.5.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <!--多环境配置 -->

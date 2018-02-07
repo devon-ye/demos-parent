@@ -43,7 +43,7 @@
                 /druid/** = user
                 /swagger-ui.html = user
                 /resources/** = anon
-                /login.jsp = authc
+                /login.jsp = anon
                 /** = user,authc
             </value>
         </property>

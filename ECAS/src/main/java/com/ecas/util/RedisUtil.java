@@ -22,7 +22,7 @@ public class RedisUtil {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RedisUtil.class);
 
-	private static  final String REDIS_CONFIG_PATH = "redis/redis";
+	private static  final String REDIS_CONFIG_PATH = "dev/redis/redis";
 
 	// Redis服务器IP
 	private static String IP = PropertiesFileUtil.getInstance(REDIS_CONFIG_PATH).get("master.redis.ip");
