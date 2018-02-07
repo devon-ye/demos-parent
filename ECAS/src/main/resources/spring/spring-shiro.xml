@@ -40,11 +40,11 @@
                 /index.jsp = anon
                 /manage/** = ecasSessionForceLogout,authc
                 /manage/index = user
-                /druid/** = user
+                /druid/** = anon
                 /swagger-ui.html = user
                 /resources/** = anon
                 /login.jsp = anon
-                /** = user,authc
+                /** = anon
             </value>
         </property>
     </bean>

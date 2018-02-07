@@ -66,7 +66,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
         if( ! subject.isAuthenticated() && !subject.isRemembered()) {
             //验证不通过走验证流程
             LOGGER.debug("isAccessAllowed is  refuse! it will onAccessDenied method");
-            return true;
+            return false;
         }
         Session session = subject.getSession();
         //TODO
