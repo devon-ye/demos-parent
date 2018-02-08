@@ -156,6 +156,14 @@
             </dependency>
 
             <!-- shiro -->
+            <!-- for javase-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-all</artifactId>
+                <version>${shiro_version}</version>
+                <type>pom</type>
+            </dependency>
+
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-core</artifactId>
