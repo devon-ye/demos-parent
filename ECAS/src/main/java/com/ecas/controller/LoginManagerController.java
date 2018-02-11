@@ -110,8 +110,8 @@ public class LoginManagerController extends BaseController<IUserService,User> {
 
             LOGGER.debug("login, usernamePasswordToken:{}", usernamePasswordToken);
         }
-
-        return "redirect:main";
+        return "/manage/index";
+      //  return "redirect:main";
 
     }
     @ApiOperation(value = "登出" ,httpMethod = "POST")

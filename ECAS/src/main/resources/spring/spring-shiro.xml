@@ -39,10 +39,10 @@
             <value>
                 /index.jsp = anon
                 /manage/** = ecasSessionForceLogout,authc
-                /manage/index = user
+                /manage/index = roles[admin]
                 /druid/** = anon
                 /swagger-ui.html = user
-                /resources/** = anon
+                /resources/** = roles[resource]
                 /login.jsp = anon
                 /** = authc
             </value>
@@ -61,18 +61,21 @@
         </property>
         <property name="sessionManager" ref="sessionManager"/>
         <property name="rememberMeManager" ref="rememberMeManager"/>
+        <property name="authorizer" ref="modularRealmAuthorizer"/>
 <!--
         <property name="cacheManager" ref="cacheManager" />
 -->
     </bean>
     <!-- realm实现，继承自AuthorizingRealm -->
     <bean id="ecasRealm" class="com.ecas.common.shiro.realm.EcasRealm">
+        <!-- 密码加密认证-->
         <property name="credentialsMatcher">
             <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
                 <property name="hashAlgorithmName" value="MD5"/>
                 <property name="hashIterations" value="1"/>
             </bean>
         </property>
+
     </bean>
 
     <!-- 会话管理器 -->
@@ -122,6 +125,11 @@
         <property name="httpOnly" value="true"/>
         <!-- 记住我cookie生效时间 -->
         <property name="maxAge" value="${ecas.rememberMe.timeout}"/>
+    </bean>
+
+
+    <bean id="modularRealmAuthorizer"  class="org.apache.shiro.authz.ModularRealmAuthorizer">
+        <property name="realms" ref="ecasRealm"></property>
     </bean>
 
     <!-- 设置SecurityUtils，相当于调用SecurityUtils.setSecurityManager(securityManager) -->

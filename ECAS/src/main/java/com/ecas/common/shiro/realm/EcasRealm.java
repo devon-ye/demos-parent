@@ -1,6 +1,9 @@
 package com.ecas.common.shiro.realm;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.ecas.entiy.User;
 import com.ecas.service.IRoleService;
 import com.ecas.service.IUserRoleService;
@@ -104,7 +107,10 @@ public class EcasRealm extends AuthorizingRealm {
         String userName = (String) principalCollection.getPrimaryPrincipal();
         User user = (User) userService.getUserByName(userName);
         String roleId = userRoleService.getRoleIdByUserId(user.getUserId());
+        roleService.getRole(roleId);
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+        Set<String> roles = new HashSet<>();
+        simpleAuthorizationInfo.setRoles(roles);
         //TODO
         //  simpleAuthorizationInfo.setRoles();
         //  simpleAuthorizationInfo.setStringPermissions();
