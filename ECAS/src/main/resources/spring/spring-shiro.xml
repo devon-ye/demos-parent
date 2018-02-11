@@ -44,7 +44,7 @@
                 /swagger-ui.html = user
                 /resources/** = anon
                 /login.jsp = anon
-                /** = anon
+                /** = authc
             </value>
         </property>
     </bean>
@@ -61,9 +61,19 @@
         </property>
         <property name="sessionManager" ref="sessionManager"/>
         <property name="rememberMeManager" ref="rememberMeManager"/>
+<!--
+        <property name="cacheManager" ref="cacheManager" />
+-->
     </bean>
     <!-- realm实现，继承自AuthorizingRealm -->
-    <bean id="ecasRealm" class="com.ecas.common.shiro.realm.EcasRealm"/>
+    <bean id="ecasRealm" class="com.ecas.common.shiro.realm.EcasRealm">
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="MD5"/>
+                <property name="hashIterations" value="1"/>
+            </bean>
+        </property>
+    </bean>
 
     <!-- 会话管理器 -->
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">

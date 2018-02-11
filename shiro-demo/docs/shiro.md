@@ -23,6 +23,16 @@
    * session Manager: 会话管理
 ## shiro原理
 
+## 应用流程
+
+   * 1.导包
+   * 2.配置web.xml
+   * 3.配置shiro容器用spring-shiro.xml的Spring配置
+   *
+   *
+   *
+   *
+
 ## shiro认证流程
 
 ## shiro可复写API

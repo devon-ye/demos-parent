@@ -55,6 +55,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
 
     /**
      * 身份验证
+     *
      * @param request
      * @param response
      * @param mappedValue
@@ -62,9 +63,9 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
      */
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
-        LOGGER.debug("isAccessAllowed,request:{}, response:{},mappedValue:{}",request,response,mappedValue);
+        LOGGER.debug("isAccessAllowed,request:{}, response:{},mappedValue:{}", request, response, mappedValue);
         Subject subject = getSubject(request, response);
-        if( ! subject.isAuthenticated() && !subject.isRemembered()) {
+        if (!subject.isAuthenticated() && !subject.isRemembered()) {
             //验证不通过走验证流程
             LOGGER.debug("isAccessAllowed is  refuse! it will onAccessDenied method");
             return false;
@@ -85,7 +86,7 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
 
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-        LOGGER.debug("onAccessDenied,request:{}, response:{}",request,response);
+        LOGGER.debug("onAccessDenied,request:{}, response:{}", request, response);
         //TODO
        /* StringBuffer ssoServerUrl = new StringBuffer(PropertiesFileUtil.getInstance("zheng-upms-client").get("zheng.upms.sso.server.url"));
         // server需要登录
@@ -110,14 +111,15 @@ public class EcasAuthenticationFilter extends AuthenticationFilter {
 
     /**
      * 认证中心登录成功带回code
+     *
      * @param request
      */
     private boolean validateClient(ServletRequest request, ServletResponse response) {
-        LOGGER.debug("validateClient,request:{}, response:{}",request,response);
+        LOGGER.debug("validateClient,request:{}, response:{}", request, response);
 
         Subject subject = getSubject(request, response);
         Session session = subject.getSession();
-       String sessionId = session.getId().toString();
+        String sessionId = session.getId().toString();
         int timeOut = (int) session.getTimeout() / 1000;
         // 判断局部会话是否登录
         String cacheClientSession = RedisUtil.get(CLIENT_SESSION_ID + "_" + session.getId());

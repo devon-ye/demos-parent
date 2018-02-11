@@ -17,8 +17,8 @@ CREATE TABLE ecasdb.sm_login_oauth(
    auth_ip  VARCHAR (256)
 ) ENGINE=InnoDB AUTO_INCREMENT=100000 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户认证表';
 
-DROP  TABLE IF EXISTS   ecasdb.sm_user_info;
-CREATE TABLE ecasdb.sm_user_info (
+DROP  TABLE IF EXISTS   ecasdb.sm_user;
+CREATE TABLE ecasdb.sm_user (
     id BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
     user_id VARCHAR(64) NOT NULL COMMENT '、用户ID',
     user_name VARCHAR(64) DEFAULT NULL COMMENT '用户名',
@@ -39,8 +39,8 @@ CREATE TABLE ecasdb.sm_user_info (
     PRIMARY KEY (id)
 )  ENGINE=InnoDB AUTO_INCREMENT=500 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户信息表';
 
-DROP  TABLE IF EXISTS   ecasdb.sm_role_info;
-CREATE TABLE ecasdb.sm_role_info(
+DROP  TABLE IF EXISTS   ecasdb.sm_role;
+CREATE TABLE ecasdb.sm_role(
    id  BIGINT(8)  not null AUTO_INCREMENT COMMENT '主键',
    role_id varchar(64) NOT  NULL COMMENT '角色编码',
    role_name VARCHAR(64) DEFAULT NULL COMMENT '角色名称',

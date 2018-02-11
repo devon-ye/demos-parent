@@ -1,3 +1,4 @@
+/**
 package com.ecas.common.shiro.service;
 
 import com.ecas.common.shiro.security.MyPasswordHash;
@@ -7,10 +8,16 @@ import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.CacheManager;
 import org.springframework.beans.factory.InitializingBean;
 
-public class RetryLimitHashedCredentialsMatcher  extends HashedCredentialsMatcher implements InitializingBean {
+
+public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher implements InitializingBean {
 
     private final CacheManager cacheManager;
+
     private MyPasswordHash myPasswordHash;
+
+
+    public RetryLimitHashedCredentialsMatcher() {
+    }
 
     public RetryLimitHashedCredentialsMatcher(CacheManager cacheManager, MyPasswordHash myPasswordHash) {
         this.cacheManager = cacheManager;
@@ -25,7 +32,7 @@ public class RetryLimitHashedCredentialsMatcher  extends HashedCredentialsMatche
 
     @Override
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
-       // super.doCredentialsMatch(token,info);
+        // super.doCredentialsMatch(token,info);
         Object tokenHashedCredentials = this.hashProvidedCredentials(token, info);
         Object accountCredentials = this.getCredentials(info);
         return this.equals(tokenHashedCredentials, accountCredentials);
@@ -37,3 +44,5 @@ public class RetryLimitHashedCredentialsMatcher  extends HashedCredentialsMatche
         super.setHashIterations(myPasswordHash.getHashIterations());
     }
 }
+
+ */
