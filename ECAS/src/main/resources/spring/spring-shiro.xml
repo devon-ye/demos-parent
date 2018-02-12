@@ -39,10 +39,8 @@
             <value>
                 /index.jsp = anon
                 /manage/** = ecasSessionForceLogout,authc
-                /manage/index = roles[admin]
                 /druid/** = anon
                 /swagger-ui.html = user
-                /resources/** = roles[resource]
                 /login.jsp = anon
                 /** = authc
             </value>

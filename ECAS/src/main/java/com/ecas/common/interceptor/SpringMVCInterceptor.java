@@ -1,7 +1,6 @@
 package com.ecas.common.interceptor;
 
 import com.ecas.controller.AbstractBaseController;
-import com.ecas.entiy.Login;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;

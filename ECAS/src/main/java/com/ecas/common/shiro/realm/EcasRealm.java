@@ -53,8 +53,9 @@ public class EcasRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        LOGGER.debug("doGetAuthenticationInfo, UsernamePasswordToken:{}", token);
-        User user = (User) userService.getUserByName(token.getUsername());
+        User user = new User();
+        user.setUserName(token.getUsername());
+        User usera = (User) userService.listByObject(user);
         if (user == null) {
             LOGGER.error("current login user not exist!");
             throw new UnknownAccountException();
