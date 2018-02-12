@@ -10,7 +10,5 @@ import org.apache.ibatis.annotations.Param;
 
 public interface IUserDao  extends BaseDao<User>{
 
-    public User  getUserById(String userId);
 
-    public User getUserByName(@Param("userName") String userName);
 }

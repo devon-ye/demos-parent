@@ -11,6 +11,6 @@
     <title>error</title>
 </head>
 <body>
-
+     this is error page
 </body>
 </html>

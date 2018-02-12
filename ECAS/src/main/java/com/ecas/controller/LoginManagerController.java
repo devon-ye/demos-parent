@@ -4,7 +4,6 @@ import com.ecas.common.base.controller.BaseController;
 import com.ecas.common.constants.Constants;
 import com.ecas.common.shiro.session.EcasSession;
 import com.ecas.common.shiro.session.EcasSessiondDao;
-import com.ecas.entiy.Login;
 import com.ecas.entiy.SessionInfo;
 import com.ecas.entiy.User;
 import com.ecas.service.IUserService;
@@ -79,7 +78,7 @@ public class LoginManagerController extends BaseController<IUserService,User> {
         Session session = subject.getSession();
         String serverSessionId = session.getId().toString();
         String sessionIdStr = RedisUtil.get(Constants.SHIRO_SESSION_ID + "_" + serverSessionId);
-        LOGGER.debug("login, 开始认证登录  subject sessionIdStr:{}",sessionIdStr);
+
 
         if (sessionIdStr != null || serverSessionId.length() != 0) {
             LOGGER.debug("password 输入：" + password.toString());
@@ -98,7 +97,7 @@ public class LoginManagerController extends BaseController<IUserService,User> {
             } catch (LockedAccountException e) {
                 LOGGER.error("帐号已锁定！");
             }
-
+        //    PrincipalCollection  principalCollection =  subject.getPrincipals();
            String userNames = (String) subject.getPrincipal();
             LOGGER.debug("login, 认证登录完成！ userName：{}",userNames);
             ecasSessiondDao.updateStatus(sessionIdStr,EcasSession.OnlineStatus.on_line);
@@ -109,7 +108,7 @@ public class LoginManagerController extends BaseController<IUserService,User> {
 
             LOGGER.debug("login, usernamePasswordToken:{}", usernamePasswordToken);
         }
-
+     //   return "redirect:/manage/index";
         return "redirect:main";
 
     }

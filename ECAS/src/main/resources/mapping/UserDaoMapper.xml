@@ -19,7 +19,7 @@
 
     <!--sql -->
     <sql id="select_column_sql" >SELECT user_id,user_name,password,gender,active_status,age,birthday,phone,email,address</sql>
-    <sql id="from_table_sql">FROM ecas_user_info </sql>
+    <sql id="from_table_sql">FROM su_user </sql>
 
    <!-- 完整sql -->
     <!--<select id="getUserById" resultMap="userResultMap" parameterType="java.lang.String">
@@ -27,7 +27,7 @@
         <include refid="Column_List"/>
     </select>-->
 
-    <select id="getUserByName" resultMap="userResultMap" parameterType="java.lang.String">
+    <select id="selectList" resultMap="userResultMap" parameterType="java.lang.String">
         <include refid="select_column_sql"/>
         <include refid="from_table_sql"/>
         <where>

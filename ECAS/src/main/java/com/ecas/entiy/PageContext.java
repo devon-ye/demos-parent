@@ -2,10 +2,12 @@ package com.ecas.entiy;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.ecas.common.base.model.BaseEntiy;
+
 /**
  * Created by lenovo on 2017/12/9.
  */
-public class PageContext {
+public class PageContext extends BaseEntiy {
     private int pagePerRow = 10;
     private boolean pageState = false;
 
