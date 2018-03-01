@@ -1,4 +1,4 @@
-package com.string.check;
+package com.data.string.check;
 
 public class IpCheckDemo {
 

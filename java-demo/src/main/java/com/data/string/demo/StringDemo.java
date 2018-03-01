@@ -1,4 +1,4 @@
-package com.string.demo;
+package com.data.string.demo;
 
 
 public class StringDemo {

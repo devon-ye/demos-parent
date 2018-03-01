@@ -1,4 +1,4 @@
-package com.string;
+package com.data.string;
 
 import java.lang.*;
 

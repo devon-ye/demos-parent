@@ -1,4 +1,4 @@
-package com.string;
+package com.data.string;
 
 /**
  * Created by lenovo on 2017/11/22.

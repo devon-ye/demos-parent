@@ -1,4 +1,4 @@
-package com.string.demo;
+package com.data.string.demo;
 
 import java.util.Random;
 import java.util.Scanner;

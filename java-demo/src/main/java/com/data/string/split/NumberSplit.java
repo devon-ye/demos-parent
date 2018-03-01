@@ -1,4 +1,4 @@
-package com.string.split;
+package com.data.string.split;
 
 public class NumberSplit {
 	/**
