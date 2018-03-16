@@ -7,10 +7,12 @@ package com.repeatecode.demo;
  * @version 2017年2月10日 下午9:14:26
  *
  */
+
 public class SpaceShipControls {
 
 	void up(int velocity) {
 	}
+
 
 	void down(int velocity) {
 	}
