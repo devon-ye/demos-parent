@@ -19,6 +19,10 @@
         <module>SSO-Server</module>
         <module>shiro-demo</module>
         <module>spring-demo</module>
+        <module>docker-demo</module>
+        <module>spring-redis-demo</module>
+        <module>redis-demo</module>
+        <module>spring-transaction-manager-demo</module>
     </modules>
 
     <properties>
@@ -68,6 +72,7 @@
         <druid_version>1.1.6</druid_version>
         <commons-lang3_version>3.7</commons-lang3_version>
         <jedis_version>2.9.0</jedis_version>
+        <spring-data-redis_version>2.0.5.RELEASE</spring-data-redis_version>
 
         <jcl_version>1.2</jcl_version>
         <jmockit_version>1.33</jmockit_version>
@@ -312,6 +317,12 @@
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
                 <version>${jedis_version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>${spring-data-redis_version}</version>
             </dependency>
 
             <!-- restAPI lib -->

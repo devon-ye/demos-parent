@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/cache
+       http/://www.springframework.org/schema/cache/spring-cache.xsd">
+    <!-- 启动注解式驱动-->
+    <cache:annotation-driven/>
+    <!--spring-data-redis 默认的cacheManager实现 -->
+   <!-- <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
+        <constructor-arg name="cacheWriter" ref=""/>
+        <constructor-arg name="defaultCacheConfiguration" ref=""/>
+        <constructor-arg name="allowInFlightCacheCreation" ref=""/>
+        <constructor-arg name="initialCacheNames" ref=""/>
+    </bean>
+    -->
+    <bean id="cacheManager" class="com.redis.demo.manager.GlobalCacheManager">
+        <property name="transactionAware" value="true"></property>
+        <property name="caches">
+            <set>
+                <bean class="org.springframework.data.redis.cache.RedisCache">
+
+                    <constructor-arg name="name" value="ConfigCache"/>
+                    <constructor-arg name="cacheWriter" ref="defaultRedisCacheWriter"/>
+                    <constructor-arg name="cacheConfig" ref=""/>
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="redisCacheConfig" class="org.springframework.data.redis.cache.RedisCacheConfiguration">
+
+        <constructor-arg name="ttl" ref=""/>
+        <constructor-arg name="cacheNullValues" value="false"/>
+        <constructor-arg name="keyPrefix" value="SYSTEM_CONFIG_"/>
+        <constructor-arg name="usePrefix" value="true"/>
+        <constructor-arg name="keySerializationPair" ref=""/>
+        <constructor-arg name="valueSerializationPair" ref=""/>
+        <constructor-arg name="conversionService" ref=""/>
+    </bean>
+
+    <bean id="cacheWriterImpl" class="com.redis.demo.writer.RedisCacheWriterImpl">
+
+    </bean>
+
+    <bean id="defaultRedisCacheWriter" class="org.springframework.data.redis.cache.DefaultRedisCacheWriter">
+        <constructor-arg index="0" ref=""/>
+        <constructor-arg index="1" ref=""/>
+    </bean>
+</beans>
