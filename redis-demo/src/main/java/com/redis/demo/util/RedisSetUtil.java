@@ -3,11 +3,13 @@ package com.redis.demo.util;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import java.util.List;
 import java.util.Set;
 
 public class RedisSetUtil  {
 
     private static JedisPool jedisPool;
+    private static final Long SUCCESS_STATUS_LONG = 1L;
 
 
     /**************************** redis 集合Set start***************************/
