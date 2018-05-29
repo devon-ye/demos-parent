@@ -6,7 +6,7 @@ import com.ecas.common.base.model.BaseEntiy;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.swing.text.html.parser.Entity;
+
 import java.util.List;
 
 /**

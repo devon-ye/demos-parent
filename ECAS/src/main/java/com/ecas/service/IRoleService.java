@@ -7,5 +7,5 @@ import com.ecas.entiy.Role;
  */
 public interface IRoleService  {
 
-   public  Role getRole(String userId);
+     Role getRole(String userId);
 }
