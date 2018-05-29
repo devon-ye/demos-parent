@@ -26,6 +26,10 @@ public class ArrayListDemo {
             iter.remove();
         }
 
+        for(int i=0, length=arrList.size();i<length;i++){
+
+		}
+
 		System.out.println();
 		// 使用For Each输出结合
 		for (String e : arrList) {
