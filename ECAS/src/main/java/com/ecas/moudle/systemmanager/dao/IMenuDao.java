@@ -1,7 +1,7 @@
-package com.ecas.dao;
+package com.ecas.moudle.systemmanager.dao;
 
 import com.ecas.common.base.dao.BaseDao;
-import com.ecas.entiy.Menu;
+import com.ecas.moudle.systemmanager.entiy.Menu;
 
 /**
  * Created by lenovo on 2017/12/28.
