@@ -1,6 +1,6 @@
 package com.ecas.common.base.controller;
 
-import com.ecas.common.base.model.ModelResult;
+import com.ecas.common.base.entiy.ModelResult;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ecas.common.base.service.BaseService;

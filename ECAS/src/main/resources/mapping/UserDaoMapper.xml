@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ecas.dao.IUserDao">
+<mapper namespace="com.ecas.module.systemmanager.dao.IUserDao">
 
     <!-- result costruct -->
-    <resultMap id="userResultMap" type="com.ecas.entiy.User">
+    <resultMap id="userResultMap" type="com.ecas.module.systemmanager.entiy.User">
         <result column="user_id" property="userId" jdbcType="VARCHAR"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>

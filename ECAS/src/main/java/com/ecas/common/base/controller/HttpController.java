@@ -1,7 +1,7 @@
 package com.ecas.common.base.controller;
 
-import com.ecas.common.base.model.ModelResult;
-import com.ecas.common.base.model.PageResult;
+import com.ecas.common.base.entiy.ModelResult;
+import com.ecas.common.base.entiy.PageResult;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

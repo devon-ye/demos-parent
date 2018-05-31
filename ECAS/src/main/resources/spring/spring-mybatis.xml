@@ -15,7 +15,7 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd"
        >
 
-     <context:component-scan base-package="com.ecas.dao"/>
+     <context:component-scan base-package="com.ecas.moudle.systemmanager.user.dao"/>
 
     <!-- 引入配置文件 -->
     <context:property-placeholder location="classpath:dev/db/jdbc.properties" ignore-unresolvable="true" />
@@ -59,7 +59,7 @@
 
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ecas.dao"/>
+        <property name="basePackage" value="com.ecas.moudle.systemmanager.user.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 

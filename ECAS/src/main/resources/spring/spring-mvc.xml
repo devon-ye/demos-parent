@@ -14,7 +14,7 @@
     <mvc:annotation-driven/>
 
     <!--自动扫描控制器类包 -->
-    <context:component-scan base-package="com.ecas.controller"/>
+    <context:component-scan base-package="com.ecas.moudle.systemmanager.controller"/>
 
     <!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
     <bean id="mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">

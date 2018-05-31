@@ -6,7 +6,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.ecas.entiy.AbstractUser;
+import com.ecas.module.systemmanager.entiy.AbstractUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

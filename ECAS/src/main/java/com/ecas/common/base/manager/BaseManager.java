@@ -1,7 +1,5 @@
 package com.ecas.common.base.manager;
 
-import com.ecas.common.base.model.BaseEntiy;
-
 import java.util.List;
 
 /**
