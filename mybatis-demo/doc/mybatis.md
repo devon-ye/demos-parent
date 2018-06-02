@@ -2,9 +2,7 @@
 
 ## 概念
 
-## mybatis和hibernate得区别
-
-## mybatis得特征
+## mybatis特征
 
 ## mybatis基本配置
 
@@ -18,3 +16,6 @@
 property——>plugin——>commentGenerator——>jdbcConnection——>
 javaTypeResolver——>javaModelGenerator——>sqlMapGenerator——>
 javaClientGenerator——>table+
+
+
+## mybatis和hibernate得区别
