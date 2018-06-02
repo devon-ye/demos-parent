@@ -81,7 +81,7 @@
             注意：如果在key class或者record class中有root class相同的属性，MBG就不会重新生成这些属性了，包括：
                 1，属性名相同，类型相同，有相同的getter/setter方法；
             -->
-            <property name="rootClass" value="com.ecas.common.base.model.BaseEntiy"/>
+            <property name="rootClass" value="com.ecas.common.base.entiy.BaseEntiy"/>
             <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
             <property name="enableSubPackages" value="true"/>
             <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->

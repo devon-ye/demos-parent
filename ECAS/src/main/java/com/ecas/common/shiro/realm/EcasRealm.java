@@ -4,10 +4,10 @@ package com.ecas.common.shiro.realm;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.ecas.entiy.User;
-import com.ecas.service.IRoleService;
-import com.ecas.service.IUserRoleService;
-import com.ecas.service.IUserService;
+import com.ecas.module.systemmanager.entiy.User;
+import com.ecas.module.systemmanager.service.IRoleService;
+import com.ecas.module.systemmanager.service.IUserRoleService;
+import com.ecas.module.systemmanager.service.IUserService;
 
 import org.apache.shiro.authc.*;
 

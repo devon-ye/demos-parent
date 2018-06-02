@@ -1,6 +1,6 @@
 package com.ecas.common.base.dao;
 
-import com.ecas.common.base.model.BaseEntiy;
+import com.ecas.common.base.entiy.BaseEntiy;
 
 import java.util.List;
 

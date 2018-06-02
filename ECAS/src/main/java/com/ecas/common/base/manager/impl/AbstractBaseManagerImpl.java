@@ -2,8 +2,7 @@ package com.ecas.common.base.manager.impl;
 
 import com.ecas.common.base.dao.BaseDao;
 import com.ecas.common.base.manager.BaseManager;
-import com.ecas.common.base.model.BaseEntiy;
-import org.springframework.beans.BeanUtils;
+import com.ecas.common.base.entiy.BaseEntiy;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
