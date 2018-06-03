@@ -18,6 +18,10 @@ public class IntegerAnalyse {
 		 if(int1 == int2) {
 			 System.out.println("this is equals object");
 		 }
+
+		if(int1.equals(int2)) {
+			System.out.println("this is equals object");
+		}
 		 
 		 
 		 
