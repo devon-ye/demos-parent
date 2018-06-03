@@ -6,11 +6,23 @@
 [![GitHub stars](https://img.shields.io/github/stars/Devonmusa/demos-parent.svg?style=social&label=Stars)](https://github.com/Devonmusa/demos-parent)
 [![GitHub forks](https://img.shields.io/github/forks/Devonmusa/demos-parent.svg?style=social&label=Fork)](https://github.com/Devonmusa/demos-parent)
 
-## Introduction
+## 介绍
+
 　　
 
-##  Quick started
+##  项目结构
 
+      demos-parent
+        |
+        |------------doc  开发者必备技能文档
+        |
+        |
+        |------------java-demo  java原理文档及相应代码实现基础demo，包括java基础、设计模式、并发、IO、JVM参数配置
+        |
+        |
+        |------------java-utils 日常开发java工具类积累
+        |
+        |
 ## How to contribute
 
 ## License
