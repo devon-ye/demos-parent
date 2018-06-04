@@ -1,4 +1,4 @@
-package com.algorithm.recursion;
+package java.com.algorithm.demo.recursive;
 
 /**
  * Created by lenovo on 2017/12/3.
