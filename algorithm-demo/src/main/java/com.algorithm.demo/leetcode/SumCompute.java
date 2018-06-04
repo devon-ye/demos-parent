@@ -1,8 +1,6 @@
 package java.com.algorithm.demo.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author devonmusa
@@ -24,36 +22,32 @@ public class SumCompute {
     public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
         int targetCombinationSize = target / 2;
-
-        int arrayCombinationSize = this.recursive(nums.length, 2);
+        Integer[] boxedArray = new Integer[nums.length];
+        for(int i=0,length=nums.length;i<length;i++){
+            boxedArray[i]=nums[i];
+        }
+        Set<Integer> integerSet = new HashSet();
+        integerSet.addAll(Arrays.asList(boxedArray));
+        int arrayCombinationSize = recursive(integerSet.size(),2);
 
         if (targetCombinationSize <= arrayCombinationSize) {
-            Integer[] boxedArray = new Integer[nums.length];
-            for(int i=0,length=nums.length;i<length;i++){
-                boxedArray[i]=nums[i];
-            }
+
             List<Integer> numList = new ArrayList<Integer>(Arrays.asList(boxedArray));
             for (int i = 0; i < targetCombinationSize; i++) {
 
-                if (i == (target - i)) {
-                    continue;
-                }
-
                 if (numList.contains(i) && numList.contains(target - i)) {
-                    result[0] = i;
-                    result[1] = target - i;
+                    result[0] = numList.indexOf(i);
+                    result[1] =numList.indexOf(target - i);
                 }
             }
 
         } else {
-            for (int j = 0; j < arrayCombinationSize; j++) {
-                for (int k = j + 1; k < arrayCombinationSize; k++) {
-                    if (nums[j]==(nums[k])) {
-                        continue;
-                    }
+            for (int j = 0,length1=nums.length; j < length1; j++) {
+                for (int k = j + 1; k < length1; k++) {
+
                     if ((nums[j] + nums[k]) == target) {
-                        result[0] = nums[j];
-                        result[1] = nums[k];
+                        result[0] = j;
+                        result[1] = k;
                     }
                 }
             }
@@ -70,17 +64,23 @@ public class SumCompute {
             return 0;
         }
 
+        if(n==1){
+            return m;
+        }
+
         if (m == n) {
             return 1;
         }
 
-        return recursive(m - 1, n) + recursive(m - 1, n - 1);
+        return recursive(m-1 , n) + recursive(m - 1, n - 1);
     }
+
 
 
     public static void main(String[] args) {
         SumCompute sumCompute = new SumCompute();
-        int[] array = {3,2,4};
-        sumCompute.twoSum(array,6);
+        int[] array = {0,4,3,0};
+        //TODO FIX BUG
+        sumCompute.twoSum(array,0);
     }
 }
