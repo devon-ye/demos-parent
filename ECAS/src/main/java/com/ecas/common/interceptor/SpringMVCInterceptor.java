@@ -22,7 +22,7 @@ public class SpringMVCInterceptor implements HandlerInterceptor {
         abstractBaseController.setRequest(httpServletRequest);
         abstractBaseController.setResponse(httpServletResponse);
         abstractBaseController.setSession(httpServletRequest.getSession());
-        abstractBaseController.setLogin((Login)httpServletRequest.getSession().getAttribute("login"));
+      //  abstractBaseController.set((Login)httpServletRequest.getSession().getAttribute("login"));
         System.out.println("selectUserByID");
         return true;
     }
