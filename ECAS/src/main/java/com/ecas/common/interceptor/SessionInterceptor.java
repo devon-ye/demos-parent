@@ -19,12 +19,12 @@ public class SessionInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         log.debug("preHandle,start");
         System.out.println("selectUserByID");
-        Login login = (Login) httpServletRequest.getSession().getAttribute("login");
-        if (null == login) {
+      //  Login login = (Login) httpServletRequest.getSession().getAttribute("login");
+      /*  if (null == login) {
             log.debug("此用户未登录,禁止访问此URL.");
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + errorPage);
             return false;// 如果返回false，则不再调用之后的方法
-        }
+        }*/
         return true;
 
     }
