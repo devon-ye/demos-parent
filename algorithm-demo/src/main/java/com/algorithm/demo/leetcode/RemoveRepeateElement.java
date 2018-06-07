@@ -7,7 +7,11 @@ package com.algorithm.demo.leetcode;
  * @since 1.0.0
  */
 public class RemoveRepeateElement {
-
+    /**
+     *
+     * @param nums
+     * @return
+     */
     public static int removeDuplicates(int[] nums) {
         int offset = 0;
         for (int i = 1, length = nums.length; i < length; i++) {
@@ -20,5 +24,5 @@ public class RemoveRepeateElement {
         return offset+1;
     }
 
-    
+
 }

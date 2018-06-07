@@ -22,8 +22,6 @@ public class SumCompute {
             integerMap.put(nums[i],i);
 
         }
-        ThreadLocal threadLocal = new ThreadLocal();
-        threadLocal.set("");
         throw new IllegalArgumentException();
     }
 

@@ -10,6 +10,7 @@ public class BinaerySearch {
 
 
     /**
+     *  即在顺序集合中查找元素所处位置
      * 1.验空
      * 2.定义左右边界数下标（）
      * 3.求中位数下标
@@ -41,5 +42,11 @@ public class BinaerySearch {
 
         return -1;
     }
+
+    public static void main(String[] args) {
+        int[] array01 = new int[]{1,4,6,8,9,10,15,156,147};
+        int position =  BinaerySearch.rank(array01,15);
+    }
+
 
 }
