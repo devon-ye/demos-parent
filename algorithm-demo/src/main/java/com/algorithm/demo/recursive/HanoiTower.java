@@ -1,4 +1,4 @@
-package com.algorithm.recursion;
+package com.algorithm.demo.recursive;
 
 import java.util.Stack;
 

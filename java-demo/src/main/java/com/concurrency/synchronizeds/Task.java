@@ -1,22 +1,28 @@
 package com.concurrency.synchronizeds;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by lenovo on 2017/10/11.
  */
 public class Task {
+   private static final Logger log = LoggerFactory.getLogger(Task.class);
 
     public void doLongTimeTask() {
         for(int i = 0 ; i <  100 ; i ++) {
-            System.out.println("###asynchronized threadName=" +Thread.currentThread().getName() + ", i=" +(i+1));
+            log.info("###asynchronized threadName=" +Thread.currentThread().getName() + ", i=" +(i+1));
         }
 
-        System.out.println("");
+        log.info("");
 
         synchronized(this){
             for(int i = 0 ; i <  100 ; i ++) {
-                System.out.println("synchronized threadName=" +Thread.currentThread().getName() + ", i=" +(i+1));
+                log.info("synchronized threadName=" +Thread.currentThread().getName() + ", i=" +(i+1));
             }
         }
 
     }
+
+
 }

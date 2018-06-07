@@ -8,10 +8,11 @@
       
 ### 拦截器的基本工作原理
    
-    SpringMVC拦截器可以通过配置过滤器来解决乱码问题
+    HandlerMapping 将url和method进行映射
+    
    
 ### 拦截器的配置
-   
+    SpringMVC拦截器可以通过配置过滤器来解决乱码问题
    
 ### 使用场景
     

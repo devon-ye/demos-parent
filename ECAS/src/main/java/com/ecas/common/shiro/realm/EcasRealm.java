@@ -64,7 +64,6 @@ public class EcasRealm extends AuthorizingRealm {
             LOGGER.error("current login user is disabled!");
             throw new DisabledAccountException();
         }
-
         //   this.setCredentialsMatcher();
 
         if (user.getActiveStatus() == 2) {

@@ -24,6 +24,8 @@
         <module>spring-redis-demo</module>
         <module>redis-demo</module>
         <module>spring-transaction-manager-demo</module>
+        <module>algorithm-demo</module>
+        <module>yaml-demo</module>
     </modules>
 
     <properties>
