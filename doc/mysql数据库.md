@@ -22,11 +22,30 @@
   
 ### 事物隔离级别
 #### Read Uncommit
+    即SELECT语句以非锁定的方式执行，会读取到其他会话已更新但未提交事物的数据，会产生脏读
 #### Read Commited
+    即使在同一个事务中，每次一致的读取都会设置并读取其自己的新快照。
+      * 对于锁定读取（SELECT 使用For UPDATE或LOCK SHARE MODE）,UPDATE语句和DELETE语句,InnoDB只锁定索引记录，而不锁定他们之间的间隔,从而在锁定记录旁边自由插入新记录。间隙锁仅用于外键检查和重复主键检查。
+        因为禁用了间隙锁，所以会出现幻影问题，因为其他会话可以将新记录插入间隙中。
+      * 对于UPDATE或DELETE语句，InnoDB仅锁定更新或删除的行。在MySQL评估WHERE条件之后，释放不匹配行的记录锁。但这大大降低了死锁的可能性，但它们任然可能发生。
+      * 对于UPDATE语句，如果某行被锁定，则InnoDB执行“半连续”读取，将最新的已提交版本返回给MySQL,以便MySQL可以确定该行是否与该WHERE条件匹配UPDATE,如果匹配则必须更新，否则MySQL再次读取行、这次InnoDB要么锁定它，要么等待锁定它
 #### Read Repeateble
-#### Read Serial
+    mysql的默认隔离级别，在同一事物中一致读取第一次读取建立的快照，即在同一个事物内多个SELECT（非锁定）语句多次查询间是一致的
+      * 对于具有唯一搜索条件的唯一索引，InnoDB仅锁定找到的索引记录，而不是锁定之前的记录间的间隔
+      * 对于其他搜索条件，InnoDB锁定间隔或下一个主键锁来锁定扫描的搜索范围，以阻止其他会话插入到范围所覆盖的间隔中
+#### Serializable
+    即InnoDB隐式的将所有的普通SELECT语句转换为SELECT ... LOCK IN SHARE MODE语句,且AUTOCOMMIT被禁用。如果AUTOCOMMIT被启用，则SELECT是他自己的事物。
 
- [mysql官网事物隔离级别相关索引](https://dev.mysql.com/doc/refman/5.7/en/dynindex-isolevel.html)
+
+[mysql官网事物隔离级](https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html)
+
+#### 脏读 
+#### 幻读
+      
+      即相同的查询在同一事物中不同的时间查询结果不同
+ 
+
+ 
 
 ## 事物
 
