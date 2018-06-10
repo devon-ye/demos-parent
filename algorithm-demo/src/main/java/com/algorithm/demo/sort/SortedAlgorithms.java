@@ -3,8 +3,8 @@ package com.algorithm.demo.sort;
 /**
  * @author devonmusa
  * @description:
- * @datetime 2018/6/4 23:29
+ * @datetime 2018/6/11 0:05
  * @since 1.0.0
  */
-public class BubbleSort implements SortedAlgorithms {
+public interface SortedAlgorithms {
 }

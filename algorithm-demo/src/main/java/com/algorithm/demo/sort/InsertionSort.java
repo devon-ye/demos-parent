@@ -1,6 +1,6 @@
 package com.algorithm.demo.sort;
 
-public class InsertionSort {
+public class InsertionSort implements SortedAlgorithms{
     /**
      * 无序数组插入排序
      * 1.将数组分为有序和无序两部分（即第一个元素为有序数部分，第2到n为无序数组）

@@ -6,5 +6,5 @@ package com.algorithm.demo.sort;
  * @datetime ${date} ${time}
  * @since
  */
-public class SelectionSort {
+public class SelectionSort implements SortedAlgorithms{
 }

@@ -6,5 +6,5 @@ package com.algorithm.demo.sort;
  * @datetime ${date} ${time}
  * @since
  */
-public class ShellSort {
+public class ShellSort implements SortedAlgorithms{
 }
