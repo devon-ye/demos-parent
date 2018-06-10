@@ -77,13 +77,15 @@
      * R+Tree   空间类型的索引（InnoDB和MyISAM都支持空间类型索引的创建）
   
 ### 索引策略分类
+  * 聚簇索引:PRIMARY KEY
   * 单列索引      
-  * 多列索引
-  * 前缀索引
+  * 多列索引:最做前缀生效
+  * 前缀索引：
   * 覆盖索引
-  * 聚簇索引
   * 压缩索引
   * 重复索引
+
+### 普通索引的创建场景
 
 ### 索引增删改
    新建索引
@@ -102,6 +104,7 @@
     ALTER TABLE table_name ADD UNIQUE  (column_list)
     ALTER TABLE table_name ADD PRIMARY KEY (column_list)
 
+
 ## 引擎
 
 ### InnoBD
@@ -111,3 +114,39 @@
 ### CSV
 ### MERGE
 
+## 常用SQL语法
+
+###SQL控制流程语句
+
+   * CASE
+      
+         CASE value WHEN [compare_value] THEN result [WHEN [compare_value] THEN result ...] [ELSE result] END
+         
+         CASE语法返回 result第一个 比较是真的
+        
+         CASE WHEN [condition] THEN result [WHEN [condition] THEN result ...] [ELSE result] END
+        
+         第二个语法返回第一个条件为true的结果。如果没有比较或条件为真，则返回后的结果或者没有 部分。 value=compare_valueELSENULLELSE
+      
+   * IF()
+       
+         IF(expr1,expr2,expr3)
+       
+         如果expr1是TRUE （expr1 <> 0和expr1 <> NULL），则IF() 返回expr2。否则，它返回expr3。
+      
+   * IFNULL()
+        
+         IFNULL(expr1,expr2)
+        
+         如果expr1不是 NULL，则 IFNULL()返回 expr1; 否则返回 expr2。
+      
+   * NULLIF()
+         
+         NULLIF(expr1,expr2)
+         
+         返回NULL如果 为真，否则返回。这与之相同。 expr1 = expr2expr1CASE WHEN expr1 = expr2 THEN NULL ELSE expr1 END
+         
+         返回值与第一个参数具有相同的类型。
+         
+         
+   * [MySQL官网流程控制](https://dev.mysql.com/doc/refman/5.7/en/control-flow-functions.html)
