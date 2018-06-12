@@ -1,4 +1,4 @@
-package com.concurrency.Pool;
+package com.concurrency.pool;
 
 /**
  * Created by lenovo on 2017/10/15.

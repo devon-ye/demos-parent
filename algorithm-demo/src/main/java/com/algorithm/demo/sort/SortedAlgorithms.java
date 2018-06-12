@@ -7,4 +7,6 @@ package com.algorithm.demo.sort;
  * @since 1.0.0
  */
 public interface SortedAlgorithms {
+
+
 }

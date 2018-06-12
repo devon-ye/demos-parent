@@ -1,6 +1,5 @@
-package com.concurrency.Pool;
+package com.concurrency.pool;
 
-import java.lang.management.ThreadInfo;
 import java.util.LinkedList;
 
 /**
