@@ -1,10 +1,14 @@
 package com.algorithm.demo.recursive;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by lenovo on 2017/12/3.
  */
 public class Factorial {
-
+    private static Logger log = LoggerFactory.getLogger(Factorial.class);
     public int factorial(int n) {
         if(n==0) {
             return 1;
@@ -29,7 +33,7 @@ public class Factorial {
     public static void main(String[] args) {
         Factorial factorial = new Factorial();
         int num= factorial.factorial(5);
-        System.out.println(num);
+        log.info("num:"+num);
 
     }
 }
