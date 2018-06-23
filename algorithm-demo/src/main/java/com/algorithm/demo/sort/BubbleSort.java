@@ -22,7 +22,6 @@ public class BubbleSort implements SortedAlgorithms {
             }
 
         }
-
         return array;
     }
 }
