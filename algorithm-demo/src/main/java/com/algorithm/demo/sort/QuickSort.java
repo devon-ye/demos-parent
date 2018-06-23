@@ -44,7 +44,7 @@ public class QuickSort implements SortedAlgorithms {
 
 
 
-    
+
 
     private static int partition2(int[] array,int left,int right){
         //最左边元素为基准点
