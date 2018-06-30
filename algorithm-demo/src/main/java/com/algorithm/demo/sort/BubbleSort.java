@@ -12,7 +12,9 @@ public class BubbleSort implements SortedAlgorithms {
         if (array == null) {
             return null;
         }
+
         for (int i = 0, length = array.length - 1; i < length; i++) {
+
             for (int j = 0; j < length - i; j++) {
                 if (array[j] > array[j + 1]) {
                     int temp = array[j + 1];

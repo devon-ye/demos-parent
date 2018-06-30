@@ -1,5 +1,14 @@
 # Servlet
 
+
+## Sevlet生命周期
+
+    (1)加载：容器通过类加载器使用servlet类对应的文件加载servlet
+    (2)创建：通过调用servlet构造函数创建一个servlet对象
+    (3)初始化：调用init方法初始化
+    (4)处理客户请求：每当有一个客户请求，容器会创建一个线程来处理客户请求
+    (5)卸载：调用destroy方法让servlet自己释放其占用的资源
+
 # HttpServletRequest
 
 # HttpServletResponse
