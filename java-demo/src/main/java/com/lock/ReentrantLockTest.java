@@ -1,4 +1,4 @@
-package com.lock.demo;
+package com.lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockTest {

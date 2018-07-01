@@ -3,6 +3,8 @@ package com.method.statics;
 public class FactorialSum {
 
 	public static void main(String[] args) {
+
+		C c = new C();
 		FactorialsSum(30);
 	}
 	public static void FactorialsSum(int x){
@@ -14,6 +16,16 @@ public class FactorialSum {
 		}
 		sum+=temp;
 		System.out.println("\n"+sum);
+	}
+
+	static class C {
+		public C(){
+			System.out.println("CONSTRUCT C");
+		}
+
+		public void C(){
+			System.out.println("method C");
+		}
 	}
 
 }

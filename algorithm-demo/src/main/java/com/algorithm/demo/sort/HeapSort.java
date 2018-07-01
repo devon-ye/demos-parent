@@ -6,7 +6,7 @@ package com.algorithm.demo.sort;
  * @datetime ${date} ${time}
  * @since
  */
-public class HeapSort {
+public class HeapSort implements SortedAlgorithms {
 
 
 }

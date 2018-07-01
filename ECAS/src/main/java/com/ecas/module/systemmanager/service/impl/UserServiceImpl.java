@@ -31,7 +31,7 @@ public class UserServiceImpl extends BaseServiceImpl<BaseManager<User>,User> imp
     @Override
     public User getUserByName(String userName) {
         LOGGER.debug("getUserByName,userName:{}", userName);
-        return userDao.getUserByName(userName);
+        return null;
     }
 
 }
