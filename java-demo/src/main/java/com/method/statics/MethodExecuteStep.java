@@ -9,6 +9,7 @@ package com.method.statics;
 public class MethodExecuteStep {
 
     static class B extends Object {
+        C  c = new C();
         static {
             System.out.println("Load B");
         }
@@ -19,7 +20,7 @@ public class MethodExecuteStep {
     }
 
     static class A extends B {
-
+        D d = new D();
         static {
             System.out.println("Load A");
         }
@@ -39,6 +40,17 @@ public class MethodExecuteStep {
         }
     }
 
+
+    static class D {
+        public D(){
+            System.out.println("CONSTRUCT D");
+        }
+
+        public void D(){
+            System.out.println("method D");
+        }
+    }
+
     void waitForSignal() throws InterruptedException {
         Object obj = new Object();
         synchronized(Thread.currentThread())
@@ -50,8 +62,20 @@ public class MethodExecuteStep {
 
 
 
+
     public static void main(String[] args) {
-        new C().C();
+       // new C().C();
         new A();
+        Boolean flag = false;
+        if (flag = true)
+        {
+            System.out.println("true");
+        }
+        else
+        {
+            System.out.println("false");
+        }
+
+
     }
 }
