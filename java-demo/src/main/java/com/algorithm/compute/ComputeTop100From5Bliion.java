@@ -11,7 +11,7 @@ public class ComputeTop100From5Bliion {
 
     private volatile  Integer  integers;
     private Map<String,String> hashMap = new HashMap<String, String>(20);
-    EX
+
 
     public synchronized  void gets(){
 
@@ -20,11 +20,11 @@ public class ComputeTop100From5Bliion {
             public void run(){
 
                 System.out.println("Runnable running");
-                hashMap.put()
+
 
             }
 
-        }
+        };
 
         Thread thread = new Thread(myRunnable,"myRhread");
 
