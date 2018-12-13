@@ -9,7 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>yaml-demo</artifactId>
+    <artifactId>zeroc-ice-demo</artifactId>
 
-
+     <dependencies>
+         <dependency>
+             <groupId>com.zeroc</groupId>
+             <artifactId>ice</artifactId>
+         </dependency>
+         <dependency>
+             <groupId>com.zeroc</groupId>
+             <artifactId>icegrid</artifactId>
+         </dependency>
+     </dependencies>
 </project>

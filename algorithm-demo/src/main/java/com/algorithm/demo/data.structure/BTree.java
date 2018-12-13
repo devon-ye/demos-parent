@@ -7,4 +7,6 @@ package com.algorithm.demo.data.structure;
  * @since 1.0.0
  */
 public class BTree {
+
+
 }

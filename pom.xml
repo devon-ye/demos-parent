@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.demos.parent</groupId>
+    <groupId>org.devon</groupId>
     <artifactId>demos-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
@@ -26,6 +26,9 @@
         <module>spring-transaction-manager-demo</module>
         <module>algorithm-demo</module>
         <module>yaml-demo</module>
+        <module>distributed-demo</module>
+        <module>grpc-demo</module>
+        <module>zeroc-ice-demo</module>
     </modules>
 
     <properties>
@@ -41,6 +44,8 @@
 
         <swagger-annotations_version>1.5.17</swagger-annotations_version>
         <lombok_version>1.16.20</lombok_version>
+
+        <ice.version>3.7.1</ice.version>
 
         <slf4j_version>1.7.25</slf4j_version>
         <log4j_version>1.2.16</log4j_version>
@@ -117,6 +122,18 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient_version}</version>
+            </dependency>
+
+            <!-- Rpc -->
+            <dependency>
+                <groupId>com.zeroc</groupId>
+                <artifactId>ice</artifactId>
+                <version>${ice.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeroc</groupId>
+                <artifactId>icegrid</artifactId>
+                <version>${ice.version}</version>
             </dependency>
             <!--Spring  libs -->
             <dependency>

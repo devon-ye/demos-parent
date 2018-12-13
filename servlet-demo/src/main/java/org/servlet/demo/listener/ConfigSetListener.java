@@ -1,4 +1,4 @@
-package com.servlet.listener;
+package org.servlet.demo.listener;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
@@ -14,7 +14,7 @@ import java.util.Properties;
 /**
  * Created by lenovo on 2017/11/26.
  */
-public class ApplicationListener implements ServletContextListener {
+public class ConfigSetListener implements ServletContextListener {
     private Logger log = LoggerFactory.getLogger(getClass());
 
     @Override

@@ -1,4 +1,4 @@
-package com.servlet;
+package org.servlet.demo;
 
 /**
  * Created by lenovo on 2017/11/26.
