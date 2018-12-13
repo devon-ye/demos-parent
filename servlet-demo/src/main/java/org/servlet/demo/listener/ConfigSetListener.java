@@ -19,6 +19,7 @@ public class ConfigSetListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+
        // intiLog4j();
     }
 
