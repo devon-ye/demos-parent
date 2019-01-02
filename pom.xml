@@ -28,6 +28,7 @@
         <module>distributed-demo</module>
         <module>grpc-demo</module>
         <module>zeroc-ice-demo</module>
+        <module>class-loader-demo</module>
     </modules>
 
     <properties>
