@@ -14,7 +14,7 @@
         <mysql_version>5.1.17</mysql_version>
     </properties>
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/net.sf.launch4j/launch4j -->
+       <!-- &lt;!&ndash; https://mvnrepository.com/artifact/net.sf.launch4j/launch4j &ndash;&gt;
         <dependency>
             <groupId>net.sf.launch4j</groupId>
             <artifactId>launch4j</artifactId>
@@ -29,7 +29,7 @@
                     <groupId>net.java.abeille</groupId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -109,7 +109,7 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
+           <!-- <plugin>
                 <groupId>com.akathist.maven.plugins.launch4j</groupId>
                 <artifactId>launch4j-maven-plugin</artifactId>
                 <executions>
@@ -149,7 +149,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
