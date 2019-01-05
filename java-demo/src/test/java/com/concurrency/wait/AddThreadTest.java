@@ -10,7 +10,7 @@ public class AddThreadTest {
         AddThread addThread = new AddThread(addOperatorWaitNodify);
         PrintThread printThread = new PrintThread(addOperatorWaitNodify);
         int i=0;
-        while (i<20) {
+        while (i<5) {
             new Thread(addThread).start();
             new Thread(printThread).start();
             i++;

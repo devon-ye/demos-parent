@@ -4,7 +4,7 @@ package com.concurrency;
  * Created by lenovo on 2017/10/2.
  */
 public class ConcurrencyTest {
-    private static final long count = 10000L;
+    private static final long count = 100L;
 
     public static void concurrency() throws InterruptedException {
         long start = System.currentTimeMillis();
