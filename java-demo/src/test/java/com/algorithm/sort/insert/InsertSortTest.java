@@ -17,7 +17,7 @@ public class InsertSortTest {
 	
 	private static final  Logger log = LoggerFactory.getLogger(InsertSortTest.class);
 	
-	private final long NS_TO_SESCOD = 1000000 ;
+	private final long NS_TO_SESCOD = 100 ;
 	private int[] sortResult = null;
 	private long start = 0;
 	private long end = 0;
@@ -28,7 +28,7 @@ public class InsertSortTest {
 
 	@Before
 	public void setUp() {
-		sortBeforeArraySize = 50000;
+		sortBeforeArraySize = 500;
 		sortBeforeArray = new int[sortBeforeArraySize];
 		random = new Random();
 		for (int i = 0; i < sortBeforeArraySize; i++) {

@@ -25,6 +25,6 @@ public class SelectionSortTest {
     @Test
     public void testSort() {
 
-        //SelectionSort.sort(new int[]{1,3,4,2,9,1,0,4,6,8,7});
+        SelectionSort.sort(new int[]{1,3,4,2,9,1,0,4,6,8,7});
     }
 }
