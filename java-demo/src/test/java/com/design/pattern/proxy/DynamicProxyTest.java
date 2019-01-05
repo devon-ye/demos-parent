@@ -16,10 +16,14 @@ public class DynamicProxyTest {
 
 	public static void main(String[] args) {
 		Car car = new Car();
-		InvocationHandler invocationHandler = new TimeHandler(car);
+		TimeHandler invocationHandler = new TimeHandler(car);
 		Class<?> class1 =car.getClass();
-		Moveable moveable =  (Moveable) Proxy.newProxyInstance(class1.getClassLoader(), class1.getInterfaces(), invocationHandler);
-		moveable.move();
+		System.out.println("target object.hashCode():"+car.hashCode());
+		Object moveable =  invocationHandler.createTargetProxyInstance(class1);
+		System.out.println("proxy object.hashCode():"+moveable.hashCode());
+
+		//Moveable moveable =  (Moveable) Proxy.newProxyInstance(class1.getClassLoader(), class1.getInterfaces(), invocationHandler);
+	//	moveable.move();
 
 	}
 

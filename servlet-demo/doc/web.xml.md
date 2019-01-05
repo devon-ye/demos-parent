@@ -1,7 +1,16 @@
 # web.xml
 
 ## 概念
-     学名:部署描述符文件
+     
+## 加载顺序
+
+### 关键配置项加载顺序
+ 
+     context-param  >   listener  > filter   > Servlet
+     
+###  配置项内执行顺序
+   
+     按在web。xml中的先后顺序
 
 ## 元素
 
