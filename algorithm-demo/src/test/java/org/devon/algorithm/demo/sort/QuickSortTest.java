@@ -1,10 +1,9 @@
 package org.devon.algorithm.demo.sort;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * @author devonmusa
@@ -12,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.*;
  * @datetime 2018/6/23 17:38
  * @since 1.0.0
  */
-class QuickSortTest {
+public class QuickSortTest {
     public static int[] array = new int[]{1,3,4,9,2,6,0,3,2,6,8};
-    @BeforeEach
+    @Before
     void setUp() {
     }
 
-    @AfterEach
+    @After
     void tearDown() {
 
         System.out.println(array);

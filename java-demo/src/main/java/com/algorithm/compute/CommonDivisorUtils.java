@@ -32,13 +32,12 @@ public class CommonDivisorUtils {
 	private static List<Integer[]> getInput() {
 		String inputStr = null;
 		inputs = new ArrayList<Integer[]>();
-		System.out.println("please input group count:");
-		scanner = new Scanner(System.in);
-		int groupCount = scanner.nextInt();
+
+
+		int groupCount = 1;
 		int i = 0;
 		while (i < groupCount) {
-			System.out.println("please input integer 'a0,a1,b0,b1' ");
-			inputStr = scanner.next();
+			inputStr ="10,9,1,7";
 			String[] strings = inputStr.split(",");
 			Integer[] dataGroup = new Integer[4];
 			for (int j = 0; j < 4; j++) {
