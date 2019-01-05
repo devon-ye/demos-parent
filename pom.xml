@@ -16,7 +16,6 @@
         <module>excel-demo</module>
         <module>spring-mvc-demo</module>
         <module>mybatis-demo</module>
-        <module>SSO-Server</module>
         <module>shiro-demo</module>
         <module>spring-demo</module>
         <module>docker-demo</module>
