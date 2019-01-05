@@ -1,7 +1,5 @@
 package com.data.stracture.array;
 
-import com.bean.demo.A;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
