@@ -13,7 +13,7 @@ public class LoggerTest {
     private String b="beqdw";
     private int c=23;
     private int d=56;
-    private long count = 100000;
+    private long count = 10;
 
     @Test
     public void test() {
