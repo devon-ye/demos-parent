@@ -13,7 +13,6 @@
         <module>java-demo</module>
         <module>java-utils</module>
         <module>rest-demo</module>
-        <module>web-service</module>
         <module>excel-demo</module>
         <module>spring-mvc-demo</module>
         <module>mybatis-demo</module>
