@@ -11,6 +11,7 @@ public class SynchronizedClassLock {
     }
 
     public void classObjectLock() {
+
         synchronized (SynchronizedClassLock.class) {
 
         }
