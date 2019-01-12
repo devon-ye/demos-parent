@@ -4,7 +4,7 @@ package com.concurrency;
  * Created by lenovo on 2017/10/8.
  */
 public class UnshareDataThread extends Thread{
-    private int count = 5;
+    private int count = 100;
 
     public UnshareDataThread(String name) {
         super();

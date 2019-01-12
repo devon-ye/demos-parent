@@ -6,7 +6,7 @@ package com.concurrency.synchronizeds;
 public class TestRunMain {
 
     public static void main(String[] args) {
-        Task task = new Task();
+        SynchronizedObjectLock task = new SynchronizedObjectLock();
 
         Test1Thread t1t = new Test1Thread(task);
         t1t.start();

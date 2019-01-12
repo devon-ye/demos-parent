@@ -13,7 +13,7 @@
 
 ##  项目结构
 
-      demos-parent
+    demos-parent
         |
         |------------doc  开发者必备技能文档
         |
@@ -27,6 +27,7 @@
         |------------java-utils 日常开发java工具类积累
         |
         |
+        |------------servlet-demo 拓展及概念
 ## How to contribute
 
 ## License
