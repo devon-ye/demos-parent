@@ -17,7 +17,7 @@ import java.util.Map;
  * @author dewen.ye
  * @date 2019/1/12 13:27
  */
-public class RomanAribbicTrans {
+public class RomanAribbicNumerTrans {
     private static Map<Character, Integer> romanIntMap = new HashMap<>();
 
 
