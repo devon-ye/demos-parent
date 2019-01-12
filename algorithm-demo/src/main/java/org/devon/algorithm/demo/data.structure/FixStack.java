@@ -96,6 +96,9 @@ public class FixStack<E> implements Iterable<E>, Closeable, java.io.Serializable
 
     @Override
     public void close() throws IOException {
-
+        elementData=null;
     }
+
+    private static final long serialVersionUID = -403306503202780380L;
+
 }
