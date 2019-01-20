@@ -1,0 +1,7 @@
+
+
+
+module ClientServiceDemo{
+
+    interface hello(string args)
+}
