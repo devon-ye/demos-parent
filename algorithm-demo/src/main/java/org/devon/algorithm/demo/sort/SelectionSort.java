@@ -8,7 +8,7 @@ package org.devon.algorithm.demo.sort;
  */
 public class SelectionSort extends AbstractSort implements Sort {
 
-    @Override
+
     public Comparable[] sort(Comparable[] array) {
         if (array == null) {
             return array;

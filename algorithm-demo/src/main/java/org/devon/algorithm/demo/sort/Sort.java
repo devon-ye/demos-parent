@@ -6,5 +6,5 @@ package org.devon.algorithm.demo.sort;
  */
 public interface Sort {
 
-     Comparable[] sort(Comparable[] array);
+
 }
