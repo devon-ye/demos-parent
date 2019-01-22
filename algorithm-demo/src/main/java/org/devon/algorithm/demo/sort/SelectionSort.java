@@ -6,28 +6,23 @@ package org.devon.algorithm.demo.sort;
  * @datetime 2018.06.27 20:32:00
  * @since
  */
-public class SelectionSort implements SortedAlgorithms{
+public class SelectionSort extends AbstractSort implements Sort {
 
-    public static int[] sort(int[] array){
-        if(array == null){
-
+    @Override
+    public Comparable[] sort(Comparable[] array) {
+        if (array == null) {
             return array;
         }
-
-
-        for (int i = 0, len =array.length; i < len ; i++) {
+        for (int i = 0, len = array.length; i < len; i++) {
             int maxIndex = i;
-
-            for (int j = i+1; j < len; j++) {
-                if(array[j] > array[maxIndex]){
+            for (int j = i + 1; j < len; j++) {
+                if (less(array[i], array[maxIndex])) {
                     maxIndex = j;
                 }
             }
-            int temp = array[i];
-            array[i] = array[maxIndex];
-            array[maxIndex] = temp;
+            exch(array, i, maxIndex);
         }
-        return  array;
+        return array;
     }
 
 

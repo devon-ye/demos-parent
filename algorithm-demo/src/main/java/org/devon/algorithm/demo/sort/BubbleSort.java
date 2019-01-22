@@ -6,23 +6,18 @@ package org.devon.algorithm.demo.sort;
  * @datetime 2018/6/4 23:29
  * @since 1.0.0
  */
-public class BubbleSort implements SortedAlgorithms {
+public class BubbleSort extends AbstractSort implements Sort {
 
-    public static int[] bubbleSort(int[] array) {
+    public static Comparable[] sort(Comparable[] array) {
         if (array == null) {
             return null;
         }
-
         for (int i = 0, length = array.length - 1; i < length; i++) {
-
             for (int j = 0; j < length - i; j++) {
-                if (array[j] > array[j + 1]) {
-                    int temp = array[j + 1];
-                    array[j + 1] = array[j];
-                    array[j] = temp;
+                if (less(array[j], array[j + 1])) {
+                    exch(array, j + 1, j);
                 }
             }
-
         }
         return array;
     }

@@ -6,7 +6,7 @@ package org.devon.algorithm.demo.sort;
  * @datetime 2018/6/11 7:23
  * @since 1.0.0
  */
-public class ShellSort implements SortedAlgorithms {
+public class ShellSort {
 
 
     /**
