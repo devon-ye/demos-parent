@@ -7,7 +7,6 @@ package org.devon.algorithm.demo.sort;
  * @since
  */
 public class SelectionSort extends AbstractSort implements Sort {
-
     /**
      * <p>1.既每次遍历剩余数组找最小元素</p>
      * <p>2.交换最小元素与无序部分首个元素</p>
