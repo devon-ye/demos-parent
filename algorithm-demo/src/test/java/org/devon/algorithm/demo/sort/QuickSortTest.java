@@ -12,7 +12,7 @@ import org.junit.Test;
  * @since 1.0.0
  */
 public class QuickSortTest {
-    public static int[] array = new int[]{1,3,4,9,2,6,0,3,2,6,8};
+    public static Integer[] array = new Integer[]{1,3,4,9,2,6,0,3,2,6,8};
     @Before
     void setUp() {
     }
@@ -26,6 +26,6 @@ public class QuickSortTest {
     @Test
     void quickSort() {
 
-        QuickSort.quickSort(array,0,array.length-1);
+        QuickSort.sort(array,0,array.length-1);
     }
 }
