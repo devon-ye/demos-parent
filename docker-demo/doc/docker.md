@@ -23,15 +23,4 @@
            ONBUILD
            
            
-## 国内镜像库配置
-
-docker-machine ssh default 
-
-sudo  sed -i  "s|EXTRA_ARGS='|EXTRA_ARGS='registry-mirror=https://registry.docker-cn.com|g"  /var/lib/boot2docker/profile
-
-docker-machine restart default
-
-
-           
-           
              
