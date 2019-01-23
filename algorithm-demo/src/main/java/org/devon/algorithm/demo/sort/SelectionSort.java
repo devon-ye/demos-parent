@@ -15,7 +15,7 @@ public class SelectionSort extends AbstractSort implements Sort {
      * @param array
      * @return
      */
-    public Comparable[] sort(Comparable[] array) {
+    public static Comparable[] sort(Comparable[] array) {
         if (array == null) {
             return array;
         }
