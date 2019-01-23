@@ -1,7 +1,29 @@
 
 
+module Filesystem
+{
+    interface Node
+    {
+        idempotent string name();
+    }
 
-module ClientServiceDemo{
+    exception GenericError
+    {
+        string reason;
+    }
 
-    interface hello(string args)
+    sequence<string> Lines;
+
+    interface File extends Node
+    {
+        idempotent Lines read();
+        idempotent void write(Lines text) throws GenericError;
+    }
+
+    sequence<Node*> NodeSeq;
+
+    interface Directory extends Node
+    {
+        idempotent NodeSeq list();
+    }
 }
