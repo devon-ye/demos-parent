@@ -1,4 +1,4 @@
-package org.devon.distrbute.demo.service.discovery;
+package org.devon.distributed.demo.service.discovery;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,8 +16,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 2019/1/24 00:32
  */
 //TODO
-public class DataBaseStoreDiscovery implements ServiceDiscovery, Runnable {
-    private static final Logger LOG = LoggerFactory.getLogger(DataBaseStoreDiscovery.class);
+public class DatabaseStoreDiscovery implements ServiceDiscovery, Runnable {
+    private static final Logger LOG = LoggerFactory.getLogger(DatabaseStoreDiscovery.class);
     private ScheduledExecutorService executor = new ScheduledThreadPoolExecutor(1, new NameThreadFactory());
 
     private final String INIT_TABLE_SQL = "create table jdbc_service_discover(" +
@@ -34,7 +34,7 @@ public class DataBaseStoreDiscovery implements ServiceDiscovery, Runnable {
 
     private long heatBeta;
 
-    public DataBaseStoreDiscovery(Connection connect) {
+    public DatabaseStoreDiscovery(Connection connect) {
 
         this.connect = connect;
     }
@@ -45,7 +45,7 @@ public class DataBaseStoreDiscovery implements ServiceDiscovery, Runnable {
         } catch (Exception e) {
             throw new Exception("jdbc_service_discovery table init fail!");
         }
-        executor.scheduleAtFixedRate(new DataBaseStoreDiscovery(connect), 5, DELETE_HEAT_BEAT_MS, TimeUnit.MICROSECONDS);
+        executor.scheduleAtFixedRate(new DatabaseStoreDiscovery(connect), 5, DELETE_HEAT_BEAT_MS, TimeUnit.MICROSECONDS);
     }
 
     @Override
