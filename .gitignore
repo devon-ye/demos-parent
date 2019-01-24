@@ -25,3 +25,6 @@ target/
 *.patch
 *.tmp
 
+#gradle file
+.gradle
+
