@@ -1,4 +1,4 @@
-package org.devon.distrbute.demo.service.discovery;
+package org.devon.distributed.demo.service.discovery;
 
 /**
  * @author dewen.ye

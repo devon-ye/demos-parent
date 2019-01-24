@@ -1,4 +1,4 @@
-package org.devon.distrbute.demo.service.discovery;
+package org.devon.distributed.demo.service.discovery;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;
