@@ -62,7 +62,6 @@ public class QuickSort extends AbstractSort implements Sort {
         return left;
     }
 
-    @Override
     public Comparable[] sort(Comparable[] array) {
         return new Comparable[0];
     }

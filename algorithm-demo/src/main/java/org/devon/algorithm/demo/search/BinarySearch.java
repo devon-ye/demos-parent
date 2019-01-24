@@ -6,7 +6,7 @@ package org.devon.algorithm.demo.search;
  * @datetime 2018/6/4 23:31
  * @since 1.0.0
  */
-public class BinaerySearch {
+public class BinarySearch {
 
 
     /**
@@ -45,7 +45,7 @@ public class BinaerySearch {
 
     public static void main(String[] args) {
         int[] array01 = new int[]{1,4,6,8,9,10,15,156,147};
-        int position =  BinaerySearch.rank(array01,15);
+        int position =  BinarySearch.rank(array01,15);
     }
 
 
