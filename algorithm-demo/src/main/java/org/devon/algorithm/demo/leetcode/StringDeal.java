@@ -13,7 +13,7 @@ import java.util.TreeMap;
  */
 public class StringDeal {
 
-    public String longestCommonPrefix(String[] strs) throws Exception {
+    public  String longestCommonPrefix1(String[] strs) throws Exception {
         if (strs == null || strs.length == 0) {
             throw new Exception("There is no common prefix among the input strings");
         }
@@ -38,10 +38,10 @@ public class StringDeal {
     }
 
 
-    public String longestCommonPrefixs(String[] strs) {
+    public String longestCommonPrefix2(String[] strs) {
         if (strs.length == 0) {return "";}
         String prefix = strs[0];
-        for (int i = 1; i < strs.length; i++) {
+        for (int i = 1,length =strs.length; i < length; i++) {
             while (strs[i].indexOf(prefix) != 0) {
                 prefix = prefix.substring(0, prefix.length() - 1);
                 if (prefix.isEmpty()) {return "";}
