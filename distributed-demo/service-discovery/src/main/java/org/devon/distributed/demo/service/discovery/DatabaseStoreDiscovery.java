@@ -20,14 +20,15 @@ public class DatabaseStoreDiscovery implements ServiceDiscovery, Runnable {
     private static final Logger LOG = LoggerFactory.getLogger(DatabaseStoreDiscovery.class);
     private ScheduledExecutorService executor = new ScheduledThreadPoolExecutor(1, new NameThreadFactory());
 
-    private final String INIT_TABLE_SQL = "create table jdbc_service_discover(" +
+    private final String INIT_TABLE_SQL = "create table jdbc_service_discovery(" +
             "cluster_name varchar(256) NOT NULL," +
             "own_addr varchar(256) NOT NULL," +
             "heat_beta Timestamp NOT NULL," +
             "ping_data varchar(3000)" +
             ")";
-    private final String INSERT_HEAT_BEAT_SQL = "";
-    private final String DELETE_LAST_RECORD_SQL = "";
+    private final String INSERT_HEAT_BEAT_SQL = "INSERT INTO jdbc_service_discovery VALUES (?,?,?,?)";
+    private final String DELETE_LAST_RECORD_SQL = "DELETE FROM jdbc_service_discovery WHERE cluster_name = ? AND own_addr = ?";
+    private final String DELETE_CLUSTER_SQL = "DELETE FROM jdbc_service_discovery WHERE cluster_name = ?";
     private final long DELETE_HEAT_BEAT_MS = 5000;
 
     private Connection connect;
