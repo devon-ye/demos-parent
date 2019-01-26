@@ -1,5 +1,6 @@
 package com.execel.demo.util;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.*;
@@ -12,6 +13,7 @@ import static org.junit.Assert.*;
  * @Description: TODO
  * @date ${date} ${time}
  */
+@Ignore
 public class ExecelUtilTest {
     @Test
     public void createExecel() throws Exception {
