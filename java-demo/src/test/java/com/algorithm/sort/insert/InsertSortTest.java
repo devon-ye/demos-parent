@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
  * @author Devonmusa
  * @date 2017年5月23日
  */
+
 public class InsertSortTest {
 	
 	private static final  Logger log = LoggerFactory.getLogger(InsertSortTest.class);
