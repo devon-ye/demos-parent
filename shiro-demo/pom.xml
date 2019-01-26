@@ -8,30 +8,14 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>shiro-demo</artifactId>
     <packaging>war</packaging>
-    <name>shiro-demo Maven Webapp</name>
+    <name>shiro-demo</name>
     <url>http://maven.apache.org</url>
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit_version}</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-all</artifactId>
             <version>${shiro_version}</version>
-
-        </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.apache.shiro</groupId>-->
-            <!--<artifactId>shiro-core</artifactId>-->
-            <!--<version>${shiro_version}</version>-->
-        <!--</dependency>-->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
     <build>

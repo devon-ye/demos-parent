@@ -14,17 +14,17 @@ import org.junit.Test;
 public class QuickSortTest {
     public static Integer[] array = new Integer[]{1,3,4,9,2,6,0,3,2,6,8};
     @Before
-    void setUp() {
+   public void setUp() {
     }
 
     @After
-    void tearDown() {
+    public void tearDown() {
 
         System.out.println(array);
     }
 
     @Test
-    void quickSort() {
+    public void quickSort() {
 
         QuickSort.sort(array,0,array.length-1);
     }

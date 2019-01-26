@@ -1,12 +1,12 @@
 # demos-parent
 [![License](https://img.shields.io/badge/license-Apache-blue.svg)](http://opensource.org/licenses/Apache)
 [![Build Status](https://www.travis-ci.org/Devonmusa/demos-parent.svg?branch=master)](https://www.travis-ci.org/Devonmusa/demos-parent)
-[![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/Devonmusa/demos-parent)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=demos-parent&metric=alert_status)](https://sonarcloud.io/dashboard?id=demos-parent)
+[![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/Devonmusa/demos-parent/releases)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Devonmusa/demos-parent/pulls)
-[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://github.com/Devonmusa/demos-parent)
+[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://github.com/Devonmusa/demos-parent/doc/index.md)
 [![GitHub stars](https://img.shields.io/github/stars/Devonmusa/demos-parent.svg?style=social&label=Stars)](https://github.com/Devonmusa/demos-parent)
 [![GitHub forks](https://img.shields.io/github/forks/Devonmusa/demos-parent.svg?style=social&label=Fork)](https://github.com/Devonmusa/demos-parent)
-
 ## 介绍
 
 　　

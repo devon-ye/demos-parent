@@ -6,7 +6,6 @@ import java.util.function.Consumer;
 
 /**
  * @author dewen.ye
- * @description
  * @date 2019/1/12 11:31
  */
 public class Stack<Item> implements Iterable<Item> {
