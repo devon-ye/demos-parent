@@ -47,7 +47,6 @@ public class FixStack<E> implements Iterable<E>, Closeable, java.io.Serializable
     }
 
 
-
     @Override
     public Iterator<E> iterator() {
         //TODO
@@ -92,11 +91,19 @@ public class FixStack<E> implements Iterable<E>, Closeable, java.io.Serializable
         integers.pop();
         integers.pop();
 
+        try {
+            if (integers != null) {
+                integers.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public void close() throws IOException {
-        elementData=null;
+        elementData = null;
     }
 
     private static final long serialVersionUID = -403306503202780380L;

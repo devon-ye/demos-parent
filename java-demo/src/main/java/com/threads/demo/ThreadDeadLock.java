@@ -37,14 +37,14 @@ public class ThreadDeadLock implements Runnable {
 		threadB.start();
 	}
 
+	@Override
 	public void run() {
 		if (flag) {
 			synchronized (a) {
 				a.request();
 				try {
-					Thread.sleep(5000);
+					Thread.currentThread().wait(5000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
 				}
 				synchronized (b) {
 					a.get();
@@ -55,9 +55,9 @@ public class ThreadDeadLock implements Runnable {
 			b.request();
 			synchronized (b) {
 				try {
-					Thread.sleep(5000);
+					Thread.currentThread().wait(5000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+
 				}
 			}
 			synchronized (a) {
