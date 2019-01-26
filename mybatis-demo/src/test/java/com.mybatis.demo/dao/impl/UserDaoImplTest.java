@@ -14,6 +14,7 @@ import java.io.InputStream;
 /**
  * Created by lenovo on 2017/12/14.
  */
+@Ignore
 public class UserDaoImplTest {
     private IUserDao userDao;
     private static SqlSessionFactory sqlSessionFactory;
