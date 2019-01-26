@@ -1,9 +1,8 @@
 package com.design.pattern.singleton;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
-import com.design.pattern.singleton.ChildSingleton;
-import com.design.pattern.singleton.RegisterSingleton;
 
 
 
@@ -12,6 +11,7 @@ import com.design.pattern.singleton.RegisterSingleton;
 *@author  Devonmusa
 *@date 2017年4月9日
 */
+@Ignore
 public class SingletonTest {
 	
 	@Test
