@@ -19,18 +19,18 @@ import java.io.PrintWriter;
 import java.util.Properties;
 
 public class ServletApp extends HttpServlet implements SingleThreadModel {
-    private Logger log = LoggerFactory.getLogger(getClass());
+    private static final Logger LOG = LoggerFactory.getLogger(ServletApp.class);
 
 
     @Override
     public void init() {
-        log.info("init method execute!");
+        LOG.info("init method execute!");
         intiLog4j();
     }
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse rep) {
-        log.info("doGet method execute!");
+        LOG.info("doGet method execute!");
         req.getSession();
         req.getCookies();
         req.getContextPath();
@@ -50,7 +50,7 @@ public class ServletApp extends HttpServlet implements SingleThreadModel {
             pw.println("</HTML>");
             pw.flush();
         } catch (IOException e) {
-            log.error("doGet method is error, IOException:", e);
+            LOG.error("doGet method is error, IOException:", e);
         } finally {
             if (pw != null) {
                 pw.close();
@@ -61,7 +61,7 @@ public class ServletApp extends HttpServlet implements SingleThreadModel {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse rep) {
-        log.info("doPost method execute HttpServletRequest=" + req.toString());
+        LOG.info("doPost method execute HttpServletRequest=" + req.toString());
     }
 
     private void intiLog4j() {
@@ -75,10 +75,10 @@ public class ServletApp extends HttpServlet implements SingleThreadModel {
                 Properties log4jProperties = new Properties();
                 log4jProperties.load(new FileInputStream(log4jConfigFile));
                 PropertyConfigurator.configure(log4jProperties);
-                log.info("initLog4j finished");
+                LOG.info("initLog4j finished");
             }
         } catch (IOException e) {
-            log.error("initLog4j is failed! Exception:", e);
+            LOG.error("initLog4j is failed! Exception:", e);
         }
 
     }

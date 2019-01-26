@@ -65,6 +65,9 @@ public class SinglyLinkedList<E> implements Linked<E> {
                 lastSecond = x;
             }
         }
+        if (lastSecond == null || lastSecond.next == null) {
+            return null;
+        }
         final E e = (E) lastSecond.next.e;
         lastSecond.next = null;
         return e;

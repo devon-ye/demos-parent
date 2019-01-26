@@ -9,6 +9,7 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 public class StringUtils {
 
 	private static String DATE_FORMAT = "yy-MM-dd HH:mm:ss";
+	private static Random random = new Random();
 
 	private StringUtils() {
 		throw new Error("StringUtil class is forbiden instance!");
@@ -45,7 +46,6 @@ public class StringUtils {
 
 	public static String buildRandPassword(int lenth) {
 		String result = "";
-		Random random = new Random();
 		int count = 0;
 		while (count != lenth) {
 			int itmp = random.nextInt(123);

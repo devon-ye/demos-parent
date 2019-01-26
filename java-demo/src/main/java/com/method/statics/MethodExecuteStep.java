@@ -66,7 +66,7 @@ public class MethodExecuteStep {
     public static void main(String[] args) {
        // new C().C();
         new A();
-        Boolean flag = false;
+        Boolean flag =Boolean.getBoolean( args[0]);
         if (flag = true)
         {
             System.out.println("true");

@@ -32,14 +32,11 @@ public class CallableDemo {
 				System.out.println(fs.get());
 			} catch (InterruptedException e) {
 
-				e.printStackTrace();
 			} catch (ExecutionException e) {
 
-				e.printStackTrace();
 			} finally {
 				exec.shutdown();
 			}
-
 	}
 
 }
