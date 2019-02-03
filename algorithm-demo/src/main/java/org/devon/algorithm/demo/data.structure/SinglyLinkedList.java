@@ -1,8 +1,7 @@
 package org.devon.algorithm.demo.data.structure;
 
-/**
+/** single linked table
  * @author dewen.ye
- * @description
  * @date 2019/1/26 02:31
  */
 public class SinglyLinkedList<E> implements Linked<E> {
