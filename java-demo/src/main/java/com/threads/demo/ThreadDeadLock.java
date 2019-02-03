@@ -43,7 +43,7 @@ public class ThreadDeadLock implements Runnable {
 			synchronized (a) {
 				a.request();
 				try {
-					Thread.currentThread().wait(5000);
+				a.wait(1000);
 				} catch (InterruptedException e) {
 				}
 				synchronized (b) {
@@ -55,7 +55,7 @@ public class ThreadDeadLock implements Runnable {
 			b.request();
 			synchronized (b) {
 				try {
-					Thread.currentThread().wait(5000);
+					b.wait(1000);
 				} catch (InterruptedException e) {
 
 				}

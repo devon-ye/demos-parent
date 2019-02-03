@@ -3,6 +3,7 @@ package org.devon.distributed.demo.service.discovery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.channels.ShutdownChannelGroupException;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.concurrent.ScheduledExecutorService;
@@ -34,15 +35,16 @@ public class DatabaseStoreDiscovery implements ServiceDiscovery, Runnable {
     private Connection connect;
 
     private long heatBeta;
+    private boolean enable = true;
 
     public DatabaseStoreDiscovery(Connection connect) {
-
         this.connect = connect;
     }
 
     public void init() throws Exception {
         try (Statement statement = connect.createStatement()) {
             statement.execute(INIT_TABLE_SQL);
+            Runtime.getRuntime().addShutdownHook(new OfflineClearHeatBeatThread());
         } catch (Exception e) {
             throw new Exception("jdbc_service_discovery table init fail!");
         }
@@ -51,11 +53,13 @@ public class DatabaseStoreDiscovery implements ServiceDiscovery, Runnable {
 
     @Override
     public void run() {
-        try (Statement statement = connect.createStatement()) {
-            statement.execute(DELETE_LAST_RECORD_SQL);
-            statement.execute(INSERT_HEAT_BEAT_SQL);
-        } catch (Exception e) {
-            LOG.warn("heat beat execute fail! Exception:", e);
+        while (enable) {
+            try (Statement statement = connect.createStatement()) {
+                statement.execute(DELETE_LAST_RECORD_SQL);
+                statement.execute(INSERT_HEAT_BEAT_SQL);
+            } catch (Exception e) {
+                LOG.warn("heat beat execute fail! Exception:", e);
+            }
         }
     }
 
@@ -81,13 +85,30 @@ public class DatabaseStoreDiscovery implements ServiceDiscovery, Runnable {
             Thread t = new Thread(group, r,
                     namePrefix + threadNumber.getAndIncrement(),
                     0);
-            if (t.isDaemon())
+            if (t.isDaemon()) {
                 t.setDaemon(false);
-            if (t.getPriority() != Thread.NORM_PRIORITY)
+            }
+            if (t.getPriority() != Thread.NORM_PRIORITY) {
                 t.setPriority(Thread.NORM_PRIORITY);
+            }
             return t;
         }
     }
 
+    private class OfflineClearHeatBeatThread extends Thread {
+        public OfflineClearHeatBeatThread() {
+            setName("OfflineClearHeatBeatThread");
+        }
+
+        @Override
+        public void run() {
+            enable = false;
+            try (Statement statement = connect.createStatement()) {
+                statement.execute(DELETE_LAST_RECORD_SQL);
+            } catch (Exception e) {
+
+            }
+        }
+    }
 
 }
