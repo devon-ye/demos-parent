@@ -17,11 +17,13 @@ public class LoopLinkedList<E> implements Linked<E> {
     public boolean addFirst(E e) {
         ++size;
         final Node first = new Node<>(e);
-        if (node == null) {
-            node = first;
+        if (node == head) {
+            head = first;
+            node = head.next;
         } else {
-            first.next = node;
-            node = first;
+            //???
+            head = first;
+            node = head.next;
         }
         return false;
     }
@@ -32,9 +34,11 @@ public class LoopLinkedList<E> implements Linked<E> {
             throw new NullPointerException("singlyLinkedList is null");
         }
         Node first = node;
+
         final E e = (E) first.e;
         final Node second = node.next;
         this.node = second;
+        this.head = second;
         --size;
         first = null;
         return e;
