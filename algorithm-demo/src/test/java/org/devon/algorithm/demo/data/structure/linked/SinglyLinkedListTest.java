@@ -1,4 +1,4 @@
-package org.devon.algorithm.demo.data.structure;
+package org.devon.algorithm.demo.data.structure.linked;
 
 import org.devon.algorithm.demo.data.structure.linked.SinglyLinkedList;
 import org.junit.Before;
