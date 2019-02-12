@@ -6,7 +6,7 @@ package org.devon.algorithm.demo.data.structure;
  * @datetime 2018/6/5 17:01
  * @since 1.0.0
  */
-public class BTree<K extends Comparable<K>,V> {
+public class BalanceTree<K extends Comparable<K>,V> {
 
    private static  int childSize = 6;
 
