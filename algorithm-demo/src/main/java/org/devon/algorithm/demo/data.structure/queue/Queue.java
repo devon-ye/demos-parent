@@ -1,4 +1,4 @@
-package org.devon.algorithm.demo.data.structure;
+package org.devon.algorithm.demo.data.structure.queue;
 
 import java.util.Iterator;
 import java.util.Spliterator;

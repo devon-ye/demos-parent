@@ -1,9 +1,8 @@
 package org.devon.algorithm.demo.data.structure;
 
+import org.devon.algorithm.demo.data.structure.linked.SinglyLinkedList;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @author dewen.ye

@@ -1,4 +1,4 @@
-package org.devon.algorithm.demo.data.structure;
+package org.devon.algorithm.demo.data.structure.stack;
 
 import java.io.Closeable;
 import java.io.IOException;
