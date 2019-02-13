@@ -21,7 +21,6 @@ public class LoopLinkedList<E> implements Linked<E> {
             head = first;
             node = head.next;
         } else {
-            //???
             head = first;
             node = head.next;
         }
