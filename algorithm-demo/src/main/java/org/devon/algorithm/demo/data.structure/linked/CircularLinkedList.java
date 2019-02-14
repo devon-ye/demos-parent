@@ -4,13 +4,16 @@ package org.devon.algorithm.demo.data.structure.linked;
  * @author dewen.ye
  * @date 2019/2/12 23:31
  */
-public class LoopLinkedList<E> implements Linked<E> {
+public class CircularLinkedList<E> implements Linked<E> {
+
+
+
 
     private int size = 0;
     private Node<E> node;
     private Node head;
 
-    public LoopLinkedList() {
+    public CircularLinkedList() {
     }
 
     @Override
@@ -88,7 +91,7 @@ public class LoopLinkedList<E> implements Linked<E> {
 
 
     public static void main(String[] args) {
-        Linked<Integer> loopLinkedList = new LoopLinkedList<>();
+        Linked<Integer> loopLinkedList = new CircularLinkedList<>();
         for (int i = 0; i < 10; i++) {
             loopLinkedList.addFirst(i);
             loopLinkedList.addLast(i);

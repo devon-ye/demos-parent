@@ -9,6 +9,8 @@ package org.devon.algorithm.demo.data.structure.linked;
  */
 public class SinglyLinkedList<E> implements Linked<E> {
 
+
+
     private int size = 0;
     private Node<E> node;
 

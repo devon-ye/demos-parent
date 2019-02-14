@@ -6,6 +6,36 @@ package org.devon.algorithm.demo.data.structure.linked;
  */
 public interface Linked<E> {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      boolean  addFirst(E e);
 
      E removeFirst();
