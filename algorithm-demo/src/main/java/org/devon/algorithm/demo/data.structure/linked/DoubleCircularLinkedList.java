@@ -35,4 +35,16 @@ public class DoubleCircularLinkedList<E> implements Linked<E> {
     public int size() {
         return 0;
     }
+
+    private static class Node<E>{
+        Node prev;
+        E data;
+        Node next;
+
+        public Node(Node prev, E data, Node next) {
+            this.prev = prev;
+            this.data = data;
+            this.next = next;
+        }
+    }
 }

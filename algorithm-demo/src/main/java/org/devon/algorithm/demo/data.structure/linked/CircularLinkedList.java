@@ -6,9 +6,6 @@ package org.devon.algorithm.demo.data.structure.linked;
  */
 public class CircularLinkedList<E> implements Linked<E> {
 
-
-
-
     private int size = 0;
     private Node<E> node;
     private Node head;
