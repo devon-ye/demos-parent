@@ -21,8 +21,8 @@ public class DynamicProxyTest {
 		TimeHandler invocationHandler = new TimeHandler(car);
 		Class<?> class1 =car.getClass();
 		System.out.println("target object.hashCode():"+car.hashCode());
-		Object moveable =  invocationHandler.createTargetProxyInstance(class1);
-		System.out.println("proxy object.hashCode():"+moveable.hashCode());
+		Object moveable =  invocationHandler.createTargetProxyInstance(car.getClass().getInterfaces());
+		System.out.println("proxy object:"+moveable);
 
 		//Moveable moveable =  (Moveable) Proxy.newProxyInstance(class1.getClassLoader(), class1.getInterfaces(), invocationHandler);
 	//	moveable.move();
