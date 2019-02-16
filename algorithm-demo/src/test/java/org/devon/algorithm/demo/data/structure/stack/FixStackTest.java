@@ -15,13 +15,13 @@ import java.util.EmptyStackException;
  * @author dewen.ye
  * @date 2019/1/12 16:39
  */
-@FixMethodOrder(MethodSorters.JVM)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FixStackTest {
 
     static FixStack<Integer> integers = new FixStack<>(10);
 
     @Test
-    public void testPush() {
+    public void test1Push() {
         integers.push(1);
         integers.push(2);
         integers.push(3);
@@ -48,7 +48,7 @@ public class FixStackTest {
 
 
     @Test
-    public void testPop() {
+    public void test2Pop() {
         integers.pop();
         integers.pop();
         integers.pop();
@@ -64,10 +64,7 @@ public class FixStackTest {
             integers.pop();
             integers.pop();
         } catch (Exception e) {
-            if (e instanceof EmptyStackException) {
-            } else {
-                throw e;
-            }
+
         }
     }
 
