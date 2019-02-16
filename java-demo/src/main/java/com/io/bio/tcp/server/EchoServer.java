@@ -16,7 +16,8 @@ public class EchoServer {
         InputStream inputStream = null;
         try {
             serverSocket = new ServerSocket(8888);
-            while (true) {
+            serverSocket.setSoTimeout(1000);
+            while (serverSocket.isClosed()) {
                 socket = serverSocket.accept();
                 //实例化客户端得输入流
                 inputStream = socket.getInputStream();

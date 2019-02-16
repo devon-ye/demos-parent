@@ -35,11 +35,11 @@ public class EchoThread implements Runnable {
                     }
                 }
             }
-            socket.close();
-            printStream.close();
+
         } catch (IOException e) {
 
         } finally {
+            printStream.close();
             if (socket != null) {
                 try {
                     socket.close();

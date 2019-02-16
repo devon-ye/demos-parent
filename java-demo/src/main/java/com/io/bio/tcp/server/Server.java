@@ -1,19 +1,22 @@
 package com.io.bio.tcp.server;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketAddress;
-import java.net.UnknownHostException;
+
 
 /**
  * @author Devonmusa
  * @date 2017年8月13日
  */
 public class Server {
+    private static final Logger LOG = LoggerFactory.getLogger(Server.class);
 
     public Server() {
     }
@@ -26,7 +29,7 @@ public class Server {
         try {
 
             serverScoket = new ServerSocket(9999);
-
+            serverScoket.setSoTimeout(1000);
             socket = serverScoket.accept();
             InputStreamReader isr = new InputStreamReader(socket.getInputStream());
             BufferedReader br = new BufferedReader(isr);
@@ -42,9 +45,8 @@ public class Server {
                 }
             }
 
-
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("IOException:", e);
         } finally {
             if (pw != null) {
                 pw.close();
@@ -65,5 +67,5 @@ public class Server {
             }
         }
     }
-    
+
 }
