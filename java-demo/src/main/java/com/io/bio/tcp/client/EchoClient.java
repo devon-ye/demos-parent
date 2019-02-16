@@ -11,7 +11,7 @@ import java.net.Socket;
  */
 public class EchoClient {
 
-    private void client() {
+    public void client() {
         Socket socket = null;
         try {
             socket = new Socket("localhost", 8888);
@@ -43,10 +43,5 @@ public class EchoClient {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) {
-        EchoClient echoClient = new EchoClient();
-        echoClient.client();
     }
 }

@@ -38,10 +38,6 @@ public class JvmStandarArgs {
 	 * 有关详细信息, 请参阅
 	 * http://www.oracle.com/technetwork/java/javase/documentation/index.html。
 	 */
-	public void testStandarArgs() {
-		// System.setProperty("-d64", "");
-
-	}
 
 	/**
 	 * <p>
@@ -146,20 +142,6 @@ public class JvmStandarArgs {
 	 * -X 选项是非标准选项, 如有更改, 恕不另行通知。
 	 * </p>
 	 */
-	public void testNoneStandarXArgs() {
-
-		String appHome = System.getProperty("user.dir");
-
-	}
-
-	public void testNoneStandarXXArgs() {
-		// java -XX:+PrintFlagsFinal
-
-		// java -XX:+PrintFlagsInitial
-
-		// java -server -XX:+PrintCommandLineFlags
-
-	}
 
 	public void getSystemEnv() {
 		Map<String, String> envMap = System.getenv();
@@ -257,22 +239,5 @@ public class JvmStandarArgs {
 	 * 
 	 * @param args
 	 */
-	public static void main(String[] args) {
-
-		JvmStandarArgs jvmStandarArgs = new JvmStandarArgs();
-		jvmStandarArgs.getSystemEnv();
-		jvmStandarArgs.getSystemProperties();
-		while (true) {
-			jvmStandarArgs.testStandarArgs();
-			jvmStandarArgs.testNoneStandarXArgs();
-
-			try {
-				Thread.sleep(60 * 1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-
-	}
 
 }

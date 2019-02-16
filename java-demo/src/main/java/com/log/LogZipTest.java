@@ -26,8 +26,8 @@ public class LogZipTest {
 	}
 	
 	public static void testLogZip() throws InterruptedException {
-		
-		while(true){
+		long startTime = System.currentTimeMillis();
+		while(System.currentTimeMillis()-startTime > 1000){
 			logger.info("this is logger info");
 			Thread.sleep(1000 * 1);
 			logger.error("this是 ");

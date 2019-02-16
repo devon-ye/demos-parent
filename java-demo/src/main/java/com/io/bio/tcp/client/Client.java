@@ -29,35 +29,27 @@ public class Client {
 		try {
 			socket = new Socket(host, port);
 			pw = new PrintWriter(socket.getOutputStream());
+			pw.write("this is client connect");
 		} catch (UnknownHostException e) {
 
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		while (true) {
-
-			pw.write("this is client connect");
-			try {
-				Thread.sleep(10000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		}finally {
+			if(pw!=null){
+				pw.close();
+			}
+			if(socket!=null){
+				try {
+					socket.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 
 	}
 
-	public static void main(String[] args) {
-		Client client = new Client("127.0.0.1", 9999);
-		client.connect("127.0.0.1", 9999);
-	}
-
-
-	public void test() {
-		Client client = new Client("127.0.0.1", 9999);
-		client.connect("127.0.0.1", 9999);
-	}
 
 }

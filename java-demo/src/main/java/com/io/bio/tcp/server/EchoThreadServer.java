@@ -14,7 +14,7 @@ public class EchoThreadServer {
         ServerSocket serverSocket = null;
         try {
             serverSocket = new ServerSocket(8888);
-            while (true) {
+            while (serverSocket.isClosed()) {
                 Socket socket = serverSocket.accept();
                 EchoThread echoThread = new EchoThread(socket);
 

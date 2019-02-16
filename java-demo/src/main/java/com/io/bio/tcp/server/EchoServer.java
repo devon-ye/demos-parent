@@ -13,12 +13,13 @@ public class EchoServer {
     private void startServer() {
         ServerSocket serverSocket = null;
         Socket socket = null;
+        InputStream inputStream = null;
         try {
             serverSocket = new ServerSocket(8888);
             while (true) {
                 socket = serverSocket.accept();
                 //实例化客户端得输入流
-                InputStream inputStream = socket.getInputStream();
+                inputStream = socket.getInputStream();
                 InputStreamReader isr = new InputStreamReader(inputStream);
                 BufferedReader br = new BufferedReader(isr);
                 //实例化客户端得打印输出流
@@ -43,9 +44,23 @@ public class EchoServer {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             if (socket != null) {
                 try {
                     socket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (serverSocket != null) {
+                try {
+                    serverSocket.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

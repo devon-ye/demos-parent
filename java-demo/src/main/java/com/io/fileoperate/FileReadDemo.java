@@ -83,7 +83,14 @@ public class FileReadDemo {
             logger.error("readFileByCharacterStream,  is error! FileNotFoundException:", e);
         } catch (IOException e) {
             logger.error("readFileByCharacterStream,  is error! FileNotFoundException:", e);
-
+        }finally {
+            if(fileReader!=null){
+                try {
+                    fileReader.close();
+                } catch (IOException e) {
+                    logger.error("readFileByCharacterStream,  is error! fileReader.close():", e);
+                }
+            }
         }
     }
 
@@ -157,7 +164,6 @@ public class FileReadDemo {
 
             while ((value = bufferedInputStream.read()) != -1) {
                 System.out.print((char) value);
-
             }
 
         } catch (FileNotFoundException e) {
@@ -165,6 +171,13 @@ public class FileReadDemo {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+            if(bufferedInputStream!=null){
+                try {
+                    bufferedInputStream.close();
+                } catch (IOException e) {
+                    logger.error("readFile, bufferedInputStream.close() is error! IOException:", e);
+                }
+            }
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
