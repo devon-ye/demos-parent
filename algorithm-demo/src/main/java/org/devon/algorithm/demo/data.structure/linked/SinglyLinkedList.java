@@ -9,10 +9,8 @@ package org.devon.algorithm.demo.data.structure.linked;
  */
 public class SinglyLinkedList<E> implements Linked<E> {
 
-
-
     private int size = 0;
-    private Node<E> node;
+    private  transient Node<E> node;
 
     public SinglyLinkedList() {
     }
@@ -48,6 +46,7 @@ public class SinglyLinkedList<E> implements Linked<E> {
     @Override
     public boolean addLast(E e) {
         final Node last = new Node(e);
+        ++size;
         for (Node x = node; x != null; x = x.next) {
             if (x.next == null) {
                 x.next = last;
@@ -74,12 +73,13 @@ public class SinglyLinkedList<E> implements Linked<E> {
         }
         final E e = (E) lastSecond.next.e;
         lastSecond.next = null;
+        --size;
         return e;
     }
 
     @Override
     public boolean isEmpty() {
-        return (node == null || node.next == null);
+        return (node == null && size==0);
     }
 
     @Override
@@ -87,20 +87,19 @@ public class SinglyLinkedList<E> implements Linked<E> {
         return size;
     }
 
-
-    public static void main(String[] args) {
-        Linked<Integer> singlyLinkedList = new SinglyLinkedList<>();
-        for (int i = 0; i < 10; i++) {
-            singlyLinkedList.addFirst(i);
-            singlyLinkedList.addLast(i);
+    public boolean clear() {
+        if (node == null) {
+            size = 0;
+        } else {
+            Node nextNode = node;
+            while (nextNode!= null) {
+                nextNode = nextNode.next;
+                node = null;
+                --size;
+            }
         }
-
-        for (int j = 0; j < 8; j++) {
-            singlyLinkedList.removeLast();
-            singlyLinkedList.removeFirst();
-        }
+        return true;
     }
-
 
     public static class Node<E> {
         E e;

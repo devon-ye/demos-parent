@@ -8,7 +8,7 @@ public class CircularLinkedList<E> implements Linked<E> {
 
     private int size = 0;
     private Node<E> node;
-    private Node head;
+    private transient Node head;
 
     public CircularLinkedList() {
     }

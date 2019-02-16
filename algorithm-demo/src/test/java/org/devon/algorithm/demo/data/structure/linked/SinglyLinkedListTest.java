@@ -1,8 +1,12 @@
 package org.devon.algorithm.demo.data.structure.linked;
 
 import org.devon.algorithm.demo.data.structure.linked.SinglyLinkedList;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 /**
  * @author dewen.ye
@@ -10,51 +14,71 @@ import org.junit.Test;
  * @date 2019/1/26 04:10
  * @since ${project.version}
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SinglyLinkedListTest {
 
-    SinglyLinkedList<Long> singlyLinkedList;
+    static SinglyLinkedList<Long> singlyLinkedList;
+    private int addFirstCount = 50;
+    private int removeFirstCount = 40;
+    private int addLastCount = 60;
+    private int removeLastCount = 30;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeClass
+    public static void setUp() throws Exception {
         singlyLinkedList = new SinglyLinkedList<>();
     }
 
     @Test
-    public void addFirst() {
-
-        for (int i = 0; i < 50; i++) {
+    public void test1AddFirst() {
+        System.out.println("addFirst.hashCode:"+"addFirst".hashCode());
+        for (int i = 0; i < addFirstCount; i++) {
             singlyLinkedList.addFirst(Long.valueOf(i));
         }
+        Assert.assertEquals(addFirstCount, singlyLinkedList.size());
     }
 
     @Test
-    public void removeFirst() {
-        for (int i = 0; i < 40; i++) {
-            singlyLinkedList.addFirst(Long.valueOf(i));
+    public void test2RemoveFirst() {
+        System.out.println("removeFirst.hashCode:"+"removeFirst".hashCode());
+        for (int i = 0; i < removeFirstCount; i++) {
+            singlyLinkedList.removeFirst();
         }
+        Assert.assertEquals(addFirstCount - removeFirstCount, singlyLinkedList.size());
     }
 
     @Test
-    public void addLast() {
-        for (int i = 0; i < 60; i++) {
-            singlyLinkedList.addFirst(Long.valueOf(i));
+    public void test3AddLast() {
+        System.out.println("addLast.hashCode:"+"addLast".hashCode());
+
+        for (int i = 0; i < addLastCount; i++) {
+            singlyLinkedList.addLast(Long.valueOf(i));
         }
+        Assert.assertEquals((addFirstCount - removeFirstCount + addLastCount), singlyLinkedList.size());
     }
 
     @Test
-    public void removeLast() {
-        for (int i = 0; i < 30; i++) {
-            singlyLinkedList.addFirst(Long.valueOf(i));
+    public void test4RemoveLast() {
+        System.out.println("removeLast.hashCode:"+"removeLast".hashCode());
+
+        for (int i = 0; i < removeLastCount; i++) {
+            singlyLinkedList.removeLast();
         }
+        Assert.assertEquals((addFirstCount - removeFirstCount + addLastCount - removeLastCount), singlyLinkedList.size());
+
     }
 
     @Test
-    public void isEmpty() {
-        singlyLinkedList.isEmpty();
+    public void test5Clear() {
+        Assert.assertEquals(true,singlyLinkedList.clear());
     }
 
     @Test
-    public void size() {
-        singlyLinkedList.size();
+    public void test6IsEmpty() {
+        Assert.assertEquals(true,singlyLinkedList.isEmpty());
+    }
+
+    @Test
+    public void test7Size() {
+        Assert.assertEquals(0,singlyLinkedList.size());
     }
 }
