@@ -1,30 +1,28 @@
 package org.devon.algorithm.demo.data.structure.linked;
 
-
 /**
- * single linked table
- *
  * @author dewen.ye
- * @date 2019/1/26 02:31
+ * @date 2019/2/12 23:31
  */
-public class SinglyLinkedList<E> implements Linked<E> {
+public class CircularLinkedListV1<E> implements Linked<E> {
 
-    private transient int size = 0;
-    private transient Node<E> node;
+    private int size = 0;
+    private Node<E> node;
+    private transient Node head;
 
-    public SinglyLinkedList() {
+    public CircularLinkedListV1() {
     }
-
 
     @Override
     public boolean addFirst(E e) {
         ++size;
         final Node first = new Node<>(e);
-        if (node == null) {
-            node = first;
+        if (node == head) {
+            head = first;
+            node = head.next;
         } else {
-            first.next = node;
-            node = first;
+            head = first;
+            node = head.next;
         }
         return false;
     }
@@ -35,9 +33,11 @@ public class SinglyLinkedList<E> implements Linked<E> {
             throw new NullPointerException("singlyLinkedList is null");
         }
         Node first = node;
+
         final E e = (E) first.e;
         final Node second = node.next;
         this.node = second;
+        this.head = second;
         --size;
         first = null;
         return e;
@@ -46,7 +46,6 @@ public class SinglyLinkedList<E> implements Linked<E> {
     @Override
     public boolean addLast(E e) {
         final Node last = new Node(e);
-        ++size;
         for (Node x = node; x != null; x = x.next) {
             if (x.next == null) {
                 x.next = last;
@@ -56,6 +55,7 @@ public class SinglyLinkedList<E> implements Linked<E> {
         // empty linked deal
         if (node == null) {
             node = last;
+            last.next = head;
         }
         return false;
     }
@@ -72,14 +72,13 @@ public class SinglyLinkedList<E> implements Linked<E> {
             return null;
         }
         final E e = (E) lastSecond.next.e;
-        lastSecond.next = null;
-        --size;
+        lastSecond.next = head;
         return e;
     }
 
     @Override
     public boolean isEmpty() {
-        return (node == null && size == 0);
+        return (node == null || node.next == null);
     }
 
     @Override
@@ -89,18 +88,23 @@ public class SinglyLinkedList<E> implements Linked<E> {
 
     @Override
     public boolean clear() {
-        if (node == null) {
-            size = 0;
-        } else {
-            Node nextNode = node;
-            while (nextNode != null) {
-                nextNode = nextNode.next;
-                node = null;
-                --size;
-            }
-        }
-        return true;
+        return false;
     }
+
+
+    public static void main(String[] args) {
+        Linked<Integer> loopLinkedList = new CircularLinkedListV1<>();
+        for (int i = 0; i < 10; i++) {
+            loopLinkedList.addFirst(i);
+            loopLinkedList.addLast(i);
+        }
+
+        for (int j = 0; j < 8; j++) {
+            loopLinkedList.removeLast();
+            loopLinkedList.removeFirst();
+        }
+    }
+
 
     public static class Node<E> {
         E e;

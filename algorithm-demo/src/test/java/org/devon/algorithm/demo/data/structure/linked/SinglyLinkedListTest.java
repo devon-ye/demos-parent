@@ -12,7 +12,6 @@ import org.junit.runners.MethodSorters;
  * @author dewen.ye
  * @description
  * @date 2019/1/26 04:10
- * @since ${project.version}
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SinglyLinkedListTest {

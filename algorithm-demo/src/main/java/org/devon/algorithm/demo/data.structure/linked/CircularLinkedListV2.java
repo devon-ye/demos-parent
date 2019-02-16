@@ -4,29 +4,38 @@ package org.devon.algorithm.demo.data.structure.linked;
  * @author dewen.ye
  * @date 2019/2/12 23:31
  */
-public class CircularLinkedList<E> implements Linked<E> {
+public class CircularLinkedListV2<E> implements Linked<E> {
 
     private int size = 0;
     private Node<E> node;
-    private transient Node head;
+    private transient Node tail;
 
-    public CircularLinkedList() {
+    public CircularLinkedListV2() {
     }
 
+    /**
+     *  insert element at the beginning of this list
+     * @param e
+     * @return {@Code  true}
+     */
     @Override
     public boolean addFirst(E e) {
         ++size;
         final Node first = new Node<>(e);
-        if (node == head) {
-            head = first;
-            node = head.next;
+        if (node == tail) {
+            tail = first;
+            node = tail.next;
         } else {
-            head = first;
-            node = head.next;
+            tail = first;
+            node = tail.next;
         }
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public E removeFirst() {
         if (node == null) {
@@ -37,7 +46,7 @@ public class CircularLinkedList<E> implements Linked<E> {
         final E e = (E) first.e;
         final Node second = node.next;
         this.node = second;
-        this.head = second;
+        this.tail = second;
         --size;
         first = null;
         return e;
@@ -55,7 +64,7 @@ public class CircularLinkedList<E> implements Linked<E> {
         // empty linked deal
         if (node == null) {
             node = last;
-            last.next = head;
+            last.next = tail;
         }
         return false;
     }
@@ -72,7 +81,7 @@ public class CircularLinkedList<E> implements Linked<E> {
             return null;
         }
         final E e = (E) lastSecond.next.e;
-        lastSecond.next = head;
+        lastSecond.next = tail;
         return e;
     }
 
@@ -86,9 +95,14 @@ public class CircularLinkedList<E> implements Linked<E> {
         return size;
     }
 
+    @Override
+    public boolean clear() {
+        return false;
+    }
+
 
     public static void main(String[] args) {
-        Linked<Integer> loopLinkedList = new CircularLinkedList<>();
+        Linked<Integer> loopLinkedList = new CircularLinkedListV2<>();
         for (int i = 0; i < 10; i++) {
             loopLinkedList.addFirst(i);
             loopLinkedList.addLast(i);

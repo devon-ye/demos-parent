@@ -36,12 +36,26 @@ public class DoubleCircularLinkedList<E> implements Linked<E> {
         return 0;
     }
 
+    @Override
+    public boolean clear() {
+        return false;
+    }
+
     private static class Node<E>{
+        /**
+         * prev node point
+         */
         Node prev;
+        /**
+         * current node data
+         */
         E data;
+        /**
+         * next node point
+         */
         Node next;
 
-        public Node(Node prev, E data, Node next) {
+        Node(Node prev, E data, Node next) {
             this.prev = prev;
             this.data = data;
             this.next = next;
