@@ -17,8 +17,8 @@ public class OneMillionsIntNumberUsing1MSort {
     private static String sortedFileName = "sortedIntNumber.txt";
     private static Random random = new Random();
 
-    private final int COUNT = 10000000;
-    private final int MAX = 99999999;
+    private final int COUNT = 1000;
+    private final int MAX = 9999;
 
     public static void main(String[] args) {
         OneMillionsIntNumberUsing1MSort using1mSort = new OneMillionsIntNumberUsing1MSort();
@@ -67,7 +67,9 @@ public class OneMillionsIntNumberUsing1MSort {
                 e.printStackTrace();
             }
             try {
-                fileReader.close();
+                if(fileReader!=null) {
+                    fileReader.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -103,7 +105,9 @@ public class OneMillionsIntNumberUsing1MSort {
                 if (bytes[i] == null) {
                     continue;
                 } else {
-                    fileWriter.write(i + "\n");
+                    if(fileWriter!=null) {
+                        fileWriter.write(i + "\n");
+                    }
                     LOG.info("Sorted number write to file:" + i);
                 }
             }

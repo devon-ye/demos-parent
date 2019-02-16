@@ -6,14 +6,14 @@ import java.util.Random;
  * Created by lenovo on 2017/10/10.
  */
 public class PriorityTest1Thread extends Thread{
-
+    private static Random random = new Random();
     @Override
     public void run() {
         long beginTime = System.currentTimeMillis();
         long addResult = 0;
         for(int j=0;j<10;j++) {
             for (int i = 0; i < 50000; i++) {
-                Random random = new Random();
+
                 random.nextInt();
                 addResult += i;
               //  System.out.print("@@@@ addResult=" + addResult);

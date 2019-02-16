@@ -32,7 +32,8 @@ public class TryCatchFinally {
             return 2;
         } finally {
             System.out.println("finally executing....");
-            return 3;
+            //bug return
+            //  return 3;
         }
 
     }
@@ -52,7 +53,8 @@ public class TryCatchFinally {
             return new TryCatchFinally("catch return");
         } finally {
             System.out.println("finally executing....");
-            return new TryCatchFinally("finally return");
+            //bug return
+            // return new TryCatchFinally("finally return");
         }
 
     }
