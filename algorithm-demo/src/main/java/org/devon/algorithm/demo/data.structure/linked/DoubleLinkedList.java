@@ -100,9 +100,6 @@ public class DoubleLinkedList<E> implements Linked<E> , Serializable {
 
     @Override
     public boolean clear() {
-        if(first == null  || last == null){
-            return true;
-        }
         --size;
         Node<E> currentNode = first;
         while (first != null){

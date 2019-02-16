@@ -1,6 +1,7 @@
 package com.test;
 
 
+import org.junit.Test;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -15,7 +16,8 @@ import org.slf4j.LoggerFactory;
 public class TestRunner {
 	private static final Logger log = LoggerFactory.getLogger(JunitBeforeAndBeforeClassDifferent.class);
 
-	public static void main(String[] args) {
+	@Test
+	public void test() {
 		
 		Result results = JUnitCore.runClasses(JunitBeforeAndBeforeClassDifferent.class);
 		

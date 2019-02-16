@@ -7,7 +7,7 @@ package com.design.pattern.description.instances;
 public class Decorator extends AbstractDrink{
 	private AbstractDrink dirnk;
 	private float price;
-	private String description;
+/*	private String description;*/
 	
 	
 	
@@ -16,19 +16,20 @@ public class Decorator extends AbstractDrink{
 	public Decorator(AbstractDrink dirnk) {
 		this.dirnk = dirnk;
 	}
-	
+
+	@Override
 	public float getPrice() {
 		return price +dirnk.getPrice(); 
 	}
-	
+	@Override
 	public void setPrice(float price) {
 		this.price = price;
 	}
-
+	@Override
 	public String getDescription() {
 		return super.getDescription() +"-" +super.getPrice() + "##"+ dirnk.getDescription();
 	}
-
+	@Override
 	public void setDescription(String description) {
 		this.description = description;
 	}

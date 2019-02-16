@@ -1,5 +1,6 @@
 package com.rest;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/controller")
 public class Controller {
 
-    @RequestMapping("/hello")
+    @GetMapping("/hello")
     public String getHelloWord(){
         return "hello world";
     }
 
 
-    @RequestMapping("/downloadExcelTemplate")
+    @GetMapping("/downloadExcelTemplate")
     public void downloadExcelTemplate() {
 
     }

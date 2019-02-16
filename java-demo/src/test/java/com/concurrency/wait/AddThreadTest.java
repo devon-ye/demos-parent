@@ -1,11 +1,14 @@
 package com.concurrency.wait;
 
+import org.junit.Test;
+
 /**
  * Created by lenovo on 2017/12/3.
  */
 public class AddThreadTest {
 
-    public static void main(String[] args) {
+    @Test
+    public  void test() {
         AddOperatorWaitNodify addOperatorWaitNodify = new AddOperatorWaitNodify(7);
         AddThread addThread = new AddThread(addOperatorWaitNodify);
         PrintThread printThread = new PrintThread(addOperatorWaitNodify);
@@ -15,7 +18,5 @@ public class AddThreadTest {
             new Thread(printThread).start();
             i++;
         }
-
-
     }
 }

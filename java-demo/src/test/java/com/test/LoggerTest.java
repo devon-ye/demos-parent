@@ -31,10 +31,7 @@ public class LoggerTest {
         }
         long endTime2 = System.currentTimeMillis();
 
-
         System.out.println("{} concat usedTime=" +(endTime1-startTime1));
         System.out.println("+  concat usedTime=" +(endTime2-startTime2));
-
-
     }
 }

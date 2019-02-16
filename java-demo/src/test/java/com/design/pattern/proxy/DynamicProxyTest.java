@@ -6,6 +6,7 @@ import java.lang.reflect.Proxy;
 import com.design.pattern.proxy.Car;
 import com.design.pattern.proxy.Moveable;
 import com.design.pattern.proxy.TimeHandler;
+import org.junit.Test;
 
 /**
 *@Describetion
@@ -14,7 +15,8 @@ import com.design.pattern.proxy.TimeHandler;
 */
 public class DynamicProxyTest {
 
-	public static void main(String[] args) {
+	@Test
+	public void test() {
 		Car car = new Car();
 		TimeHandler invocationHandler = new TimeHandler(car);
 		Class<?> class1 =car.getClass();

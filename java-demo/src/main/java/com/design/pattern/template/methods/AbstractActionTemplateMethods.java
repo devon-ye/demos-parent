@@ -20,12 +20,12 @@ public abstract class AbstractActionTemplateMethods {
 		case ADD:
 			this.add(obj);
 
-			return null;
+			return obj;
 
 		case DELETE:
 
 			this.delete((Long) obj);
-			return null;
+			return obj;
 		case MODIFY:
 
 			return this.modify(obj);

@@ -4,6 +4,7 @@ package com.generics;
 import com.bean.demo.A;
 import com.generics.demo.ThreeTuple;
 import com.generics.demo.TwoTuple;
+import org.junit.Test;
 
 /*
 *@author  Devonmusa
@@ -20,12 +21,10 @@ public class TupleTest {
 	static ThreeTuple<A,String,Integer> g() {
 		return new ThreeTuple<A,String,Integer>(new A(),"hello",89);
 	}
-	
-	public static void main(String[] args) {
-		TwoTuple<String, Integer> ttfs = f();
-	//	PrintUtil.printObj(ttfs);
-		
 
+	@Test
+	public void test() {
+		TwoTuple<String, Integer> ttfs = f();
 	}
 	
 

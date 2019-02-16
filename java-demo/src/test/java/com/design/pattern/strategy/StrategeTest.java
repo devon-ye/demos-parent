@@ -2,6 +2,7 @@ package com.design.pattern.strategy;
 
 import com.design.pattern.strategy.Duck;
 import com.design.pattern.strategy.MallardDuck;
+import org.junit.Test;
 
 /**
 *@Describetion
@@ -10,7 +11,8 @@ import com.design.pattern.strategy.MallardDuck;
 */
 public class StrategeTest {
 
-	public static void main(String[] args) {
+	@Test
+	public void test() {
 		Duck duck = new MallardDuck();
 //   	Duck duck = new RedHeadDuck();
 //		Duck duck = new RobbertDuck();

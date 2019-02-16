@@ -24,6 +24,5 @@ public class SingletonTest {
 	public void testChildSingletonGetInstance(){
 		RegisterSingleton  instance= ChildSingleton.getInstance("RegisterSingleton");
 		System.out.println("intance:" + instance);
-		
 	}
 }

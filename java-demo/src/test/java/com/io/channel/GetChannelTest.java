@@ -21,31 +21,20 @@ public class GetChannelTest {
     String fileName = "data.txt";
     String context = "some .........";
     GetChannel gc = new GetChannel();
+
     @Test
     public void writeFileByFileOutputStream() {
-        try {
-            gc.writeFileByFileOutputStream(fileName, context);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        gc.writeFileByFileOutputStream(fileName, context);
     }
 
     @Test
     public void writerFileByRandomAccessFile() {
-        try {
-            gc.writerFileByRandomAccessFile(fileName, "do some.........");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        gc.writerFileByRandomAccessFile(fileName, "do some.........");
     }
 
     @Test
     public void readFileByFileInputStreamChannel() {
-        try {
-            gc.readFileByFileInputStreamChannel(fileName);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        gc.readFileByFileInputStreamChannel(fileName);
     }
 
 
