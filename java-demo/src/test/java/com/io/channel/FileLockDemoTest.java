@@ -10,6 +10,8 @@ package com.io.channel;
 
 import org.junit.Test;
 
+import java.io.File;
+
 import static org.junit.Assert.*;
 
 /**
@@ -20,7 +22,10 @@ public class FileLockDemoTest {
 
     @Test
     public void lockDemo() {
-        FileLockDemo  fileLockDemo = new FileLockDemo();
-        fileLockDemo.lockDemo();
+        FileLockDemo fileLockDemo = new FileLockDemo();
+        String userDir = System.getProperty("user.dir");
+        String testFilePath = "src\\test\\java\\com\\io\\channel\\FileChannelTest.txt";
+        String fileName = userDir + File.separator+ testFilePath;
+        fileLockDemo.lockDemo(fileName);
     }
 }
