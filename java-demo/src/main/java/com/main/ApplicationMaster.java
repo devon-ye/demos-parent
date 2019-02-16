@@ -9,8 +9,9 @@ package com.main;
 public class ApplicationMaster {
 
     public static void main(String[] args) {
-
-        while (true){
+        long startTime = System.currentTimeMillis();
+        long endTime = 0;
+        while (endTime - startTime > 2000) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -18,7 +19,7 @@ public class ApplicationMaster {
             }
 
             System.out.println("ApplicationMaster###");
-
+            endTime = System.currentTimeMillis();
         }
 
     }
