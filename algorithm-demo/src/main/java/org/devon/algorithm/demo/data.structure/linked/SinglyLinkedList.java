@@ -1,14 +1,16 @@
-package org.devon.algorithm.demo.data.structure;
+package org.devon.algorithm.demo.data.structure.linked;
+
 
 /**
+ * single linked table
+ *
  * @author dewen.ye
- * @description
  * @date 2019/1/26 02:31
  */
 public class SinglyLinkedList<E> implements Linked<E> {
 
-    private int size = 0;
-    private Node<E> node;
+    private transient int size = 0;
+    private transient Node<E> node;
 
     public SinglyLinkedList() {
     }
@@ -44,6 +46,7 @@ public class SinglyLinkedList<E> implements Linked<E> {
     @Override
     public boolean addLast(E e) {
         final Node last = new Node(e);
+        ++size;
         for (Node x = node; x != null; x = x.next) {
             if (x.next == null) {
                 x.next = last;
@@ -70,12 +73,13 @@ public class SinglyLinkedList<E> implements Linked<E> {
         }
         final E e = (E) lastSecond.next.e;
         lastSecond.next = null;
+        --size;
         return e;
     }
 
     @Override
     public boolean isEmpty() {
-        return (node == null || node.next == null);
+        return (node == null && size == 0);
     }
 
     @Override
@@ -83,18 +87,32 @@ public class SinglyLinkedList<E> implements Linked<E> {
         return size;
     }
 
-
-    public static void main(String[] args) {
-        Linked<Integer> singlyLinkedList = new SinglyLinkedList<>();
-        for (int i = 0; i < 10; i++) {
-            singlyLinkedList.addFirst(i);
-            singlyLinkedList.addLast(i);
+    @Override
+    public boolean clear() {
+        if (node == null) {
+            size = 0;
+        } else {
+            Node nextNode = node;
+            while (nextNode != null) {
+                nextNode = nextNode.next;
+                node = null;
+                --size;
+            }
         }
-
-        for (int j = 0; j < 8; j++) {
-            singlyLinkedList.removeLast();
-            singlyLinkedList.removeFirst();
-        }
+        return true;
     }
 
+    public static class Node<E> {
+        E e;
+        Node next;
+
+        public Node(E e) {
+            this.e = e;
+        }
+
+        public Node(E e, Node next) {
+            this.e = e;
+            this.next = next;
+        }
+    }
 }

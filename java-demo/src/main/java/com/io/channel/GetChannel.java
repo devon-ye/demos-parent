@@ -16,36 +16,47 @@ public class GetChannel {
 
     public void writeFileByFileOutputStream(String filePath, String context) throws IOException {
         FileChannel fc = null;
+        FileOutputStream fileOutputStream = null;
         try {
-            fc = new FileOutputStream(filePath).getChannel();
+            fileOutputStream = new FileOutputStream(filePath);
+            fc = fileOutputStream.getChannel();
             ByteBuffer bf = ByteBuffer.wrap(context.getBytes());
             fc.write(bf);
         } finally {
             if (fc != null) {
                 fc.close();
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
             }
         }
     }
 
     public void writerFileByRandomAccessFile(String fileName, String context) throws IOException {
         FileChannel fc = null;
+        RandomAccessFile randomAccessFile = null;
         try {
-            fc = new RandomAccessFile(fileName, "rw").getChannel();
+            randomAccessFile = new RandomAccessFile(fileName, "rw");
+            fc = randomAccessFile.getChannel();
             fc.position();
             ByteBuffer bf = ByteBuffer.wrap(context.getBytes());
             fc.write(bf);
-
         } finally {
             if (fc != null) {
                 fc.close();
+            }
+            if (randomAccessFile != null) {
+                randomAccessFile.close();
             }
         }
     }
 
     public void readFileByFileInputStreamChannel(String fileName) throws IOException {
         FileChannel fc = null;
+        FileInputStream fis = null;
         try {
-            fc = new FileInputStream(fileName).getChannel();
+            fis = new FileInputStream(fileName);
+            fc = fis.getChannel();
             ByteBuffer bf = ByteBuffer.allocate(BATCH_SIZE);
             fc.read(bf);
             bf.flip();
@@ -57,6 +68,9 @@ public class GetChannel {
         } finally {
             if (fc != null) {
                 fc.close();
+            }
+            if (fis != null) {
+                fis.close();
             }
         }
     }

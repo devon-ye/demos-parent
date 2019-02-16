@@ -1,4 +1,4 @@
-package org.devon.algorithm.demo.data.structure;
+package org.devon.algorithm.demo.data.structure.queue;
 
 import java.util.Iterator;
 import java.util.Spliterator;
@@ -9,6 +9,13 @@ import java.util.function.Consumer;
  * @date 2019/1/12 11:36
  */
 public class Queue<Item> implements Iterable<Item> {
+
+
+
+
+
+
+
 
     private Item item;
 

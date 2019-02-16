@@ -1,4 +1,4 @@
-package org.devon.algorithm.demo.data.structure;
+package org.devon.algorithm.demo.data.structure.linked;
 
 /**
  * @author dewen.ye
@@ -17,4 +17,6 @@ public interface Linked<E> {
      boolean isEmpty();
 
      int size();
+
+     boolean clear();
 }

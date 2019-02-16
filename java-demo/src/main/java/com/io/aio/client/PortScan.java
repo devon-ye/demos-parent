@@ -29,13 +29,10 @@ public class PortScan  extends Thread{
 			String hostIpStr = hostIp_prx+i;
 			new PortScan("Scan_Thread" + i,hostIpStr).start();
 		}	
-		
-		
+
 		for(int port :freePortSet) {
 			logger.info("free port:" + port);
 		}
-		
-	
 	}
 	
 	public PortScan(String name,String hostIp) {
@@ -46,7 +43,7 @@ public class PortScan  extends Thread{
 	public void  getHostInfo(String hostIp) {
 		InetAddress inetAddress = null;
 		try {
-			inetAddress = inetAddress = InetAddress.getByName(this.hostIp);
+		inetAddress = InetAddress.getByName(this.hostIp);
 		} catch (UnknownHostException e) {
 			logger.error(" inetAddress UnknownHostException",e);
 
@@ -81,6 +78,14 @@ public class PortScan  extends Thread{
 		} catch (UnknownHostException e) {
 			
 			e.printStackTrace();
+		}finally {
+			if(socket!=null) {
+				try {
+					socket.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 	

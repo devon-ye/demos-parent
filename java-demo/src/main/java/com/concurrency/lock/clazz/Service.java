@@ -4,11 +4,11 @@ package com.concurrency.lock.clazz;
  * Created by lenovo on 2017/10/12.
  */
 public class Service {
-
+     static Object object = new Object();
      public  static synchronized void printA() {
         try {
             System.out.println("thread name is:" + Thread.currentThread().getName() + ", currentTimeMS:" + System.currentTimeMillis() + ",into printA()");
-            Thread.sleep(5000);
+            object.wait(5000);
 
             System.out.println("thread name is:" + Thread.currentThread().getName() + ", currentTimeMS:" + System.currentTimeMillis() + ",outto printA()");
 
@@ -20,10 +20,8 @@ public class Service {
     public synchronized static void printB() {
         try {
             System.out.println("thread name is:" + Thread.currentThread().getName() + ", currentTimeMS:" + System.currentTimeMillis() + ",into printB()");
-            Thread.sleep(5000);
-
+            object.wait(5000);
             System.out.println("thread name is:" + Thread.currentThread().getName() + ", currentTimeMS:" + System.currentTimeMillis() + ",outto printB()");
-
         }catch (Exception e) {
             e.printStackTrace();
         }

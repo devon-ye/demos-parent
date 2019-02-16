@@ -6,9 +6,9 @@ import java.net.Socket;
 /**
  * Created by lenovo on 2017/12/2.
  */
-public class EchoThread  implements  Runnable{
+public class EchoThread implements Runnable {
 
-    private Socket socket ;
+    private Socket socket;
 
     public EchoThread(Socket socket) {
         this.socket = socket;
@@ -22,29 +22,41 @@ public class EchoThread  implements  Runnable{
             InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
             bufferedReader = new BufferedReader(inputStreamReader);
             printStream = new PrintStream(socket.getOutputStream());
-            boolean flag =true;
+            boolean flag = true;
             while (flag) {
                 String str = bufferedReader.readLine();
-                if(str == null || "".equals(str)){
+                if (str == null || "".equals(str)) {
                     flag = false;
-                }else {
-                    if("bye".equals(str)) {
+                } else {
+                    if ("bye".equals(str)) {
                         flag = false;
-                    }else {
-                       printStream.println("ECHO:" + str);
+                    } else {
+                        printStream.println("ECHO:" + str);
                     }
                 }
             }
-            socket.close();
+
+        } catch (IOException e) {
+
+        } finally {
             printStream.close();
-        }catch (IOException e){
-
-        }finally {
-
+            if (socket != null) {
+                try {
+                    socket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
-    private void  print() {
-
+    public void close() {
+        if (socket != null) {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

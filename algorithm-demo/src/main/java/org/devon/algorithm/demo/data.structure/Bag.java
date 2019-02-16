@@ -9,15 +9,15 @@ import java.util.function.Consumer;
  * @description
  * @date 2019/1/12 11:31
  */
-public class Bag<Item> implements Iterable<Item> {
-    private Item item;
+public class Bag<I> implements Iterable<I> {
+    private I i;
     private int size;
 
     public Bag() {
 
     }
 
-    public void add(Item item) {
+    public void add(I i) {
 
     }
 
@@ -31,17 +31,17 @@ public class Bag<Item> implements Iterable<Item> {
 
 
     @Override
-    public Iterator<Item> iterator() {
+    public Iterator<I> iterator() {
         return null;
     }
 
     @Override
-    public void forEach(Consumer<? super Item> action) {
+    public void forEach(Consumer<? super I> action) {
 
     }
 
     @Override
-    public Spliterator<Item> spliterator() {
+    public Spliterator<I> spliterator() {
         return null;
     }
 }

@@ -13,15 +13,17 @@ import java.nio.channels.FileLock;
 public class FileLockDemo {
 
     public void lockDemo() {
-        File file = new File( "."+File.separator+"README.md");
+        File file = new File("." + File.separator + "README.md");
+        FileInputStream fileInputStream = null;
+        FileChannel fileChannel = null;
         try {
-            FileInputStream fileInputStream =new FileInputStream(file);
-            FileChannel fileChannel = fileInputStream.getChannel();
+            fileInputStream = new FileInputStream(file);
+            fileChannel = fileInputStream.getChannel();
 
-            FileLock fileLock =fileChannel.lock();
-          //  FileLock fileLock =fileChannel.tryLock();
-           //  fileLock =fileChannel.tryLock(0,0,true);
-            if(fileLock!= null) {
+            FileLock fileLock = fileChannel.lock();
+            //  FileLock fileLock =fileChannel.tryLock();
+            //  fileLock =fileChannel.tryLock(0,0,true);
+            if (fileLock != null) {
                 Thread.sleep(300);
                 fileLock.release();
             }
@@ -31,6 +33,21 @@ public class FileLockDemo {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            if (fileChannel != null) {
+                try {
+                    fileChannel.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

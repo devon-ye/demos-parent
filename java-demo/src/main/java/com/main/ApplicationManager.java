@@ -10,16 +10,18 @@ public class ApplicationManager {
 
     public static void main(String[] args) {
 
-       while (true){
-           try {
-               Thread.sleep(1000);
-           } catch (InterruptedException e) {
-               e.printStackTrace();
-           }
+        long startTime = System.currentTimeMillis();
+        long endTime = 0;
+        while (endTime - startTime > 2000) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
-           System.out.println("ApplicationManager...");
-
-       }
+            System.out.println("ApplicationManager###");
+            endTime = System.currentTimeMillis();
+        }
     }
 
 }
