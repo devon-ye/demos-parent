@@ -3,6 +3,7 @@ package com.clazz.inner;
 import com.clazz.inner.InnerClass.InnerClassA;
 import com.clazz.inner.InnerClass.InnerClassB;
 import com.clazz.inner.InnerClass.InnerClassB.InnerClassC;
+import org.junit.Test;
 
 /**
 *
@@ -11,7 +12,8 @@ import com.clazz.inner.InnerClass.InnerClassB.InnerClassC;
 */
 public class InnerClassTest {
 
-	public static void main(String[] args) {
+	@Test
+	public  void testInner() {
 		InnerClass innerClass = new InnerClass();
 		
 		InnerClassA innerClassA = innerClass.new InnerClassA();

@@ -9,8 +9,7 @@ import org.slf4j.LoggerFactory;
 *@date   2017年5月14日
 */
 public class FinalAndStaticFinaldifference {
-	private final static Logger log = LoggerFactory.getLogger(FinalAndStaticFinaldifference.class);
-	private static  Logger LOG = LoggerFactory.getLogger(FinalAndStaticFinaldifference.class);
+	private static final Logger LOG = LoggerFactory.getLogger(FinalAndStaticFinaldifference.class);
 	public FinalAndStaticFinaldifference() {
 		
 	}

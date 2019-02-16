@@ -18,7 +18,7 @@ public class GetChannel {
     private static final int BATCH_SIZE = 1024;
 
 
-    public void writeFileByFileOutputStream(String filePath, String context) throws IOException {
+    public void writeFileByFileOutputStream(String filePath, String context) {
         FileChannel fc = null;
         FileOutputStream fileOutputStream = null;
         try {
@@ -30,16 +30,18 @@ public class GetChannel {
         } catch (Exception e) {
             LOG.error("writeFileByFileOutputStream,Exception:", e);
         } finally {
-            if (fc != null) {
-                fc.close();
-            }
+
             if (fileOutputStream != null) {
-                fileOutputStream.close();
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
-    public void writerFileByRandomAccessFile(String fileName, String context) throws IOException {
+    public void writerFileByRandomAccessFile(String fileName, String context) {
         FileChannel fc = null;
         RandomAccessFile randomAccessFile = null;
         try {
@@ -51,16 +53,17 @@ public class GetChannel {
         } catch (Exception e) {
             LOG.error("writerFileByRandomAccessFile,Exception:", e);
         } finally {
-            if (fc != null) {
-                fc.close();
-            }
             if (randomAccessFile != null) {
-                randomAccessFile.close();
+                try {
+                    randomAccessFile.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
-    public void readFileByFileInputStreamChannel(String fileName) throws IOException {
+    public void readFileByFileInputStreamChannel(String fileName) {
         FileChannel fc = null;
         FileInputStream fis = null;
         try {
@@ -77,11 +80,12 @@ public class GetChannel {
         } catch (Exception e) {
             LOG.error("readFileByFileInputStreamChannel,Exception:", e);
         } finally {
-            if (fc != null) {
-                fc.close();
-            }
             if (fis != null) {
-                fis.close();
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -100,13 +104,11 @@ public class GetChannel {
         String fileName = "data.txt";
         String context = "some .........";
         GetChannel gc = new GetChannel();
-        try {
-            gc.writeFileByFileOutputStream(fileName, context);
-            gc.writerFileByRandomAccessFile(fileName, "do some.........");
-            gc.readFileByFileInputStreamChannel(fileName);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        gc.writeFileByFileOutputStream(fileName, context);
+        gc.writerFileByRandomAccessFile(fileName, "do some.........");
+        gc.readFileByFileInputStreamChannel(fileName);
+
     }
 
 }

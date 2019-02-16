@@ -3,7 +3,6 @@ package org.devon.distributed.demo.service.discovery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.channels.ShutdownChannelGroupException;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.concurrent.ScheduledExecutorService;
@@ -67,14 +66,12 @@ public class DatabaseStoreDiscovery implements ServiceDiscovery, Runnable {
     static class NameThreadFactory implements ThreadFactory {
 
         private static final AtomicInteger poolNumber = new AtomicInteger(1);
-        private final ThreadGroup group;
+
         private final AtomicInteger threadNumber = new AtomicInteger(1);
         private final String namePrefix;
 
         NameThreadFactory() {
             SecurityManager s = System.getSecurityManager();
-            group = (s != null) ? s.getThreadGroup() :
-                    Thread.currentThread().getThreadGroup();
             namePrefix = "heat-beat-" +
                     poolNumber.getAndIncrement() +
                     "-thread-";
@@ -82,9 +79,8 @@ public class DatabaseStoreDiscovery implements ServiceDiscovery, Runnable {
 
         @Override
         public Thread newThread(Runnable r) {
-            Thread t = new Thread(group, r,
-                    namePrefix + threadNumber.getAndIncrement(),
-                    0);
+            Thread t = new Thread(r,
+                    namePrefix + threadNumber.getAndIncrement());
             if (t.isDaemon()) {
                 t.setDaemon(false);
             }
