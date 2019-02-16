@@ -2,9 +2,6 @@ package org.devon.algorithm.demo.graph.theory;
 
 /**
  * @author Devonmusa
- * @description:
- * @datetime ${date} ${time}
- * @since
  */
 public final class Triangle {
 

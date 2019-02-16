@@ -10,7 +10,7 @@ public class HasSelfPrivateNum {
             if("a".equals(userName)){
                 num = 100;
                 System.out.println("a set over!");
-                Thread.sleep(2000);
+                this.wait(2000);
             }else {
                 num = 200;
                 System.out.println("b set over!");

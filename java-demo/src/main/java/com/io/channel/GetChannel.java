@@ -1,5 +1,8 @@
 package com.io.channel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,6 +14,7 @@ import java.nio.channels.FileChannel;
  * Created by lenovo on 2017/11/8.
  */
 public class GetChannel {
+    private static final Logger LOG = LoggerFactory.getLogger(GetChannel.class);
     private static final int BATCH_SIZE = 1024;
 
 
@@ -22,6 +26,9 @@ public class GetChannel {
             fc = fileOutputStream.getChannel();
             ByteBuffer bf = ByteBuffer.wrap(context.getBytes());
             fc.write(bf);
+
+        } catch (Exception e) {
+            LOG.error("writeFileByFileOutputStream,Exception:", e);
         } finally {
             if (fc != null) {
                 fc.close();
@@ -41,6 +48,8 @@ public class GetChannel {
             fc.position();
             ByteBuffer bf = ByteBuffer.wrap(context.getBytes());
             fc.write(bf);
+        } catch (Exception e) {
+            LOG.error("writerFileByRandomAccessFile,Exception:", e);
         } finally {
             if (fc != null) {
                 fc.close();
@@ -65,6 +74,8 @@ public class GetChannel {
             }
             bf.clear();
 
+        } catch (Exception e) {
+            LOG.error("readFileByFileInputStreamChannel,Exception:", e);
         } finally {
             if (fc != null) {
                 fc.close();
@@ -75,6 +86,16 @@ public class GetChannel {
         }
     }
 
+    /**
+     * Instances of the following classes are ignored by this rule because close has no effect:
+     * <p>
+     * java.io.ByteArrayOutputStream
+     * java.io.ByteArrayInputStream
+     * java.io.CharArrayReader
+     * java.io.CharArrayWriter
+     * java.io.StringReader
+     * java.io.StringWriter
+     */
     public static void main(String[] args) {
         String fileName = "data.txt";
         String context = "some .........";
