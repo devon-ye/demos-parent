@@ -8,9 +8,8 @@ import java.util.Random;
 *@date 2017年4月10日
 */
 public class ObjectStruture {
-	
+	private static Random rand = new Random();
 	public static Element createElement(){
-		Random rand = new Random();
 		if(rand.nextInt(100) > 50){
 			return new ConcreateElement1();	
 		}else{

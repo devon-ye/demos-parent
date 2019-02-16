@@ -8,7 +8,7 @@ import java.util.Random;
  * @date 2019/2/15 21:29
  */
 public class MatrixGenerator<T> implements Comparable<T> {
-
+    private static Random random = new Random();
     @Override
     public int compareTo(T o) {
         return this.compareTo(o);
@@ -16,7 +16,7 @@ public class MatrixGenerator<T> implements Comparable<T> {
 
     public T[][] generate(int rows, int columns, Class<?> clazz) {
         Double[][] ret = new Double[rows][columns];
-        Random random = new Random();
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 ret[i][j] =  (Double) this.makeRandomNumber(clazz, random);
