@@ -11,15 +11,15 @@ package org.devon.algorithm.demo.data.structure.linked;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
 
 /**
  * @author dewen.ye
  * @date 2019/2/16 17:42
  */
+@Ignore
 public class DoubleLinkedListTest implements LinkedListTest {
     private static DoubleLinkedList<Integer> doubleLinkedList;
     private Integer addFirstCount = 10;
