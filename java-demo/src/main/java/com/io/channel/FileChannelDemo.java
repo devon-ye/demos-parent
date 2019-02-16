@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -14,17 +15,21 @@ public class FileChannelDemo {
 
 
     public void memoryMaped() {
-        File file = new File( "."+File.separator+"README.md");
-        FileInputStream fileInputStream = null;
+        File file = new File("." + File.separator + "README.md");
+        //   FileInputStream fileInputStream = null;
+        RandomAccessFile randomAccessFile = null;
         FileChannel fileChannel = null;
         try {
-             fileInputStream =new FileInputStream(file);
-             fileChannel = fileInputStream.getChannel();
-            MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_WRITE,0,file.length());
-            byte[] data  = new byte[(int)file.length()];
+           /*   FileInputStream unsupported writable, only used readable
+           fileInputStream =new FileInputStream(file);
+             fileChannel = fileInputStream.getChannel();*/
+            randomAccessFile = new RandomAccessFile(file, "rw");
+            fileChannel = randomAccessFile.getChannel();
+            MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, file.length());
+            byte[] data = new byte[(int) file.length()];
             int foot = 0;
             while (mappedByteBuffer.hasRemaining()) {
-                data[foot++]=mappedByteBuffer.get();
+                data[foot++] = mappedByteBuffer.get();
             }
 
             System.out.println(new String(data));
@@ -32,7 +37,7 @@ public class FileChannelDemo {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (fileChannel != null) {
                 try {
                     fileChannel.close();
@@ -40,9 +45,9 @@ public class FileChannelDemo {
                     e.printStackTrace();
                 }
             }
-            if (fileInputStream != null) {
+            if (randomAccessFile != null) {
                 try {
-                    fileInputStream.close();
+                    randomAccessFile.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
