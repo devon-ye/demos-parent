@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 
 /**
  * Created by lenovo on 2017/12/2.
@@ -25,13 +26,18 @@ public class FileChannelDemo {
              fileChannel = fileInputStream.getChannel();*/
             randomAccessFile = new RandomAccessFile(file, "rw");
             fileChannel = randomAccessFile.getChannel();
-            MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, file.length());
-            byte[] data = new byte[(int) file.length()];
-            int foot = 0;
-            while (mappedByteBuffer.hasRemaining()) {
-                data[foot++] = mappedByteBuffer.get();
+            FileLock fileLock = fileChannel.lock();
+            fileLock = fileChannel.tryLock(0, 0, true);
+            byte[] data = null;
+            if (fileLock != null) {
+                MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_WRITE, 0, file.length());
+                 data = new byte[(int) file.length()];
+                int foot = 0;
+                while (mappedByteBuffer.hasRemaining()) {
+                    data[foot++] = mappedByteBuffer.get();
+                }
+                fileLock.release();
             }
-
             System.out.println(new String(data));
         } catch (FileNotFoundException e) {
             e.printStackTrace();

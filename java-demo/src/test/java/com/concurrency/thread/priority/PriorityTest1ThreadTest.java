@@ -20,8 +20,12 @@ public class PriorityTest1ThreadTest {
 
     @Test
     public void test(){
-        PriorityTest1Thread priorityTest1Thread =new  PriorityTest1Thread();
-        priorityTest1Thread.start();
+        PriorityTest1Thread pt1t = new PriorityTest1Thread();
+        pt1t.setPriority(10);
+        pt1t.start();
+        PriorityTest1Thread pt2t = new PriorityTest1Thread();
+        pt2t.setPriority(1);
+        pt2t.start();
     }
 
 }
