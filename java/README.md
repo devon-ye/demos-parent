@@ -15,11 +15,11 @@
 
 ### factory pattern
 
-###abstract factory pattern
+### abstract factory pattern
 
 ### adapter pattern
 
- ###Chain of responsibility pattern
+### Chain of responsibility pattern
   
 #  ISSUE
    错误指正与反馈
