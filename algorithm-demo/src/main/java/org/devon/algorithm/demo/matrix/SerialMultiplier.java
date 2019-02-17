@@ -34,22 +34,7 @@ public class SerialMultiplier<T extends Number> {
 
 
     public static void main(String[] args) {
-        System.out.println("cost time start....");
 
-        LOG.info("matrix compute start build data...");
-        MatrixGenerator<Double> generator = new MatrixGenerator<>();
-        System.out.println("cost time start1....");
-        Double[][] doubleArray1 = generator.generate(1000, 100, Double.class);
-        System.out.println("cost time start2....");
-        Double[][] doubleArray2 = generator.generate(200, 3000, Double.class);
-        System.out.println("cost time start3....");
-
-        LOG.info("matrix compute end  data...");
-        SerialMultiplier<Double> serialMultiplier = new SerialMultiplier<>();
-        long startTime = System.currentTimeMillis();
-        serialMultiplier.multiplier(doubleArray1, doubleArray2);
-        long endTime = System.currentTimeMillis();
-        System.out.println("cost time:" + (endTime - startTime));
     }
 
 

@@ -92,11 +92,4 @@ public class Collections {
         }
         return l1;
     }
-
-    public static void main(String[] args) {
-        Collections collections = new Collections();
-        ListNode l1 = collections.buildLinkedNode(5);
-        ListNode l2 = collections.buildLinkedNode(8);
-        collections.mergeTwoLists(l1, l2);
-    }
 }

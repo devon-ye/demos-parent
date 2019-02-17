@@ -40,16 +40,4 @@ public class HanoiTower {
             towerA.push(n);
         }
     }
-
-    public static void main(String[] args) {
-        Stack <Integer> towerA = new Stack <>();
-        Stack <Integer> towerB = new Stack <>();
-        Stack <Integer> towerC = new Stack <>();
-        HanoiTower hanoiTower = new HanoiTower();
-        hanoiTower.addTowerA(towerA);
-        hanoiTower.print(towerA,towerB,towerC);
-
-        hanoiTower.hanoi(8, towerA, towerB, towerC);
-
-    }
 }

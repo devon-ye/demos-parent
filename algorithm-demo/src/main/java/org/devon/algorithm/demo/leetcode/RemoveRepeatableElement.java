@@ -6,7 +6,7 @@ package org.devon.algorithm.demo.leetcode;
  * @datetime 2018/6/7 0:31
  * @since 1.0.0
  */
-public class RemoveRepeateElement {
+public class RemoveRepeatableElement {
     /**
      *
      * @param nums

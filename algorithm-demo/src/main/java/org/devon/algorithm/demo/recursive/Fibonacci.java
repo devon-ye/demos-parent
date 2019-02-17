@@ -15,11 +15,4 @@ public class Fibonacci {
             return fibonacci(n-1) + fibonacci(n-2);
         }
     }
-
-
-    public static void main(String[] args) {
-        Fibonacci fibonacci = new Fibonacci();
-        int result = fibonacci.fibonacci(5);
-        System.out.println(result);
-    }
 }

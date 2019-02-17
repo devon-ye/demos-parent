@@ -36,7 +36,8 @@ public class RomanAribbicNumerTrans {
  * @param s
  * @return
  */
-    /**<p>罗马数字转为阿拉伯数字 </p>
+    /**
+     * <p>罗马数字转为阿拉伯数字 </p>
      * <p>
      * 1.罗马串转字符数组
      * 2.遍历字符数组，将罗马基本数字对应阿拉伯数字取出
@@ -45,8 +46,9 @@ public class RomanAribbicNumerTrans {
      * 上次求和值减去减去左边的罗马字符，右边罗马字符减左边罗马字符，再加上上次求和
      * 5.此处没考虑上划线罗马数字
      * </p>
-     * @param romanNumber  合法数字 没做校验
-     * @return  int 值
+     *
+     * @param romanNumber 合法数字 没做校验
+     * @return int 值
      */
     public static int romanToInt(String romanNumber) {
         char[] romanCharArry = romanNumber.toCharArray();
@@ -66,11 +68,5 @@ public class RomanAribbicNumerTrans {
         }
         return value;
     }
-
-    public static void main(String[] args) {
-        romanToInt("MCMLXXXIV"); //1984
-        romanToInt("MCMLXXVI"); //1976
-    }
-
 
 }

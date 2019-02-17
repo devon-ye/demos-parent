@@ -25,15 +25,6 @@ public class Factorial {
         }else {
             return 2+ factorial(n-1);
         }
-
-
     }
 
-
-    public static void main(String[] args) {
-        Factorial factorial = new Factorial();
-        int num= factorial.factorial(5);
-        log.info("num:"+num);
-
-    }
 }
