@@ -1,7 +1,7 @@
 package org.devon.generics;
 
 
-import com.bean.demo.A;
+import org.devon.clazz.abstrct.Base;
 import org.devon.generics.demo.ThreeTuple;
 import org.devon.generics.demo.TwoTuple;
 import org.junit.Test;
@@ -18,8 +18,8 @@ public class TupleTest {
 		return  new TwoTuple<>("hi", 47);
 	}
 	
-	static ThreeTuple<A,String,Integer> g() {
-		return new ThreeTuple<A,String,Integer>(new A(),"hello",89);
+	static ThreeTuple<Base,String,Integer> g() {
+		return new ThreeTuple<Base,String,Integer>(new Base(),"hello",89);
 	}
 
 	@Test
