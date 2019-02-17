@@ -1,68 +1,55 @@
 package com.switchs.demo;
 
 public class NumberTransformChineseNumber {
-	public static void main(String[] args) {
-		long value = 1731312312;
-		moneyValueTransformChar(value);
-	}
 
-	public static void moneyValueTransformChar(long value) {
-		String moneyValue_str = String.valueOf(value);
+    public static void moneyValueTransformChar(long value) {
+        String moneyValueStr = String.valueOf(value);
+        char ch[] = moneyValueStr.toCharArray();
+        StringBuilder numberLine = new StringBuilder();
+        for (char key : ch) {
+            numberLine.append(key).append("\t");
+        }
+        numberLine.append("\n");
+        System.out.println(numberLine);
+        charTransformNumber(ch);
 
-		char ch[] = moneyValue_str.toCharArray();
+    }
 
-		for (char key : ch) {
-			System.out.print(key + "\t");
-		}
-		System.out.println();
-		charTransformNumber(ch);
+    public static void charTransformNumber(char[] ch) {
+        String str = "";
+        for (char key : ch) {
+            String temp = numberTransformChineseNumber(key);
+            str += temp;
+        }
+        System.out.println(str);
+    }
 
-	}
+    public static String numberTransformChineseNumber(char ch) {
+        switch (ch) {
+            case '0':
+                return "零";
+            case '1':
+                return "壹";
+            case '2':
+                return "贰";
+            case '3':
+                return "叁";
+            case '4':
+                return "肆";
+            case '5':
+                return "伍";
+            case '6':
+                return "陆";
+            case '7':
+                return "柒";
+            case '8':
+                return "捌";
+            case '9':
+                return "玖";
+            default:
+                return null;
+        }
 
-	public static void charTransformNumber(char[] ch) {
-		String str = "";
-		if (str != null){
-			for (char key : ch) {
-				String str_temp = numberTransformChineseNumber(key);
-				str += str_temp;
-			}
-			System.out.println(str);
-		}
-	}
-
-	public static String numberTransformChineseNumber(char ch) {
-		String str = null;
-
-		switch (ch) {
-		case '1':
-			str = "壹";
-			return str;
-		case '2':
-			str = "贰";
-			return str;
-		case '3':
-			str = "叁";
-			return str;
-		case '4':
-			str = "肆";
-			return str;
-		case '5':
-			str = "伍";
-			return str;
-		case '6':
-			str = "陆";
-			return str;
-		case '7':
-			str = "柒";
-			return str;
-		case '8':
-			str = "捌";
-			return str;
-		case '9':
-			str = "玖";
-			return str;
-		}
-		return str;
-	}
+    }
 
 }
