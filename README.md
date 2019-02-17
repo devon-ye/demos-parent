@@ -36,11 +36,11 @@
 ## 脑图
 
 ### 数据结构与算法
- [![](https://github.com/Devonmusa/demos-parent/blob/develop/algorithm-demo/img/DataStructureAndAlgorithm.png)](https://github.com/Devonmusa/demos-parent/tree/develop/algorithm-demo)
+ [![](https://github.com/Devonmusa/demos-parent/blob/develop/algorithm/img/DataStructureAndAlgorithm.png)](https://github.com/Devonmusa/demos-parent/tree/develop/algorithm)
 ### Java虚拟机专题
- [![](https://github.com/Devonmusa/demos-parent/blob/develop/java-demo/img/JVM.png)](https://github.com/Devonmusa/demos-parent/tree/develop/java-demo)
+ [![](https://github.com/Devonmusa/demos-parent/blob/develop/java/img/JVM.png)](https://github.com/Devonmusa/demos-parent/tree/develop/java)
 ### Servlet专题
- [![](https://github.com/Devonmusa/demos-parent/blob/develop/servlet-demo/img/servlet.png)](https://github.com/Devonmusa/demos-parent/tree/develop/servlet-demo)
+ [![](https://github.com/Devonmusa/demos-parent/blob/develop/framework/servlet/img/servlet.png)](https://github.com/Devonmusa/demos-parent/tree/develop/servlet)
 ### Internet
  [![](https://github.com/Devonmusa/demos-parent/blob/develop/doc/img/Internet.png)](https://github.com/Devonmusa/demos-parent/blob/develop/doc)
 
