@@ -36,7 +36,6 @@ public class ElasticLoadBalancingFilter implements Filter {
 
     public static class NamedThreadFactory implements ThreadFactory {
 
-        private final ThreadGroup group;
         private final AtomicInteger threadNumber = new AtomicInteger(1);
 
         private final String namePrefix;
@@ -44,9 +43,6 @@ public class ElasticLoadBalancingFilter implements Filter {
 
         public NamedThreadFactory(String namePrefix, boolean daemon) {
             this.daemon = daemon;
-            SecurityManager s = System.getSecurityManager();
-            group = (s != null) ? s.getThreadGroup() :
-                    Thread.currentThread().getThreadGroup();
             this.namePrefix = namePrefix;
         }
 
@@ -56,7 +52,7 @@ public class ElasticLoadBalancingFilter implements Filter {
 
         @Override
         public Thread newThread(Runnable r) {
-            Thread t = new Thread(group, r, namePrefix + "-thread-" + threadNumber.getAndIncrement(), 0);
+            Thread t = new Thread( r, namePrefix + "-thread-" + threadNumber.getAndIncrement());
             t.setDaemon(daemon);
             return t;
         }

@@ -1,5 +1,7 @@
 package com.test;
 
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,9 +12,9 @@ import org.slf4j.LoggerFactory;
 */
 public class BeforeClassForTest {
 	private Logger log = LoggerFactory.getLogger(JunitBeforeAndBeforeClassDifferent.class);
-	
-	public BeforeClassForTest() {
-		log.info("this is BeforeClassForTest constructure");
+
+	@Test
+	public void beforeClassForTest() {
 	}
 	
 	

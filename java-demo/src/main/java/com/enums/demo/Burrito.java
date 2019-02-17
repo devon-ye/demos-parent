@@ -14,26 +14,20 @@ public class Burrito {
 		switch (degree) {
 		case NOT:
 			System.out.println("not splicy at all");
+			break;
 		case MILD:
+			break;
 		case MEDIU:
 			System.out.println("a little hot.");
 			break;
 		case HOT:
+			break;
 		case FLAMING:
+			break;
 		default:
 			System.out.println("maybe too hot.");
-
+            break;
 		}
-	}
-
-	public static void main(String[] args) {
-
-		Burrito plain = new Burrito(Spiciness.HOT);
-		Burrito greeChile = new Burrito(Spiciness.MEDIU);
-		Burrito jalapeno = new Burrito(Spiciness.HOT);
-		plain.describe();
-		greeChile.describe();
-		jalapeno.describe();
 	}
 
 }
