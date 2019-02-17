@@ -30,7 +30,4 @@ public class PalindromeNumber {
         return x == revertedNumber || x == revertedNumber/10;
     }
 
-    public static void main(String[] args) {
-        PalindromeNumber.isPalindrome(121);
-    }
 }

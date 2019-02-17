@@ -31,11 +31,4 @@ public class InsertionSort extends AbstractSort implements Sort {
     }
 
 
-    public static void main(String[] args) {
-        Comparable[] array = new Comparable[]{4, 2, 4, 8, 0, 1, 3, 5, 7};
-        InsertionSort.insert(array);
-        Comparable[] array2 = new Comparable[]{1, 2, 3, 5, 0, 1, 3, 5, 7};
-        InsertionSort.insert(array2);
-    }
-
 }

@@ -41,10 +41,4 @@ public class ShellSort {
 
     }
 
-
-    public static void main(String[] args) {
-        int[] array = new int[]{6, 2, 1, 7, 9, 4, 3, 8, 5, 10};
-        ShellSort.sort(array);
-    }
-
 }

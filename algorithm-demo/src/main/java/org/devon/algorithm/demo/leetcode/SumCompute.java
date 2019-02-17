@@ -36,12 +36,5 @@ public class SumCompute {
         }
         throw new IllegalArgumentException("No two sum solution");
     }
-
-
-    public static void main(String[] args) {
-        SumCompute sumCompute = new SumCompute();
-        int[] array = {0,4,3,0};
-
-        sumCompute.twoSum(array,4);
-    }
+    
 }

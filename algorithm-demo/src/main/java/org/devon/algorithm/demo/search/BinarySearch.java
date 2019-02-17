@@ -43,10 +43,4 @@ public class BinarySearch {
         return -1;
     }
 
-    public static void main(String[] args) {
-        int[] array01 = new int[]{1,4,6,8,9,10,15,156,147};
-        int position =  BinarySearch.rank(array01,15);
-    }
-
-
 }

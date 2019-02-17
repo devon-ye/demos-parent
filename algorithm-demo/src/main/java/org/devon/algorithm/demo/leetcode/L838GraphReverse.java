@@ -31,8 +31,4 @@ public class L838GraphReverse {
 
         return  A;
     }
-
-    public static void main(String[] args) {
-
-    }
 }

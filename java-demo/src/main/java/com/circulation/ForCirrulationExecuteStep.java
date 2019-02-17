@@ -14,15 +14,9 @@ public class ForCirrulationExecuteStep {
         }
     }
 
-
-
     public static boolean  printStep(String str) {
         System.out.println("current execute step :" + str);
         return true;
     }
 
-    public static void main(String[] args) {
-        forExecuteStep();
-
-    }
 }
