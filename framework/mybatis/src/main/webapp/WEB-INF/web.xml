@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+
+
+
+  <!--<filter>
+    <filter-name>loginAuthFilter</filter-name>
+    <filter-class>LoginAuthByCookieFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>loginAuthFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    &lt;!&ndash; <servlet-name>/*</servlet-name>
+     <dispatcher></dispatcher>&ndash;&gt;
+  </filter-mapping>
+
+  <filter>
+    <filter-name>currentLimitingFilter</filter-name>
+    <filter-class>CurrentLimitingFilter</filter-class>
+  </filter>-->
+  <!--<filter-mapping>
+    <filter-name>currentLimitingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+   &lt;!&ndash; <servlet-name>/*</servlet-name>
+    <dispatcher></dispatcher>&ndash;&gt;
+  </filter-mapping>-->
+
+  <servlet>
+    <description>servlet-demo</description>
+    <display-name>servlet-Demo</display-name>
+    <servlet-name>ServletDemo</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+        

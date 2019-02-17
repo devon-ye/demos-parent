@@ -9,28 +9,16 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>servlet-demo</module>
-        <module>java-demo</module>
-        <module>java-utils</module>
-        <module>rest-demo</module>
-        <module>excel-demo</module>
-        <module>spring-mvc-demo</module>
-        <module>mybatis-demo</module>
-        <module>shiro-demo</module>
-        <module>spring-demo</module>
-        <module>docker-demo</module>
-        <module>spring-redis-demo</module>
-        <module>redis-demo</module>
-        <module>spring-transaction-manager-demo</module>
-        <module>algorithm-demo</module>
-        <module>yaml-demo</module>
-        <module>distributed-demo</module>
-        <module>grpc-demo</module>
-        <module>zeroc-ice-demo</module>
-        <module>class-loader-demo</module>
+        <module>algorithm</module>
+        <module>java</module>
+        <module>framework</module>
+        <module>middleware</module>
+        <module>docker</module>
+        <module>distributed</module>
     </modules>
 
     <properties>
+        <project.version>1.0.0-SNAPSHOT</project.version>
         <jetty_port>8099</jetty_port>
         <skip_maven_deploy>false</skip_maven_deploy>
         <java_source_version>1.8</java_source_version>
