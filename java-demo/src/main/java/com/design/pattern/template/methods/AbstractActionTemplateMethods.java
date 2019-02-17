@@ -18,24 +18,15 @@ public abstract class AbstractActionTemplateMethods {
 
 		switch (i) {
 		case ADD:
-			this.add(obj);
-
+			add(obj);
 			return obj;
-
 		case DELETE:
-
-			this.delete((Long) obj);
+			delete((Long) obj);
 			return obj;
 		case MODIFY:
-
-			return this.modify(obj);
-
+			return modify(obj);
 		case GET:
-			if (true) {
-				return null;
-			} else {
-				return null;
-			}
+			get((Long)obj);
 		default:
 			return null;
 

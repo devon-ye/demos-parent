@@ -46,13 +46,7 @@ public class Movie {
 		return _price.getFrequentRenterPoints(daysRented);
 	}
 	Price _price;
-	public int getPriceCode(){
-		//return getPriceCode();
-		return 0;
-	}
-	
-	public void setPriceCode(){
-		
-	}
+
+
 	
 }

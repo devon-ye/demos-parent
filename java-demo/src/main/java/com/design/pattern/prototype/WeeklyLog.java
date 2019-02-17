@@ -10,7 +10,8 @@ public class WeeklyLog implements Cloneable{
 	private  String name;
     private  String date;
     private  String content;
-    
+
+    @Override
     public WeeklyLog clone(){
     	Object object = null;
     	try {
