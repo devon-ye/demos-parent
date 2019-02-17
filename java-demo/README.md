@@ -1,5 +1,10 @@
 # Java-demo 概述
-      主要也日常开发实用demo为主和异常代码示例
+      
+      
+      
+      
+## JVM专题
+![](https://github.com/Devonmusa/demos-parent/blob/develop/java-demo/img/JVM.png)
   
 #  ISSUE
    错误指正与反馈
