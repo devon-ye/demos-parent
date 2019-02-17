@@ -1,5 +1,8 @@
 package com.main;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author devonmusa
  * @description:
@@ -7,20 +10,20 @@ package com.main;
  * @since 1.0.0
  */
 public class ApplicationMaster {
-
+    private static final Logger LOG  = LoggerFactory.getLogger(ApplicationMaster.class);
     public static void main(String[] args) {
+        LOG.info("ApplicationMaster execute starting...");
         long startTime = System.currentTimeMillis();
         long endTime = 0;
         while (endTime - startTime > 2000) {
             try {
-                Thread.sleep(1000);
+                Object object = new Object();
+                object.wait(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            System.out.println("ApplicationMaster###");
             endTime = System.currentTimeMillis();
         }
-
+        LOG.info("ApplicationMaster execute end...");
     }
 }
