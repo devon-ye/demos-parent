@@ -9,7 +9,6 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.devon.framework</groupId>
     <artifactId>rest</artifactId>
-    <version>${parent.version}</version>
     <packaging>jar</packaging>
     <name>rest</name>
     <url>http://maven.apache.org</url>
