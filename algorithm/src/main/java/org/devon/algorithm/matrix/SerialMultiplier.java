@@ -32,10 +32,4 @@ public class SerialMultiplier<T extends Number> {
         return (T[][]) result;
     }
 
-
-    public static void main(String[] args) {
-
-    }
-
-
 }
