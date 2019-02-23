@@ -4,7 +4,7 @@ public class NoVisibility {
     private static int number;
     private static boolean ready;
 
-    private static class ReadThread extends  Thread{
+    public static class ReadThread extends  Thread{
 
         @Override
         public void run() {

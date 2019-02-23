@@ -25,6 +25,8 @@
         <java_target_version>1.8</java_target_version>
         <file_encoding>UTF-8</file_encoding>
 
+        <flink.version>1.7.2</flink.version>
+
         <junit_version>4.12</junit_version>
         <easymock_version>3.4</easymock_version>
         <jmockit_version>1.33</jmockit_version>
@@ -73,6 +75,7 @@
         <jcl_version>1.2</jcl_version>
         <jmockit_version>1.33</jmockit_version>
         <cglib_version>3.2.4</cglib_version>
+        <jmh.version>1.21</jmh.version>
         <jetty_version>6.1.26</jetty_version>
 
         <maven-jar-plugin_version>3.0.2</maven-jar-plugin_version>
@@ -102,6 +105,39 @@
     </dependencies>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-java</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-streaming-java_2.11</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-clients_2.11</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-kafka-0.8_2.11</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-kafka-base_2.11</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-yarn_2.12</artifactId>
+                <version>${flink.version}</version>
+                <scope>test</scope>
+            </dependency>
+
             <!-- java mail -->
             <dependency>
                 <groupId>javax.mail</groupId>
@@ -408,6 +444,18 @@
                 <groupId>cglib</groupId>
                 <artifactId>cglib-nodep</artifactId>
                 <version>${cglib_version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.openjdk.jmh</groupId>
+                <artifactId>jmh-core</artifactId>
+                <version>${jmh.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openjdk.jmh</groupId>
+                <artifactId>jmh-generator-annprocess</artifactId>
+                <version>${jmh.version}</version>
+                <scope>provided</scope>
             </dependency>
 
         </dependencies>
