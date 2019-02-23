@@ -20,6 +20,7 @@
         <module>shiro</module>
         <module>spring</module>
         <module>yaml</module>
+        <module>stream-processing</module>
     </modules>
 
 
