@@ -1,8 +1,6 @@
 package org.devon.parallel.knnclassifier;
 
-import com.sun.xml.internal.bind.v2.util.EditDistance;
 
-import java.awt.image.SampleModel;
 import java.util.Arrays;
 import java.util.List;
 
