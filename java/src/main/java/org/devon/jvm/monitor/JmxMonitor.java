@@ -1,4 +1,4 @@
-package org.devon.monitor;
+package org.devon.jvm.monitor;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryManagerMXBean;

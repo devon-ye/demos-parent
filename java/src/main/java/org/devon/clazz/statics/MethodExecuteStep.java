@@ -1,4 +1,4 @@
-package org.devon.method.statics;
+package org.devon.clazz.statics;
 
 /**
  * @author devonmusa
@@ -9,7 +9,8 @@ package org.devon.method.statics;
 public class MethodExecuteStep {
 
     static class B extends Object {
-        C  c = new C();
+        C c = new C();
+
         static {
             System.out.println("Load B");
         }
@@ -19,8 +20,9 @@ public class MethodExecuteStep {
         }
     }
 
-    static class A extends B {
+     static class A extends Object {
         D d = new D();
+
         static {
             System.out.println("Load A");
         }
@@ -30,49 +32,43 @@ public class MethodExecuteStep {
         }
     }
 
-   static class C {
-        public C(){
+    static class C {
+        public C() {
             System.out.println("CONSTRUCT C");
         }
 
-        public void C(){
+        public void C() {
             System.out.println("method C");
         }
     }
 
 
     static class D {
-        public D(){
+        public D() {
             System.out.println("CONSTRUCT D");
         }
 
-        public void D(){
+        public void D() {
             System.out.println("method D");
         }
     }
 
     void waitForSignal() throws InterruptedException {
         Object obj = new Object();
-        synchronized(Thread.currentThread())
-        {
+        synchronized (Thread.currentThread()) {
             obj.wait();
             obj.notify();
         }
     }
 
 
-
-
     public static void main(String[] args) {
-       // new C().C();
+        // new C().C();
         new A();
-        Boolean flag =Boolean.getBoolean( args[0]);
-        if (flag = true)
-        {
+        Boolean flag = Boolean.getBoolean(args[0]);
+        if (flag = true) {
             System.out.println("true");
-        }
-        else
-        {
+        } else {
             System.out.println("false");
         }
 
