@@ -16,11 +16,11 @@ public class ParallelGroupFileSearchTest {
     @Test
     public void searchFile() {
         ParallelGroupFileSearch.Result result = new ParallelGroupFileSearch.Result();
-         String projectPath = System.getProperty("user.dir");
-     //  String projectPath = "D:/";
+        // String projectPath = System.getProperty("user.dir");
+      String projectPath = "D:/";
         File file = new File(projectPath);
         long startTime = System.currentTimeMillis();
-        ParallelGroupFileSearch.searchFile(file, "SerialFileSearch.java", result);
+        ParallelGroupFileSearch.searchFiles(file, "SerialFileSearch.java", result);
         long endTime = System.currentTimeMillis();
         Assert.assertEquals(true,result.isFound());
         System.out.println("searchFile costTime:" + (endTime - startTime));

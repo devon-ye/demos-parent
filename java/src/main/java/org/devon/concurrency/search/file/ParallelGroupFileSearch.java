@@ -1,24 +1,27 @@
 package org.devon.concurrency.search.file;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.TimeUnit;
+
 
 /**
  * @author dewen.ye
  * @date 2019/2/19 22:33
  */
 public class ParallelGroupFileSearch {
+    private static final Logger LOG = LoggerFactory.getLogger(ParallelGroupFileSearch.class);
+    private static ConcurrentLinkedQueue<File> directoriesQueue = new ConcurrentLinkedQueue<>();
 
-    private static ConcurrentLinkedQueue<String> filePathQueue = new ConcurrentLinkedQueue<>();
 
-
-    public static void searchFile(File file, String fileName, Result result) {
+    public static void searchFiles(File file, String fileName, Result result) {
         int processorsSize = Runtime.getRuntime().availableProcessors();
-        filePathQueue.add(file.getAbsolutePath());
+        directoriesQueue.add(file);
         for (int i = 0; i < processorsSize; i++) {
-            ParallelGroupFileTask task = new ParallelGroupFileTask(filePathQueue, fileName, result);
+            ParallelGroupFileTask task = new ParallelGroupFileTask(directoriesQueue, fileName, result);
             Thread thread = new Thread(task);
             thread.start();
         }
@@ -32,37 +35,44 @@ public class ParallelGroupFileSearch {
     }
 
     static class ParallelGroupFileTask implements Runnable {
-        Queue<String> filePathQueue;
+        Queue<File> directoriesQueue;
         String fileName;
         Result result;
 
-        public ParallelGroupFileTask(Queue<String> filePathQueue, String fileName, Result result) {
-            this.filePathQueue = filePathQueue;
+        public ParallelGroupFileTask(Queue<File> directoriesQueue, String fileName, Result result) {
+            this.directoriesQueue = directoriesQueue;
             this.fileName = fileName;
             this.result = result;
         }
 
         @Override
         public void run() {
-            while (filePathQueue.size() > 0) {
-                String filePath = this.filePathQueue.poll();
-               // System.out.println("filePath:"+filePath);
-                File file = new File(filePath);
-                if (file.isDirectory()) {
-                    File[] files = file.listFiles();
-                    if(files==null){
-                        continue;
-                    }
-                    for (File file1 : files) {
-                        this.filePathQueue.offer(file1.getAbsolutePath());
-                    }
+            while (directoriesQueue.size() > 0) {
+                File file = this.directoriesQueue.poll();
+                processDirectory(file, fileName, result);
+            }
+        }
+
+
+        private void processDirectory(File file, String fileName, Result parallelResult) {
+            File[] contents = file.listFiles();
+            if (contents == null || contents.length == 0) {
+                return;
+            }
+            for (File content : contents) {
+                if (content.isDirectory()) {
+                    processDirectory(content, fileName, parallelResult);
                 } else {
-                    if (fileName.equals(file.getName())) {
-                        result.setFilePath(file.getAbsolutePath());
-                        result.setFound(true);
-                        filePathQueue.clear();
-                    }
+                    processFile(content, fileName, parallelResult);
                 }
+            }
+        }
+
+        private void processFile(File content, String fileName, Result parallelResult) {
+            if (fileName.equals(content.getName())) {
+                parallelResult.setFilePath(content.getAbsolutePath());
+                parallelResult.setFound(true);
+                directoriesQueue.clear();
             }
         }
     }
