@@ -22,5 +22,4 @@ public class ConcurrentStatusCommand extends Command {
         return sb.toString();
     }
 
-
 }

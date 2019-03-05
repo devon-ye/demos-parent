@@ -13,4 +13,8 @@ public class ParallelCache {
     public void put(String key,String value){
 
     }
+
+    public void clean(){
+
+    }
 }
