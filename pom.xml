@@ -15,6 +15,7 @@
         <module>middleware</module>
         <module>docker</module>
         <module>distributed</module>
+        <module>scala</module>
     </modules>
 
     <properties>
