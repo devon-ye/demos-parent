@@ -31,36 +31,6 @@ public class KnnClassifier {
       return "";
     }
 
-    class Sample{
-        double[] example;
 
-        public double[] getExample() {
-            return example;
-        }
 
-        public void setExample(double[] example) {
-            this.example = example;
-        }
-    }
-
-   protected class Distance{
-        private int index;
-        private double  calculator;
-
-        public int getIndex() {
-            return index;
-        }
-
-        public void setIndex(int index) {
-            this.index = index;
-        }
-
-       public double getCalculator() {
-           return calculator;
-       }
-
-       public void setCalculator(double calculator) {
-           this.calculator = calculator;
-       }
-   }
 };

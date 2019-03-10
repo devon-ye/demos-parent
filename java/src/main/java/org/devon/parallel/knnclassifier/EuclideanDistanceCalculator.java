@@ -6,7 +6,7 @@ package org.devon.parallel.knnclassifier;
  */
 public class EuclideanDistanceCalculator {
 
-    public  static double calculate(KnnClassifier.Sample  example1, KnnClassifier.Sample example2){
+    public  static double calculate(Sample  example1,Sample example2){
         double ret = 0.0D;
         double[] data1 = example1.getExample();
         double[] data2 = example2.getExample();
