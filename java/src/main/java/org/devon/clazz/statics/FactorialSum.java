@@ -1,4 +1,4 @@
-package org.devon.method.statics;
+package org.devon.clazz.statics;
 
 public class FactorialSum {
 
