@@ -14,7 +14,7 @@ public class KnnClassifierParallelGroup {
 
     private final List<? extends Sample> dataSet;
     private final int k;
-    private final Sample  example;
+    private final Sample example;
     private final ThreadPoolExecutor executor;
     private final int numThreads;
     private final boolean isParallelSort;
@@ -31,15 +31,20 @@ public class KnnClassifierParallelGroup {
     public void classify(Sample sample) throws InterruptedException {
         Distance[] distances = new Distance[dataSet.size()];
         CountDownLatch countDownLatch = new CountDownLatch(numThreads);
-       int length = dataSet.size()/numThreads;
-       int startIndex = 0;
-       int endIndex = length;
-        for (int i = 0; i<numThreads;i++) {
-            GroupDistanceTask task = new GroupDistanceTask(distances, startIndex, endIndex,dataSet, sample, countDownLatch);
+        int length = dataSet.size() / numThreads;
+        int startIndex = 0;
+        int endIndex = length;
+        for (int i = 0; i < numThreads; i++) {
+            GroupDistanceTask task = new GroupDistanceTask(distances, startIndex, endIndex, sample, dataSet, countDownLatch);
+            startIndex = endIndex;
+            if (i < numThreads - 2) {
+                endIndex = endIndex + length;
+            } else {
+                endIndex = dataSet.size();
+            }
             executor.execute(task);
-            countDownLatch.await();
         }
-
+        countDownLatch.await();
         if (isParallelSort) {
             Arrays.parallelSort(distances);
         } else {
