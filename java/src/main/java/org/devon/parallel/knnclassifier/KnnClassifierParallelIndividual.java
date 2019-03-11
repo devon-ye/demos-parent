@@ -14,13 +14,15 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class KnnClassifierParallelIndividual {
     private final List<? extends Sample> dataSet;
     private final int k;
+     private final Sample  example;
     private final ThreadPoolExecutor executor;
     private final int numThreads;
     private final boolean isParallelSort;
 
-    public KnnClassifierParallelIndividual(List<? extends Sample> dataSet, int k, int factor, boolean isParallelSort) {
+    public KnnClassifierParallelIndividual(List<? extends Sample> dataSet, int k, Sample example, int factor, boolean isParallelSort) {
         this.dataSet = dataSet;
         this.k = k;
+        this.example = example;
         this.numThreads = factor * (Runtime.getRuntime().availableProcessors());
         this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(numThreads);
         this.isParallelSort = isParallelSort;
@@ -30,8 +32,8 @@ public class KnnClassifierParallelIndividual {
         Distance[] distances = new Distance[dataSet.size()];
         CountDownLatch countDownLatch = new CountDownLatch(dataSet.size());
         int index = 0;
-        for (Sample sample1 : dataSet) {
-            IndividualTask task = new IndividualTask(distances, index, null, sample, countDownLatch);
+        for (Sample localSample : dataSet) {
+            IndividualTask task = new IndividualTask(distances, index, localSample, sample, countDownLatch);
             executor.execute(task);
             countDownLatch.await();
         }
