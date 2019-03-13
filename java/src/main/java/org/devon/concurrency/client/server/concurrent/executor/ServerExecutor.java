@@ -1,17 +1,12 @@
 package org.devon.concurrency.client.server.concurrent.executor;
 
-import com.sun.scenario.effect.impl.prism.PrImage;
-import org.devon.concurrency.client.server.concurrent.service.ConcurrentCommand;
 import org.devon.concurrency.client.server.concurrent.service.ServerTask;
 import org.devon.concurrency.client.server.log.Logger;
-import org.devon.jdbc.DatabaseConnectPool;
 
 import java.util.Date;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -44,14 +39,17 @@ public class ServerExecutor extends ThreadPoolExecutor {
         super.afterExecute(runnable, t);
         ServerTask<?> task = (ServerTask<?>) runnable;
         ConcurrentCommand command = task.getCommand();
-
         if (t == null) {
-            if(!task.isCancelled()){
+            if (!task.isCancelled()) {
 
             }
-
-        }else {
+        } else {
             Logger.sendMessage("The Exception " + t.getMessage() + " has been thrown.");
         }
+    }
+
+    @Override
+    protected <T> RunnableFuture<T> newTaskFor(Runnable r, T value) {
+        return new ServerTask<T>(r);
     }
 }
