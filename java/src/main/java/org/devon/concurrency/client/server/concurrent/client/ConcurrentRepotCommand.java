@@ -6,11 +6,11 @@ import java.net.Socket;
 
 /**
  * @author dewen.ye
- * @date 2019/3/14 08:25
+ * @date 2019/3/14 08:44
  */
-public class ConcurrentCancelCommand extends ConcurrentCommand {
+public class ConcurrentRepotCommand extends ConcurrentCommand {
 
-    public ConcurrentCancelCommand(Socket socket, String[] command) {
+    public ConcurrentRepotCommand(Socket socket, String[] command) {
         super(socket, command);
     }
 
