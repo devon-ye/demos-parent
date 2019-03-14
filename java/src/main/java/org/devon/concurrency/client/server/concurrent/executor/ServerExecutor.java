@@ -41,6 +41,14 @@ public class ServerExecutor extends ThreadPoolExecutor {
         ConcurrentCommand command = task.getCommand();
         if (t == null) {
             if (!task.isCancelled()) {
+                Date startDate = startTimes.remove(runnable);
+                Date endDate = new Date();
+                long executeTime = endDate.getTime() - startDate.getTime();
+                ExecutorStatistics statistics = executorStatistics.computeIfAbsent(command.getUserName(), n -> new ExecutorStatistics());
+                statistics.addExecutionTime(executeTime);
+                statistics.addTask();
+                //todo
+            }else {
 
             }
         } else {

@@ -12,7 +12,7 @@ import java.util.concurrent.TimeoutException;
  * @author dewen.ye
  * @date 2019/3/13 23:49
  */
-public class ServerTask<T> extends FutureTask<T> implements Comparable<ServerTask<T>> {
+public class ServerTask<T> extends FutureTask<T> implements Runnable,Comparable<ServerTask<T>> {
     private ConcurrentCommand command;
 
     public ServerTask(ConcurrentCommand command) {
@@ -56,7 +56,7 @@ public class ServerTask<T> extends FutureTask<T> implements Comparable<ServerTas
 
     }
 
-
+    @Override
     public int compareTo(ServerTask<T> o) {
         return command.compareTo(o.getCommand());
     }
