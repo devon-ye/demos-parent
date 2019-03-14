@@ -2,9 +2,9 @@ package org.devon.concurrency.client.server.concurrent.service;
 
 import org.devon.concurrency.client.server.concurrent.executor.ConcurrentCommand;
 
-import java.util.concurrent.Callable;
+
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.RunnableFuture;
+import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
@@ -12,11 +12,12 @@ import java.util.concurrent.TimeoutException;
  * @author dewen.ye
  * @date 2019/3/13 23:49
  */
-public class ServerTask<T>  implements RunnableFuture<T> {
+public class ServerTask<T> extends FutureTask<T> implements Comparable<ServerTask<T>> {
     private ConcurrentCommand command;
 
-    public ServerTask(Runnable r) {
-
+    public ServerTask(ConcurrentCommand command) {
+        super(command, null);
+        this.command = command;
     }
 
     public ConcurrentCommand getCommand() {
@@ -50,9 +51,13 @@ public class ServerTask<T>  implements RunnableFuture<T> {
     }
 
 
-
     @Override
     public void run() {
 
+    }
+
+
+    public int compareTo(ServerTask<T> o) {
+        return command.compareTo(o.getCommand());
     }
 }
