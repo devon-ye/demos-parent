@@ -16,6 +16,11 @@
             <artifactId>jedis</artifactId>
             <version>${jedis_version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>5.1.1</version>
+        </dependency>
     </dependencies>
 
 
