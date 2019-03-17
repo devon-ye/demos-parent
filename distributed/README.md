@@ -8,4 +8,4 @@
   
   [Distribution Transaction](https://github.com/Devonmusa/demos-parent/blob/develop/distributed/doc/2.分布式事务.md)
 
-  ![Distribution Transaction](https://github.com/Devonmusa/demos-parent/blob/develop/distributed/doc/img/CAP.png)
+  ![](https://github.com/Devonmusa/demos-parent/blob/develop/distributed/doc/img/CAP.png)
