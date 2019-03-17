@@ -4,12 +4,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
   <listener>
-    <listener-class>org.devon.framework.servlet.listener.ConfigSetListener</listener-class>
+    <listener-class>org.devon.middleware.kafka.framework.servlet.listener.ConfigSetListener</listener-class>
   </listener>
 
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
-    <filter-class>org.devon.framework.servlet.filter.CharacterEncodingFilter</filter-class>
+    <filter-class>org.devon.middleware.kafka.framework.servlet.filter.CharacterEncodingFilter</filter-class>
     <init-param>
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
@@ -28,7 +28,7 @@
 
   <filter>
     <filter-name>loginAuthFilter</filter-name>
-    <filter-class>org.devon.framework.servlet.filter.LoginAuthByCookieFilter</filter-class>
+    <filter-class>org.devon.middleware.kafka.framework.servlet.filter.LoginAuthByCookieFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>loginAuthFilter</filter-name>
@@ -39,7 +39,7 @@
 
   <filter>
     <filter-name>currentLimitingFilter</filter-name>
-    <filter-class>org.devon.framework.servlet.filter.CurrentLimitingFilter</filter-class>
+    <filter-class>org.devon.middleware.kafka.framework.servlet.filter.CurrentLimitingFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>currentLimitingFilter</filter-name>
@@ -52,7 +52,7 @@
     <description>servlet-demo</description>
     <display-name>servlet-Demo</display-name>
     <servlet-name>ServletDemo</servlet-name>
-    <servlet-class>org.devon.framework.servlet.ServletApp</servlet-class>
+    <servlet-class>org.devon.middleware.kafka.framework.servlet.ServletApp</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
