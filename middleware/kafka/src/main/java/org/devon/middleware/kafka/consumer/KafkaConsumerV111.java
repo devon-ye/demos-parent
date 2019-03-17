@@ -49,7 +49,6 @@ public class KafkaConsumerV111 {
                 }
                 System.out.println("]");
                 System.out.println();
-
             }
         }
     }
