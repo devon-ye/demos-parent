@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.devon.demos.framework.stream.flink.statistic;
+package org.devon.framework.stream.flink.statistic;
 
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.api.java.tuple.Tuple4;

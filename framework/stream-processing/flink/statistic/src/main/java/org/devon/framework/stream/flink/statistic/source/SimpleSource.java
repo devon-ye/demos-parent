@@ -1,4 +1,4 @@
-package org.devon.demos.framework.stream.flink.statistic.source;
+package org.devon.framework.stream.flink.statistic.source;
 
 import org.apache.flink.runtime.state.FunctionInitializationContext;
 import org.apache.flink.runtime.state.FunctionSnapshotContext;
