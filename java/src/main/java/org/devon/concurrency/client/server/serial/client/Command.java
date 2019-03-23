@@ -4,7 +4,7 @@ package org.devon.concurrency.client.server.serial.client;
  * @author dewen.ye
  * @date 2019/3/3 20:30
  */
-public abstract class Command {
+public abstract class Command implements Runnable{
     protected final String[] command;
     protected boolean cacheable;
 

@@ -1,4 +1,4 @@
-# Java-demo 概述
+# Java 概述
       
 ## [代码规范](https://github.com/Devonmusa/demos-parent/blob/develop/java/doc/代码规范.md)
 ## [面向对像编成](https://github.com/Devonmusa/demos-parent/blob/develop/java/doc/面向对像变成.md)

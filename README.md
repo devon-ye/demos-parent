@@ -33,7 +33,9 @@
         
         
 ## 脑图
-
+### 架构设计
+ [![](https://github.com/Devonmusa/demos-parent/blob/develop/doc/img/arch-design.png)](https://github.com/Devonmusa/demos-parent/tree/develop/doc)
+ [xmind源文件](https://github.com/Devonmusa/demos-parent/blob/develop/doc/xmind/arch_design.xmind)
 ### 数据结构与算法
  [![](https://github.com/Devonmusa/demos-parent/blob/develop/algorithm/img/DataStructureAndAlgorithm.png)](https://github.com/Devonmusa/demos-parent/tree/develop/algorithm)
 ### Java虚拟机专题
