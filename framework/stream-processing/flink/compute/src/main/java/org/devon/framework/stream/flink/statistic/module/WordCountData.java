@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.devon.demos.framework.stream.flink.statistic.module;
+package org.devon.framework.stream.flink.statistic.module;
 
 /**
  * Provides the default data sets used for the WordCount example program.

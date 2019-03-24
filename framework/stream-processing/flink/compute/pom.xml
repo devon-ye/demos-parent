@@ -42,7 +42,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>org.devon.demos.framework.stream.flink.statistic.WindowWordCount</mainClass>
+                            <mainClass>org.devon.framework.stream.flink.statistic.WindowWordCount</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -57,7 +57,7 @@
                             <!--change addClasspath to true if daks is desktop version-->
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>org.devon.demos.framework.stream.flink.statistic.WindowWordCount</mainClass>
+                            <mainClass>org.devon.framework.stream.flink.statistic.WindowWordCount</mainClass>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
