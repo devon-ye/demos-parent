@@ -1,6 +1,5 @@
 package org.devon.concurrency.client.server.V2;
 
-import org.devon.concurrency.client.server.concurrent.service.ConcurrentServer;
 
 import java.util.concurrent.ThreadPoolExecutor;
 
