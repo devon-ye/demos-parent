@@ -6,7 +6,7 @@ package org.devon.algorithm.leetcode;
  */
 public class MergeTwoSortedList {
 
-    public ListNode mergeList(ListNode l1, ListNode l2) {
+    public static ListNode mergeList(ListNode l1, ListNode l2) {
         ListNode p = new ListNode(0);
         ListNode q = p;
         while (l1 != null && l2 != null) {
@@ -27,12 +27,31 @@ public class MergeTwoSortedList {
         return q.next;
     }
 
-    class ListNode {
+    static class ListNode {
         int val;
         ListNode next;
 
-        ListNode(int x) {
+        public ListNode(int x) {
             val = x;
         }
+    }
+
+
+    public static void main(String[] args) {
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(4);
+        node1.next = node2;
+        node2.next = node3;
+
+        ListNode node4 = new ListNode(2);
+        ListNode node5 = new ListNode(4);
+        ListNode node6 = new ListNode(6);
+        node4.next = node5;
+        node5.next = node6;
+
+        MergeTwoSortedList.mergeList(node1,node4);
+
+
     }
 }
