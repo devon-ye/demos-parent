@@ -1,10 +1,6 @@
-package org.devon.concurrency.client.server.concurrent.service;
+package org.devon.concurrency.client.server.V2;
 
-import org.devon.concurrency.client.server.serial.client.Command;
-import org.devon.concurrency.client.server.serial.client.ErrorCommand;
-import org.devon.concurrency.client.server.serial.client.QueryCommand;
-import org.devon.concurrency.client.server.serial.client.ReportCommand;
-import org.devon.concurrency.client.server.serial.client.StopCommand;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,19 +36,23 @@ public class RequestTask implements Runnable {
                 switch (commandData[0]) {
                     case "q":
                         LOG.debug("queryCommand:", commandData);
-                        command = new QueryCommand(commandData);
+                        command = new ConcurrentQueryCommand(commandData);
                         break;
                     case "r":
                         LOG.debug("reportCommand:", commandData);
-                        command = new ReportCommand(commandData);
+                        command = new ConcurrentRepotCommand(commandData);
+                        break;
+                    case "s":
+                        LOG.debug("reportCommand:", commandData);
+                        command = new ConcurrentStatusCommand(commandData);
                         break;
                     case "z":
                         LOG.debug("reportCommand:", commandData);
-                        command = new StopCommand(commandData);
+                        command = new ConcurrentStopCommand(commandData);
                         break;
                     default:
                         LOG.debug("errorCommand:", commandData);
-                        command = new ErrorCommand(commandData);
+                        command = new ConcurrentErrorCommand(commandData);
                 }
                 ret = command.execute();
                 if (command.isCacheable()) {

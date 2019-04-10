@@ -1,6 +1,7 @@
-package org.devon.concurrency.client.server.concurrent.executor;
+package org.devon.concurrency.client.server.V3;
 
-import org.devon.concurrency.client.server.concurrent.service.ServerTask;
+import org.devon.concurrency.client.server.V2.ConcurrentCommand;
+
 import org.devon.concurrency.client.server.log.Logger;
 
 import java.util.Date;
@@ -58,6 +59,8 @@ public class ServerExecutor extends ThreadPoolExecutor {
 
     @Override
     protected <T> RunnableFuture<T> newTaskFor(Runnable r, T value) {
-        return new ServerTask<T>(r);
+      //  return new ServerTask<T>();
+        //TODO
+        return null;
     }
 }

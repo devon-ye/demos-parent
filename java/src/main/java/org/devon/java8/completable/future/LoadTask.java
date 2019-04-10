@@ -26,8 +26,9 @@ public class LoadTask implements Supplier<List<Product>> {
         try {
             //todo
             productList = Files.walk(path, FileVisitOption.FOLLOW_LINKS)
-                    .parallel().filter(f -> f.toString()
-                            .endsWith(".txt")).map(ProductLoader::load)
+                    .parallel().filter(f -> f.toString().endsWith(".txt")).map(path -> {
+                        return new ProductLoader().apply(path);
+                    })
                     .collect(Collectors.toList());
         } catch (Exception e) {
 

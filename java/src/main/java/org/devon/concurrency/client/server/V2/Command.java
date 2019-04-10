@@ -1,4 +1,4 @@
-package org.devon.concurrency.client.server.serial.client;
+package org.devon.concurrency.client.server.V2;
 
 /**
  * @author dewen.ye
