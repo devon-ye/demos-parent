@@ -1,6 +1,5 @@
-package org.devon.concurrency.client.server.serial.client;
+package org.devon.concurrency.client.server.V1;
 
-import org.devon.concurrency.client.server.serial.client.Command;
 
 /**
  * @author dewen.ye

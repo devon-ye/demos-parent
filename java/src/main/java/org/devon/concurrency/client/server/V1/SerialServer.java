@@ -1,10 +1,5 @@
-package org.devon.concurrency.client.server.serial.server;
+package org.devon.concurrency.client.server.V1;
 
-import org.devon.concurrency.client.server.serial.client.Command;
-import org.devon.concurrency.client.server.serial.client.ErrorCommand;
-import org.devon.concurrency.client.server.serial.client.QueryCommand;
-import org.devon.concurrency.client.server.serial.client.ReportCommand;
-import org.devon.concurrency.client.server.serial.client.StopCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

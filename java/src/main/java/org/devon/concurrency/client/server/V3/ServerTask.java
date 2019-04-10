@@ -1,7 +1,6 @@
-package org.devon.concurrency.client.server.concurrent.service;
+package org.devon.concurrency.client.server.V3;
 
-import org.devon.concurrency.client.server.concurrent.executor.ConcurrentCommand;
-
+import org.devon.concurrency.client.server.V2.ConcurrentCommand;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;

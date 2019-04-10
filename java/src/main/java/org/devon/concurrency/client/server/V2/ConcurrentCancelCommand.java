@@ -1,6 +1,5 @@
-package org.devon.concurrency.client.server.concurrent.client;
+package org.devon.concurrency.client.server.V2;
 
-import org.devon.concurrency.client.server.concurrent.executor.ConcurrentCommand;
 
 import java.net.Socket;
 
