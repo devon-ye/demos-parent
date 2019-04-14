@@ -1,30 +1,26 @@
 package org.devon.algorithm.leetcode;
 
 public class ArraysAll {
-
+    // duble index  method
     public static int removeDuplicatesSortedArray(int[] nums) {
-        int prev = 0;
-
-        for (int i = 0; i < nums.length; i++) {
-            prev = nums[i];
-            for (int j = i + 1; j < nums.length - 1; j++) {
-                if (prev < nums[j]) {
-                    break;
-                } else if (prev == nums[j] && nums[j] < nums[j + 1]) {
-                    nums[i + 1] = nums[j + 1];
-                } else if (prev > nums[j]) {
-                    nums[j] = 0;
-                    return prev = i + 1;
-                }
-            }
-
+        if (nums.length == 0) {
+            return 0;
         }
-        return prev;
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[j] != nums[i]) {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        return i + 1;
     }
 
 
     public static void main(String[] args) {
         int[] a = {0, 0, 1, 2, 3, 3, 3, 4};
         ArraysAll.removeDuplicatesSortedArray(a);
+        int[]  b= {0, 1, 1, 2, 3, 3, 3, 4};
+        ArraysAll.removeDuplicatesSortedArray(b);
     }
 }
