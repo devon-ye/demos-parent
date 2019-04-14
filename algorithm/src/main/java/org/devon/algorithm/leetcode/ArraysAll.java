@@ -34,14 +34,5 @@ public class ArraysAll {
         return index;
 
     }
-
-
-    public static void main(String[] args) {
-        int[] a = {0, 0, 1, 2, 3, 3, 3, 4};
-        ArraysAll.removeDuplicatesSortedArray(a);
-        int[]  b= {0, 1, 1, 2, 3, 3, 3, 4};
-        ArraysAll.removeDuplicatesSortedArray(b);
-
-        ArraysAll.removeElement(b,3);
-    }
+    
 }
