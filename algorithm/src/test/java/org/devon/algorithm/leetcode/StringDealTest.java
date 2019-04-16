@@ -34,4 +34,9 @@ public class StringDealTest {
         String[] arsg = {"abddwqeeeebbc", "abddwqeeeb", "abddwqee", "abddwqe"};
         Assert.assertFalse(!"abddwqe".equals(stringDeal.longestCommonPrefix2(arsg)));
     }
+
+    @Test
+    public void strStr() {
+        Assert.assertEquals(4L,stringDeal.strStr("mississippi","issip"));
+    }
 }
