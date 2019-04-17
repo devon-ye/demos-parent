@@ -49,4 +49,33 @@ public class StringDeal {
         }
         return prefix;
     }
+
+    public  int strStr(String haystack, String needle) {
+        if(needle.length() == 0) return 0;
+
+        if(haystack == "") return -1;
+
+        if(haystack.length() < needle.length()) return -1;
+
+        int index = 0;
+        int shortIndex = 0;
+        for(int i = 0; i< haystack.length();i++){
+            char c = haystack.charAt(i);
+            char s = needle.charAt(shortIndex);
+            if(s != c){
+                shortIndex = 0;
+                index++;
+                i=index-1;
+            }else{
+                shortIndex++;
+                if(shortIndex == needle.length()){
+                    return  index;
+                }
+            }
+        }
+
+        return -1;
+
+    }
+
 }
