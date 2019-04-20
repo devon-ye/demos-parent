@@ -44,4 +44,16 @@ public class StringDealTest {
     public void lengthOfLongestSubstring1() {
         Assert.assertEquals(6,stringDeal.lengthOfLongestSubstring1("bdbsadlk"));
     }
+
+    @Test
+    public void lengthOfLongestSubstring2() {
+        Assert.assertEquals(6,stringDeal.lengthOfLongestSubstring1("bdbsadlk"));
+
+    }
+
+    @Test
+    public void lengthOfLongestSubstring3() {
+        Assert.assertEquals(6,stringDeal.lengthOfLongestSubstring1("bdbsadlk"));
+
+    }
 }

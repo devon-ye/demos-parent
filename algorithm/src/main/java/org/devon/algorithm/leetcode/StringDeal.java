@@ -88,7 +88,7 @@ public class StringDeal {
         int result = 0;
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j <= n; j++) {
-                if (allUnique(s,i,j)) {
+                if (allUnique(s, i, j)) {
                     result = Math.max(result, j - i);
                 }
             }
@@ -107,5 +107,49 @@ public class StringDeal {
         }
         return true;
     }
+
+    /**
+     * approach 2:sliding window
+     *
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstring2(String s) {
+        int n = s.length();
+        int result = 0;
+        int start = 0;
+        int end = 0;
+        Set<Character> set = new HashSet<>();
+        while (start < n && end < n) {
+            if (!set.contains(s.charAt(end))) {
+                set.add(s.charAt(end++));
+                result = Math.max(result, end - start);
+            } else {
+                set.remove(s.charAt(start++));
+            }
+        }
+        return result;
+    }
+
+    /**
+     * approach 3:sliding window Optimized
+     *
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstring3(String s) {
+        int n = s.length();
+        int result = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int end = 0, start = 0; end < n; end++) {
+            if (map.containsKey(s.charAt(end))) {
+                start = Math.max(map.get(s.charAt(end)), start);
+            }
+            result = Math.max(result, end - start + 1);
+            map.put(s.charAt(end), end + 1);
+        }
+        return result;
+    }
+
 
 }
