@@ -34,7 +34,7 @@ public class ArrayDemo<E> {
         System.out.println("###############引用数据类型##############");
         String[] str = new String[10];
         System.out.println("String数组的默认值是：" + str[1] + "  长度：" + str.length);
-        String str1 = new String("ssssssss");
+        String str1 = "ssssssss";
         int length = str1.length();
         System.out.println("String对象的默认值是：" + str1 + "  长度：" + length);
         boolean[] bol = new boolean[10];

@@ -23,7 +23,7 @@ public class StringMethodDemo {
 
     public static String StringFilter2(String  str2){
        String str3 = str2.replaceAll("(?s)(\\-)(?=.*\\1)", "$1");
-        System.out.printf("str3:"+str3.toString());
+        System.out.printf("str3:"+str3);
 
 
         return str2;
