@@ -42,7 +42,6 @@ public class FileOperate {
 		PrintWriter myFile = null;
 		try {
 			String filePath = filePathAndName;
-			filePath = filePath.toString();
 			File myFilePath = new File(filePath);
 			if (!myFilePath.exists()) {
 				boolean isCreateFile =	myFilePath.createNewFile();

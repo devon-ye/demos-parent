@@ -52,7 +52,7 @@ public class StringDeal {
     public int strStr(String haystack, String needle) {
         if (needle.length() == 0) return 0;
 
-        if (haystack == "") return -1;
+        if ("".equals(haystack)) return -1;
 
         if (haystack.length() < needle.length()) return -1;
 

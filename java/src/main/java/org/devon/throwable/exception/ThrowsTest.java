@@ -21,7 +21,7 @@ public class ThrowsTest {
 
 	public  String get(String str) throws NullPointerException{
 		
-		return str.toString();
+		return str;
 	}
 
 }
