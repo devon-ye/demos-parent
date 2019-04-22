@@ -97,7 +97,6 @@ public class FileOperate {
 		try {
 			delAllFile(folderPath); // 删除完里面所有内容
 			String filePath = folderPath;
-			filePath = filePath.toString();
 			File myFilePath = new File(filePath);
 			if (myFilePath.delete()) { // 删除空文件夹
 				System.out.println("删除文件夹" + folderPath + "操作 成功执行");

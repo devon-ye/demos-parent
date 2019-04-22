@@ -17,15 +17,15 @@ public class ArraysAll {
     }
 
     public static int removeElement(int[] nums, int val) {
-        if(nums.length == 0 ){
+        if (nums.length == 0) {
             return 0;
         }
 
         int index = 0;
 
-        for(int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
 
-            if(nums[i] != val){
+            if (nums[i] != val) {
                 nums[index] = nums[i];
                 index++;
             }
@@ -34,5 +34,66 @@ public class ArraysAll {
         return index;
 
     }
+
+
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int len = nums1.length + nums2.length;
+        int medianLength = len / 2 + 1;
+        int[] sortedArray = new int[medianLength];
+        int index1 = 0;
+        int index2 = 0;
+        for (int i = 0; i < medianLength; i++) {
+            boolean hasNum1 = false;
+            boolean hasNum2 = false;
+            if (index1 < nums1.length) {
+                hasNum1 = true;
+            }
+            if (index2 < nums2.length) {
+                hasNum2 = true;
+            }
+            if (hasNum1 && hasNum2) {
+                if (nums1[index1] < nums2[index2]) {
+                    sortedArray[i] = nums1[index1];
+                    index1++;
+                } else {
+                    sortedArray[i] = nums2[index2];
+                    index2++;
+                }
+
+            } else if (hasNum1) {
+                sortedArray[i] = nums1[index1];
+                index1++;
+            } else {
+                sortedArray[i] = nums2[index2];
+                index2++;
+            }
+        }
+        double median = 0;
+        if (len % 2 == 0) {
+            median = (sortedArray[medianLength - 2] + sortedArray[medianLength - 1]) / 2.0;
+        } else {
+            median = sortedArray[medianLength - 1];
+        }
+        return median;
+    }
+
+    public static int searchInsert(int[] nums, int target) {
+        //TODO FIXBUG
+        int left = 0;
+        int right = nums.length-1;
+        int result = 0;
+        while(nums[left] < target && target < nums[right]){
+            int middle =(right+left)/2;
+            if(target < nums[middle]){
+                right = middle-1;
+            }else if(target >nums[middle]  ){
+                left =middle+1;
+            }else{
+                result = middle+1;
+            }
+        }
+        return result;
+    }
+
 
 }
