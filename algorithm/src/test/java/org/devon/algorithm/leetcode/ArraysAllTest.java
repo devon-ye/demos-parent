@@ -28,4 +28,10 @@ public class ArraysAllTest {
         int[] nums2 = {2};
         ArraysAll.findMedianSortedArrays(nums1, nums2);
     }
+
+    @Test
+    public void searchInsert() {
+        int[] nums1 = {1,2,5,7,9};
+        ArraysAll.searchInsert(nums1, 4);
+    }
 }
