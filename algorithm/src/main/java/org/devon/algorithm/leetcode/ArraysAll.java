@@ -77,22 +77,25 @@ public class ArraysAll {
         return median;
     }
 
+    /**
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public static int searchInsert(int[] nums, int target) {
-        //TODO FIXBUG
-        int left = 0;
-        int right = nums.length-1;
-        int result = 0;
-        while(nums[left] < target && target < nums[right]){
-            int middle =(right+left)/2;
-            if(target < nums[middle]){
-                right = middle-1;
-            }else if(target >nums[middle]  ){
-                left =middle+1;
-            }else{
-                result = middle+1;
+        int low = 0;
+        int high = nums.length - 1;
+        int mid = 0;
+        while (low <= high) {
+            mid = low + (high - low) / 2;
+            if (target <= nums[mid]) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
             }
         }
-        return result;
+        return low;
     }
 
 
