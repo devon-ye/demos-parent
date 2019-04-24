@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.openjdk.jmh.annotations.*;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author dewen.ye
@@ -11,6 +14,9 @@ import org.junit.Test;
  * @date 2019/1/26 00:31
  * @since ${project.version}
  */
+@BenchmarkMode(Mode.AverageTime) // 测试方法平均执行时间
+@OutputTimeUnit(TimeUnit.MICROSECONDS) // 输出结果的时间粒度为微秒
+@State(Scope.Thread)
 public class StringDealTest {
     private StringDeal stringDeal;
 
@@ -58,6 +64,7 @@ public class StringDealTest {
     }
 
     @Test
+    @Benchmark
     public void lengthOfLongestSubstring11() {
         Assert.assertEquals("dabad",stringDeal.longestPalindrome("bcddabaderfs"));
     }
