@@ -56,4 +56,9 @@ public class StringDealTest {
         Assert.assertEquals(6,stringDeal.lengthOfLongestSubstring1("bdbsadlk"));
 
     }
+
+    @Test
+    public void lengthOfLongestSubstring11() {
+        Assert.assertEquals("dabad",stringDeal.longestPalindrome("bcddabaderfs"));
+    }
 }
