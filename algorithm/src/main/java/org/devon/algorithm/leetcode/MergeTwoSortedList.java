@@ -27,6 +27,31 @@ public class MergeTwoSortedList {
         return q.next;
     }
 
+    //todo fix bug
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+        int size = 0;
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while (fast != null) {
+            size++;
+            fast = fast.next;
+        }
+
+        int removeNodeIndex = (size - n) + 1;
+        int index = 0;
+        while (slow != null) {
+            index++;
+            if (removeNodeIndex - 1 == index) {
+                ListNode r = slow.next.next;
+                slow.next = r;
+            }
+            slow = slow.next;
+        }
+
+        return head;
+    }
+
     static class ListNode {
         int val;
         ListNode next;
@@ -38,7 +63,7 @@ public class MergeTwoSortedList {
 
 
     public static void main(String[] args) {
-        ListNode node1 = new ListNode(1);
+      /*  ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
         ListNode node3 = new ListNode(4);
         node1.next = node2;
@@ -50,7 +75,22 @@ public class MergeTwoSortedList {
         node4.next = node5;
         node5.next = node6;
 
-        MergeTwoSortedList.mergeList(node1,node4);
+        MergeTwoSortedList.mergeList(node1,node4);*/
+
+
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+
+        MergeTwoSortedList.removeNthFromEnd(node1,2);
+
+
 
 
     }
