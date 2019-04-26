@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  <listener>
+    <listener-class>org.devon.middleware.kafka.framework.servlet.listener.ConfigSetListener</listener-class>
+  </listener>
+
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.devon.middleware.kafka.framework.servlet.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <!-- <servlet-name>/*</servlet-name>
+     <dispatcher></dispatcher>-->
+  </filter-mapping>
+
+  <filter>
+    <filter-name>loginAuthFilter</filter-name>
+    <filter-class>org.devon.middleware.kafka.framework.servlet.filter.LoginAuthByCookieFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>loginAuthFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <!-- <servlet-name>/*</servlet-name>
+     <dispatcher></dispatcher>-->
+  </filter-mapping>
+
+  <filter>
+    <filter-name>currentLimitingFilter</filter-name>
+    <filter-class>org.devon.middleware.kafka.framework.servlet.filter.CurrentLimitingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>currentLimitingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+   <!-- <servlet-name>/*</servlet-name>
+    <dispatcher></dispatcher>-->
+  </filter-mapping>
+
+  <servlet>
+    <description>servlet-demo</description>
+    <display-name>servlet-Demo</display-name>
+    <servlet-name>ServletDemo</servlet-name>
+    <servlet-class>org.devon.middleware.kafka.framework.servlet.ServletApp</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+        

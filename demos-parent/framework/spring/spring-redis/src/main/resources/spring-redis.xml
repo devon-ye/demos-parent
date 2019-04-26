@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+       default-autowire="byName">
+    <context:component-scan base-package="com.redis.demo.*"/>
+    <context:property-placeholder location="classpath*:redis.properties" order="0" ignore-resource-not-found="false"/>
+   <!-- <import resource="classpath*:spring-redis-cache.xml"/>-->
+
+    <bean id="SpringRedisApp" class="org.devon.redis.demo.SpringRedisApp" init-method="init" scope="singleton"></bean>
+
+
+    <!--<bean id="redisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="${pool.max.total}"/>
+        <property name="maxIdle" value="${pool.max.idle}"/>
+        <property name="minIdle" value="${pool.min.idle}"/>
+        <property name="testOnBorrow" value="${pool.testOn.borrow}"/>
+        <property name="testOnReturn" value="${pool.testOn.return}"/>
+        <property name="maxWaitMillis" value="${pool.max.wait.millis}"/>
+    </bean>
+
+    <bean id="redisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg index="0"  ref="redisPoolConfig"/>
+        <constructor-arg index="1" value="${host}"/>
+        <constructor-arg index="2" value="${port}" type="int"/>
+        <constructor-arg index="3" value="${timeout}" type="int"/>
+        <constructor-arg index="4" value="${password}"/>
+        <constructor-arg index="5" value="${database}" type="int"/>
+     </bean>-->
+
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:host-name="localhost" p:port="6379" />
+
+    <!-- Redis Template -->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactory" />
+    </bean>
+
+    <bean id="stringSetRepository" class="org.devon.redis.demo.repository.StringSetRepository"/>
+
+    <!-- <bean id="redisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"/> -->
+
+
+
+</beans>
