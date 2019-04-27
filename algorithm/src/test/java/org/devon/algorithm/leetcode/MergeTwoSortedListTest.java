@@ -103,4 +103,45 @@ public class MergeTwoSortedListTest {
     }
 
 
+    @Test
+    public void mergeKLists21() {
+        //case 1
+        ListNode node1 = new ListNode(1);
+        ListNode node12 = new ListNode(2);
+        ListNode node13 = new ListNode(7);
+        ListNode node14 = new ListNode(9);
+        node1.next = node12;
+        node12.next = node13;
+        node13.next = node14;
+
+
+        ListNode node2 = new ListNode(3);
+
+
+        ListNode node3 = new ListNode(2);
+        ListNode node31 = new ListNode(5);
+        ListNode node32 = new ListNode(8);
+        ListNode node33 = new ListNode(9);
+        node3.next = node31;
+        node31.next = node32;
+        node32.next = node33;
+
+        ListNode node4 = new ListNode(7);
+        ListNode node41 = new ListNode(8);
+        ListNode node42 = new ListNode(18);
+        ListNode node43 = new ListNode(30);
+        node4.next = node41;
+        node41.next = node42;
+        node42.next = node43;
+
+
+
+        ListNode[] lists = new ListNode[4];
+        lists[0] = node1;
+        lists[1] = node2;
+        lists[2] = node3;
+        lists[3] = node4;
+
+        MergeTwoSortedList.mergeKLists(lists);
+    }
 }
