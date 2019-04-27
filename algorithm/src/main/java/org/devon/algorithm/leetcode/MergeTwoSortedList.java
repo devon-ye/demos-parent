@@ -91,7 +91,7 @@ public class MergeTwoSortedList {
         //数组中 分治链表的 间隔
         int interval = 1;
         /**
-         * 外层循环控制: 链表融合次数
+         * 外层循环控制: 链表融合次数，即跳表存储
          * 内层循环控制: 获取前后两个链表的合并，及合并后链表在数组中的位置
          */
         while (interval < lists.length) {
