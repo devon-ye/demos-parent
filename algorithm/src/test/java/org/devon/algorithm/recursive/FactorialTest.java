@@ -26,4 +26,5 @@ public class FactorialTest {
     public void factorialAge() {
         factorial.factorialAge(5);
     }
+
 }

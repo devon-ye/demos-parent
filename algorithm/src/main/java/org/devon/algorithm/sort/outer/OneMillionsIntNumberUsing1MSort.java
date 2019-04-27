@@ -35,43 +35,38 @@ public class OneMillionsIntNumberUsing1MSort {
     public Byte[] OneMllionIntNumberUseLeastMemorySort(String filename) {
         File file = new File(filename);
         FileReader fileReader = null;
-        try {
-            fileReader = new FileReader(file);
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        } finally {
-
-        }
         BufferedReader bufferedReader = null;
-        String tempString = null;
-        Byte[] bytes = new Byte[MAX];
+        Byte[] bytes = null;
         int tempInt = 0;
         try {
+            fileReader = new FileReader(file);
             if (fileReader != null) {
                 bufferedReader = new BufferedReader(fileReader);
             }
             if (bufferedReader != null) {
+                String tempString = null;
+                bytes = new Byte[MAX];
                 while ((tempString = bufferedReader.readLine()) != null) {
                     tempInt = Integer.valueOf(tempString);
                     bytes[tempInt] = 1;
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("fileReader fail!  Exeception:", e);
         } finally {
             try {
                 if (bufferedReader != null) {
                     bufferedReader.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error("bufferedReader close fail!  Exeception:", e);
             }
             try {
-                if(fileReader!=null) {
+                if (fileReader != null) {
                     fileReader.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error("fileReader close fail!  Exeception:", e);
             }
 
         }
@@ -87,7 +82,7 @@ public class OneMillionsIntNumberUsing1MSort {
             try {
                 file.createNewFile();
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.info("createNewFile fail file:{}, Exception:", file, e);
             }
         }
         try {
@@ -105,14 +100,14 @@ public class OneMillionsIntNumberUsing1MSort {
                 if (bytes[i] == null) {
                     continue;
                 } else {
-                    if(fileWriter!=null) {
+                    if (fileWriter != null) {
                         fileWriter.write(i + "\n");
                     }
                     LOG.info("Sorted number write to file:" + i);
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.info("fileWriter fail file:{}, Exception:", file, e);
         } finally {
             try {
                 if (fileWriter != null) {
@@ -129,7 +124,6 @@ public class OneMillionsIntNumberUsing1MSort {
         if (bytes != null) {
             len = bytes.length;
         }
-
         for (int i = 0; i < len; i++) {
             if (bytes[i] != null) {
                 LOG.info("number:" + i + " flag:" + bytes[i]);

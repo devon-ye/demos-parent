@@ -6,17 +6,20 @@ import org.junit.Test;
 import java.io.File;
 
 
-
 /**
  * @author dewen.ye
  * @date 2019/2/17 02:25
  */
 public class OneMillionsIntNumberUsing1MSortTest {
     private OneMillionsIntNumberUsing1MSort using1mSort = new OneMillionsIntNumberUsing1MSort();
+    private static String packagePath = OneMillionsIntNumberUsing1MSort.class.getPackage().getName().replace(".","\\");
+    private static final String filePath = "src\\test\\java\\" +packagePath;
+
+    private static String dir = System.getProperty("user.dir");
     private static String fileName = "1MillionsIntNumber.txt";
     private static String sortedFileName = "sortedIntNumber.txt";
-    private static final String filePath = "src\\test\\java\\org\\devonmusa\\util\\sort";
-    private static String dir = System.getProperty("user.dir");
+
+
 
     @Before
     public void setUp() {
