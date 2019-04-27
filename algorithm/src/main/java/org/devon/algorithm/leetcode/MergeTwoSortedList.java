@@ -47,7 +47,7 @@ public class MergeTwoSortedList {
         return dummy.next;
     }
 
-    public ListNode removeNthFromEnd2(ListNode head, int n) {
+    public static ListNode removeNthFromEnd2(ListNode head, int n) {
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         int length  = 0;
@@ -66,6 +66,16 @@ public class MergeTwoSortedList {
         }
         first.next = first.next.next;
         return dummy.next;
+    }
+
+
+    public static ListNode mergeKLists(ListNode[] lists){
+        ListNode dummy = lists[0];
+        for(int i = 1; i < lists.length; i++){
+            ListNode second = lists[i];
+            dummy =mergeTwoList(dummy,second);
+        }
+        return dummy;
     }
 
 }
