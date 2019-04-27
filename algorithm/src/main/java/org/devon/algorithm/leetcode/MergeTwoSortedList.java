@@ -88,15 +88,19 @@ public class MergeTwoSortedList {
      */
     public static ListNode mergeKLists(ListNode[] lists) {
         if (lists.length == 0) return null;
+        //数组中 分治链表的 间隔
         int interval = 1;
+        /**
+         * 外层循环控制: 链表融合次数
+         * 内层循环控制: 获取前后两个链表的合并，及合并后链表在数组中的位置
+         */
         while (interval < lists.length) {
-            for (int i = 0; i + interval < lists.length; i = i + interval * 2)
+            for (int i = 0; i + interval < lists.length; i = i + interval * 2) {
                 lists[i] = mergeTwoList(lists[i], lists[i + interval]);
-
+            }
             interval *= 2;
         }
         return lists[0];
-
     }
 
     public static ListNode mergeKLists2(ListNode[] lists) {
