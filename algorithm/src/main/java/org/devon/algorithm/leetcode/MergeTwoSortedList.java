@@ -112,4 +112,29 @@ public class MergeTwoSortedList {
         return dummy;
     }
 
+
+    public static  ListNode swapPairs(ListNode head) {
+        ListNode result = new ListNode(0);
+        ListNode dummy = result;
+        ListNode next = null;
+        while(head != null && head.next != null){
+
+            dummy.next = head.next;
+
+            head.next = null;
+            //取出两个后面的指针
+            next = dummy.next.next;
+
+            dummy.next.next  = head;
+
+            head = next;
+
+            dummy = dummy.next.next;
+        }
+        if(head != null){
+            dummy.next =head;
+        }
+        return result.next;
+    }
+
 }

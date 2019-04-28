@@ -28,7 +28,7 @@ public class ArraysAllTest {
     public void findMedianSortedArrays() {
         int[] nums1 = {1, 3};
         int[] nums2 = {2};
-        Assert.assertEquals(2,ArraysAll.findMedianSortedArrays(nums1, nums2));
+        Assert.assertEquals(2.0D,ArraysAll.findMedianSortedArrays(nums1, nums2),0);
     }
 
     @Test
