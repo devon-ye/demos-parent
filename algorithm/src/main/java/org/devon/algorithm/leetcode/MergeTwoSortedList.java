@@ -137,4 +137,32 @@ public class MergeTwoSortedList {
         return result.next;
     }
 
+    public static  ListNode reverseKGroup(ListNode head,int k) {
+        ListNode result = new ListNode(0);
+        ListNode dummy =result;
+        ListNode start = null;
+        ListNode end = null;
+        int index = 0;
+        while(head != null){
+            index ++;
+
+            if(index != k+1){
+            //todo fix bug
+                end =dummy;
+                start = head;
+                head  = head.next;
+                start.next = dummy.next;
+                dummy = start;
+            }else{
+                index = 0;
+                start.next = head;
+                dummy = dummy.next;
+            }
+
+
+        }
+
+        return result.next;
+    }
+
 }
