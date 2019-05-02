@@ -28,6 +28,9 @@ public class RingBuffer {
 
 
     public Object read() {
+        if (count == 0) {
+            return null;
+        }
         readIndex++;
         if (readIndex == capacity) {
             readIndex %= capacity;
