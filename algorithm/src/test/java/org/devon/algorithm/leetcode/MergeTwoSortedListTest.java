@@ -166,4 +166,15 @@ public class MergeTwoSortedListTest {
         node6.next = node7;
         MergeTwoSortedList.swapPairs(node5);
     }
+
+    @Test
+    public void deleteDuplicates() {
+
+        ListNode node1 = new ListNode(1);
+        ListNode node2= new ListNode(1);
+        ListNode node3 = new ListNode(2);
+        node1.next =node2;
+        node2.next = node3;
+        MergeTwoSortedList.deleteDuplicates(node1);
+    }
 }
