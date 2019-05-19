@@ -135,4 +135,38 @@ public class LinkedListOpAlgorithm {
         head.next = removeElements(head.next, val);
         return head.val == val ? head.next : head;
     }
+
+    public static boolean isPalindrome(ListNode head) {
+        if (head == null || head.next == null) {
+            return true;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        // find middle node
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        slow =  reverse(slow);
+        while(slow != null){
+            if(slow.val != head.val){
+                return false;
+            }
+            slow =slow.next;
+            head = head.next;
+        }
+        return true;
+    }
+
+    private static ListNode reverse(ListNode head){
+        if (head.next == null) {
+            return head;
+        }
+        ListNode newHead = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
 }
