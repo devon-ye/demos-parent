@@ -1,5 +1,6 @@
 package org.devon.algorithm.leetcode;
 
+import java.awt.List;
 import java.util.*;
 
 public class LinkedListOpAlgorithm {
@@ -27,6 +28,7 @@ public class LinkedListOpAlgorithm {
      * T(n) = n + n + n + 2n +n =6n
      * Time complexity: O(n)
      * Space complexity: O(1)
+     *
      * @param head
      * @return
      */
@@ -44,12 +46,13 @@ public class LinkedListOpAlgorithm {
     }
 
     /**
-     *   if has cycle,  fast pointer already meeting slow pointer
+     * if has cycle,  fast pointer already meeting slow pointer
      * complexity analysis
      * T(n) = n + n + n =3n
      * Time complexity: O(n)
      * S(n) = n
      * Space complexity: O(n)
+     *
      * @param head
      * @return
      */
@@ -72,20 +75,21 @@ public class LinkedListOpAlgorithm {
      * Time complexity:O(n)
      * S(n) = 1
      * Space complexity:O(1)
+     *
      * @param head
      * @return
      */
-    public static ListNode reverseList(ListNode head){
+    public static ListNode reverseList(ListNode head) {
         ListNode result = new ListNode(0);
         ListNode dummy = null;
-        while(head != null){
-             //取出单节点
-              dummy = head;
-              head = head.next;
-              dummy.next = null;
+        while (head != null) {
+            //取出单节点
+            dummy = head;
+            head = head.next;
+            dummy.next = null;
 
-              dummy.next = result.next;
-              result.next = dummy;
+            dummy.next = result.next;
+            result.next = dummy;
         }
         return result.next;
     }
@@ -143,23 +147,23 @@ public class LinkedListOpAlgorithm {
         ListNode fast = head;
         ListNode slow = head;
         // find middle node
-        while(fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
 
-        slow =  reverse(slow);
-        while(slow != null){
-            if(slow.val != head.val){
+        slow = reverse(slow);
+        while (slow != null) {
+            if (slow.val != head.val) {
                 return false;
             }
-            slow =slow.next;
+            slow = slow.next;
             head = head.next;
         }
         return true;
     }
 
-    private static ListNode reverse(ListNode head){
+    private static ListNode reverse(ListNode head) {
         if (head.next == null) {
             return head;
         }
@@ -169,4 +173,26 @@ public class LinkedListOpAlgorithm {
         return newHead;
     }
 
+    public ListNode rotateRight(ListNode head, int n) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode fast = dummy.next;
+        ListNode slow = dummy.next;
+        int i = 0;
+        while (fast != null) {
+            fast = fast.next;
+            i++;
+        }
+
+        for (int j = i - n % i; j > 0; j--) {//Get the i-n%i th node
+            slow = slow.next;
+        }
+
+        fast.next = dummy.next; //Do the rotation
+        dummy.next = slow.next;
+        slow.next = null;
+
+        return dummy.next;
+
+    }
 }
