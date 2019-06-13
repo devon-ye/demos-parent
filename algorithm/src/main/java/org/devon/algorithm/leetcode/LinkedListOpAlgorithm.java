@@ -1,6 +1,6 @@
 package org.devon.algorithm.leetcode;
 
-import java.awt.List;
+
 import java.util.*;
 
 public class LinkedListOpAlgorithm {
@@ -194,5 +194,36 @@ public class LinkedListOpAlgorithm {
 
         return dummy.next;
 
+    }
+
+    /**
+     * double pointer，include pre (Predecessor) pointer and current pointer,
+     * current pointer merge save value node, compare pre pointer and cur pointer is same node
+     * @param head
+     * @return
+     */
+    public static ListNode deleteDuplicates(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        ListNode current = head;
+        while (current != null) {
+            // merge same value node
+            while (current.next!= null && current.val == current.next.val){
+                current = current.next;
+            }
+            //
+            if(pre.next == current){
+                //与前驱节点对比
+                pre = pre.next;
+            }else {
+                //拼接不同节点
+                pre.next = current.next;
+            }
+            //对比节点指针向后移动
+            current = current.next;
+        }
+
+        return dummy.next;
     }
 }
