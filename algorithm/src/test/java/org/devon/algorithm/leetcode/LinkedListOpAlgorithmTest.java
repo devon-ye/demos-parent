@@ -121,4 +121,22 @@ public class LinkedListOpAlgorithmTest {
         node41.next = node5;
         LinkedListOpAlgorithm.deleteDuplicates(node1);
     }
+
+    @Test
+    public void partition() {
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(4);
+        ListNode node3 = new ListNode(3);
+        ListNode node31 = new ListNode(2);
+        ListNode node4 = new ListNode(5);
+        ListNode node41 = new ListNode(2);
+      //  ListNode node5 = new ListNode(5);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node31;
+        node31.next = node4;
+        node4.next = node41;
+      //  node41.next = node5;
+        LinkedListOpAlgorithm.partition(node1,3);
+    }
 }

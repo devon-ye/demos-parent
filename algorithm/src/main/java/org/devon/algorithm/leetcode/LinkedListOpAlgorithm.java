@@ -226,4 +226,37 @@ public class LinkedListOpAlgorithm {
 
         return dummy.next;
     }
+
+    /**
+     * complexity analysis
+     * T(n) = 5n
+     * Time complexity:O(n)
+     * S(n) = 2
+     * Space complexity:O(1)
+     *
+     * @param head
+     * @return
+     */
+
+    public static ListNode partition(ListNode head, int x) {
+        ListNode first = new ListNode(0);
+        ListNode dummy = first;
+        ListNode second= new ListNode(0);
+        ListNode dummy2 = second;
+        while(head!=null){
+            if(head.val < x){
+                dummy.next = head;
+                head =head.next;
+                dummy = dummy.next;
+                dummy.next = null;
+            }else {
+                dummy2.next = head;
+                head = head.next;
+                dummy2 = dummy2.next;
+                dummy2.next = null;
+            }
+        }
+        dummy.next= second.next;
+        return first.next;
+    }
 }
