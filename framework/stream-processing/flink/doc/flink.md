@@ -6,7 +6,7 @@
 
 * TaskManager
 
-* Slot
+       Slot
 
 * Source
 
@@ -22,9 +22,17 @@
 * Sink
 
 * StateBackend
+     
+         checkpoint
+         savepoint
 
 * Window
 
+* Time
+        
+        EventTime
+        IngestionTime
+        ProcessTime
 
 
 ## Design
