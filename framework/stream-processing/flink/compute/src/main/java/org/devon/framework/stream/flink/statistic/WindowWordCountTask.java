@@ -19,10 +19,15 @@ package org.devon.framework.stream.flink.statistic;
 
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.devon.framework.stream.flink.statistic.module.WordCount;
 import org.devon.framework.stream.flink.statistic.module.WordCountData;
+import org.devon.framework.stream.flink.statistic.sink.HBaseOutputFormatSink;
+
+
+import java.util.Properties;
 
 /**
  * Implements a windowed version of the streaming "WordCount" program.
@@ -40,7 +45,7 @@ import org.devon.framework.stream.flink.statistic.module.WordCountData;
  * <li>use basic windowing abstractions.
  * </ul>
  */
-public class WindowWordCount {
+public class WindowWordCountTask {
 
 	// *************************************************************************
 	// PROGRAM
@@ -64,9 +69,10 @@ public class WindowWordCount {
 			// get default test text data
 			text = env.fromElements(WordCountData.WORDS);
 		}
-
+		Configuration configuration = new Configuration();
+		configuration.setString("work.size","10");
 		// make parameters available in the web interface
-		env.getConfig().setGlobalJobParameters(params);
+		env.getConfig().setGlobalJobParameters(configuration);
 
 		final int windowSize = params.getInt("window", 10);
 		final int slideSize = params.getInt("slide", 5);
@@ -81,6 +87,7 @@ public class WindowWordCount {
 				.sum(1);
 
 		// emit result
+		counts.writeUsingOutputFormat(new HBaseOutputFormatSink());
 		if (params.has("output")) {
 			counts.writeAsText(params.get("output"));
 		} else {

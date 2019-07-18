@@ -6,7 +6,7 @@
 
 * TaskManager
 
-       Slot
+       Slot: 均分TaskManager进程内的内存
 
 * Source
 
@@ -18,6 +18,8 @@
         reduce
         aggregation
         process
+        
+        OperatorChain
 
 * Sink
 
