@@ -7,29 +7,20 @@ package org.devon.algorithm.sort;
  */
 public abstract class AbstractSort {
 
-    public static void exch(Comparable[] array, int i, int j) {
-        Comparable t = array[i];
-        array[i] = array[j];
-        array[j] = t;
-    }
 
-    public static <T> void exch(T[] array, int i, int j) {
+    protected static <T> void exch(T[] array, int i, int j) {
         T t = array[i];
         array[i] = array[j];
         array[j] = t;
     }
 
-    public static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) < 0;
-    }
-
-    public static <T> boolean less(T v, T w) {
+    protected static <T> boolean less(T v, T w) {
         Comparable vc = (Comparable) v;
        /* Comparable vw = (Comparable) w;*/
         return vc.compareTo(w) < 0;
     }
 
-    public static <T> Object[] newTypeTArray(Class<T> clazzType, int length) {
+    protected static <T> Object[] newTypeTArray(Class<T> clazzType, int length) {
         String typeName = clazzType.getSimpleName();
         switch (typeName) {
             case "Double[]":
@@ -51,7 +42,7 @@ public abstract class AbstractSort {
             case "Object[]":
                 return new Object[length];
             default:
-                throw new IllegalArgumentException("unsupported type");
+                throw new IllegalArgumentException("unsupported type "+typeName);
         }
 
     }

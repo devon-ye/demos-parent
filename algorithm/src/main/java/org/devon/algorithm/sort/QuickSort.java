@@ -36,13 +36,6 @@ public class QuickSort extends AbstractSort implements Sort {
         return i + 1;
     }
 
-    private static void exchange(int[] array, int i, int j) {
-        int temp = array[j];
-        array[j] = array[i];
-        array[i] = temp;
-    }
-
-
     private static <T> int partition2(T[] array, int left, int right) {
         //最左边元素为基准点
         T key = array[left];
