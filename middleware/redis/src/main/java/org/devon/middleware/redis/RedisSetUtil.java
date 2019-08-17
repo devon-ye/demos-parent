@@ -1,4 +1,4 @@
-package org.devon.redis.demo.util;
+package org.devon.middleware.redis;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;

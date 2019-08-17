@@ -8,6 +8,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
+    <groupId>org.devon.language</groupId>
     <artifactId>java</artifactId>
 
     <properties>

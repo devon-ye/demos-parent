@@ -1,3 +1,5 @@
+package org.devon.middleware.es;
+
 import org.elasticsearch.search.SearchHitField;
 
 /**
