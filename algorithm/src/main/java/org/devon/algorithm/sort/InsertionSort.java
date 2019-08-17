@@ -14,12 +14,12 @@ public class InsertionSort extends AbstractSort implements Sort {
      * @param array
      * @return
      */
-    public static Comparable[] insert(Comparable[] array) {
+    public static <T> T[] sort(T[] array) {
         if (array == null) {
             return null;
         }
         for (int i = 1, length = array.length; i < length; i++) {
-            Comparable key = array[i];
+            T key = array[i];
             int j = i - 1;
             while (j > -1 && less(array[i], array[j])) {
                 array[j + 1] = array[j];

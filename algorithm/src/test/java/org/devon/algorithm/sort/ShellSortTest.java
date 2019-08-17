@@ -18,7 +18,7 @@ public class ShellSortTest {
 
     @Test
     public void sort() {
-        int[] array = new int[]{6, 2, 1, 7, 9, 4, 3, 8, 5, 10};
+        Integer[] array = new Integer[]{6, 2, 1, 7, 9, 4, 3, 8, 5, 10};
         ShellSort.sort(array);
     }
 }

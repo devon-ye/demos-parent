@@ -33,7 +33,6 @@ public class MergeSort extends AbstractSort implements Sort {
         while (j < rightArray.length) {
             newArray[m++] = rightArray[j++];
         }
-
         return newArray;
     }
 

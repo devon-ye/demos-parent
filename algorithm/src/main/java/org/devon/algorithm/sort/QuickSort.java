@@ -9,7 +9,7 @@ package org.devon.algorithm.sort;
 public class QuickSort extends AbstractSort implements Sort {
 
 
-    public static Comparable[] sort(Comparable[] array, int left, int right) {
+    public static <T> T[] sort(T[] array, int left, int right) {
         if (array == null || left > right) {
             return null;
         }
@@ -20,10 +20,10 @@ public class QuickSort extends AbstractSort implements Sort {
     }
 
 
-    private static int partition(Comparable[] array, int left, int right) {
+    private static <T> int partition(T[] array, int left, int right) {
         int i = left - 1;
         //以最右边元素为基准点
-        Comparable key = array[right];
+        T key = array[right];
         //开始以基准点为标准分割序列
         for (int j = left; j < right; j++) {
             if (less(array[j], key)) {
@@ -43,9 +43,9 @@ public class QuickSort extends AbstractSort implements Sort {
     }
 
 
-    private static int partition2(Comparable[] array, int left, int right) {
+    private static <T> int partition2(T[] array, int left, int right) {
         //最左边元素为基准点
-        Comparable key = array[left];
+        T key = array[left];
 
         while (left < right) {
             //从最后找一个合适的值与前面的值交换
@@ -60,9 +60,5 @@ public class QuickSort extends AbstractSort implements Sort {
             exch(array, left, right);
         }
         return left;
-    }
-
-    public Comparable[] sort(Comparable[] array) {
-        return new Comparable[0];
     }
 }

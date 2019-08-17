@@ -11,10 +11,11 @@ public class SelectionSort extends AbstractSort implements Sort {
      * <p>1.既每次遍历剩余数组找最小元素</p>
      * <p>2.交换最小元素与无序部分首个元素</p>
      * <p>特点：数据移动是最少的</p>
+     *
      * @param array
-     * @return
+     * @return null or sorted array
      */
-    public static Comparable[] sort(Comparable[] array) {
+    public static <T> T[] sort(T[] array) {
         if (array == null) {
             return array;
         }

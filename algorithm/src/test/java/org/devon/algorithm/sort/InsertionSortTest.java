@@ -22,8 +22,8 @@ public class InsertionSortTest {
     @Test
     public void insert() {
 
-        InsertionSort.insert(array);
-        InsertionSort.insert(array2);
+        InsertionSort.sort(array);
+        InsertionSort.sort(array2);
     }
 
     @Test
