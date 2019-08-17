@@ -11,5 +11,10 @@
     <groupId>org.devon.framework.rpc</groupId>
     <artifactId>grpc</artifactId>
 
-
+     <dependencies>
+         <!--<dependency>
+             <groupId></groupId>
+             <artifactId>com.google.grpc</artifactId>
+         </dependency>-->
+     </dependencies>
 </project>

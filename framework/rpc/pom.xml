@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>dubbo</module>
+        <module>grpc</module>
+        <module>zeroc-ice</module>
     </modules>
 
 
