@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.devon.framework</groupId>
     <artifactId>rpc</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>dubbo</module>
+        <module>grpc</module>
+        <module>zeroc-ice</module>
+    </modules>
 
 
 </project>

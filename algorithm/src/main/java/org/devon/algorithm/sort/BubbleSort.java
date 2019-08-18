@@ -8,7 +8,7 @@ package org.devon.algorithm.sort;
  */
 public class BubbleSort extends AbstractSort implements Sort {
 
-    public static Comparable[] sort(Comparable[] array) {
+    public static <T> T[] sort(T[] array) {
         if (array == null) {
             return null;
         }
