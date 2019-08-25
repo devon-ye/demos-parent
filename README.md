@@ -16,7 +16,7 @@
         |------------doc  开发者必备技能文档
         |
         |
-        |------------algorithm 数据结构与算法基础
+        |------------data-structures-and-algorithms 数据结构与算法基础
         |
         |
         |------------language  语言基础，包括java基础、设计模式、并发、IO、JVM参数配置
@@ -35,9 +35,9 @@
 ## 脑图
 ### 架构设计
  [![](https://github.com/Devonmusa/demos-parent/blob/develop/doc/img/arch-design.png)](https://github.com/Devonmusa/demos-parent/tree/develop/doc)
- [xmind源文件](https://github.com/Devonmusa/demos-parent/blob/develop/doc/xmind/arch_design.xmind)
+ [xmind源文件](https://www.processon.com/mindmap/5c918057e4b0afc744183dc5)
 ### 数据结构与算法
- [![](https://github.com/Devonmusa/demos-parent/blob/develop/algorithm/img/DataStructureAndAlgorithm.png)](https://github.com/Devonmusa/demos-parent/tree/develop/algorithm)
+ [![](https://github.com/Devonmusa/demos-parent/blob/develop/data-structures-and-algorithms/img/DataStructureAndAlgorithm.png)](https://github.com/Devonmusa/demos-parent/tree/develop/data-structures-and-algorithms)
 ### Java虚拟机专题
  [![](https://github.com/Devonmusa/demos-parent/blob/develop/language/java/img/JVM.png)](https://github.com/Devonmusa/demos-parent/tree/develop/language/java)
 ### Servlet专题
