@@ -8,6 +8,7 @@
 
 package org.devon.algorithm.search;
 
+import org.devon.algorithms.search.BinarySearch;
 import org.junit.Test;
 
 /**

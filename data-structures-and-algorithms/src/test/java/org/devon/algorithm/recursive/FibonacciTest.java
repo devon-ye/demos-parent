@@ -8,6 +8,7 @@
 
 package org.devon.algorithm.recursive;
 
+import org.devon.algorithms.recursive.Fibonacci;
 import org.junit.Test;
 
 /**

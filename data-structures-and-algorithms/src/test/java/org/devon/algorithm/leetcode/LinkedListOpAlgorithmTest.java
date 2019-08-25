@@ -1,9 +1,9 @@
 package org.devon.algorithm.leetcode;
 
+import org.devon.algorithms.leetcode.LinkedListOpAlgorithm;
+import org.devon.algorithms.leetcode.ListNode;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class LinkedListOpAlgorithmTest {
 
@@ -17,7 +17,7 @@ public class LinkedListOpAlgorithmTest {
         node1.next = node2;
         node2.next = node3;
         node3.next = node4;
-        Assert.assertEquals(3,LinkedListOpAlgorithm.findMiddleNode(node1).val);
+        Assert.assertEquals(3, LinkedListOpAlgorithm.findMiddleNode(node1).val);
     }
 
     @Test
