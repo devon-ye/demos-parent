@@ -8,6 +8,7 @@
 
 package org.devon.algorithm.leetcode;
 
+import org.devon.algorithms.leetcode.RemoveRepeatableElement;
 import org.junit.Test;
 
 /**

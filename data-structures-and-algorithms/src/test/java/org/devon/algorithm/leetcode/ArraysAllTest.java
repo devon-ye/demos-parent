@@ -1,16 +1,15 @@
 package org.devon.algorithm.leetcode;
 
+import org.devon.algorithms.leetcode.ArraysAll;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ArraysAllTest {
 
     @Test
     public void removeDuplicatesSortedArray() {
         int[] a = {0, 0, 1, 2, 3, 3, 3, 4};
-        Assert.assertEquals(5,ArraysAll.removeDuplicatesSortedArray(a));
+        Assert.assertEquals(5, ArraysAll.removeDuplicatesSortedArray(a));
 
         int[] b = {0, 1, 1, 2, 3, 3, 3, 4};
         Assert.assertEquals(5,ArraysAll.removeDuplicatesSortedArray(b));

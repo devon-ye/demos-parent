@@ -8,6 +8,8 @@
 
 package org.devon.algorithm.matrix;
 
+import org.devon.algorithms.matrix.MatrixGenerator;
+import org.devon.algorithms.matrix.SerialMultiplier;
 import org.junit.Test;
 
 /**
