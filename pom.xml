@@ -9,12 +9,14 @@
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>algorithm</module>
+        <module>data-structures-and-algorithms</module>
+        <module>design-pattern</module>
         <module>framework</module>
         <module>middleware</module>
         <module>docker</module>
         <module>distributed</module>
         <module>language</module>
+
     </modules>
 
     <properties>
