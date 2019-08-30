@@ -50,7 +50,7 @@
 <img  src="https://github.com/Devonmusa/demos-parent/blob/develop/doc/img/Internet.png" alt="Sample"  width="1400" height="700">
 
 ### 分布式专题
-[![](https://github.com/Devonmusa/demos-parent/blob/develop/distrebuted/img/distrebuted.png)](https://github.com/Devonmusa/demos-parent/tree/develop/distrebuted)
+[![](https://github.com/Devonmusa/demos-parent/blob/develop/distributed/img/distributed.png)](https://github.com/Devonmusa/demos-parent/tree/develop/distributed)
  [processon](https://www.processon.com/mindmap/5d692d32e4b06e9d24cd71de)
 ### 架构设计
   [![](https://github.com/Devonmusa/demos-parent/blob/develop/doc/img/arch-design.png)](https://github.com/Devonmusa/demos-parent/tree/develop/doc)
