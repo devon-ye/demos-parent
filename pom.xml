@@ -493,6 +493,17 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
                     <version>${maven_checkstyle_version}</version>
+                    <configuration>
+                        <configLocation>config/checkstyle/checkstyle.xml</configLocation>
+                        <encoding>UTF-8</encoding>
+                        <consoleOutput>true</consoleOutput>
+                        <failOnViolation>true</failOnViolation>
+                        <excludes>**/JSONWriter.java</excludes>
+                        <failsOnError>true</failsOnError>
+                        <linkXRef>false</linkXRef>
+                        <skip>false</skip>
+                        <violationSeverity>error</violationSeverity>
+                    </configuration>
                     <dependencies>
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
@@ -504,16 +515,6 @@
                         <execution>
                             <id>checkstyle-validation</id>
                             <phase>validate</phase>
-                            <configuration>
-                                <configLocation>config/codestyle/checkstyle.xml</configLocation>
-<!--
-                                <suppressionsLocation>config/checkstyle-suppressions.xml</suppressionsLocation>
--->
-                                <encoding>UTF-8</encoding>
-                                <consoleOutput>true</consoleOutput>
-                                <failOnViolation>true</failOnViolation>
-                                <excludes>**/JSONWriter.java</excludes>
-                            </configuration>
                             <goals>
                                 <goal>check</goal>
                             </goals>
