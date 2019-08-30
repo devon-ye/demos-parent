@@ -33,18 +33,28 @@
         
         
 ## 脑图
-### 架构设计
- [![](https://github.com/Devonmusa/demos-parent/blob/develop/doc/img/arch-design.png)](https://github.com/Devonmusa/demos-parent/tree/develop/doc)
- [xmind源文件](https://www.processon.com/mindmap/5c918057e4b0afc744183dc5)
+
 ### 数据结构与算法
- [![](https://github.com/Devonmusa/demos-parent/blob/develop/data-structures-and-algorithms/img/DataStructureAndAlgorithm.png)](https://github.com/Devonmusa/demos-parent/tree/develop/data-structures-and-algorithms)
+ [![](https://github.com/Devonmusa/demos-parent/blob/develop/data-structures-and-algorithms/img/data-structures-and-algorithms.png)](https://github.com/Devonmusa/demos-parent/tree/develop/data-structures-and-algorithms)
+  [processon](https://www.processon.com/mindmap/5d6035ebe4b06e49191f0716)
+
+### 设计模式
+[![](https://github.com/Devonmusa/demos-parent/blob/develop/design-pattern/img/design-pattern.png)](https://github.com/Devonmusa/demos-parent/tree/develop/design-pattern)
+ [processon](https://www.processon.com/mindmap/5d692c3ce4b0b3a53a0ff329)
+  
 ### Java虚拟机专题
  [![](https://github.com/Devonmusa/demos-parent/blob/develop/language/java/img/JVM.png)](https://github.com/Devonmusa/demos-parent/tree/develop/language/java)
 ### Servlet专题
  [![](https://github.com/Devonmusa/demos-parent/blob/develop/framework/servlet/img/servlet.png)](https://github.com/Devonmusa/demos-parent/tree/develop/framework/servlet)
 ### Internet
 <img  src="https://github.com/Devonmusa/demos-parent/blob/develop/doc/img/Internet.png" alt="Sample"  width="1400" height="700">
-    
+
+### 分布式专题
+[![](https://github.com/Devonmusa/demos-parent/blob/develop/distrebuted/img/distrebuted.png)](https://github.com/Devonmusa/demos-parent/tree/develop/distrebuted)
+ [processon](https://www.processon.com/mindmap/5d692d32e4b06e9d24cd71de)
+### 架构设计
+  [![](https://github.com/Devonmusa/demos-parent/blob/develop/doc/img/arch-design.png)](https://github.com/Devonmusa/demos-parent/tree/develop/doc)
+  [processon](https://www.processon.com/mindmap/5c918057e4b0afc744183dc5)
 
 ## How to contribute
 
