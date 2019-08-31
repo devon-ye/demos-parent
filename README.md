@@ -31,7 +31,7 @@
         |------------distrebuted 分布式解决方案:服务发现、分布式缓存、负载均衡  
 
              
-## 脑图
+## 思维导图
 
 ### 数据结构与算法
  [![](https://github.com/Devonmusa/demos-parent/blob/develop/data-structures-and-algorithms/img/data-structures-and-algorithms.png)](https://github.com/Devonmusa/demos-parent/tree/develop/data-structures-and-algorithms)
