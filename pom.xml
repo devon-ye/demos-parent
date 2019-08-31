@@ -105,6 +105,18 @@
             <artifactId>jmockit</artifactId>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>agent</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>data-structures-and-algorithms</module>
+                <module>design-pattern</module>
+            </modules>
+        </profile>
+    </profiles>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -459,7 +471,6 @@
                 <version>${jmh.version}</version>
                 <scope>provided</scope>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
     <build>
