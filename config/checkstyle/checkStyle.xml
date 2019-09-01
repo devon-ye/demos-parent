@@ -105,4 +105,11 @@
         <module name="TypecastParenPad"/>
         <module name="TypecastParenPad"/>
     </module>
+    <code-scheme name="demos-parent">
+        <codeStyleSettings language="XML">
+            <indentOptions>
+                <option name="CONTINUATION_INDENT_SIZE" value="4"/>
+            </indentOptions>
+        </codeStyleSettings>
+    </code-scheme>
 </module>
