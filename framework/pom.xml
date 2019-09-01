@@ -22,6 +22,7 @@
         <module>yaml</module>
         <module>stream-processing</module>
         <module>netty</module>
+        <module>instrumentation</module>
     </modules>
 
 
