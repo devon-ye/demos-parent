@@ -1,3 +1,7 @@
-object Hello extends App {
-  println("Hello, World!")
+object Hello  {
+
+  def main(args: Array[String]) {
+    println("Hello, Scala")
+  }
+
 }
