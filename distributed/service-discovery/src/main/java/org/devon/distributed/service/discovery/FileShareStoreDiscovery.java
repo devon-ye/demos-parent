@@ -1,5 +1,8 @@
 package org.devon.distributed.service.discovery;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -11,7 +14,7 @@ import java.net.UnknownHostException;
  */
 //TODO
 public class FileShareStoreDiscovery implements ServiceDiscovery, Runnable {
-
+    private static Logger LOG = LoggerFactory.getLogger(FileShareStoreDiscovery.class);
     private static final String DEFAULT_CLUSTER = "default_cluster";
     private static final String SERVICE_DISCOVERY = "file/discovery/";
 
@@ -32,7 +35,7 @@ public class FileShareStoreDiscovery implements ServiceDiscovery, Runnable {
             InetAddress inet4Address = Inet4Address.getLocalHost();
             InetAddress inet6Address = Inet6Address.getLocalHost();
         } catch (UnknownHostException e) {
-            e.printStackTrace();
+            LOG.error("getContent,", e);
         }
         return null;
     }
