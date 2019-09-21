@@ -31,7 +31,15 @@ public class ArraysAll {
 
     }
 
-
+    /**
+     * <p> two sorted array median index = nums1.length+nums2.length/2+1,because two array have zero index</p>
+     * <p> double index serial iterator double sorted index get medianLength elements</p>
+     * <p> even get last double element  or olden  get last element</p>
+     *
+     * @param nums1
+     * @param nums2
+     * @return
+     */
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int len = nums1.length + nums2.length;
         int medianLength = len / 2 + 1;
@@ -74,7 +82,6 @@ public class ArraysAll {
     }
 
     /**
-     *
      * @param nums
      * @param target
      * @return
@@ -94,5 +101,46 @@ public class ArraysAll {
         return low;
     }
 
+    /**
+     * <p>URL:https://leetcode-cn.com/problems/container-with-most-water/</p>
+     *
+     * @param height
+     * @return
+     */
+
+
+    public int maxArea(int[] height) {
+        int leftIndex = 0;
+        int rightIndex = height.length - 1;
+        int max = 0;
+        int minHeight = 0;
+        while (leftIndex < rightIndex) {
+            if (height[leftIndex] < height[rightIndex]) {
+                minHeight = height[leftIndex];
+                max = Math.max(max, minHeight * (rightIndex - leftIndex));
+                leftIndex++;
+            } else {
+                minHeight = height[rightIndex];
+                max = Math.max(max, minHeight * (rightIndex - leftIndex));
+                rightIndex--;
+            }
+        }
+        return max;
+    }
+
+    /**
+     * <p>URL:https://leetcode-cn.com/problems/single-number/</p>
+     * @param nums
+     * @return
+     */
+    public int singleNumber(int[] nums) {
+        int ans = nums[0];
+        if (nums.length > 1) {
+            for (int i = 1; i < nums.length; i++) {
+                ans = ans ^ nums[i];
+            }
+        }
+        return ans;
+    }
 
 }
