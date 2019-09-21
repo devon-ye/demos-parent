@@ -5,5 +5,8 @@ authors = ["devonmusa <Devonmusa2015@gmail.com>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
+#   https://crates.io/crates
 [dependencies]
+log = "0.4.8"
+rand = "0.7"
+imath = "0.1.0"

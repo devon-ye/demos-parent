@@ -16,6 +16,7 @@
         <module>docker</module>
         <module>distributed</module>
         <module>language</module>
+        <module>architecture-pattern</module>
 
     </modules>
 

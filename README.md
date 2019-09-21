@@ -19,7 +19,7 @@
         |------------data-structures-and-algorithms 数据结构与算法基础
         |
         |
-        |------------language  语言基础，包括java基础、设计模式、并发、IO、JVM参数配置
+        |------------language  语言基础，包括java基础、并发、IO、JVM参数配置
         |
         |
         |----------- framework 常用框架

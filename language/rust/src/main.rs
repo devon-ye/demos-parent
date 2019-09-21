@@ -5,8 +5,17 @@
     println!("Hello, world!");
 }*/
 
+use std::thread;
 
 fn main() {
+
+
+    let new_thread = thread::spawn( move || {
+        println!("I am a new thread");
+    });
+
+    new_thread.join().unwrap();
+
     println!("Recursive result: {}", recursive_factorial(10));
     println!("Iterative result: {}", iterative_factorial(10));
     println!("Iterator result: {}", iterator_factorial(10));
