@@ -11,9 +11,7 @@
 
     <artifactId>architecture-pattern</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>micro-kernel</module>
-    </modules>
+
 
 
 </project>

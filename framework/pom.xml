@@ -23,6 +23,7 @@
         <module>stream-processing</module>
         <module>netty</module>
         <module>instrumentation</module>
+        <module>RxJava</module>
     </modules>
 
 
