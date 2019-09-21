@@ -83,7 +83,7 @@ public class Collections {
     }
 
 
-    protected ListNode buildLinkedNode(int nodeSize) {
+    public ListNode buildLinkedNode(int nodeSize) {
         ListNode l1 = new ListNode(0);
         int nodeCount = 1;
         while (nodeCount < nodeSize) {

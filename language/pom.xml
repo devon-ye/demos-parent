@@ -11,7 +11,6 @@
 
     <groupId>org.devon</groupId>
     <artifactId>language</artifactId>
-    <version>${project.version}</version>
     <packaging>pom</packaging>
     <modules>
         <module>java</module>

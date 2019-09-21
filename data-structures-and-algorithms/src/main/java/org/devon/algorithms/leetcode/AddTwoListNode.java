@@ -1,6 +1,7 @@
 package org.devon.algorithms.leetcode;
 
 public class AddTwoListNode {
+
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(0);
         ListNode p = l1, q = l2, curr = dummyHead;
@@ -22,9 +23,9 @@ public class AddTwoListNode {
     }
 
     static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
+        public  int val;
+        public ListNode next;
+        public ListNode(int x) {
             val = x;
         }
     }

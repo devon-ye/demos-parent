@@ -9,8 +9,6 @@
 
     <groupId>org.devon.language</groupId>
     <artifactId>java</artifactId>
-    <version>${project.version}</version>
-
     <properties>
         <mysql_version>5.1.17</mysql_version>
     </properties>

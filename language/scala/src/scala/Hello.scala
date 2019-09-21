@@ -1,7 +1,6 @@
-object Hello  {
 
-  def main(args: Array[String]) {
-    println("Hello, Scala")
-  }
+object Hello extends App {
+  println("Hello, World!")
 
+  main(args = String[])
 }
