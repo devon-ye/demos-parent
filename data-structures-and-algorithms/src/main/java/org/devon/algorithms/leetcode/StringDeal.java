@@ -151,6 +151,10 @@ public class StringDeal {
         return result;
     }
 
+    /**
+     * @param s
+     * @return
+     */
     public String longestPalindrome(String s) {
         if (s == null || s.length() < 1) return "";
         int start = 0, end = 0;
@@ -164,6 +168,36 @@ public class StringDeal {
             }
         }
         return s.substring(start, end + 1);
+    }
+
+    /**
+     * <p>URL:https://leetcode.com/problems/regular-expression-matching/</p>
+     *
+     * @param string
+     * @param pattern
+     * @return
+     */
+    public boolean isMatch(String string, String pattern) {
+
+        if (string == null || string.length() == 0) {
+            return false;
+        }
+
+        if (pattern == null || pattern.length() == 0) {
+            return false;
+        }
+
+        if (pattern.indexOf(".") > 0) {
+
+        } else if (pattern.indexOf("*") > 0) {
+
+        } else {
+            int forCount = string.length() > pattern.length() ? pattern.length() : string.length();
+            for (int i = 0; i < forCount; i++) {
+
+            }
+        }
+        return false;
     }
 
     private int expandAroundCenter(String s, int left, int right) {
