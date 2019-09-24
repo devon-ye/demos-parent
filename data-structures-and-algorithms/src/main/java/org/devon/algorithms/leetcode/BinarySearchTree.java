@@ -34,5 +34,21 @@ public class BinarySearchTree {
         return 0;
     }
 
+    /***
+     * <p>URL:https://leetcode-cn.com/problems/maximum-depth-of-binary-tree</p>
+     * <P> method: recursion</P>
+     * @param root
+     * @return
+     */
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        } else {
+            int leftDepth = maxDepth(root.left);
+            int rightDepth = maxDepth(root.right);
+            return leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1;
+        }
+    }
+
 
 }
