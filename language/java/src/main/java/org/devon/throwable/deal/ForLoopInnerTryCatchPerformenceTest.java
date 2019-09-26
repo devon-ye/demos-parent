@@ -11,15 +11,13 @@ import java.util.List;
  * @version 2017年2月13日 下午11:45:09
  */
 public class ForLoopInnerTryCatchPerformenceTest {
-    private static long COUNT = Long.MAX_VALUE;
 
-
-    public static void testForInner() {
+    public static void testForInner(int count) {
 
         long startTimeMS = System.nanoTime();
-        for (int i = 0; i < COUNT; i++) {
+        for (int i = 0; i < count; i++) {
             try {
-                List <String> strings = new ArrayList <>();
+                List<String> strings = new ArrayList<>();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -28,13 +26,11 @@ public class ForLoopInnerTryCatchPerformenceTest {
         performancePrin(startTimeMS, endTimeMS);
     }
 
-    public static void testForOutter() {
+    public static void testForOutter(int count) {
         long startTimeMS = System.nanoTime();
         try {
-            for (int i = 0; i < COUNT; i++) {
-
-                List <String> strings = new ArrayList <>();
-
+            for (int i = 0; i < count; i++) {
+                List<String> strings = new ArrayList<>();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,8 +45,8 @@ public class ForLoopInnerTryCatchPerformenceTest {
 
     public static void main(String[] args) {
 
-        testForOutter();
-        testForInner();
+        testForOutter(Integer.MAX_VALUE);
+        testForInner(Integer.MAX_VALUE);
     }
 
 }
