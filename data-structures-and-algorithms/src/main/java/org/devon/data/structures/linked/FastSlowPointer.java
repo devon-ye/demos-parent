@@ -8,7 +8,7 @@ public class FastSlowPointer<E> {
     private transient Node<E> head;
 
     public FastSlowPointer() {
-        head = new Node<E>(null, this.head);
+       // head = new Node<E>(0,null);
     }
 
     public E getBottomKthNode(int k) {
