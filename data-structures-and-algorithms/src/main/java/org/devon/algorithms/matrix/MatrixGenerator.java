@@ -11,7 +11,11 @@ public class MatrixGenerator<T> implements Comparable<T> {
     private static Random random = new Random();
     @Override
     public int compareTo(T o) {
-        return this.compareTo(o);
+         if(o== null) return -1;
+         if (o.equals(this)) return 0;
+        // return this > o ? 1:-1;
+        //todo
+        return -1;
     }
 
     public T[][] generate(int rows, int columns, Class<?> clazz) {
