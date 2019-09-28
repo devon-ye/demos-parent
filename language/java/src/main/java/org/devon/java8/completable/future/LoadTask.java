@@ -22,7 +22,7 @@ public class LoadTask implements Supplier<List<Product>> {
 
     @Override
     public List<Product> get() {
-        List<Product> productList = null;
+        /*List<Product> productList = null;
         try {
             //todo
             productList = Files.walk(path, FileVisitOption.FOLLOW_LINKS)
@@ -32,7 +32,9 @@ public class LoadTask implements Supplier<List<Product>> {
                     .collect(Collectors.toList());
         } catch (Exception e) {
 
-        }
+        }finally {
+            path.
+        }*/
         return null;
     }
 }

@@ -19,10 +19,8 @@ public class JosephusRing {
 
 
     public int simulateMethod(int total,int index,int num){
-
-        while (true){
-
-        }
+        //TODO
+        return 0;
     }
 
 

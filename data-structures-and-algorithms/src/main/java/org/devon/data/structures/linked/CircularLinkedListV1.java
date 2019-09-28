@@ -16,13 +16,16 @@ public class CircularLinkedListV1<E> implements Linked<E> {
     @Override
     public boolean addFirst(E e) {
         ++size;
+
         final Node first = new Node<>(e);
-        if (node == head) {
+        if (node == null) {
             head = first;
-            node = head.next;
+            node = head;
+            node.next = head;
         } else {
+            Node node = head;
             head = first;
-            node = head.next;
+            head.next = node;
         }
         return false;
     }

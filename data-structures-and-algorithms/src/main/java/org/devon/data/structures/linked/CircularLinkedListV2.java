@@ -22,12 +22,14 @@ public class CircularLinkedListV2<E> implements Linked<E> {
     public boolean addFirst(E e) {
         ++size;
         final Node first = new Node<>(e);
-        if (node == tail) {
+        if (node == null) {
             tail = first;
-            node = tail.next;
+            node = tail;
+            node.next = tail;
         } else {
+           Node node = tail;
             tail = first;
-            node = tail.next;
+            tail.next = node;
         }
         return false;
     }
