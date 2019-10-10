@@ -8,7 +8,7 @@
 
 package org.devon.algorithm.recursive;
 
-import org.devon.algorithms.recursive.HanoiTower;
+import org.devon.algorithms.recursion.HanoiTower;
 import org.junit.Test;
 
 import java.util.Stack;

@@ -8,7 +8,7 @@
 
 package org.devon.algorithm.recursive;
 
-import org.devon.algorithms.recursive.Factorial;
+import org.devon.algorithms.recursion.Factorial;
 import org.junit.Test;
 
 /**

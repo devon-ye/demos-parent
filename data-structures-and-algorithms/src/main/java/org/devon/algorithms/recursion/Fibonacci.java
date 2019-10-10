@@ -1,4 +1,4 @@
-package org.devon.algorithms.recursive;
+package org.devon.algorithms.recursion;
 
 /**
  * Created by lenovo on 2017/12/3.
@@ -14,5 +14,10 @@ public class Fibonacci {
         }else {
             return fibonacci(n-1) + fibonacci(n-2);
         }
+    }
+
+    public static void main(String[] args) {
+        Fibonacci fibonacci = new Fibonacci();
+        fibonacci.fibonacci(4);
     }
 }

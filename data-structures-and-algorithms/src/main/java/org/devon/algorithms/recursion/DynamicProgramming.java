@@ -1,11 +1,11 @@
-package org.devon.algorithms.recursive;
+package org.devon.algorithms.recursion;
 
 public class DynamicProgramming {
 
     /**
      * 矩阵连乘：动态规划，求解最优解
      */
-    public static void MatrixChain(int[] p, int m[][], int s[][]) {
+    public static void matrixChain(int[] p, int m[][], int s[][]) {
         if (p == null || m == null || s == null) {
             throw new RuntimeException("params error is null");
         }
@@ -31,6 +31,6 @@ public class DynamicProgramming {
     }
 
     public static void main(String[] args) {
-        DynamicProgramming.MatrixChain(null, null, null);
+        DynamicProgramming.matrixChain(null, null, null);
     }
 }

@@ -1,4 +1,4 @@
-package org.devon.algorithms.recursive;
+package org.devon.algorithms.recursion;
 
 /**
  * Created by lenovo on 2017/12/6.

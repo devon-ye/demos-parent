@@ -8,7 +8,7 @@
 
 package org.devon.algorithm.recursive;
 
-import org.devon.algorithms.recursive.Ackerman;
+import org.devon.algorithms.recursion.Ackerman;
 import org.junit.Test;
 
 /**

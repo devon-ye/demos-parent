@@ -1,4 +1,4 @@
-package org.devon.algorithms.recursive;
+package org.devon.algorithms.recursion;
 
 import java.util.Stack;
 
