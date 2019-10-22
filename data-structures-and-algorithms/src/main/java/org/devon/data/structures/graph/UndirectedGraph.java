@@ -1,7 +1,28 @@
 package org.devon.data.structures.graph;
 
-public class UndirectedGraph extends AbstractGraph {
+import org.devon.data.structures.Node;
 
+public class UndirectedGraph extends AbstractGraph {
+    /**
+     * 顶点数
+     */
+    private int vertexCount;
+    /**
+     * 边数
+     */
+    private int edgeCount;
+    /**
+     * 邻接表
+     * ｜A｜-->|C|-->|D|-->|E|
+     * ｜B｜-->||-->||
+     * ｜C｜-->||-->||-->||-->||
+     * ｜D｜-->||-->||
+     * ｜E｜-->||
+     */
+    private Node[]  adj;
+
+    public UndirectedGraph() {
+    }
 
     @Override
     public void addVertex(Vertex vertex) {
