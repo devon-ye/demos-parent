@@ -3,20 +3,18 @@ package strings
 var BINARY string = "01"
 
 var DNA string = "AGCT"
-var  OCTAL   string = "01234567"
-var  DECIMAL   string = "0123456789"
-var  HEXADECIMAL   string = "0123456789ABCDEF"
-var  PROTEIN   string = "ACDEFGHIKLMNPQRSTVWY"
-var  LOWERCASE   string = "abcdefghijklmnopqrstuvwxyz"
-var  UPERCASE   string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var  BASE64   string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-var  ASCII   string = "128"
-var  EXTENDED_ASCII   string = "256"
-var  UNICODE16   string = "65536"
-
+var OCTAL string = "01234567"
+var DECIMAL string = "0123456789"
+var HEXADECIMAL string = "0123456789ABCDEF"
+var PROTEIN string = "ACDEFGHIKLMNPQRSTVWY"
+var LOWERCASE string = "abcdefghijklmnopqrstuvwxyz"
+var UPERCASE string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var BASE64 string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+var ASCII string = "128"
+var EXTENDED_ASCII string = "256"
+var UNICODE16 string = "65536"
 
 type Alphabet interface {
-
 	toChar(index int) uint16
 
 	toIndex(c uint16) int
@@ -33,61 +31,59 @@ type Alphabet interface {
 	toIndices(s string) []int
 
 	toChars(indices []int) string
-
 }
 
 type Alphabets struct {
-	R int
+	R        int
 	alphabet []uint16
-	indices [] int
+	indices  []int
 }
 
 func NewAlphabets() *Alphabets {
-    return newAlphabets(256)
+	return newAlphabets(256)
 }
 
 func newAlphabets(radix int) *Alphabets {
-    var result = new(Alphabets)
-    result.R = radix
-	var chararray  = [256]uint16{}
+	var result = new(Alphabets)
+	result.R = radix
+	var chararray = [256]uint16{}
 	result.alphabet = chararray
 
-	var indicesArray = [256]int16{}
+	var indicesArray = [256]int{}
 
-    result.indices = indicesArray
-   var i int = 0
-    for i =0; i<radix ; i++{
-		result.alphabet[i] =
+	result.indices = indicesArray
+	var i int = 0
+	for i = 0; i < radix; i++ {
+		result.alphabet[i] = uint16(i)
 	}
 
 	return result
 }
 
-func(alphabet Alphabets) toChar(index int) uint16{
+func (alphabet Alphabets) toChar(index int) uint16 {
 	return uint16(0)
 }
 
-func(alphabet Alphabets) toIndex(char uint16) int{
+func (alphabet Alphabets) toIndex(char uint16) int {
 	return int(0)
 }
 
-func(alphabet Alphabets) cotains(char uint16) bool{
+func (alphabet Alphabets) cotains(char uint16) bool {
 	return bool(false)
 }
 
-func(alphabet Alphabets) Rs() int{
+func (alphabet Alphabets) Rs() int {
 	return int(0)
 }
 
-func(alphabet Alphabets) lgR() int{
+func (alphabet Alphabets) lgR() int {
 	return int(0)
 }
 
-func(alphabet Alphabets) toIndices(s string) []int{
+func (alphabet Alphabets) toIndices(s string) []int {
 	return []int{}
 }
 
-func(alphabet Alphabets) toChars(indices []int) string{
+func (alphabet Alphabets) toChars(indices []int) string {
 	return string("")
 }
-
