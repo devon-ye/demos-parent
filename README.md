@@ -13,7 +13,7 @@
 
     demos-parent
         |
-        |------------doc  开发者必备技能文档
+        |------------docs  开发者必备技能文档
         |
         |
         |------------data-structures-and-algorithms 数据结构与算法基础
@@ -50,12 +50,12 @@
  [![](https://github.com/Devonmusa/demos-parent/blob/develop/distributed/img/distributed.png)](https://github.com/Devonmusa/demos-parent/tree/develop/distributed)
  [processon](https://www.processon.com/mindmap/5d692d32e4b06e9d24cd71de)
 ### 架构设计
-  [![](https://github.com/Devonmusa/demos-parent/blob/develop/doc/img/arch-design.png)](https://github.com/Devonmusa/demos-parent/tree/develop/doc)
+  [![](https://github.com/Devonmusa/demos-parent/blob/develop/docs/img/arch-design.png)](https://github.com/Devonmusa/demos-parent/tree/develop/docs)
   [processon](https://www.processon.com/mindmap/5c918057e4b0afc744183dc5)
 
 
 ### Internet
-<img  src="https://github.com/Devonmusa/demos-parent/blob/develop/doc/img/Internet.png" alt="Sample"  width="1400" height="700">
+<img  src="https://github.com/Devonmusa/demos-parent/blob/develop/docs/img/Internet.png" alt="Sample"  width="1400" height="700">
 
 ## How to contribute
 
