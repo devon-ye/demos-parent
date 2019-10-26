@@ -1,12 +1,15 @@
 package org.devon.data.structures.tree;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * @author Devonmusa
  * @date 2019/8/24 2:59
  * @since
  */
 public class BinaryTree<Key extends Comparable<Key>, Value> {
-
+    private static final Logger LOG = LoggerFactory.getLogger(BinaryTree.class);
     private Node root;
 
     public int size() {
@@ -47,22 +50,6 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
         }
     }
 
-    public void preOrderTraversal() {
-
-        System.out.println(root);
-        if (root.left != null) {
-            preOrderTraversal();
-        }
-    }
-
-    public void inOrderIterator() {
-
-    }
-
-    public void postOrderIterator() {
-
-    }
-
 
     private Value get(Node node, Key key) {
         if (node == null) {
@@ -82,7 +69,7 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
 
     private Node put(Node node, Key key, Value value) {
         if (node == null) {
-            node =new Node(key, value, 1);
+            node = new Node(key, value, 1);
         }
 
         int cmp = key.compareTo(node.key);
@@ -134,18 +121,31 @@ public class BinaryTree<Key extends Comparable<Key>, Value> {
     }
 
     public void preOrderTraversal(Node root) {
-
-        if (root.left != null) {
-            preOrderTraversal(root.left);
-        } else {
-            preOrderTraversal(root.right);
+        if (root == null) {
+            return;
         }
+        LOG.info("root:" + root);
+        preOrderTraversal(root.left);
+        preOrderTraversal(root.right);
 
-        if (root.right != null) {
-            preOrderTraversal(root.right);
-        } else {
-            preOrderTraversal(root.left);
+    }
+
+    public void inOrderIterator(Node root) {
+        if (root == null) {
+            return;
         }
+        inOrderIterator(root.left);
+        LOG.info("root:" + root);
+        inOrderIterator(root.right);
+    }
+
+    public void postOrderIterator(Node root) {
+        if (root == null) {
+            return;
+        }
+        inOrderIterator(root.left);
+        inOrderIterator(root.right);
+        LOG.info("root:" + root);
     }
 
 
