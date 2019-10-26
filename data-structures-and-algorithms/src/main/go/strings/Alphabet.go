@@ -2,17 +2,17 @@ package strings
 
 var BINARY string = "01"
 
-var DNA string = "AGCT"
-var OCTAL string = "01234567"
-var DECIMAL string = "0123456789"
-var HEXADECIMAL string = "0123456789ABCDEF"
-var PROTEIN string = "ACDEFGHIKLMNPQRSTVWY"
-var LOWERCASE string = "abcdefghijklmnopqrstuvwxyz"
-var UPERCASE string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var BASE64 string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-var ASCII string = "128"
-var EXTENDED_ASCII string = "256"
-var UNICODE16 string = "65536"
+const DNA string = "AGCT"
+const OCTAL string = "01234567"
+const DECIMAL string = "0123456789"
+const HEXADECIMAL string = "0123456789ABCDEF"
+const PROTEIN string = "ACDEFGHIKLMNPQRSTVWY"
+const LOWERCASE string = "abcdefghijklmnopqrstuvwxyz"
+const UPERCASE string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const BASE64 string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+const ASCII string = "128"
+const EXTENDED_ASCII string = "256"
+const UNICODE16 string = "65536"
 
 type Alphabet interface {
 	toChar(index int) uint16
@@ -35,29 +35,23 @@ type Alphabet interface {
 
 type Alphabets struct {
 	R        int
-	alphabet []uint16
-	indices  []int
-}
-
-func NewAlphabets() *Alphabets {
-	return newAlphabets(256)
+	alphabet [256]uint16
+	indices  [256]int
 }
 
 func newAlphabets(radix int) *Alphabets {
-	var result = new(Alphabets)
-	result.R = radix
-	var chararray = [256]uint16{}
-	result.alphabet = chararray
-
-	var indicesArray = [256]int{}
-
-	result.indices = indicesArray
+	alphabets := [256]uint16{}
+	indices := [256]int{}
 	var i int = 0
 	for i = 0; i < radix; i++ {
-		result.alphabet[i] = uint16(i)
+		alphabets[i] = uint16(i)
 	}
 
-	return result
+	return &Alphabets{
+		R:        radix,
+		alphabet: alphabets,
+		indices:  indices,
+	}
 }
 
 func (alphabet Alphabets) toChar(index int) uint16 {
