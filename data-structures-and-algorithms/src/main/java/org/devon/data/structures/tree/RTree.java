@@ -7,4 +7,5 @@ package org.devon.data.structures.tree;
  * @since 1.0.0
  */
 public class RTree {
+
 }
