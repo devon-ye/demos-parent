@@ -10,23 +10,23 @@ public class TreeNode<Key extends Comparable<Key>,Value> {
     /**
      * key
      */
-     Key key;
+    public Key key;
     /**
      * value
      */
-     Value value;
+    public Value value;
     /**
      * left node reference
      */
-     TreeNode left;
+    public TreeNode left;
     /**
      * right node reference
      */
-     TreeNode right;
+    public TreeNode right;
     /**
      * current node of root, sub tree node count
      */
-     int count;
+    public int count;
 
     public TreeNode(Key key, Value value, int count) {
         this.key = key;

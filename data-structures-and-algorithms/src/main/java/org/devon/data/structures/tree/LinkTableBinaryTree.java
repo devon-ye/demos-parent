@@ -168,6 +168,33 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
     }
 
 
+    /***
+     * <p>URL:https://leetcode-cn.com/problems/maximum-depth-of-binary-tree</p>
+     * <P> method: recursion</P>
+     * @param root
+     * @return
+     */
+    public int maxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        } else {
+            int leftDepth = maxDepth(root.left);
+            int rightDepth = maxDepth(root.right);
+            return leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1;
+        }
+    }
+
+    public int minDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        } else {
+            int leftDepth = minDepth(root.left);
+            int rightDepth = minDepth(root.right);
+            return leftDepth < rightDepth ? leftDepth + 1 : rightDepth + 1;
+        }
+    }
+
+
     /**
      * 一个二叉树得镜像 转化为两棵树去解
      * 如果同时满足下面的条件，两个树互为镜像：
@@ -187,6 +214,31 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
         return (t1.value == t2.value)
                 && isMirror(t1.right, t2.left)
                 && isMirror(t1.left, t2.right);
+    }
+
+
+    public static Integer rangeSumBST(TreeNode root, Integer L, Integer R) {
+        if (root == null) {
+            return 0;
+        }
+        if (root.left != null) {
+            if (L.compareTo((Integer) root.value) < 0) {
+                return (Integer) root.value + rangeSumBST(root.left, L, R);
+            } else if (root.value == R) {
+                return (Integer)root.value;
+            }
+        }
+        if (root.right != null) {
+            if (R.compareTo((Integer)root.value) > 0) {
+                return (Integer)root.value + rangeSumBST(root.right, L, R);
+            } else if (root.value == R) {
+                return (Integer)root.value;
+            }
+        }
+        if (L.compareTo((Integer) root.value) < 0 && R.compareTo((Integer)root.value) > 0) {
+            return (Integer)root.value;
+        }
+        return 0;
     }
 
 
