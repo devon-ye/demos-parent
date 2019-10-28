@@ -16,6 +16,7 @@ public class DirectedGraph extends AbstractGraph{
     private Vertex[] vertices;
 
     /**
+     * 邻接矩阵
      * * *A  B  C
      * *|---------|
      * A| 1  0  0 |
