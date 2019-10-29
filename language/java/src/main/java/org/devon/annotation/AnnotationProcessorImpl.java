@@ -6,7 +6,6 @@ import com.sun.tools.javac.processing.JavacProcessingEnvironment;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.TreeMaker;
 import com.sun.tools.javac.util.Context;
-import com.sun.tools.javac.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
