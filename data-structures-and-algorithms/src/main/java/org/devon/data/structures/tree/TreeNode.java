@@ -28,9 +28,56 @@ public class TreeNode<Key extends Comparable<Key>,Value> {
      */
     public int count;
 
+    public TreeNode(Key key, Value value) {
+        this.key = key;
+        this.value = value;
+        this.left = left;
+        this.right = right;
+    }
+
     public TreeNode(Key key, Value value, int count) {
         this.key = key;
         this.value = value;
+        this.count = count;
+    }
+
+    public Key getKey() {
+        return key;
+    }
+
+    public void setKey(Key key) {
+        this.key = key;
+    }
+
+    public Value getValue() {
+        return value;
+    }
+
+    public void setValue(Value value) {
+        this.value = value;
+    }
+
+    public TreeNode getLeft() {
+        return left;
+    }
+
+    public void setLeft(TreeNode left) {
+        this.left = left;
+    }
+
+    public TreeNode getRight() {
+        return right;
+    }
+
+    public void setRight(TreeNode right) {
+        this.right = right;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
         this.count = count;
     }
 

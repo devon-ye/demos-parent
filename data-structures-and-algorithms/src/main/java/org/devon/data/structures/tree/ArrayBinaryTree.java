@@ -4,6 +4,7 @@ package org.devon.data.structures.tree;
 public class ArrayBinaryTree<Key extends Comparable<Key>,Value> implements BinaryTree<Key,Value> {
 
     private Object[] data;
+    private transient int count;
 
     private static final int DEFAULT_DEEP = 10;
 
@@ -20,7 +21,7 @@ public class ArrayBinaryTree<Key extends Comparable<Key>,Value> implements Binar
 
     @Override
     public int size() {
-        return 0;
+        return count;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class ArrayBinaryTree<Key extends Comparable<Key>,Value> implements Binar
 
     @Override
     public void put(Key key, Value value) {
-
+          TreeNode node = new TreeNode(key,value,count+1);
     }
 
     @Override
