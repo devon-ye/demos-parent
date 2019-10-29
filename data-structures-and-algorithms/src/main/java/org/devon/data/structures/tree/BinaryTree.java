@@ -38,5 +38,15 @@ public interface BinaryTree<Key, Value> {
 
     void levelOrderTraversal(TreeNode root);
 
+     int maxDepth(TreeNode root);
+
+     int minDepth(TreeNode root);
+
+     boolean isSymmetric(TreeNode root);
+
+     boolean isMirror(TreeNode node1,TreeNode node2);
+
+    Integer rangeSumBST(TreeNode root, Integer L, Integer R);
+
 
 }

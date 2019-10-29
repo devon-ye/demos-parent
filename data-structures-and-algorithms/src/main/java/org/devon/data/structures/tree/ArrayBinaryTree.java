@@ -87,4 +87,29 @@ public class ArrayBinaryTree<Key extends Comparable<Key>,Value> implements Binar
     public void levelOrderTraversal(TreeNode root) {
 
     }
+
+    @Override
+    public int maxDepth(TreeNode root) {
+        return 0;
+    }
+
+    @Override
+    public int minDepth(TreeNode root) {
+        return 0;
+    }
+
+    @Override
+    public boolean isSymmetric(TreeNode root) {
+        return false;
+    }
+
+    @Override
+    public boolean isMirror(TreeNode node1, TreeNode node2) {
+        return false;
+    }
+
+    @Override
+    public Integer rangeSumBST(TreeNode root, Integer L, Integer R) {
+        return null;
+    }
 }
