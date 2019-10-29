@@ -3,7 +3,7 @@
 [![Build Status](https://www.travis-ci.org/Devonmusa/demos-parent.svg?branch=master)](https://www.travis-ci.org/Devonmusa/demos-parent)
 [![Github All Releases](https://img.shields.io/github/downloads/devonmusa/demos-parent/total.svg?style=flat)](https://github.com/Devonmusa/demos-parent/releases)
 ![repo size](https://img.shields.io/github/repo-size/devonmusa/demos-parent.svg?style=flat)[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Devonmusa/demos-parent/pulls)
-[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://github.com/Devonmusa/demos-parent/doc/index.md)
+[![Read the Docs](https://img.shields.io/readthedocs/pip.svg)](https://github.com/Devonmusa/demos-parent/tree/master/docs/index.md)
 [![GitHub stars](https://img.shields.io/github/stars/Devonmusa/demos-parent.svg?style=social&label=Stars)](https://github.com/Devonmusa/demos-parent)
 ## 介绍
 
