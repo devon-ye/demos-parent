@@ -217,7 +217,8 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
     }
 
 
-    public static Integer rangeSumBST(TreeNode root, Integer L, Integer R) {
+    @Override
+    public  Integer rangeSumBST(TreeNode root, Integer L, Integer R) {
         if (root == null) {
             return 0;
         }
