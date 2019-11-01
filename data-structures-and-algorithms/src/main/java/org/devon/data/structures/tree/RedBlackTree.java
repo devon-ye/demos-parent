@@ -1,16 +1,20 @@
 package org.devon.data.structures.tree;
 
-import java.security.Key;
+
 
 /**
  * @author devonmusa
  * @since
  */
-public class RedBlackTree {
+public class RedBlackTree<Key extends Comparable<Key>,Value> {
 
     private static final boolean RED = true;
+    private static final boolean BLACK = false;
 
-    private class Node<T> {
+    private transient Node root;
+
+
+    private class Node<Key extends Comparable<Key>,Value> {
         /**
          * 键
          */
@@ -18,26 +22,56 @@ public class RedBlackTree {
         /**
          * 关联的值
          */
-        private T value;
+        private Value value;
         /**
          * 左右子树
          */
-        private Node left, right;
-        /**
-         * 子树节点总数
-         */
         private int N;
+        private Node left, right,p;
         /**
          * 父节点指向他的链接的颜色
          */
         private boolean color;
 
-        public Node(Key key, T value, int n, boolean color) {
+        public Node(Key key, Value value,int N, boolean color) {
             this.key = key;
             this.value = value;
-            N = n;
+            this.N = N;
             this.color = color;
+
         }
+    }
+
+    public void put(Key key,Value val){
+        root = put(root,key,val);
+        root.color = BLACK;
+    }
+
+    private Node put(Node node,Key key,Value val){
+         if(node == null){
+             return new Node(key,val,1,RED);
+         }
+         int cmp = key.compareTo((Key) node.key);
+
+         if(cmp < 0 ){
+             node.left = put(node.left,key,val);
+         }else if(cmp > 0){
+             node.right = put(node.right,key,val);
+         }else {
+             node.value = val;
+         }
+         if(isRed(node.right) && !isRed(node.left)){
+             node = rotateLeft(node);
+         }
+
+         if(isRed(node.left) && isRed(node.left.left)){
+             node =rotateRight(node);
+         }
+
+         if(isRed(node.left) && isRed(node.right)){
+             f
+         }
+         return node;
     }
 
     private boolean isRed(Node x) {
