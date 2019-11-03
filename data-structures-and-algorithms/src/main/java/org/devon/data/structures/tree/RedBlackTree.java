@@ -69,7 +69,7 @@ public class RedBlackTree<Key extends Comparable<Key>,Value> {
          }
 
          if(isRed(node.left) && isRed(node.right)){
-             f
+
          }
          return node;
     }
