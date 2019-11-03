@@ -37,6 +37,17 @@ public class ArrayBinaryTree<Key extends Comparable<Key>,Value> implements Binar
     @Override
     public void put(Key key, Value value) {
           TreeNode node = new TreeNode(key,value,count+1);
+        for (int i = 0; i < data.length; i++) {
+          TreeNode oldNode =  (TreeNode)data[i];
+           int res = node.key.compareTo(oldNode.key);
+            if(res>0){
+
+            }else if(res<0){
+
+            }else {
+
+            }
+        }
     }
 
     @Override
