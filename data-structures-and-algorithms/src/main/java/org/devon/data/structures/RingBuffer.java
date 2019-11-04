@@ -25,6 +25,7 @@ public class RingBuffer {
             writeIndex %= capacity;
         }
         data[writeIndex] = element;
+        writeIndex++;
         return true;
     }
 
