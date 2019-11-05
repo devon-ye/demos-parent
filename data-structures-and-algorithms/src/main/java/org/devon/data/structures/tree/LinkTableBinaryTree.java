@@ -11,6 +11,14 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
     private static final Logger LOG = LoggerFactory.getLogger(LinkTableBinaryTree.class);
     private TreeNode root;
 
+
+    public LinkTableBinaryTree() {
+    }
+
+    public boolean isEmpty(){
+        return size()==0;
+    }
+
     public int size() {
         return size(root);
     }
@@ -23,15 +31,28 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
         }
     }
 
+    public boolean contains(Key key){
+        if(key==null) return false;
+        return get(key) != null;
+    }
+
     public Value get(Key key) {
         return get(root, key);
     }
 
     public void put(Key key, Value value) {
+        if(key == null){
+            throw new IllegalArgumentException("key is null!");
+        }
+
+        if(value == null){
+
+        }
         root = put(root, key, value);
     }
 
     public Key min() {
+        if(isEmpty()) throw new IllegalArgumentException("current tree is null!");
         TreeNode minNode = min(root);
         if (minNode == null) {
             return null;
@@ -52,6 +73,10 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
 
     public Value get(TreeNode node, Key key) {
         if (node == null) {
+             throw new IllegalArgumentException("get key  is null!");
+        }
+
+        if(node== null){
             return null;
         }
 
@@ -66,7 +91,9 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
 
     }
 
-    public TreeNode put(TreeNode node, Key key, Value value) {
+    private TreeNode put(TreeNode node, Key key, Value value) {
+
+
         if (node == null) {
             node = new TreeNode(key, value, 1);
         }
@@ -240,6 +267,37 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
             return (Integer)root.value;
         }
         return 0;
+    }
+
+    public void delete(Key key){
+        if(key == null) throw new IllegalArgumentException("delete args key is null!");
+        root = delete(root,key);
+    }
+
+    public TreeNode delete(TreeNode root,Key key){
+          if(root == null) return null;
+       int cmp = root.key.compareTo(key);
+          if(cmp > 0){
+            root.left= delete(root.left,key);
+          } else  if(cmp < 0){
+              root.right =delete(root.right,key);
+          }else {
+              if(root.left == null) return root.right;
+              if(root.right == null) return root.left;
+          }
+
+          return root;
+    }
+
+    private boolean isBST(){
+       return isBST(root,null,null);
+    }
+
+    private boolean isBST(TreeNode root,Key min,Key max){
+            if(root == null) return true;
+            if(min!=null && root.key.compareTo(min)<=0) return false;
+            if(max != null && root.key.compareTo(max)>= 0) return false;
+            return isBST(root.left,min, (Key) root.key) && isBST(root, (Key) root.key,max);
     }
 
 
