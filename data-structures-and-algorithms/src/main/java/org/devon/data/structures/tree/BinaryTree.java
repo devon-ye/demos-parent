@@ -21,11 +21,6 @@ public interface BinaryTree<Key, Value> {
 
     Key max();
 
-
-    Value get(TreeNode node, Key key);
-
-    TreeNode put(TreeNode node, Key key, Value value);
-
     TreeNode min(TreeNode node);
 
     TreeNode max(TreeNode node);

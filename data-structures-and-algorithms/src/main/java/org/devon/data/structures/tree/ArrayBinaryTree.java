@@ -61,16 +61,6 @@ public class ArrayBinaryTree<Key extends Comparable<Key>,Value> implements Binar
     }
 
     @Override
-    public Value get(TreeNode node, Key key) {
-        return null;
-    }
-
-    @Override
-    public TreeNode put(TreeNode node, Key key, Value value) {
-        return null;
-    }
-
-    @Override
     public TreeNode min(TreeNode node) {
         return null;
     }

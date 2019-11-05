@@ -5,7 +5,7 @@ package org.devon.data.structures.graph;
  * @date 2019/8/20 0:36
  * @since
  */
-public  abstract class AbstractGraph implements Graph{
+abstract class AbstractGraph implements Graph{
 
 
 
