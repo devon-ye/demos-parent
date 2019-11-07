@@ -114,4 +114,18 @@ public class ArrayBinaryTree<Key extends Comparable<Key>,Value> implements Binar
     public Integer rangeSumBST(TreeNode root, Integer L, Integer R) {
         return null;
     }
+
+    public TreeNode bstToGst(TreeNode root) {
+        bstToGstUpdate(root,0);
+        return root;
+    }
+
+    private int bstToGstUpdate(TreeNode node,int val){
+        if(node == null){
+            return val;
+        }
+        int right = bstToGstUpdate(node.right,val);
+        node.value = right+ (int)node.value;
+        return bstToGstUpdate(node.left,(int)node.value);
+    }
 }
