@@ -1,6 +1,37 @@
 # linux常用命令
 
 
+## cpu
+
+more /proc/cpuinfo |grep "physical id"|uniq|wc -l
+
+* 物理cpu核数
+
+        cat /proc/cpuinfo |grep "physical id"|sort |uniq|wc -l
+* 逻辑CPU核数
+
+        cat /proc/cpuinfo |grep "processor"|wc -l
+* CPU主频
+
+        cat /proc/cpuinfo |grep MHz|uniq
+* 操作系统内核信息
+
+        uname -a
+        Linux l-noah6vaoshexl1.auto.beta.cn0 2.6.32-504.el6.x86_64 #1 SMP Wed Oct 15 04:27:16 UTC 2014 x86_64 x86_64 x86_64 GNU/Linux
+
+* 
+
+ulimit – n
+
+* 统计当前打开的文件句柄
+   
+   
+            lsof|awk '{print $2}'|wc -l
+
+*  统计文件句柄打开数并倒叙排列，倒数第二列进程号
+
+        lsof|awk '{print $2}'|sort|uniq -c|sort -nr|more
+
 ## top
 
 * 执行结果
