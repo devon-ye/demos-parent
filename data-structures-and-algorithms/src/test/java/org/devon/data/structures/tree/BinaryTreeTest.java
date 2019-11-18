@@ -22,7 +22,7 @@ public class BinaryTreeTest {
 
     @Test
     public void size() {
-        BinaryTree binaryTree = new BinaryTree();
+        BinaryTree binaryTree = new LinkTableBinaryTree();
 
         Assert.assertTrue(binaryTree.size()==0);
 
