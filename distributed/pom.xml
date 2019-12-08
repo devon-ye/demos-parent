@@ -17,5 +17,13 @@
         <module>consistent-hashing</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.devon.distributed</groupId>
+            <artifactId>consistent-hashing</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
