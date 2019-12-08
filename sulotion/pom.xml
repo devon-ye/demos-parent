@@ -9,17 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>middleware</artifactId>
-    <packaging>pom</packaging>
+    <groupId>org.devon</groupId>
+    <artifactId>sulotion</artifactId>
+
     <modules>
-        <module>kafka</module>
-        <module>redis</module>
-        <module>elasticsearch</module>
+        <module>rate-limiter</module>
     </modules>
-
-    <dependencies>
-
-    </dependencies>
-
-
 </project>

@@ -17,7 +17,7 @@
         <module>distributed</module>
         <module>language</module>
         <module>architecture-pattern</module>
-
+        <module>sulotion</module>
     </modules>
 
     <properties>
