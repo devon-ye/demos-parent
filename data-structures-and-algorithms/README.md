@@ -4,7 +4,10 @@
 
 ##  数据结构
   
-   [数据结构专题](docs/数据结构.md)
+  * [数据结构专题](docs/algorithms.md)
+       
+     * [链表](docs/link-list.md)
+     * [哈希表](docs/hash-table.md)
 ## 算法
 
   [算法专题](docs/算法.md)
