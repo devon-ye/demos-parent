@@ -18,14 +18,21 @@
 
 * 常见时间复杂度
         
-        常数阶O(1)
-        对数阶O(log<sub>2</sub>n)
-        线性阶O(n)
-        线性对数阶O(nlog<sub>2</sub>n)
-        平方阶O(n<sup>2</sup>)
-        立方阶O(n<sup>3</sup>)
-        k次方阶O(n<sup>k</sup>)
-        指数阶O(2<sup>n</sup>)
+    常数阶O(1)
+    
+    对数阶O(log<sub>2</sub>n)
+    
+    线性阶O(n)
+    
+    线性对数阶O(nlog<sub>2</sub>n)
+    
+    平方阶O(n<sup>2</sup>)
+    
+    立方阶O(n<sup>3</sup>)
+    
+    k次方阶O(n<sup>k</sup>)
+    
+    指数阶O(2<sup>n</sup>)
 
 ### 空间复杂度（Space Complexity）
 
