@@ -1,6 +1,5 @@
 package org.devon.solution.rate.limiter;
 
-import org.apache.catalina.Executor;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -11,7 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @datetime 2019/12/7 10:18 AM
  * @since
  */
-public class TokenBucketRateLimiter {
+public class TokenBucketRateLimiter implements RateLimite {
 
 	private AtomicLong bucket = new AtomicLong(0);
 

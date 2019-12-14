@@ -5,6 +5,6 @@ package org.devon.solution.rate.limiter;
  * @datetime 2019/12/7 10:21 AM
  * @since
  */
-public class LeakyBucketRateLimiter {
+public class LeakyBucketRateLimiter implements RateLimite{
 
 }

@@ -5,6 +5,6 @@ package org.devon.solution.rate.limiter;
  * @datetime 2019/12/7 10:22 AM
  * @since
  */
-public class SlidingWindowRateLimiter {
+public class SlidingWindowRateLimiter implements RateLimite{
 
 }
