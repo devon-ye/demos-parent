@@ -1,5 +1,8 @@
 package org.devon.algorithms.leetcode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author devonmusa
  * @description:
@@ -30,5 +33,22 @@ public class L838GraphReverse {
         }
 
         return  A;
+    }
+
+    public static int singleNumber(int[] nums) {
+        Set<Integer> countSet= new HashSet<>(nums.length);
+        for(int i= 0 ;i < nums.length;i++){
+            if(countSet.contains(nums[i])){
+                countSet.remove(nums[i]);
+            }else{
+                countMap.add(nums[i]);
+            }
+
+        }
+        return countSet.iterator().next();
+    }
+
+    public static void main(String[] args) {
+        L838GraphReverse.singleNumber(new int[]{4,1,2,1,2});
     }
 }
