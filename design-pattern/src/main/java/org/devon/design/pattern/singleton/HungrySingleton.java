@@ -1,4 +1,7 @@
 package org.devon.design.pattern.singleton;
+
+import javax.annotation.concurrent.ThreadSafe;
+
 /**
  * hungry pattern
  * @author Devon
