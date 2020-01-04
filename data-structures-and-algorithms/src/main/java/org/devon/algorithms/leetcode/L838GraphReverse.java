@@ -41,7 +41,7 @@ public class L838GraphReverse {
             if(countSet.contains(nums[i])){
                 countSet.remove(nums[i]);
             }else{
-                countMap.add(nums[i]);
+                countSet.add(nums[i]);
             }
 
         }
