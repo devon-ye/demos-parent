@@ -1,5 +1,7 @@
 package org.devon.design.pattern.singleton;
 
+import javax.annotation.concurrent.ThreadSafe;
+
 /**
 *@author  devon.ye
 *@version
