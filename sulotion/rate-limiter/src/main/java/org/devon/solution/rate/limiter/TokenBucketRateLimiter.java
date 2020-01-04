@@ -1,9 +1,7 @@
 package org.devon.solution.rate.limiter;
 
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.atomic.AtomicLong;
+
 
 /**
  * @author dewen.ye
@@ -12,26 +10,33 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class TokenBucketRateLimiter implements RateLimite {
 
-	private AtomicLong bucket = new AtomicLong(0);
+	private final long  maxBucketSize;
+	private final long refilleRate;
 
+    private volatile double currentBucketSize;
 
-	public TokenBucketRateLimiter(){
-		ExecutorService executorService =new ScheduledThreadPoolExecutor(1);
+    private double lastRefillTimestamp;
+
+	public TokenBucketRateLimiter(long maxBucketSize, long refilleRate) {
+		this.maxBucketSize = maxBucketSize;
+		this.refilleRate = refilleRate;
+		this.currentBucketSize = maxBucketSize;
+		this.lastRefillTimestamp = System.nanoTime();
 	}
 
-
-	private boolean tryAcquireFailed() {
-		long l = bucket.longValue();
-		while (l > 0) {
-			if (bucket.compareAndSet(l, l - 1)) {
-				return true;
-			}
-			l = bucket.longValue();
+	public synchronized boolean tryAcquireFailed(int tokens) {
+         refill();
+		if(currentBucketSize> tokens){
+			currentBucketSize-= tokens;
+			return true;
 		}
 		return false;
 	}
 
-
-
-
+	private void refill(){
+     long now = System.nanoTime();
+     double tokensAddTo = (now- lastRefillTimestamp)* refilleRate /1e9;
+     currentBucketSize = Math.min(currentBucketSize+tokensAddTo,maxBucketSize);
+     lastRefillTimestamp = now;
+	}
 }

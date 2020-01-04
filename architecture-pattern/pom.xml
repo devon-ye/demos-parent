@@ -11,7 +11,9 @@
 
     <artifactId>architecture-pattern</artifactId>
     <packaging>pom</packaging>
-
+    <modules>
+        <module>spi</module>
+    </modules>
 
 
 </project>

@@ -1,13 +1,11 @@
 package org.devon.design.pattern.singleton;
 
 /**
-*lazy pattern  is unsafe , when it run mutil Thread
-*@author  Devonmusa
+*@author  devon.ye
 *@version
-*2017年2月18日 下午7:43:48
 *
 */
-
+@ThreadSafe
 public class LazySingleton {
 	
 	private static LazySingleton lazySingleton=null;

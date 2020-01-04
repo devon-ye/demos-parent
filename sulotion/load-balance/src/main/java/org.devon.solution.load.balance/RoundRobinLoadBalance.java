@@ -5,7 +5,7 @@ package org.devon.solution.load.balance;
  * @datetime 2019/12/14 11:48 PM
  * @since
  */
-public class RoundRonbinLoadBalance implements LoadBalance{
+public class RoundRobinLoadBalance implements LoadBalance{
 	@Override
 	public String name() {
 		return null;

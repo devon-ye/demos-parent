@@ -1,5 +1,6 @@
 package org.devon.algorithms.math;
 
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,4 +22,17 @@ public class Combination {
 
         return result;
     }
+
+
+    public static double myPow(double x, int n) {
+        int result =1;
+        for(int i=0;i<n;i++){
+            result*= x;
+        }
+        return (n % 2)==0 ? result:result * 2;
+    }
+
+
+
+
 }

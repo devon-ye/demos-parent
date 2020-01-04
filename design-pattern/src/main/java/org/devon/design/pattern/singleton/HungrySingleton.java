@@ -2,8 +2,8 @@ package org.devon.design.pattern.singleton;
 /**
  * hungry pattern
  * @author Devon
- * @time 2016/9/2 00:09
  */
+@ThreadSafe
 public class HungrySingleton {
    private static final HungrySingleton hungrySingleton=new HungrySingleton();
    
