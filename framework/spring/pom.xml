@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.devon.framework</groupId>
     <artifactId>spring</artifactId>
-
+    <modules>
+        <module>spring-boot</module>
+    </modules>
 
 </project>
