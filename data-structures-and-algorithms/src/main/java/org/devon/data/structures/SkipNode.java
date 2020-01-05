@@ -3,7 +3,7 @@ package org.devon.data.structures;
 public class SkipNode<E> {
 
     private E data;
-    private SkipNode[] forwards = new SkipNode[Integer.MAX_VALUE];
+    private SkipNode[] forwards;
     private int maxLevel;
 
     public SkipNode(E data,  int maxLevel) {
