@@ -8,32 +8,10 @@ import java.util.*;
  */
 public class StringDeal {
 
-    public String longestCommonPrefix1(String[] strs) throws Exception {
-        if (strs == null || strs.length == 0) {
-            throw new Exception("There is no common prefix among the input strings");
-        }
-        String result = null;
 
 
-        int size = strs.length;
-        int itSize = size / 2;
-        int lcp = 0;
-        for (int i = 0; i < itSize; i++) {
-            String leftStr = strs[i];
-            String rightStr = strs[size - i - 1];
-            int cl = leftStr.indexOf(rightStr);
-            if (lcp == 0) {
-                lcp = cl;
-            }
-        }
 
-        return null;
-
-
-    }
-
-
-    public String longestCommonPrefix2(String[] strs) {
+    public String longestCommonPrefix(String[] strs) {
         if (strs.length == 0) {
             return "";
         }
