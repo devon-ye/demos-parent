@@ -6,7 +6,7 @@
 	<groupId>com.spring.boot.demo</groupId>
 	<artifactId>spring-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>spring-boot</name>
 	<description>Boot</description>

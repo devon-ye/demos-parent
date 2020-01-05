@@ -1,4 +1,4 @@
-package org.devon.data.structures;
+package org.devon.data.structures.linked;
 
 /**
  * @author dewen.ye
