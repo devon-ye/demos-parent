@@ -9,250 +9,269 @@ import java.util.*;
 public class StringDeal {
 
 
+	public String longestCommonPrefix(String[] strs) {
+		if (strs.length == 0) {
+			return "";
+		}
+		String prefix = strs[0];
+		for (int i = 1, length = strs.length; i < length; i++) {
+			while (strs[i].indexOf(prefix) != 0) {
+				prefix = prefix.substring(0, prefix.length() - 1);
+				if (prefix.isEmpty()) {
+					return "";
+				}
+			}
+		}
+		return prefix;
+	}
+
+	public int strStr(String haystack, String needle) {
+		if (needle.length() == 0) return 0;
+
+		if ("".equals(haystack)) return -1;
+
+		if (haystack.length() < needle.length()) return -1;
+
+		int index = 0;
+		int shortIndex = 0;
+		for (int i = 0; i < haystack.length(); i++) {
+			char c = haystack.charAt(i);
+			char s = needle.charAt(shortIndex);
+			if (s != c) {
+				shortIndex = 0;
+				index++;
+				i = index - 1;
+			} else {
+				shortIndex++;
+				if (shortIndex == needle.length()) {
+					return index;
+				}
+			}
+		}
+
+		return -1;
+
+	}
+
+	/**
+	 * approach 1:brute force
+	 *
+	 * @param s
+	 * @return
+	 */
+	public int lengthOfLongestSubstring1(String s) {
+		int n = s.length();
+		int result = 0;
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j <= n; j++) {
+				if (allUnique(s, i, j)) {
+					result = Math.max(result, j - i);
+				}
+			}
+		}
+		return result;
+	}
+
+	private boolean allUnique(String s, int start, int end) {
+		Set<Character> set = new HashSet<>();
+		for (int i = start; i < end; i++) {
+			Character ch = s.charAt(i);
+			if (set.contains(ch)) {
+				return false;
+			}
+			set.add(ch);
+		}
+		return true;
+	}
+
+	/**
+	 * approach 2:sliding window
+	 *
+	 * @param s
+	 * @return
+	 */
+	public int lengthOfLongestSubstring2(String s) {
+		int n = s.length();
+		int result = 0;
+		int start = 0;
+		int end = 0;
+		Set<Character> set = new HashSet<>();
+		while (start < n && end < n) {
+			if (!set.contains(s.charAt(end))) {
+				set.add(s.charAt(end++));
+				result = Math.max(result, end - start);
+			} else {
+				set.remove(s.charAt(start++));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * approach 3:sliding window Optimized
+	 *
+	 * @param s
+	 * @return
+	 */
+	public int lengthOfLongestSubstring3(String s) {
+		int n = s.length();
+		int result = 0;
+		Map<Character, Integer> map = new HashMap<>();
+		for (int end = 0, start = 0; end < n; end++) {
+			if (map.containsKey(s.charAt(end))) {
+				start = Math.max(map.get(s.charAt(end)), start);
+			}
+			result = Math.max(result, end - start + 1);
+			map.put(s.charAt(end), end + 1);
+		}
+		return result;
+	}
+
+	/**
+	 * @param s
+	 * @return
+	 */
+	public String longestPalindrome(String s) {
+		if (s == null || s.length() < 1) return "";
+		int start = 0, end = 0;
+		for (int i = 0; i < s.length(); i++) {
+			int len1 = expandAroundCenter(s, i, i);
+			int len2 = expandAroundCenter(s, i, i + 1);
+			int len = Math.max(len1, len2);
+			if (len > end - start) {
+				start = i - (len - 1) / 2;
+				end = i + len / 2;
+			}
+		}
+		return s.substring(start, end + 1);
+	}
+
+	/**
+	 * <p>URL:https://leetcode.com/problems/regular-expression-matching/</p>
+	 *
+	 * @param string
+	 * @param pattern
+	 * @return
+	 */
+	public boolean isMatch(String string, String pattern) {
+
+		if (string == null || string.length() == 0) {
+			return false;
+		}
+
+		if (pattern == null || pattern.length() == 0) {
+			return false;
+		}
+
+		if (pattern.indexOf(".") > 0) {
+
+		} else if (pattern.indexOf("*") > 0) {
+
+		} else {
+			int forCount = string.length() > pattern.length() ? pattern.length() : string.length();
+			for (int i = 0; i < forCount; i++) {
+
+			}
+		}
+		return false;
+	}
+
+	private int expandAroundCenter(String s, int left, int right) {
+		int L = left, R = right;
+		while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
+			L--;
+			R++;
+		}
+		return R - L - 1;
+	}
+
+	static Map<String, String> phone = new HashMap<String, String>() {{
+		put("2", "abc");
+		put("3", "def");
+		put("4", "ghi");
+		put("5", "jkl");
+		put("6", "mno");
+		put("7", "pqrs");
+		put("8", "tuv");
+		put("9", "wxyz");
+	}};
+
+	public static List<String> letterCombinations(String digits) {
+		List<String> answer = new ArrayList<String>();
+		if (digits.length() == 0) return answer;
+		int num = digits.length();
+		backtrack(answer, digits, "", num);
+		return answer;
+	}
+
+	//结果集， 选择列表， 决策路径
+	public static String backtrack(List<String> answer, String digits, String track, int num) {
+		if (track.length() == num) {
+			answer.add(track);
+			return track.substring(0, track.length() - 1);
+		} else {
+			String choiceLists = digits.substring(0, 1);
+			String choiceList = phone.get(choiceLists);
+			//n叉树遍历
+			for (int i = 0; i < choiceList.length(); i++) {
+				track += "" + choiceList.charAt(i);
+				//在递归之前track的值已经改变了，因此会影响后面的结果。
+				track = backtrack(answer, digits.substring(1), track, num);
+			}
+		}
+		return track.length() == 0 ? "" : track.substring(0, track.length() - 1);
+	}
 
 
-    public String longestCommonPrefix(String[] strs) {
-        if (strs.length == 0) {
-            return "";
-        }
-        String prefix = strs[0];
-        for (int i = 1, length = strs.length; i < length; i++) {
-            while (strs[i].indexOf(prefix) != 0) {
-                prefix = prefix.substring(0, prefix.length() - 1);
-                if (prefix.isEmpty()) {
-                    return "";
-                }
-            }
-        }
-        return prefix;
-    }
+	public static List<String> letterCombinationsDP(String digits) {
 
-    public int strStr(String haystack, String needle) {
-        if (needle.length() == 0) return 0;
+		String[] map = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+		ArrayList<String> li = new ArrayList<String>();
+		if (digits.length() != 0) li.add("");
 
-        if ("".equals(haystack)) return -1;
+		for (int i = 0; i < digits.length(); i++) {
+			ArrayList<String> temp = new ArrayList<String>();
+			String chars = map[Integer.parseInt(digits.charAt(i) + "") - 2];
 
-        if (haystack.length() < needle.length()) return -1;
+			for (int j = 0; j < chars.length(); j++) {
+				for (int k = 0; k < li.size(); k++) {
+					temp.add(li.get(k) + chars.charAt(j));
+				}
+			}
+			li = temp;
+		}
+		return li;
+	}
 
-        int index = 0;
-        int shortIndex = 0;
-        for (int i = 0; i < haystack.length(); i++) {
-            char c = haystack.charAt(i);
-            char s = needle.charAt(shortIndex);
-            if (s != c) {
-                shortIndex = 0;
-                index++;
-                i = index - 1;
-            } else {
-                shortIndex++;
-                if (shortIndex == needle.length()) {
-                    return index;
-                }
-            }
-        }
+	public static int myAtoi(String str) {
+		int index = 0, sign = 1, total = 0;
+		//1. Empty string
+		if (str.trim().length() == 0) return 0;
 
-        return -1;
+		//2. Remove Spaces
+		while (str.charAt(index) == ' ' && index < str.length())
+			index++;
 
-    }
+		//3. Handle signs
+		if (str.charAt(index) == '+' || str.charAt(index) == '-') {
+			sign = str.charAt(index) == '+' ? 1 : -1;
+			index++;
+		}
 
-    /**
-     * approach 1:brute force
-     *
-     * @param s
-     * @return
-     */
-    public int lengthOfLongestSubstring1(String s) {
-        int n = s.length();
-        int result = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j <= n; j++) {
-                if (allUnique(s, i, j)) {
-                    result = Math.max(result, j - i);
-                }
-            }
-        }
-        return result;
-    }
+		//4. Convert number and avoid overflow
+		while (index < str.length()) {
+			int digit = str.charAt(index) - '0';
+			if (digit < 0 || digit > 9) break;
 
-    private boolean allUnique(String s, int start, int end) {
-        Set<Character> set = new HashSet<>();
-        for (int i = start; i < end; i++) {
-            Character ch = s.charAt(i);
-            if (set.contains(ch)) {
-                return false;
-            }
-            set.add(ch);
-        }
-        return true;
-    }
+			//check if total will be overflow after 10 times and add digit
+			if (Integer.MAX_VALUE / 10 < total || Integer.MAX_VALUE / 10 == total && Integer.MAX_VALUE % 10 < digit)
+				return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
 
-    /**
-     * approach 2:sliding window
-     *
-     * @param s
-     * @return
-     */
-    public int lengthOfLongestSubstring2(String s) {
-        int n = s.length();
-        int result = 0;
-        int start = 0;
-        int end = 0;
-        Set<Character> set = new HashSet<>();
-        while (start < n && end < n) {
-            if (!set.contains(s.charAt(end))) {
-                set.add(s.charAt(end++));
-                result = Math.max(result, end - start);
-            } else {
-                set.remove(s.charAt(start++));
-            }
-        }
-        return result;
-    }
-
-    /**
-     * approach 3:sliding window Optimized
-     *
-     * @param s
-     * @return
-     */
-    public int lengthOfLongestSubstring3(String s) {
-        int n = s.length();
-        int result = 0;
-        Map<Character, Integer> map = new HashMap<>();
-        for (int end = 0, start = 0; end < n; end++) {
-            if (map.containsKey(s.charAt(end))) {
-                start = Math.max(map.get(s.charAt(end)), start);
-            }
-            result = Math.max(result, end - start + 1);
-            map.put(s.charAt(end), end + 1);
-        }
-        return result;
-    }
-
-    /**
-     * @param s
-     * @return
-     */
-    public String longestPalindrome(String s) {
-        if (s == null || s.length() < 1) return "";
-        int start = 0, end = 0;
-        for (int i = 0; i < s.length(); i++) {
-            int len1 = expandAroundCenter(s, i, i);
-            int len2 = expandAroundCenter(s, i, i + 1);
-            int len = Math.max(len1, len2);
-            if (len > end - start) {
-                start = i - (len - 1) / 2;
-                end = i + len / 2;
-            }
-        }
-        return s.substring(start, end + 1);
-    }
-
-    /**
-     * <p>URL:https://leetcode.com/problems/regular-expression-matching/</p>
-     *
-     * @param string
-     * @param pattern
-     * @return
-     */
-    public boolean isMatch(String string, String pattern) {
-
-        if (string == null || string.length() == 0) {
-            return false;
-        }
-
-        if (pattern == null || pattern.length() == 0) {
-            return false;
-        }
-
-        if (pattern.indexOf(".") > 0) {
-
-        } else if (pattern.indexOf("*") > 0) {
-
-        } else {
-            int forCount = string.length() > pattern.length() ? pattern.length() : string.length();
-            for (int i = 0; i < forCount; i++) {
-
-            }
-        }
-        return false;
-    }
-
-    private int expandAroundCenter(String s, int left, int right) {
-        int L = left, R = right;
-        while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
-            L--;
-            R++;
-        }
-        return R - L - 1;
-    }
-
-    static Map<String, String> phone = new HashMap<String, String>() {{
-        put("2", "abc");
-        put("3", "def");
-        put("4", "ghi");
-        put("5", "jkl");
-        put("6", "mno");
-        put("7", "pqrs");
-        put("8", "tuv");
-        put("9", "wxyz");
-    }};
-    public static List<String> letterCombinations(String digits) {
-        List<String> answer = new ArrayList<String>();
-        if(digits.length() == 0) return answer;
-        int num = digits.length();
-        backtrack(answer, digits, "", num);
-        return answer;
-    }
-
-    //结果集， 选择列表， 决策路径
-    public static String backtrack(List<String> answer, String digits, String track, int num) {
-        if(track.length() == num) {
-            answer.add(track);
-            return track.substring(0, track.length()-1);
-        } else {
-            String choiceLists = digits.substring(0, 1);
-            String choiceList = phone.get(choiceLists);
-            //n叉树遍历
-            for(int i = 0;i < choiceList.length();i++) {
-                track += "" + choiceList.charAt(i);
-                //在递归之前track的值已经改变了，因此会影响后面的结果。
-                track = backtrack(answer, digits.substring(1), track, num);
-            }
-        }
-        return track.length() == 0 ? "" : track.substring(0, track.length()-1);
-    }
-
-    public static int myAtoi(String str) {
-        int index = 0, sign = 1, total = 0;
-        //1. Empty string
-        if(str.trim().length() == 0) return 0;
-
-        //2. Remove Spaces
-        while(str.charAt(index) == ' ' && index < str.length())
-            index ++;
-
-        //3. Handle signs
-        if(str.charAt(index) == '+' || str.charAt(index) == '-'){
-            sign = str.charAt(index) == '+' ? 1 : -1;
-            index ++;
-        }
-
-        //4. Convert number and avoid overflow
-        while(index < str.length()){
-            int digit = str.charAt(index) - '0';
-            if(digit < 0 || digit > 9) break;
-
-            //check if total will be overflow after 10 times and add digit
-            if(Integer.MAX_VALUE/10 < total || Integer.MAX_VALUE/10 == total && Integer.MAX_VALUE %10 < digit)
-                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-
-            total = 10 * total + digit;
-            index ++;
-        }
-        return total * sign;
-    }
-
+			total = 10 * total + digit;
+			index++;
+		}
+		return total * sign;
+	}
 
 
 }
