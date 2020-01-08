@@ -31,7 +31,7 @@ public class StringDealTest {
     public void longestCommonPrefix1() {
         String[] arsg = {"qewlqwoe", "qewljtuyet", "qewljeqweeqw", "qewlpppoo"};
         try {
-            Assert.assertFalse(!"qewl".equals(stringDeal.longestCommonPrefix1(arsg)));
+            Assert.assertFalse(!"qewl".equals(stringDeal.longestCommonPrefix(arsg)));
         } catch (Exception e) {
         }
     }
@@ -39,7 +39,7 @@ public class StringDealTest {
     @Test
     public void longestCommonPrefixs() {
         String[] arsg = {"abddwqeeeebbc", "abddwqeeeb", "abddwqee", "abddwqe"};
-        Assert.assertFalse(!"abddwqe".equals(stringDeal.longestCommonPrefix2(arsg)));
+        Assert.assertFalse(!"abddwqe".equals(stringDeal.longestCommonPrefix(arsg)));
     }
 
     @Test
