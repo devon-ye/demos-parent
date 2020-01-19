@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-@EnableAutoConfiguration
 public class SpringBootDemoApplication {
 
 	public static void main(String[] args) {
@@ -20,6 +20,7 @@ public class SpringBootDemoApplication {
 	/**
 	 * 明文http2协议服务
 	 */
+	@Bean
 	public WebServerFactoryCustomizer<TomcatServletWebServerFactory> tomcatCustomizer(){
 		return factory -> {
 			Connector connector = new Connector();
