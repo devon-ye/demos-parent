@@ -12,6 +12,7 @@
     <artifactId>spring</artifactId>
     <modules>
         <module>spring-boot</module>
+        <module>spring-demo</module>
     </modules>
 
 </project>
