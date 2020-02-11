@@ -65,11 +65,15 @@ public class StringUtils {
 		String s2 = "uml";
 		String s3 = new String("uml");
 		String s4 = new String("uml");
-		printAddresses("s1:", s1);
-		printAddresses("s2:", s2);
-		printAddresses("s3:", s3);
-		printAddresses("s4:", s4);
+		String s5 = s1+"21";
+		String s6 = s2+"21";
 
+		printAddresses("s1", s1);
+		printAddresses("s2", s2);
+		printAddresses("s3", s3);
+		printAddresses("s4", s4);
+		printAddresses("s5", s5);
+		printAddresses("s6", s6);
 		if (s1 == s2) {
 			System.out.println(true);
 		}
@@ -79,15 +83,14 @@ public class StringUtils {
 		if (s1.equals(s3)) {
 			System.out.println(true);
 		}
-		float[] f[][] = new float[6][6][7];
-		System.out.println(f);
-		try {
-			throw new RuntimeException();
-			//System.out.println("error1");
-		} catch (Exception e) {
-			System.out.println("error2");
+
+		if (s5==s6) {
+			System.out.println(true);
 		}
-		System.out.println("error3");
+		if (s5.equals(s6)) {
+			System.out.println(true);
+		}
+
 	}
 
 

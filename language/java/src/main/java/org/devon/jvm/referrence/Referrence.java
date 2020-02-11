@@ -8,5 +8,5 @@ import java.lang.ref.SoftReference;
  * @since
  */
 public class Referrence {
-	private SoftReference
+	//private SoftReference
 }
