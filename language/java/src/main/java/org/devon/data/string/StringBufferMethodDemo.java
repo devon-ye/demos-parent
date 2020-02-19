@@ -6,6 +6,7 @@ import java.lang.*;
  * Created by lenovo on 2017/11/21.
  */
 public class StringBufferMethodDemo {
+
     private StringBuffer sb;
 
     public StringBufferMethodDemo(){
@@ -27,6 +28,7 @@ public class StringBufferMethodDemo {
     }
 
     public static void main(String[] args) {
+
         StringBufferMethodDemo sbmd = new StringBufferMethodDemo();
         sbmd.recovere();
     }

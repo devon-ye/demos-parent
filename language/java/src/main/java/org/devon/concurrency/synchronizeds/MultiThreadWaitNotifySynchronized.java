@@ -1,5 +1,7 @@
 package org.devon.concurrency.synchronizeds;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author devon.ye
  * @datetime 2020/2/19 10:04 下午
@@ -10,7 +12,9 @@ public class MultiThreadWaitNotifySynchronized implements Runnable {
 	private Object lock = new Object();
 
 	private int status = 0;
-	private String result;
+	private char CH = 'A';
+	private volatile boolean RUNNING = false;
+	private StringBuffer result = new StringBuffer();
 
 
 	private void printUpperLetter() {
@@ -22,8 +26,14 @@ public class MultiThreadWaitNotifySynchronized implements Runnable {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("a");
+			System.out.println(CH);
+			result.append(CH);
 			status++;
+			if (CH < 'Z') {
+				CH += 1;
+			} else {
+				RUNNING = false;
+			}
 			lock.notify();
 
 		}
@@ -38,18 +48,32 @@ public class MultiThreadWaitNotifySynchronized implements Runnable {
 					e.printStackTrace();
 				}
 			}
-
-			System.out.println("A");
-
+			char ch = (char) (CH + 32);
+			System.out.println(ch);
+			result.append(ch);
 			status++;
+			if (ch < 'z') {
+				ch += 1;
+			}else {
+				RUNNING = false;
+			}
 			lock.notify();
 		}
 	}
 
 	@Override
 	public void run() {
-		printLowerLetter();
-		printUpperLetter();
+		RUNNING = true;
+		while (RUNNING) {
+			printLowerLetter();
+			printUpperLetter();
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println(this.result.toString());
 	}
 
 	public static void main(String[] args) {

@@ -23,7 +23,18 @@ public class StringUtils {
 		str = DateFormatUtils.format(date, DATE_FORMAT);
 		return str;
 	}
-
+	{
+		System.out.println("ccccc");
+	}
+	{
+		System.out.println("111111");
+	}
+    static {
+		System.out.println("aaaa");
+	}
+	static {
+		System.out.println("bbbb");
+	}
 	public static boolean isCheckIPv4Address(String str) {
 		String s[] = str.split("\\.", 4);
 		int temp = 0;
@@ -59,14 +70,21 @@ public class StringUtils {
 		}
 		return result;
 	}
+	private static int j = 0;
 
 	public static void main(String[] args) {
+
+		methodA(0);
+		System.out.println(j);
+		Boolean flag = false;
+
 		String s1 = "uml";
 		String s2 = "uml";
 		String s3 = new String("uml");
 		String s4 = new String("uml");
 		String s5 = s1+"21";
 		String s6 = s2+"21";
+		StringUtils stringUtils = new StringUtils();
 
 		printAddresses("s1", s1);
 		printAddresses("s2", s2);
@@ -132,5 +150,15 @@ public class StringUtils {
 		}
 		System.out.println();
 	}
+	public static void methodA(int i) {
+		boolean b;
+		b = i < 10 | methodB(4);
+		b = i < 10 || methodB(8);
 
+	}
+
+	private static Boolean methodB(int k) {
+		j += k;
+		return true;
+	}
 }
