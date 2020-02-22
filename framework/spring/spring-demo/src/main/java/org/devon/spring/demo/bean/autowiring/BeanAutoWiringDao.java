@@ -5,8 +5,7 @@ package org.devon.spring.demo.bean.autowiring;
  */
 public class BeanAutoWiringDao {
 
-    @Autowire
-    private ApplicationContext
+
 
     public void print() {
         System.out.println("print() method say:BeanAutoWiringDao object is autowiring!");
