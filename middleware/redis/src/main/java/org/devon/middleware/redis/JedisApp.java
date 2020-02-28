@@ -1,12 +1,11 @@
 package org.devon.middleware.redis;
 
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 import java.util.List;
 import java.util.Set;
 
-public class RedisSetUtil {
+public class JedisApp {
 
     private static JedisPool jedisPool;
     private static final Long SUCCESS_STATUS_LONG = 1L;
@@ -24,7 +23,7 @@ public class RedisSetUtil {
      * @return Long
      */
     public static Long sadd(String key, String... members) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             return jedis.sadd(key, members);
@@ -45,7 +44,7 @@ public class RedisSetUtil {
      * @return
      */
     public static Long scard(String key) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             return jedis.scard(key);
@@ -66,7 +65,7 @@ public class RedisSetUtil {
      * @return Set<String>
      */
     public static Set<String> smembers(String key) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             return jedis.smembers(key);
@@ -88,7 +87,7 @@ public class RedisSetUtil {
      * @return Boolean
      */
     public static Boolean sIsMember(String key, String member) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             return jedis.sismember(key, member);
@@ -109,7 +108,7 @@ public class RedisSetUtil {
      * @return Set<String>
      */
     public static Set<String> sdiff(String... keys) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             return jedis.sdiff(keys);
@@ -133,7 +132,7 @@ public class RedisSetUtil {
      * @return
      */
     public static boolean sdiffStore(String targetKey, String... keys) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             Long statusCode = jedis.sdiffstore(targetKey, keys);
@@ -157,7 +156,7 @@ public class RedisSetUtil {
      * @return Set<String>
      */
     public static Set<String> sinter(String... keys) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             return jedis.sinter(keys);
@@ -179,7 +178,7 @@ public class RedisSetUtil {
      * @return boolean
      */
     public static boolean sinterStore(String targetKey, String... keys) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             Long statusCode = jedis.sinterstore(targetKey, keys);
@@ -208,7 +207,7 @@ public class RedisSetUtil {
      * @return boolean
      */
     public static boolean smove(String sourceKey, String targetKey, String member) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             Long value = jedis.smove(sourceKey, targetKey, member);
@@ -233,7 +232,7 @@ public class RedisSetUtil {
      * @return String
      */
     public static String spop(String key) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             return jedis.spop(key);
@@ -258,7 +257,7 @@ public class RedisSetUtil {
      * @return List<String>
      */
     public static List<String> srandMember(String key, int count) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             return jedis.srandmember(key, count);
@@ -280,7 +279,7 @@ public class RedisSetUtil {
      * @return
      */
     public static boolean srem(String key, String... members) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             //Integer reply, specifically: 1 if the new element was removed
@@ -306,7 +305,7 @@ public class RedisSetUtil {
      * @return
      */
     public static Set<String> sunion(String... keys) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             return jedis.sunion(keys);
@@ -331,7 +330,7 @@ public class RedisSetUtil {
      * @return
      */
     public static boolean sunionStore(String targetKey, String... keys) {
-        Jedis jedis = null;
+        redis.clients.jedis.Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
             //返回合并后的长度
