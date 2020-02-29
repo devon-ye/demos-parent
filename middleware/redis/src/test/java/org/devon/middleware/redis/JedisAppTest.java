@@ -40,6 +40,8 @@ public class JedisAppTest {
 		jedis.incr("count");
 		System.out.println(jedis.hgetAll("hash"));
 		jedis.lindex("list",0);
+
+		jedis.sadd("myset","a","b","m","n","u","k","o","h");
 	}
 
 	@Test
