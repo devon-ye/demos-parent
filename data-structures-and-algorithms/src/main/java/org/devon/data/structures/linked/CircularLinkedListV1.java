@@ -13,6 +13,22 @@ public class CircularLinkedListV1<E> implements Linked<E> {
     public CircularLinkedListV1() {
     }
 
+    public E get(int index) {
+        Node node = head;
+        for(int i=0;i<index;i++){
+            if(node!=null){
+                node = node.next;
+            }else{
+                return null;
+            }
+        }
+        if(node!= null){
+            return (E)node.val;
+        }else{
+            return null;
+        }
+    }
+
     @Override
     public boolean addFirst(E e) {
         ++size;
@@ -37,7 +53,7 @@ public class CircularLinkedListV1<E> implements Linked<E> {
         }
         Node first = node;
 
-        final E e = (E) first.e;
+        final E e = (E) first.val;
         final Node second = node.next;
         this.node = second;
         this.head = second;
@@ -74,7 +90,7 @@ public class CircularLinkedListV1<E> implements Linked<E> {
         if (lastSecond == null || lastSecond.next == null) {
             return null;
         }
-        final E e = (E) lastSecond.next.e;
+        final E e = (E) lastSecond.next.val;
         lastSecond.next = head;
         return e;
     }
@@ -110,15 +126,15 @@ public class CircularLinkedListV1<E> implements Linked<E> {
 
 
     public static class Node<E> {
-        E e;
+        E val;
         Node next;
 
-        public Node(E e) {
-            this.e = e;
+        public Node(E val) {
+            this.val = val;
         }
 
-        public Node(E e, Node next) {
-            this.e = e;
+        public Node(E val, Node next) {
+            this.val = val;
             this.next = next;
         }
     }
