@@ -8,13 +8,13 @@ public class CacheItem {
 
     private Command command;
     private String commands;
-    private String reponse;
+    private String response;
     private long createTime;
     private long accessTime;
 
-    public CacheItem(String commands, String reponse) {
+    public CacheItem(String commands, String response) {
         this.commands = commands;
-        this.reponse = reponse;
+        this.response = response;
     }
 
     public long getAccessTime() {
@@ -25,11 +25,11 @@ public class CacheItem {
         this.accessTime = accessTime;
     }
 
-    public String getReponse() {
-        return reponse;
+    public String getResponse() {
+        return response;
     }
 
-    public void setReponse(String reponse) {
-        this.reponse = reponse;
+    public void setResponse(String reponse) {
+        this.response = reponse;
     }
 }

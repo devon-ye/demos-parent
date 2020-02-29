@@ -16,6 +16,7 @@ public class ThreadPoolUtil {
     private static final Executor  fixedThreadPool =  Executors.newFixedThreadPool(2);
     private static final Executor  singleScheduleThreadPool = Executors.newSingleThreadScheduledExecutor();
     private static final  Executor scheduleThreadPool = Executors.newScheduledThreadPool(2);
+    private static final Executor WorkStealingPool = Executors.newWorkStealingPool();
 
 
     private ThreadPoolUtil() {

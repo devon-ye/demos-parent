@@ -27,7 +27,7 @@ public class ParallelCache {
             return null;
         }
         item.setAccessTime(System.currentTimeMillis());
-        return item.getReponse();
+        return item.getResponse();
     }
 
     public void put(String key, String value) {
