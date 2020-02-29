@@ -52,6 +52,44 @@ public class FastSlowPointer<E> {
         return false;
     }
 
+
+    public  Node getCycleEntryNode(Node head){
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next!=null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+               break;
+            }
+        }
+        Node entry = head;
+        Node meet = fast;
+        while (meet != fast){
+            entry = entry.next;
+            meet = meet.next;
+        }
+        return entry;
+    }
+
+    public Node detectCycle(Node head) {
+        Node fast = head, slow = head;
+        while (true) {
+            if (fast == null || fast.next == null) return null;
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if (fast == slow) break;
+        }
+        fast = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return fast;
+    }
+
+
     public void add(E e) {
         final Node linked = head.next;
         Node element = new Node(e, linked);
