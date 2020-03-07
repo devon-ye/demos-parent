@@ -11,7 +11,7 @@ public class Interview {
 	private static final char LEFT_BRACE = '(';
 	private static final char RIGHT_BRACE = ')';
 
-	public static ParenthesesValid.Node toBinaryTree(String string) {
+	public static Node toBinaryTree(String string) {
 		if (string == null || string.length() < 1) {
 			return null;
 		}
@@ -24,7 +24,7 @@ public class Interview {
 	 * @param nodeType 0 :root node  1: left node  2: right node
 	 * @return
 	 */
-	private static ParenthesesValid.Node parseStrTransformBinaryTree(String string, ParenthesesValid.Node node, int nodeType) {
+	private static Node parseStrTransformBinaryTree(String string, Node node, int nodeType) {
 		if (string == null || string.length() < 1) {
 			return null;
 		}
@@ -45,15 +45,15 @@ public class Interview {
 		return node;
 	}
 
-	private static ParenthesesValid.Node buildNode(ParenthesesValid.Node node, int nodeType, String value) {
+	private static Node buildNode(Node node, int nodeType, String value) {
 		if (nodeType == 1) {
-			node.setLeft(new ParenthesesValid.Node(value));
+			node.setLeft(new Node(value));
 			node = node.left;
 		} else if (nodeType == 2) {
-			node.setRight(new ParenthesesValid.Node(value));
+			node.setRight(new Node(value));
 			node = node.right;
 		} else {
-			node = new ParenthesesValid.Node(value);
+			node = new Node(value);
 		}
 		return node;
 	}
@@ -83,19 +83,51 @@ public class Interview {
 
 	static class Node<E> {
 		E value;
-		ParenthesesValid.Node left;
-		ParenthesesValid.Node right;
+		Node left;
+		Node right;
 
 		public Node(E value) {
 			this.value = value;
 		}
 
-		public void setLeft(ParenthesesValid.Node left) {
+		public void setLeft(Node left) {
 			this.left = left;
 		}
 
-		public void setRight(ParenthesesValid.Node right) {
+		public void setRight(Node right) {
 			this.right = right;
+		}
+	}
+
+	public static void main(String[] args) {
+//		Integer  a= 100;
+//		Integer  b = new Integer(100);
+//		if (a== b){
+//			System.out.println("a==b");
+//		}
+
+//		Integer  a= 1000;
+//		Integer  b = 1000;
+//		if (a== b){
+//			System.out.println("a==b");
+//		}
+
+//		Integer  a= 100;
+//		Integer  b = Integer.valueOf(a);
+//		if (a== b){
+//			System.out.println("a==b");
+//		}
+
+//		Integer  a= 100;
+//		int  b = 100;
+//		if (a== b){
+//			System.out.println("a==b");
+//		}
+//
+		Integer  a= 1000;
+		Integer  b = Integer.valueOf(a);;
+		if (a== b){
+			System.out.println("a==b");
 		}
 	}
 }

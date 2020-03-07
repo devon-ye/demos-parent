@@ -86,8 +86,6 @@ public class LinkedListOpAlgorithm {
 			//取出单节点
 			dummy = head;
 			head = head.next;
-			dummy.next = null;
-
 			dummy.next = result.next;
 			result.next = dummy;
 		}
@@ -309,5 +307,49 @@ public class LinkedListOpAlgorithm {
 
 		return ans;
 	}
+
+
+	public ListNode oddEvenList(ListNode head) {
+		if (head == null) return null;
+
+		ListNode oldTail = head;
+		ListNode evenHead = head.next;
+		ListNode eventTail = evenHead;
+		while (eventTail != null && eventTail.next != null) {
+			oldTail.next = eventTail.next;
+			oldTail = oldTail.next;
+
+			eventTail.next = oldTail.next;
+			eventTail = eventTail.next;
+		}
+		oldTail.next = evenHead;
+		return head;
+	}
+
+
+
+
+	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+		ListNode dummyHead = new ListNode(0);
+		ListNode curr = dummyHead;
+		int carry = 0;
+		while (l1 != null || l2 != null) {
+			int x = (l1 == null ? 0 : l1.val);
+			int y = (l2 == null ? 0 : l2.val);
+			int sum = carry + x + y;
+			carry = sum / 10;
+			curr.next = new ListNode(sum % 10);
+			curr = curr.next;
+
+			if (l1 != null) l1 = l1.next;
+			if (l2 != null) l2 = l2.next;
+		}
+
+		if (carry > 0) {
+			curr.next = new ListNode(carry);
+		}
+		return dummyHead.next;
+	}
+
 
 }
