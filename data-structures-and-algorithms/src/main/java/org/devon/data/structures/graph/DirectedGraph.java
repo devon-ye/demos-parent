@@ -39,6 +39,10 @@ public class DirectedGraph extends AbstractGraph{
         }
     }
 
+    public Graph reverse(){
+        return null;
+    }
+
 
     public void addVertex(Vertex vertex) {
 

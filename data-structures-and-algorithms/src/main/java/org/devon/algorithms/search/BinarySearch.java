@@ -22,12 +22,12 @@ public class BinarySearch {
      * @param key
      * @return
      */
-    public static int rank(int[] array, int key) {
+    public static int search(int[] array, int key) {
         if (array == null) {
             return -1;
         }
         int left = 0;
-        int right = array.length - 1;
+        int right = array.length;
 
         while (left < right) {
             int mid = (left + right) / 2;

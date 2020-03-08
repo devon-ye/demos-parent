@@ -21,4 +21,12 @@ public class Vertex<K,V> implements Serializable {
         this.vertex = vertex;
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "Vertex{" +
+                "vertex=" + vertex +
+                ", value=" + value +
+                '}';
+    }
 }
