@@ -23,7 +23,6 @@ public class EchoClient {
             InputStreamReader inputStreamReader = new InputStreamReader(System.in);
             BufferedReader input = new BufferedReader(inputStreamReader);
             PrintStream printStream = new PrintStream(socket.getOutputStream());
-
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             boolean falg = true;
             while (falg) {

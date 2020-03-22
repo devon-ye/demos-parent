@@ -44,6 +44,17 @@ public class JedisAppTest {
 		jedis.sadd("myset","a","b","m","n","u","k","o","h");
 	}
 
+
+	@Test
+	public void  test() {
+		jedis.setex("key",10000,"value");  //set and expire
+		jedis.setnx("","");
+		jedis.del("");
+		jedis.ttl("");
+		jedis.keys("pattern");
+		jedis.lpushx("");
+	}
+
 	@Test
 	public void scard() {
 	}
