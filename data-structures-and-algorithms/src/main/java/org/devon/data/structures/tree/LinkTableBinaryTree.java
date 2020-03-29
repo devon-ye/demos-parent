@@ -3,6 +3,9 @@ package org.devon.data.structures.tree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.jnlp.IntegrationService;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.LinkedTransferQueue;
 
@@ -156,6 +159,15 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
 
     }
 
+	public List<Integer> preorderTraversal(TreeNode<String,Integer> root) {
+		if(root == null) return new ArrayList(0);
+		List<Integer> result = new ArrayList();
+		result.add(root.value);
+		result.addAll(preorderTraversal(root.left));
+		result.addAll(preorderTraversal(root.right));
+		return result;
+	}
+
     public void inOrderTraversal(TreeNode root) {
         if (root == null) {
             return;
@@ -193,6 +205,29 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
             LOG.info("value:{}",node.value );
         }
     }
+
+	List<List<Integer>> levels = new ArrayList<List<Integer>>();
+
+	public void helper(TreeNode<String,Integer> node, int level) {
+		// start the current level
+		if (levels.size() == level)
+			levels.add(new ArrayList<Integer>());
+
+		// fulfil the current level
+		levels.get(level).add(node.value);
+
+		// process child nodes for the next level
+		if (node.left != null)
+			helper(node.left, level + 1);
+		if (node.right != null)
+			helper(node.right, level + 1);
+	}
+
+	public List<List<Integer>> levelOrder(TreeNode root) {
+		if (root == null) return levels;
+		helper(root, 0);
+		return levels;
+	}
 
 
     /***
@@ -238,9 +273,7 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
         if (t1 == null && t2 == null) return true;
         if (t1 == null || t2 == null) return false;
 
-        return (t1.value == t2.value)
-                && isMirror(t1.right, t2.left)
-                && isMirror(t1.left, t2.right);
+        return (t1.value == t2.value) && isMirror(t1.right, t2.left) && isMirror(t1.left, t2.right);
     }
 
 
@@ -299,6 +332,17 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
             if(max != null && root.key.compareTo(max)>= 0) return false;
             return isBST(root.left,min, (Key) root.key) && isBST(root, (Key) root.key,max);
     }
+
+	public boolean hasPathSum(TreeNode<String, Integer> root, int sum) {
+		if(root== null) return false;
+
+		sum-=root.value;
+
+		if(root.left==null && root.right == null){
+			return sum==0;
+		}
+		return hasPathSum(root.left,sum) || hasPathSum(root.right,sum);
+	}
 
 
 

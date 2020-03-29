@@ -3,6 +3,8 @@ package org.devon.io.bio.tcp.server;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.channels.AsynchronousServerSocketChannel;
+import java.nio.channels.ServerSocketChannel;
 
 /**
  * Created by lenovo on 2017/12/2.
@@ -12,10 +14,12 @@ public class EchoServer {
 
     private void startServer() {
         ServerSocket serverSocket = null;
+        ServerSocketChannel socketChannel = null;
         Socket socket = null;
         InputStream inputStream = null;
         try {
             serverSocket = new ServerSocket(8888);
+
             serverSocket.setSoTimeout(1000);
             while (serverSocket.isClosed()) {
                 socket = serverSocket.accept();

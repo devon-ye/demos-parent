@@ -20,6 +20,6 @@ public class BinarySearchTest {
     @Test
     public void rank() {
         int[] array01 = new int[]{1,4,6,8,9,10,15,156,147};
-        int position =  BinarySearch.rank(array01,15);
+        int position =  BinarySearch.search(array01,15);
     }
 }

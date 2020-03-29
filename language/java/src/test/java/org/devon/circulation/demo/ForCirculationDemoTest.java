@@ -8,6 +8,7 @@
 
 package org.devon.circulation.demo;
 
+import org.devon.loop.demo.ForCirculationDemo;
 import org.junit.Test;
 
 /**

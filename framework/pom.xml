@@ -24,6 +24,7 @@
         <module>netty</module>
         <module>instrumentation</module>
         <module>RxJava</module>
+        <module>ark</module>
     </modules>
 
 

@@ -51,4 +51,5 @@ public class JosephusRing {
         temp.next = head.next;
         return head;
     }
+
 }

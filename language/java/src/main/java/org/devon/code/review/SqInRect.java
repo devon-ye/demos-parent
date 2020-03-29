@@ -2,10 +2,7 @@ package org.devon.code.review;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 
@@ -40,15 +37,4 @@ public class SqInRect {
 		return intList;
 
 	}
-	
-//	public void test1() {
-//		List<Integer> res = new ArrayList<Integer>(Arrays.asList(3, 2, 1, 1));
-//		for (int r : res)
-//	//		assertEquals(res, SqInRect.sqInRect(5, 3));
-//	}
-
-
-//	public void test2() {
-	//	assertEquals(null, SqInRect.sqInRect(5, 5));
-//	}
 }

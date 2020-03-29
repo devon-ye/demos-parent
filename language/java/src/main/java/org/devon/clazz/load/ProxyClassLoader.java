@@ -1,5 +1,7 @@
 package org.devon.clazz.load;
 
+import java.lang.reflect.Proxy;
+
 /**
  * @author dewen.ye
  * @date 2019/1/3 00:36

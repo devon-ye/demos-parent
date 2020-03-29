@@ -10,7 +10,7 @@
     <artifactId>docker</artifactId>
     <packaging>jar</packaging>
 
-    <name>docker-demo</name>
+    <name>docker</name>
     <url>http://maven.apache.org</url>
 
     <properties>

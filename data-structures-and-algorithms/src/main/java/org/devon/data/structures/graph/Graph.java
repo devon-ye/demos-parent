@@ -8,17 +8,17 @@ package org.devon.data.structures.graph;
 public interface Graph {
 
 
-    void addVertex(Vertex vertex);
+	void addVertex(Vertex vertex);
 
-    void addEdge(Edge edge);
+	void addEdge(Edge edge);
 
-    int degree(Graph graph, int v);
+	int degree(Graph graph, int v);
 
-    int maxDegree();
+	int maxDegree();
 
-    int vertexCount();
+	int vertexCount();
 
-    int edgeCount();
+	int edgeCount();
 
 
 }

@@ -8,9 +8,73 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
 
     <groupId>org.devon.framework.instrumentation</groupId>
     <artifactId>instrument</artifactId>
 
 
+    <properties>
+        <premain.class>Agent</premain.class>
+    </properties>
+
+     <build>
+         <finalName>demo-parents-agent-${project.version}</finalName>
+         <plugins>
+             <plugin>
+                 <artifactId>maven-shade-plugin</artifactId>
+                 <executions>
+                     <execution>
+                         <phase>package</phase>
+                         <goals>
+                             <goal>shade</goal>
+                         </goals>
+                         <configuration>
+                             <shadedArtifactAttached>false</shadedArtifactAttached>
+                             <createDependencyReducedPom>true</createDependencyReducedPom>
+                             <createSourcesJar>true</createSourcesJar>
+                             <shadeSourcesContent>true</shadeSourcesContent>
+                             <transformers>
+                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                     <manifestEntries>
+                                         <Premain-Class>${premain.class}</Premain-Class>
+<!--                                         <Can-Redefine-Classes>${can.redefine.classes}</Can-Redefine-Classes>-->
+<!--                                         <Can-Retransform-Classes>${can.retransform.classes}</Can-Retransform-Classes>-->
+                                     </manifestEntries>
+                                 </transformer>
+                             </transformers>
+<!--                             <artifactSet>-->
+<!--                                 <excludes>-->
+<!--                                     <exclude>*:gson</exclude>-->
+<!--                                     <exclude>io.grpc:*</exclude>-->
+<!--                                     <exclude>io.netty:*</exclude>-->
+<!--                                     <exclude>io.opencensus:*</exclude>-->
+<!--                                     <exclude>com.google.*:*</exclude>-->
+<!--                                     <exclude>com.google.guava:guava</exclude>-->
+<!--                                     <exclude>org.checkerframework:checker-compat-qual</exclude>-->
+<!--                                     <exclude>org.codehaus.mojo:animal-sniffer-annotations</exclude>-->
+<!--                                     <exclude>io.perfmark:*</exclude>-->
+<!--                                 </excludes>-->
+<!--                             </artifactSet>-->
+<!--                             <relocations>-->
+<!--                                 <relocation>-->
+<!--                                     <pattern>${shade.net.bytebuddy.source}</pattern>-->
+<!--                                     <shadedPattern>${shade.net.bytebuddy.target}</shadedPattern>-->
+<!--                                 </relocation>-->
+<!--                             </relocations>-->
+<!--                             <filters>-->
+<!--                                 <filter>-->
+<!--                                     <artifact>net.bytebuddy:byte-buddy</artifact>-->
+<!--                                     <excludes>-->
+<!--                                         <exclude>META-INF/versions/9/module-info.class</exclude>-->
+<!--                                     </excludes>-->
+<!--                                 </filter>-->
+<!--                             </filters>-->
+                         </configuration>
+                     </execution>
+                 </executions>
+             </plugin>
+
+         </plugins>
+     </build>
 </project>
