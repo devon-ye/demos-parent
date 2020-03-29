@@ -1,5 +1,7 @@
 package org.devon.algorithms.leetcode;
 
+import com.sun.tools.javac.util.Assert;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,8 +9,8 @@ import java.util.List;
 public class ArraysAll {
 	// duble index  method
 	public static int removeDuplicatesSortedArray(int[] nums) {
-		if (nums.length == 0) {
-			return 0;
+		if (nums == null) {
+			return -1;
 		}
 		int i = 0;
 		for (int j = 1; j < nums.length; j++) {
@@ -18,6 +20,54 @@ public class ArraysAll {
 			}
 		}
 		return i + 1;
+	}
+
+	/**
+	 * 删除重复元素，及重复元素保留两个
+	 *
+	 * @param nums
+	 * @return
+	 */
+	public static int removeDuplicates(int[] nums) {
+		if (nums == null) {
+			return -1;
+		}
+		//
+		// Initialize the counter and the second pointer.
+		//
+		int j = 1, count = 1;
+
+		//
+		// Start from the second element of the array and process
+		// elements one by one.
+		//
+		for (int i = 1; i < nums.length; i++) {
+
+			//
+			// If the current element is a duplicate, increment the count.
+			//
+			if (nums[i] == nums[i - 1]) {
+
+				count++;
+
+			} else {
+
+				//
+				// Reset the count since we encountered a different element
+				// than the previous one.
+				//
+				count = 1;
+			}
+
+			//
+			// For a count <= 2, we copy the element over thus
+			// overwriting the element at index "j" in the array
+			//
+			if (count <= 2) {
+				nums[j++] = nums[i];
+			}
+		}
+		return j;
 	}
 
 	public static int removeElement(int[] nums, int val) {
@@ -311,8 +361,80 @@ public class ArraysAll {
 		}
 	}
 
+	public static void moveZeroes(int[] nums) {
+		if (nums == null) {
+			return;
+		}
+
+		int pos = 0;
+		int index = 0;
+		while (index < nums.length) {
+			if (nums[index] != 0) {
+				nums[pos] = nums[index];
+				if (pos != index) nums[index] = 0;
+				pos += 1;
+			}
+			index += 1;
+		}
+
+	}
+
+	/**
+	 * 荷兰国旗问题
+	 * 用两个边界分割指针和一个偏移指针处理
+	 */
+	public void sortColors(int[] nums) {
+		if (nums == null) return;
+		int p0 = 0;
+		int p1 = nums.length - 1;
+		int curr = 0;
+		while (curr <= p1) {
+			if (nums[curr] == 0) {
+				int temp = nums[p0];
+				nums[p0] = nums[curr];
+				nums[curr] = temp;
+				p0++;
+				curr++;
+
+			} else if (nums[curr] == 2) {
+				int temp = nums[p1];
+				nums[p1] = nums[curr];
+				nums[curr] = temp;
+				p1--;
+			} else {
+				curr++;
+			}
+
+		}
+	}
+
+	public static int findKthLargest(int[] nums, int k) {
+		for (int i = 0; i < nums.length; i++) {
+			int maxIndex = i;
+			for (int j = i; j < nums.length; j++) {
+				if (nums[maxIndex] < nums[j]) {
+					maxIndex = j;
+				}
+			}
+			int temp = nums[i];
+			nums[i] = nums[maxIndex];
+			nums[maxIndex] = temp;
+			if (i+1 == k) {
+				return nums[i];
+			}
+			maxIndex++;
+		}
+		return -1;
+
+	}
+
+
 	public static void main(String[] args) {
-		ArraysAll.plusOne(new int[]{9});
+		//ArraysAll.plusOne(new int[]{9});
+		ArraysAll.findKthLargest(new int[]{1,5,6,7},3);
+		ArraysAll.findKthLargest(new int[]{1},1);
+
+
 	}
 
 }

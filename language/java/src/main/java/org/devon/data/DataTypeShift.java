@@ -20,5 +20,16 @@ public class DataTypeShift {
 		}
 		return bytes;
 	}
+
+	public static void main(String[] args) {
+		long temp = 1;
+		temp = temp << 8;
+		temp = temp << 16;
+		temp = temp << 24;
+		temp = temp << 32;
+
+
+
+	}
 	
 }
