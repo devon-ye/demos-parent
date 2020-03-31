@@ -74,8 +74,12 @@ ulimit – n
 
 
 
-服务链接查看
+#### 服务链接查看
 netstat -anp |  grep serverPort
+
+#### 根据端口找服务 
+     lsof -i:PORT
+
 
 文件句柄查看
 
