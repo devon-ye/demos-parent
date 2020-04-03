@@ -92,6 +92,7 @@ public class LinkedListOpAlgorithm {
 		return result.next;
 	}
 
+
 	public static ListNode removeNthFromEnd(ListNode head, int n) {
 		ListNode dummy = new ListNode(0);
 		dummy.next = head;
@@ -349,6 +350,30 @@ public class LinkedListOpAlgorithm {
 			curr.next = new ListNode(carry);
 		}
 		return dummyHead.next;
+	}
+
+
+
+	public static ListNode swapPairs(ListNode head) {
+
+		ListNode result = new ListNode(0);
+		ListNode current = result;
+		while(head != null && head.next!=null){
+			current.next = head.next;
+			current =current.next;
+			current.next = head;
+
+			head = head.next.next;
+		}
+		if(head!=null){
+			current.next = head;
+		}
+		return result.next;
+
+	}
+
+	public static void main(String[] args) {
+
 	}
 
 

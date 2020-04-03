@@ -36,6 +36,11 @@ public class QuickSort extends AbstractSort implements Sort {
         return i + 1;
     }
 
+
+    private static int selectPivot(int left,int right){
+          return(left+right)/2;
+    }
+
     private static <T> int partition2(T[] array, int left, int right) {
         //最左边元素为基准点
         T key = array[left];
