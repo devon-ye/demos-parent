@@ -31,4 +31,9 @@ public class TcpNonBlockClientDemo extends Thread{
 			e.printStackTrace();
 		}
 	}
+
+	public static void main(String[] args) {
+		TcpNonBlockClientDemo clientDemo = new TcpNonBlockClientDemo();
+		clientDemo.clientRegister();
+	}
 }

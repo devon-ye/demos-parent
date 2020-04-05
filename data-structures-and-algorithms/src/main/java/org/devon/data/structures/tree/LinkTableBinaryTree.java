@@ -256,6 +256,22 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
         }
     }
 
+    public int  getMinPath(TreeNode root){
+        if(root == null){
+            return 0;
+        }else{
+            int left =  this.getMinPath(root.left);
+
+            int right = this.getMinPath(root.right);
+            return Math.min(left,right)+(int)root.value;
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+    }
+
 
     /**
      * 一个二叉树得镜像 转化为两棵树去解

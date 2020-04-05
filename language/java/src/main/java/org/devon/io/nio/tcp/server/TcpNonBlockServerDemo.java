@@ -30,9 +30,11 @@ public class TcpNonBlockServerDemo {
 
 		try {
 			selector = Selector.open();
-			InetSocketAddress InetSocketAddress = new InetSocketAddress("127.0.0.1", 30000);
+
+			InetSocketAddress netSocketAddress = new InetSocketAddress("127.0.0.1", 30000);
 			serverSocketChannel = ServerSocketChannel.open();
 			serverSocketChannel.configureBlocking(false);
+			serverSocketChannel.bind(netSocketAddress,1);
 			serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 			readWriteDataByChannel(selector,serverSocketChannel);
 
