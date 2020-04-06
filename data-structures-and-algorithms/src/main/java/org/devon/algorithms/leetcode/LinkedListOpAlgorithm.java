@@ -328,8 +328,6 @@ public class LinkedListOpAlgorithm {
 	}
 
 
-
-
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		ListNode dummyHead = new ListNode(0);
 		ListNode curr = dummyHead;
@@ -353,27 +351,36 @@ public class LinkedListOpAlgorithm {
 	}
 
 
-
 	public static ListNode swapPairs(ListNode head) {
 
 		ListNode result = new ListNode(0);
 		ListNode current = result;
-		while(head != null && head.next!=null){
+		while (head != null && head.next != null) {
 			current.next = head.next;
-			current =current.next;
+			current = current.next;
 			current.next = head;
 
 			head = head.next.next;
 		}
-		if(head!=null){
+		if (head != null) {
 			current.next = head;
 		}
 		return result.next;
 
 	}
 
-	public static void main(String[] args) {
+	public static List<List<Integer>> generate(int numRows) {
+		List<List<Integer>> result = new ArrayList<>(numRows);
+		for (int i = 0; i < numRows; i++) {
+			List<Integer> row= new ArrayList<Integer>(i+1);
+			row.add(0,1);
+			result.addAll(java.util.Collections.singleton(row));
+		}
+		return result;
+	}
 
+	public static void main(String[] args) {
+      LinkedListOpAlgorithm.generate(5);
 	}
 
 
