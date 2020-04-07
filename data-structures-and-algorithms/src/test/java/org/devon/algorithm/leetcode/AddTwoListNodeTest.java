@@ -1,6 +1,5 @@
 package org.devon.algorithm.leetcode;
 
-import org.devon.algorithms.leetcode.AddTwoListNode;
 import org.junit.Test;
 
 
