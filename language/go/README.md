@@ -66,6 +66,19 @@ func funcName(){  fmt.Println(  "hello, go import ")}
           如果导入的包中以来其他包（包B），会首先导入B包，然后初始化B包中的常量与变量，最后如果B中有init，会自动执行initial（）；
           所有包到入完成之后才会对main中常量和变量进行初始化，然后执行main中的init函数（如果存在），最后执行main函数；
 
+
+### func(函数)
+```go
+func functionName(parameterName1 type1,parameterName2 type2)(output1 type1,output2 type2){
+	// bussine logic
+	output1 := 5
+	output2 := output1 * 5
+	
+	return output1,output2
+}
+
+```
+
 ## 数据类型
 
 
