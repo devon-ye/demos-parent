@@ -11,7 +11,6 @@ public class RoundRobinLoadBalance implements LoadBalance{
 	private Object lock = new Object();
 	@Override
 	public String name() {
-		return null;
-
+		return RandomLoadBalance.class.getSimpleName();
 	}
 }
