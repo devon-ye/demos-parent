@@ -10,6 +10,17 @@
   * mut 
     
         变量可变修饰符
+        
+### 函数fn
+
+```rust
+
+fn fn_name(paramter1:type1,parameter2:type2) -> returnType{
+   
+}
+
+
+```
 
 
 ## 数据类型
