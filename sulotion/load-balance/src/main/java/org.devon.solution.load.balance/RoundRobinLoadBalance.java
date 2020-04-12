@@ -1,6 +1,5 @@
 package org.devon.solution.load.balance;
 
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author devon.ye
