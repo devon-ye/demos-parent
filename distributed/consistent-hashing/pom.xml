@@ -13,8 +13,6 @@
     <name>consistent-hashing</name>
 	<properties>
         <java.version>1.8</java.version>
-
-
 	</properties>
     <repositories>
         <repository>
