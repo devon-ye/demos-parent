@@ -9,7 +9,7 @@ public class RandomLoadBalance implements LoadBalance {
 
 	@Override
 	public String name() {
-		return null;
+		return RandomLoadBalance.class.getSimpleName();
 	}
 
 

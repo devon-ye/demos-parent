@@ -1,6 +1,5 @@
 package org.devon.solution.load.balance;
 
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author devon.ye
@@ -11,7 +10,6 @@ public class RoundRobinLoadBalance implements LoadBalance{
 	private Object lock = new Object();
 	@Override
 	public String name() {
-		return null;
-
+		return RandomLoadBalance.class.getSimpleName();
 	}
 }

@@ -4,8 +4,8 @@ package org.devon.design.pattern.nullobject;
 *@author  Devonmusa
 *@date 2017年4月11日
 */
-public class NullObject extends Animal {
-
+public class NullObject extends Animal implements Nullable{
+    private boolean isNull;
 	@Override
 	public void eat() {
 		// TODO Auto-generated method stub
@@ -30,4 +30,13 @@ public class NullObject extends Animal {
 
 	}
 
+	@Override
+	public boolean isNull() {
+		return this.isNull;
+	}
+
+	@Override
+	public void setNull(boolean isNull) {
+         this.isNull = isNull;
+	}
 }
