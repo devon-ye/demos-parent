@@ -54,7 +54,7 @@ fn iterator_factorial(n: u32) -> u32 {
 }
 
 
-pub fn search(nums: Vec<i32>, target: i32) -> i32 {
+pub fn search(nums: Vec<T>, target: T) -> i32 {
 
     let mut start_index= 0;
     let mut end_index  = nums.len()-1;

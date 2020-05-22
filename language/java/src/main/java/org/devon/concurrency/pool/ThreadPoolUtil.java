@@ -25,7 +25,7 @@ public class ThreadPoolUtil {
     private static final Executor  singleScheduleThreadPool = Executors.newSingleThreadScheduledExecutor();
     private static final  Executor scheduleThreadPool = Executors.newScheduledThreadPool(2);
     private static final Executor WorkStealingPool = Executors.newWorkStealingPool();
-     private ThreadPoolExecutor executorService = new ThreadPoolExecutor(1,1,1, TimeUnit.MILLISECONDS,new LinkedBlockingQueue<>(2))
+     private ThreadPoolExecutor executorService = new ThreadPoolExecutor(1,1,1, TimeUnit.MILLISECONDS,new LinkedBlockingQueue<>(2));
 
     private ThreadPoolUtil() {
        ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();

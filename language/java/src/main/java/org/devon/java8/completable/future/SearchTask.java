@@ -20,7 +20,7 @@ public class SearchTask implements Function<List<Product>, List<Product>> {
 
     @Override
     public List<Product> apply(List<Product> products) {
-        System.out.println(new Date() +": CompletableTask: start");
+        System.out.println(new Date() +": CompletableTask: start,Thread:"+Thread.currentThread().getName());
         List<Product> ret = products.stream().filter(product -> product.getTitle().toLowerCase().contains(query))
                 .collect(Collectors.toList());
         System.out.println(new Date() + ": CompletableTask end. size:" + ret.size());
