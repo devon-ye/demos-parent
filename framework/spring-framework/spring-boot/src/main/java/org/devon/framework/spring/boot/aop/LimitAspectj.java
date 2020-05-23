@@ -1,4 +1,4 @@
-package org.devon.solution.rate.limiter.impl;
+package org.devon.framework.spring.boot.aop;
 
 import com.google.common.collect.ImmutableList;
 import org.apache.commons.lang3.StringUtils;
@@ -6,7 +6,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.devon.solution.rate.limiter.annotation.Limit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,16 +47,16 @@ public class LimitAspectj {
 			MethodSignature signature = (MethodSignature) pjp.getSignature();
 			Method method = signature.getMethod();
 			Limit limitAnnotation = method.getAnnotation(Limit.class);
-			Limit.LimitType limitType = limitAnnotation.limitType();
+			LimitType limitType = limitAnnotation.limitType();
 			String name = limitAnnotation.name();
 			String key;
 			int limitPeriod = limitAnnotation.period();
 			int limitCount = limitAnnotation.count();
-			switch (limitType) {
-				case IP:
+			switch (limitType.name()) {
+				case "TP":
 					key = getIpAddress();
 					break;
-				case CUSTOMER:
+				case "CUSTOMER":
 					// TODO 如果此处想根据表达式或者一些规则生成 请看 一起来学Spring Boot | 第二十三篇：轻松搞定重复提交（分布式锁）
 					key = limitAnnotation.key();
 					break;
