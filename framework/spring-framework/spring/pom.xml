@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <artifactId>spring-demo</artifactId>
+    <artifactId>spring-app</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -27,6 +27,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>2.3.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
