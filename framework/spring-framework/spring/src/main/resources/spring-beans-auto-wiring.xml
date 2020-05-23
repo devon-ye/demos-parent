@@ -7,11 +7,11 @@
 default-autowire="byName">
 
 
-    <bean id="beanAutoWiring"  class="org.devon.spring.demo.bean.autowiring.BeanAutoWiring">
+    <bean id="beanAutoWiring"  class="org.devon.spring.bean.autowiring.BeanAutoWiring">
 
     </bean>
 
-    <bean id="beanAutoWiringDao"  class="org.devon.spring.demo.bean.autowiring.BeanAutoWiringDao" >
+    <bean id="beanAutoWiringDao"  class="org.devon.spring.bean.autowiring.BeanAutoWiringDao" >
 
     </bean>
 </beans>

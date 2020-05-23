@@ -5,10 +5,10 @@
                "http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd" >
 
-    <bean id="beanScopeSingleton" class="org.devon.spring.demo.bean.scope.BeanScope" scope="singleton">
+    <bean id="beanScopeSingleton" class="org.devon.spring.bean.scope.BeanScope" scope="singleton">
 
     </bean>
-    <bean id="beanScopePrototype" class="org.devon.spring.demo.bean.scope.BeanScope" scope="prototype">
+    <bean id="beanScopePrototype" class="org.devon.spring.bean.scope.BeanScope" scope="prototype">
 
     </bean>
 </beans>

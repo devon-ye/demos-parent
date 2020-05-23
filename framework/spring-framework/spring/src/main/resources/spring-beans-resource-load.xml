@@ -7,7 +7,7 @@
 default-autowire="byName">
 
 
-    <bean id="resourceLoad"  class="org.devon.spring.demo.resource.ResourceLoad">
+    <bean id="resourceLoad"  class="org.devon.spring.resource.ResourceLoad">
 
     </bean>
 

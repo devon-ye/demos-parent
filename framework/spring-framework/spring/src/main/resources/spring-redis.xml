@@ -42,7 +42,7 @@
         <property name="connectionFactory" ref="jedisConnectionFactory" />
     </bean>
 
-    <bean id="stringSetRepository" class="org.devon.redis.demo.repository.StringSetRepository"/>
+    <bean id="stringSetRepository" class="org.devon.spring.cache.StringSetRepository"/>
 
     <!-- <bean id="redisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"/> -->
 

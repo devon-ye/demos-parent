@@ -16,7 +16,7 @@
         <constructor-arg name="initialCacheNames" ref=""/>
     </bean>
     -->
-    <bean id="cacheManager" class="org.devon.redis.demo.manager.GlobalCacheManager">
+    <bean id="cacheManager" class="org.devon.spring.cache.GlobalCacheManager">
         <property name="transactionAware" value="true"></property>
         <property name="caches">
             <set>
@@ -41,7 +41,7 @@
         <constructor-arg name="conversionService" ref=""/>
     </bean>
 
-    <bean id="cacheWriterImpl" class="org.devon.redis.demo.writer.RedisCacheWriterImpl">
+    <bean id="cacheWriterImpl" class="org.devon.spring.cache.RedisCacheWriterImpl">
 
     </bean>
 
