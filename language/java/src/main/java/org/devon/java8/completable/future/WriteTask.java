@@ -10,11 +10,11 @@ import java.util.function.Consumer;
 public class WriteTask implements Consumer<List<Product>> {
 
 
-    public WriteTask() {
-    }
+	public WriteTask() {
+	}
 
-    @Override
-    public void accept(List<Product> products) {
-
-    }
+	@Override
+	public void accept(List<Product> products) {
+		System.out.println("consumer:" + products);
+	}
 }

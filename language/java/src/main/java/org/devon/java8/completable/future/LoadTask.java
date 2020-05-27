@@ -14,14 +14,16 @@ import java.util.stream.Collectors;
  */
 public class LoadTask implements Supplier<List<Product>> {
 
-    private Path path;
+	private Path path;
 
-    public LoadTask(Path path) {
-        this.path = path;
-    }
+	public LoadTask(Path path) {
+		this.path = path;
+	}
 
-    @Override
-    public List<Product> get() {
+	@Override
+	public List<Product> get() {
+
+		System.out.println("Supplier:start,Thread:" + Thread.currentThread().getName());
         /*List<Product> productList = null;
         try {
             //todo
@@ -35,6 +37,13 @@ public class LoadTask implements Supplier<List<Product>> {
         }finally {
             path.
         }*/
-        return null;
-    }
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Supplier:end,Thread:" + Thread.currentThread().getName());
+
+		return null;
+	}
 }

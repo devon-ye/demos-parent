@@ -4,7 +4,6 @@ package org.devon.framework.servlet;
  * Created by lenovo on 2017/11/26.
  */
 
-import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -74,7 +73,7 @@ public class ServletApp extends HttpServlet implements SingleThreadModel {
             if (log4jConfigFile.exists()) {
                 Properties log4jProperties = new Properties();
                 log4jProperties.load(new FileInputStream(log4jConfigFile));
-                PropertyConfigurator.configure(log4jProperties);
+              //  PropertyConfigurator.configure(log4jProperties);
                 LOG.info("initLog4j finished");
             }
         } catch (IOException e) {

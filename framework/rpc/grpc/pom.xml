@@ -10,11 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.devon.framework.rpc</groupId>
     <artifactId>grpc</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>grpc-client</module>
+        <module>grpc-server</module>
+    </modules>
 
-     <dependencies>
-         <!--<dependency>
-             <groupId></groupId>
-             <artifactId>com.google.grpc</artifactId>
-         </dependency>-->
+    <dependencies>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-all</artifactId>
+            <version>1.29.0</version>
+        </dependency>
      </dependencies>
 </project>
