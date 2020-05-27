@@ -1,4 +1,3 @@
-
 /*fn main() {
     let _x = 5;
     let _y=40;
@@ -8,11 +7,7 @@
 use std::thread;
 
 fn main() {
-    let a= [1,5,3,4,6,7];
-
-
-    search((&a).to_vec(),4);
-    let new_thread = thread::spawn( move || {
+    let new_thread = thread::spawn(move || {
         println!("I am a new thread");
     });
 
@@ -33,7 +28,6 @@ fn recursive_factorial(n: u32) -> u32 {
     }
 }
 
-
 fn iterative_factorial(n: u32) -> u32 {
     // 变量用`let`定义，`mut`关键字使得变量可以变化
     let mut i = 1u32;
@@ -45,13 +39,9 @@ fn iterative_factorial(n: u32) -> u32 {
     result // 显式返回值，与上一个函数不同
 }
 
-
 fn iterator_factorial(n: u32) -> u32 {
     // 迭代器有多种用于变换的函数
     // |accum, x| 定义了一个匿名函数
     // 内联展开等优化方法会消去区间和fold，使本函数的运行效率和上一个函数相近
     (1..n + 1).fold(1, |accum, x| accum * x)
 }
-
-
-
