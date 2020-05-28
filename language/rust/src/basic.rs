@@ -33,6 +33,11 @@ fn direction() {
     }
 }
 
+fn reference() {
+    let x = 10;
+    let xr = &x;
+}
+
 enum Direction {
     UP,
     DOWN,
