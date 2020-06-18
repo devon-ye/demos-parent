@@ -18,8 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 //TODO
 public class DatabaseStoreDiscovery implements ServiceDiscovery, Runnable {
     private static final Logger LOG = LoggerFactory.getLogger(DatabaseStoreDiscovery.class);
-    private ScheduledExecutorService executor = new ScheduledThreadPoolExecutor(1,
-            new NameThreadFactory());
+    private ScheduledExecutorService executor = new ScheduledThreadPoolExecutor(1, new NameThreadFactory());
 
     private final String INIT_TABLE_SQL = "create table jdbc_service_discovery(" +
             "cluster_name varchar(256) NOT NULL," +
