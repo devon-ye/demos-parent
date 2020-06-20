@@ -9,10 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.devon.framework</groupId>
-    <artifactId>spring</artifactId>
+    <artifactId>spring-framework</artifactId>
     <modules>
-        <module>spring-boot</module>
-        <module>spring-demo</module>
+        <module>spring-app</module>
+        <module>spring-boot-app</module>
     </modules>
 
 </project>

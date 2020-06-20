@@ -9,7 +9,8 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication
+@EnableAutoConfiguration
+@SpringBootApplication(scanBasePackages = {"org.devon.framework.spring.boot"})
 public class SpringBootDemoApplication {
 
 	public static void main(String[] args) {
