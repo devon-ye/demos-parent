@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RedisTestController {
 
-	@Autowired
-	private OrderService  orderService;
-	@RequestMapping("/hello")
-	public String hello(){
+    @Autowired
+    private OrderService orderService;
+
+    @RequestMapping("/hello")
+    public String hello() {
         OrderEntity orderEntity = new OrderEntity();
-		orderEntity.setOrderSn(Long.MAX_VALUE);
-		orderService.save(orderEntity);
-		orderService.getByKey(1213123L);
-		orderService.getByKey(1213123432L);
-		return "hello http2";
-	}
+        orderEntity.setOrderSn(Long.MAX_VALUE);
+        orderService.save(orderEntity);
+        orderService.getByKey(1213123L);
+        orderService.getByKey(1213123432L);
+        return "hello http2";
+    }
 }

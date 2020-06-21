@@ -13,21 +13,21 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication(scanBasePackages = {"org.devon.framework.spring.boot"})
 public class SpringBootDemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootDemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootDemoApplication.class, args);
+    }
 
 
-	/**
-	 * 明文http2协议服务
-	 */
-	@Bean
-	public WebServerFactoryCustomizer<TomcatServletWebServerFactory> tomcatCustomizer(){
-		return factory -> {
-			Connector connector = new Connector();
-			connector.addUpgradeProtocol(new Http2Protocol());
-			connector.setPort(8080);
-			factory.addAdditionalTomcatConnectors(connector);
-		};
-	}
+    /**
+     * 明文http2协议服务
+     */
+    @Bean
+    public WebServerFactoryCustomizer<TomcatServletWebServerFactory> tomcatCustomizer() {
+        return factory -> {
+            Connector connector = new Connector();
+            connector.addUpgradeProtocol(new Http2Protocol());
+            connector.setPort(8080);
+            factory.addAdditionalTomcatConnectors(connector);
+        };
+    }
 }

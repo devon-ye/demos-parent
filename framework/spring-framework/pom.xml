@@ -10,9 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.devon.framework</groupId>
     <artifactId>spring-framework</artifactId>
+    <packaging>pom</packaging>
     <modules>
         <module>spring-app</module>
         <module>spring-boot-app</module>
     </modules>
+
 
 </project>

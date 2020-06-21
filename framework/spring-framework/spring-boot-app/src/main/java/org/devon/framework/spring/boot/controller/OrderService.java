@@ -8,9 +8,9 @@ package org.devon.framework.spring.boot.controller;
  */
 public interface OrderService {
 
-    void save(OrderEntity entity) ;
+    void save(OrderEntity entity);
 
-     OrderEntity getByKey(Long id) ;
+    OrderEntity getByKey(Long id);
 
-     OrderEntity getByKey2(Long id);
+    OrderEntity getByKey2(Long id);
 }

@@ -1,8 +1,8 @@
 server:
- port: 8443
- http2:
+  port: 8443
+  http2:
     enable: true
- ssl:
-    #key-store: classpath: xxxx.p12
-   # key-store-type = PKCS12
-   # server.ssl.key-store.password = password
+  ssl:
+  #key-store: classpath: xxxx.p12
+  # key-store-type = PKCS12
+  # server.ssl.key-store.password = password
