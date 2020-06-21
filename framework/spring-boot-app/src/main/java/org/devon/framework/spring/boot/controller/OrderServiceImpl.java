@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-@CacheConfig(cacheNames = "userInfo",cacheManager="cacheManager")
+@CacheConfig(cacheNames = "userInfo")
 public class OrderServiceImpl implements OrderService {
 
     @CachePut(unless = "#result == null")
