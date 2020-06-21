@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-@CacheConfig(cacheNames = "userInfo")
+@CacheConfig(cacheNames = "userInfo",cacheManager="cacheManager")
 public class OrderServiceImpl implements OrderService {
 
-    @CachePut(unless = "null")
+    @CachePut(unless = "#result == null")
     public void save(OrderEntity entity) {
         log.info("cache info finished:{}", entity);
     }

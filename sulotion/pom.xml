@@ -17,17 +17,5 @@
         <module>rate-limiter</module>
         <module>load-balance</module>
     </modules>
-    <dependencies>
 
-        <dependency>
-            <groupId>org.devon.sulotion</groupId>
-            <artifactId>load-balance</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.devon.solution</groupId>
-            <artifactId>rate-limiter</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
 </project>

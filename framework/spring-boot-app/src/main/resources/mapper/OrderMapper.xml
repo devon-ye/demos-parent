@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.devon.framework.spring.boot.dao.OrderMapper">
+    <resultMap id="BaseResultMap" type="org.devon.framework.spring.boot.controller.OrderEntity">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="order_sn" property="orderSn" jdbcType="BIGINT"/>
+        <result column="type" property="orderSn" jdbcType="TINYINT"/>
+        <result column="source" property="orderSn" jdbcType="TINYINT"/>
+        <result column="channel" property="orderSn" jdbcType="TINYINT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, order_sn, type, source, channel
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from order
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <insert id="insert"  parameterType="org.devon.framework.spring.boot.controller.OrderEntity">
+       INSERT INTO order(order_sn,type,source,channel) values(#{orderSn,jdbcType=BIGINT},#{type,jdbcType=TINYINT},#{source,jdbcType=TINYINT},#{channel,jdbcType=TINYINT})
+    </insert>
+
+</mapper>

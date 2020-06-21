@@ -1,7 +1,8 @@
 package org.devon.framework.spring.boot.controller;
 
 import lombok.Data;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
+
+import java.io.Serializable;
 
 /**
  * @author devon.ye@foxmail.com
@@ -9,8 +10,8 @@ import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
  * @description
  */
 @Data
-public class OrderEntity {
-
+public class OrderEntity implements Serializable {
+    private Long id;
     private Long orderSn;
     private Integer type;
     private Integer source;

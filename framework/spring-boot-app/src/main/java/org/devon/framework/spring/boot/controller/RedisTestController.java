@@ -19,9 +19,10 @@ public class RedisTestController {
     public String hello() {
         OrderEntity orderEntity = new OrderEntity();
         orderEntity.setOrderSn(Long.MAX_VALUE);
+        orderService.getByKey(4567L);
+        orderService.getByKey2(456456L);
         orderService.save(orderEntity);
-        orderService.getByKey(1213123L);
-        orderService.getByKey(1213123432L);
+
         return "hello http2";
     }
 }

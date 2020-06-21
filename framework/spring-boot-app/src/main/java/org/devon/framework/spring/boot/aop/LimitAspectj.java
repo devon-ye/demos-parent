@@ -9,6 +9,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
@@ -25,22 +26,23 @@ import java.lang.reflect.Method;
  * @datetime 2020/2/25 11:14 下午
  * @since
  */
-@Aspect
-@Configuration
+//@Aspect
+//@Configuration
 public class LimitAspectj {
 
 
     private static final Logger logger = LoggerFactory.getLogger(LimitAspectj.class);
 
+    @Qualifier("redisTemplate")
     private final RedisTemplate<String, Serializable> limitRedisTemplate;
 
     @Autowired
-    public LimitAspectj(RedisTemplate<String, Serializable> limitRedisTemplate) {
+    public LimitAspectj(@Qualifier("redisTemplate") RedisTemplate<String, Serializable> limitRedisTemplate) {
         this.limitRedisTemplate = limitRedisTemplate;
     }
 
 
-    @Around("execution(public * *(..)) && @annotation(org.devon.solution.rate.limiter.annotation.Limit)")
+    @Around("execution(public * *(..)) && @annotation(org.devon.framework.spring.boot.aop.Limit)")
     public Object interceptor(ProceedingJoinPoint pjp) {
         MethodSignature signature = (MethodSignature) pjp.getSignature();
         Method method = signature.getMethod();
