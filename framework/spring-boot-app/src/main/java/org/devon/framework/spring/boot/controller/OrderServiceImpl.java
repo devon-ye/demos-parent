@@ -15,14 +15,16 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-@CacheConfig(cacheNames = "userInfo",cacheManager="cacheManager")
+@CacheConfig(cacheNames = "userInfo")
 public class OrderServiceImpl implements OrderService {
 
     @CachePut(unless = "#result == null")
+    @Override
     public void save(OrderEntity entity) {
         log.info("cache info finished:{}", entity);
     }
 
+    @Override
     @Cacheable(key = "#id")
     public OrderEntity getByKey(Long id) {
         OrderEntity orderEntity = new OrderEntity();
@@ -35,6 +37,7 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Cacheable
+    @Override
     public OrderEntity getByKey2(Long id) {
         OrderEntity orderEntity = new OrderEntity();
         log.info("cache info getByKey2:{}", id);
