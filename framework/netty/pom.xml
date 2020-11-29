@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
-            <artifactId>netty-core</artifactId>
+            <artifactId>netty-all</artifactId>
             <version>4.1.36.Final</version>
         </dependency>
     </dependencies>
