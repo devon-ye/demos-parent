@@ -7,6 +7,7 @@
         <groupId>org.devon</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
+
     <groupId>org.devon.framework.spring-framework</groupId>
     <artifactId>spring-boot-app</artifactId>
     <packaging>jar</packaging>
