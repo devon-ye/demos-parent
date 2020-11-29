@@ -3,6 +3,7 @@ package org.devon.data.structures.tree;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -10,6 +11,7 @@ import org.junit.Test;
  * @date 2019/8/24 5:00
  * @since
  */
+@Ignore
 public class BinaryTreeTest {
 
     @Before

@@ -10,7 +10,7 @@ import org.junit.Test;
  */
 public class FastSlowPointerTest {
 
-    private FastSlowPointer<Integer> fastSlowPointer = new FastSlowPointer<>();
+    private static FastSlowPointer<Integer> fastSlowPointer = new FastSlowPointer<>();
 
     @Before
     public void setUp() {
