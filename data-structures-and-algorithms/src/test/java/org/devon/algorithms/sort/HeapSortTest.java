@@ -2,6 +2,7 @@ package org.devon.algorithms.sort;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -9,6 +10,7 @@ import org.junit.Test;
  * @date 2019/8/17 17:31
  * @since
  */
+@Ignore
 public class HeapSortTest {
 
     @Before
