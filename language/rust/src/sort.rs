@@ -30,5 +30,7 @@ impl<T> Input<T> {
     }
 }
 
-fn main() {}
+#cfg[test]
+fn test() {
 
+}

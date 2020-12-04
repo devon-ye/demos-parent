@@ -3,10 +3,9 @@
     let _y=40;
     println!("Hello, world!");
 }*/
-
 use std::thread;
 
-fn main() {
+fn execute_thread() {
     let new_thread = thread::spawn(move || {
         println!("I am a new thread");
     });
