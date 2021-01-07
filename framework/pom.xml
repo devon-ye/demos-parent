@@ -18,8 +18,8 @@
         <module>rpc</module>
         <module>servlet</module>
         <module>shiro</module>
-        <module>spring</module>
-        <module>yaml</module>
+        <module>spring-app</module>
+        <module>spring-boot-app</module>
         <module>stream-processing</module>
         <module>netty</module>
         <module>instrumentation</module>

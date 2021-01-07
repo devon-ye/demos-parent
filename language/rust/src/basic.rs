@@ -1,13 +1,11 @@
-fn main() {
+pub fn print_enum() {
     let numbers = 45..100;
-    // let numbers : Range<i32> = 45 .. 100;
 
     for i in numbers {
         println!("This is number:{}", i);
     }
 
     let annimals = vec!["cat", "dog", "pig"];
-    // let annimals : Vec<&Str>= vec! {"cat", "dog", "pig"};
 
     for a in annimals.iter() {
         println!("this is annimal:{}", a);
@@ -16,7 +14,6 @@ fn main() {
     for (index, a) in annimals.iter().enumerate() {
         println!("this is index:{} annimal:{}", index, a);
     }
-    direction();
 
     let tuple1 = (1, "mamei", 3.78, true);
     println!("this is tuple1.2={}", tuple1.2);
@@ -36,6 +33,7 @@ fn direction() {
 fn reference() {
     let x = 10;
     let xr = &x;
+    print!("xr:{}", xr);
 }
 
 enum Direction {
@@ -44,3 +42,17 @@ enum Direction {
     LEFT,
     RIGHT,
 }
+
+fn main(){
+
+}
+
+#[test]
+fn test(){
+    reference();
+}
+
+
+
+
+

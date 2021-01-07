@@ -2,6 +2,7 @@ package org.devon.middleware.redis;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -16,6 +17,7 @@ import static org.junit.Assert.*;
  * @datetime 2020/2/28 11:21 下午
  * @since
  */
+@Ignore
 public class JedisAppTest {
     private JedisPool jedisPool;
     private Jedis jedis;

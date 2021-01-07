@@ -3,6 +3,7 @@ package org.devon.algorithm.leetcode;
 import org.devon.algorithms.leetcode.LinkedListOpAlgorithm;
 import org.devon.algorithms.leetcode.ListNode;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class LinkedListOpAlgorithmTest {
@@ -20,8 +21,9 @@ public class LinkedListOpAlgorithmTest {
         Assert.assertEquals(3, LinkedListOpAlgorithm.findMiddleNode(node1).val);
     }
 
+    @Ignore
     @Test
-    public void hasCycle1() {
+    public void hasCycle() {
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
         ListNode node3 = new ListNode(3);
@@ -45,18 +47,7 @@ public class LinkedListOpAlgorithmTest {
         Assert.assertEquals(4,LinkedListOpAlgorithm.reverseList(node1).val);
     }
 
-    @Test
-    public void hasCycle() {
-        ListNode node1 = new ListNode(1);
-        ListNode node2 = new ListNode(2);
-        ListNode node3 = new ListNode(3);
-        ListNode node4 = new ListNode(4);
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-        node4.next = node2;
-        Assert.assertTrue(LinkedListOpAlgorithm.hasCycle1(node1));
-    }
+
 
     @Test
     public void removeNthFromEnd() {
