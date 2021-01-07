@@ -1,8 +1,8 @@
-/*fn main() {
+fn main() {
     let _x = 5;
     let _y=40;
     println!("Hello, world!");
-}*/
+}
 use std::thread;
 
 fn execute_thread() {

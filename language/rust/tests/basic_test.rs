@@ -1,10 +1,8 @@
-extern crate e;
+use  rust_demo;
 
-#[cfg(test)]
-mod tests {
-
-    #[test]
-    fn test_print_enum() {
-        basic::print_enum();
-    }
+#[test]
+fn test(){
+    basic::reference();
 }
+
+
