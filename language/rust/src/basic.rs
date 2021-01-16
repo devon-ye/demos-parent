@@ -53,6 +53,28 @@ fn test(){
 }
 
 
+pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    if nums.len()==0 {
+        return vec![-1,-1]
+    }
+
+
+    let mut leftIndex = 0;
+    let mut rightIndex = nums.len()-1;
+    while leftIndex <= rightIndex {
+        let mut mid = (leftIndex + rightIndex) /2;
+        if target < nums[mid] {
+            rightIndex = mid -1;
+        } else if target > nums[mid] {
+            leftIndex = mid + 1;
+        }  else {
+            let mut left= leftIndex as i32;
+            let mut right= rightIndex as i32;
+
+            return vec![left,right];
+        }
+    }
+}
 
 
 

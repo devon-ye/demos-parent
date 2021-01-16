@@ -148,6 +148,30 @@ public class LinkTableBinaryTree<Key extends Comparable<Key>,Value> implements B
         return node;
     }
 
+    public boolean isSubTree(TreeNode parent, TreeNode child) {
+        if (parent == null && child == null) {
+            return true;
+        } else if (parent != null && child != null && parent.value == child.value) {
+            boolean left = isSubTree(parent.left, child.left);
+            boolean right = isSubTree(parent.right, child.right);
+            if (left == true && right == true) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            boolean result = isSubTree(parent.left, child);
+            if (result) {
+                return true;
+            }
+            result = isSubTree(parent.right, child);
+            if (result) {
+                return true;
+            }
+            return false;
+        }
+    }
+
     public void preOrderTraversal(TreeNode root) {
         if (root == null) {
             return;
