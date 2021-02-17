@@ -27,7 +27,7 @@ public class CGLibProxyFactory implements MethodInterceptor {
         Object result = null;
         String type = car.getType();
         if("mating".equals(type)) {
-            result = methodProxy.invoke(target,objects);
+            result = methodProxy.invokeSuper(target,objects);
         }else {
             System.out.println(" this not mating car!");
         }
