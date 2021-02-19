@@ -6,13 +6,15 @@ package org.devon.concurrency.deadlock;
 public class DeadLockDemo {
     private  static String A="A";
     private  static String B="B";
+
+
     public void deadLock() {
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 synchronized (A){
                     try {
-                        this.wait(2000);
+                        A.wait(2000);
                     }catch (Exception e){
                         e.printStackTrace();
                     }
