@@ -1,11 +1,11 @@
-package org.devon.concurrency.condition;
+package org.devon.concurrency.synchronizeds;
 
 /**
  * @author: devon.ye@foxmail.com
  * @datetime: 2021/2/19 6:35 PM
  */
 public class SynchronizedSleepWaitDemo implements Runnable {
-    private static Object LOCK = new Object();
+    private  Object LOCK = new Object();
 
     private final String WAIT = "wait";
 
@@ -24,8 +24,8 @@ public class SynchronizedSleepWaitDemo implements Runnable {
         SynchronizedSleepWaitDemo sleepDemo = new SynchronizedSleepWaitDemo("sleep");
         Thread sleep_thread1 = new Thread(sleepDemo,"synchronized_sleep_thread1");
         Thread sleepThread2 = new Thread(sleepDemo,"synchronized_sleep_thread2");
-//        wait_thread1.start();
-//        wait_thread2.start();
+        wait_thread1.start();
+        wait_thread2.start();
         sleep_thread1.start();
         sleepThread2.start();
 
@@ -35,7 +35,7 @@ public class SynchronizedSleepWaitDemo implements Runnable {
     private void testSynchronizedSleep() {
         while (true) {
             synchronized (LOCK) {
-                System.out.println("testSynchronizedSleep");
+                System.out.println(Thread.currentThread().getName()+"    testSynchronizedSleep");
                 try {
                     Thread.sleep(20000);
                 } catch (InterruptedException e) {
@@ -48,7 +48,7 @@ public class SynchronizedSleepWaitDemo implements Runnable {
     private void testSynchronizedWait() {
         while (true) {
             synchronized (LOCK) {
-                System.out.println("testSynchronizedWait");
+                System.out.println(Thread.currentThread().getName()+"     testSynchronizedWait");
                 try {
                     LOCK.wait(20000);
                 } catch (InterruptedException e) {
