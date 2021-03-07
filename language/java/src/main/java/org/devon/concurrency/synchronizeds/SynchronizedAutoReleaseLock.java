@@ -1,5 +1,7 @@
 package org.devon.concurrency.synchronizeds;
 
+import com.google.common.io.Files;
+
 /**
  * @author devon.ye
  * @datetime 2020/2/20 12:22 上午
@@ -28,7 +30,7 @@ public class SynchronizedAutoReleaseLock {
 	 * 2. object instance lock by  method
 	 */
 	public synchronized void objectInstanceLock1(){
-
+		Files.copy();
 	}
 
 
