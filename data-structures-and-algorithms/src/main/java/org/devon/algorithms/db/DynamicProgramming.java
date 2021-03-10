@@ -3,6 +3,7 @@ package org.devon.algorithms.db;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Deque;
 import java.util.List;
 
@@ -57,6 +58,7 @@ public class DynamicProgramming {
 
     /**
      * 总数为num元,需要最少多少枚conis中的硬币组成
+     *
      * @param conis
      * @param num
      * @return
@@ -87,6 +89,7 @@ public class DynamicProgramming {
 
     /**
      * 按摩师间隔预约 最长可预约多长时间
+     *
      * @param nums
      * @return
      */
@@ -113,8 +116,80 @@ public class DynamicProgramming {
         return nums[len - 1] >= nums[len - 2] ? nums[len - 1] : nums[len - 2];
     }
 
+
+    public static int lengthOfLIS(int[] nums) {
+        int[] dp = new int[nums.length];
+        int len = 0;
+        for (int num : nums) {
+            int i = Arrays.binarySearch(dp, 0, len, num);
+            if (i < 0) {
+                i = -(i + 1);
+            }
+            dp[i] = num;
+            if (i == len) {
+                len++;
+            }
+        }
+        return len;
+    }
+
+    public static int maxEnvelopes(int[][] envelopes) {
+        // sort on increasing in first dimension and decreasing in second
+        Arrays.sort(envelopes, new Comparator<int[]>() {
+            public int compare(int[] arr1, int[] arr2) {
+                if (arr1[0] == arr2[0]) {
+                    return arr2[1] - arr1[1];
+                } else {
+                    return arr1[0] - arr2[0];
+                }
+            }
+        });
+        // extract the second dimension and run LIS
+        int[] secondDim = new int[envelopes.length];
+        for (int i = 0; i < envelopes.length; ++i) {
+            secondDim[i] = envelopes[i][1];
+        }
+        return lengthOfLIS(secondDim);
+    }
+
+    public static int maxProduct(int[] nums) {
+        if (nums.length == 1) return nums[0];
+
+        int max = nums[0];
+        int min = nums[0];
+        int result = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            int tempMax = max, tempMin = min;
+            max = Math.max(Math.max(nums[i], tempMax * nums[i]), tempMin * nums[i]);
+            min = Math.min(Math.min(nums[i], tempMin * nums[i]), tempMax * nums[i]);
+            result = Math.max(max, result);
+        }
+        return result;
+    }
+
+
+    public int rob(int[] nums) {
+        if (nums == null) return 0;
+        int len = nums.length;
+        if (len == 1) return nums[0];
+
+        for (int i = 2; i < nums.length; i++) {
+            if (i == 2) {
+                nums[i] = nums[i] + nums[i - 2];
+            } else {
+                nums[i] = nums[i] + Math.max(nums[i - 2], nums[i - 3]);
+            }
+        }
+
+        return nums[len - 1] > nums[len - 2] ? nums[len - 1] : nums[len - 2];
+    }
+
+
+
     public static void main(String[] args) {
-        massage(new int[]{2, 1, 4, 5, 3, 1, 1, 3});
+        maxProduct(new int[]{-4, -3, -2});
+        // maxEnvelopes(new int[][]{{5,4},{6,4},{6,7},{2,3}});
+        //  massage(new int[]{2, 1, 4, 5, 3, 1, 1, 3});
         //  minCoins(27);
     }
 
