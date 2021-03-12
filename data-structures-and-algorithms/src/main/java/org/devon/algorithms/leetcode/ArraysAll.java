@@ -2,8 +2,10 @@ package org.devon.algorithms.leetcode;
 
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class ArraysAll {
     // duble index  method
@@ -349,8 +351,21 @@ public class ArraysAll {
 
     }
 
+    public static int[] plusOne1(int[] digits) {
+        for (int i = digits.length - 1; i >= 0; i--) {
+            digits[i]++;
+            digits[i] = digits[i] % 10;
+            if (digits[i] != 0) return digits;
+        }
+        digits = new int[digits.length + 1];
+        digits[0] = 1;
+        return digits;
+    }
+
+
     public static int[] plusOne(int[] digits) {
         if (digits == null) return null;
+
         int len = digits.length - 1;
         int pos = 0;
         for (int i = len; i > -1; i--) {
@@ -372,6 +387,22 @@ public class ArraysAll {
         } else {
             return digits;
         }
+    }
+
+    public static int[] plusOne2(int[] digits) {
+
+        for (int i = digits.length - 1; i >= 0; i--) {
+            int temp = digits[i] + 1;
+            if (temp / 10 > 0) {
+                digits[i] = temp % 10;
+            } else {
+                digits[i] = temp;
+                return digits;
+            }
+        }
+        int[] result = new int[digits.length + 1];
+        result[0] = 1;
+        return result;
     }
 
     public static void moveZeroes(int[] nums) {
@@ -445,11 +476,78 @@ public class ArraysAll {
 
     }
 
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int num = target - nums[i];
+            if (map.containsKey(num)) {
+                return new int[]{i, map.get(num)};
+            } else {
+                map.put(nums[i], i);
+            }
+        }
+
+        return null;
+    }
+
+    public static boolean isValidSudoku(char[][] board) {
+        byte[] row = new byte[10];
+        byte[][] box = new byte[3][10];
+        byte[][] col = new byte[10][10];
+
+        //row iterator
+        for (int i = 0; i < 9; i++) {
+            //col iterator
+            System.out.println("board row:" + Arrays.toString(board[i]));
+            for (int j = 0; j < 9; j++) {
+                if ('.' == board[i][j]) continue;
+
+                //row check
+                int num = Character.getNumericValue(board[i][j]);
+                byte rowTag = (byte) (i + 1);
+                if (row[num] == rowTag) {
+                    System.out.println("row num:" + num + ", i:" + i + ", row:" + Arrays.toString(row));
+                    return false;
+                } else {
+                    row[j] = rowTag;
+                }
+
+                // box check
+                byte boxTag = (byte) (j / 3 + 1);
+                if (box[j % 3][num] == boxTag) {
+                    System.out.println("box num:" + num + ", i:" + i + ", j:" + j + ", boxTag:" + boxTag + ", box[j % 3][num]:" + box[j % 3][num]);
+                    return false;
+                } else {
+                    box[j % 3][num] = boxTag;
+                }
+
+                //col check
+                byte colTag = (byte) (j + 1);
+                if (col[j][num] == colTag) {
+                    System.out.println("col num:" + num + ", i:" + i + ", j:" + j + ", row:" + Arrays.toString(col));
+                    return false;
+                } else {
+                    col[j][num] = colTag;
+                }
+
+            }
+        }
+
+        return true;
+    }
+
 
     public static void main(String[] args) {
-        //ArraysAll.plusOne(new int[]{9});
-        ArraysAll.findKthLargest(new int[]{1, 5, 6, 7}, 3);
-        ArraysAll.findKthLargest(new int[]{1}, 1);
+        // ArraysAll.plusOne2(new int[]{9, 9, 9, 9});
+
+        String CC = "[['5','3',\".\",\".\",\"7\",\".\",\".\",\".\",\".\"],[\"6\",\".\",\".\",\"1\",\"9\",\"5\",\".\",\".\",\".\"],[\".\",\"9\",\"8\",\".\",\".\",\".\",\".\",\"6\",\".\"],[\"8\",\".\",\".\",\".\",\"6\",\".\",\".\",\".\",\"3\"],[\"4\",\".\",\".\",\"8\",\".\",\"3\",\".\",\".\",\"1\"],[\"7\",\".\",\".\",\".\",\"2\",\".\",\".\",\".\",\"6\"],[\".\",\"6\",\".\",\".\",\".\",\".\",\"2\",\"8\",\".\"],[\".\",\".\",\".\",\"4\",\"1\",\"9\",\".\",\".\",\"5\"],[\".\",\".\",\".\",\".\",\"8\",\".\",\".\",\"7\",\"9\"]]";
+        char[][] board = new char[9][9];
+        for (char[] chars : board) {
+            Arrays.fill(chars, '.');
+        }
+
+        board[0][0] = '5';
 
 
     }

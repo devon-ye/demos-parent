@@ -43,4 +43,10 @@ public class StackTest {
     @Test
     public void spliterator() {
     }
+
+    @Test
+    public void longestValidParentheses() {
+        Stack stack = new Stack();
+        stack.longestValidParentheses("()())())))()()()()");
+    }
 }

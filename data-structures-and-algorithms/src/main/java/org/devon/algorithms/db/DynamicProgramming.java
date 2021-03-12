@@ -185,9 +185,60 @@ public class DynamicProgramming {
     }
 
 
+    public static void rotate1(int[] nums, int k) {
+
+        if (nums == null || nums.length == 0) return;
+
+        if (nums.length < 2) return;
+
+        for (int i = 1; i <= k; i++) {
+            int pre = nums[0];
+            for (int j = 0; j < nums.length; j++) {
+                int index = j + 1;
+                if (index == nums.length) {
+                    index = 0;
+                }
+                int temp = nums[index];
+                nums[index] = pre;
+                pre = temp;
+            }
+        }
+    }
+
+    public void rotate2(int[] nums, int k) {
+        int n = nums.length;
+        int[] newArr = new int[n];
+        for (int i = 0; i < n; ++i) {
+            newArr[(i + k) % n] = nums[i];
+        }
+        System.arraycopy(newArr, 0, nums, 0, n);
+    }
+
+
+    public static void rotate(int[] nums, int k) {
+        int n = nums.length;
+        k = k % n;
+        int count = gcd(k, n);
+        for (int start = 0; start < count; ++start) {
+            int current = start;
+            int prev = nums[start];
+            do {
+                int next = (current + k) % n;
+                int temp = nums[next];
+                nums[next] = prev;
+                prev = temp;
+                current = next;
+            } while (start != current);
+        }
+    }
+
+    public static int gcd(int x, int y) {
+        return y > 0 ? gcd(y, x % y) : x;
+    }
 
     public static void main(String[] args) {
-        maxProduct(new int[]{-4, -3, -2});
+        rotate(new int[]{1, 2, 3, 4, 5}, 3);
+        //  maxProduct(new int[]{-4, -3, -2});
         // maxEnvelopes(new int[][]{{5,4},{6,4},{6,7},{2,3}});
         //  massage(new int[]{2, 1, 4, 5, 3, 1, 1, 3});
         //  minCoins(27);

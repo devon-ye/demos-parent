@@ -37,4 +37,24 @@ public class ShellSort extends AbstractSort implements Sort {
         return array;
     }
 
+
+    public static void shellSort(int[] array) {
+        int number = array.length / 2;
+        int i;
+        int j;
+        int temp;
+        while (number >= 1) {
+            for (i = number; i <         array.length; i++) {
+                temp = array[i];
+                j = i - number;
+                while (j >= 0 &&    array[j] < temp) { //需要注意的是，這裡array[j] < temp將會使數组從大到小排序。
+                    array[j + number] = array[j];
+                    j = j - number;
+                }
+                array[j + number] = temp;
+            }
+            number = number / 2;
+        }
+    }
+
 }

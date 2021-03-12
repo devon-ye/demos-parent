@@ -37,5 +37,37 @@ public class MergeSort extends AbstractSort implements Sort {
     }
 
 
+    public  int[] sort(int[] array, int low, int high) {
+
+        if (low == high) {
+            int[] arr = new int[1];;
+            arr[0] = array[low];
+            return arr;
+        }
+
+        int mid = low + (high - low) / 2;
+
+        int[] leftArray = sort(array, low, mid);
+        int[] rightArray = sort(array, mid + 1, high);
+
+        int[] newArray = new int[leftArray.length + rightArray.length];
+
+        int m = 0, i = 0, j = 0;
+        while (i < leftArray.length && j < rightArray.length) {
+            newArray[m++] = leftArray[i]<rightArray[j] ? leftArray[i++] : rightArray[j++];
+        }
+
+        while (i < leftArray.length) {
+            newArray[m++] = leftArray[i++];
+        }
+
+        while (j < rightArray.length) {
+            newArray[m++] = rightArray[j++];
+        }
+        return newArray;
+    }
+
+
+
 
 }
