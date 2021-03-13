@@ -1,6 +1,9 @@
 package org.devon.algorithms.leetcode;
 
 
+import com.oracle.javafx.jmx.json.impl.JSONMessages;
+import jdk.nashorn.internal.parser.JSONParser;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -499,7 +502,6 @@ public class ArraysAll {
         //row iterator
         for (int i = 0; i < 9; i++) {
             //col iterator
-            System.out.println("board row:" + Arrays.toString(board[i]));
             for (int j = 0; j < 9; j++) {
                 if ('.' == board[i][j]) continue;
 
@@ -507,25 +509,22 @@ public class ArraysAll {
                 int num = Character.getNumericValue(board[i][j]);
                 byte rowTag = (byte) (i + 1);
                 if (row[num] == rowTag) {
-                    System.out.println("row num:" + num + ", i:" + i + ", row:" + Arrays.toString(row));
                     return false;
                 } else {
-                    row[j] = rowTag;
+                    row[num] = rowTag;
                 }
 
                 // box check
-                byte boxTag = (byte) (j / 3 + 1);
-                if (box[j % 3][num] == boxTag) {
-                    System.out.println("box num:" + num + ", i:" + i + ", j:" + j + ", boxTag:" + boxTag + ", box[j % 3][num]:" + box[j % 3][num]);
+                byte boxTag = (byte) ((i / 3)*3 + j/3+1);
+                if (box[j / 3][num] == boxTag) {
                     return false;
                 } else {
-                    box[j % 3][num] = boxTag;
+                    box[j  / 3][num] = boxTag;
                 }
 
                 //col check
                 byte colTag = (byte) (j + 1);
                 if (col[j][num] == colTag) {
-                    System.out.println("col num:" + num + ", i:" + i + ", j:" + j + ", row:" + Arrays.toString(col));
                     return false;
                 } else {
                     col[j][num] = colTag;
@@ -540,14 +539,28 @@ public class ArraysAll {
 
     public static void main(String[] args) {
         // ArraysAll.plusOne2(new int[]{9, 9, 9, 9});
-
-        String CC = "[['5','3',\".\",\".\",\"7\",\".\",\".\",\".\",\".\"],[\"6\",\".\",\".\",\"1\",\"9\",\"5\",\".\",\".\",\".\"],[\".\",\"9\",\"8\",\".\",\".\",\".\",\".\",\"6\",\".\"],[\"8\",\".\",\".\",\".\",\"6\",\".\",\".\",\".\",\"3\"],[\"4\",\".\",\".\",\"8\",\".\",\"3\",\".\",\".\",\"1\"],[\"7\",\".\",\".\",\".\",\"2\",\".\",\".\",\".\",\"6\"],[\".\",\"6\",\".\",\".\",\".\",\".\",\"2\",\"8\",\".\"],[\".\",\".\",\".\",\"4\",\"1\",\"9\",\".\",\".\",\"5\"],[\".\",\".\",\".\",\".\",\"8\",\".\",\".\",\"7\",\"9\"]]";
         char[][] board = new char[9][9];
         for (char[] chars : board) {
             Arrays.fill(chars, '.');
         }
+        board[0][4]='5';
+        board[0][7]='1';
+        board[1][1]='4';
+        board[1][3]='3';
+        board[2][5]='3';
+        board[2][8]='1';
+        board[3][0]='8';
+        board[3][7]='2';
+        board[4][2]='2';
+        board[4][4]='7';
+        board[5][1]='1';
+        board[5][2]='5';
+        board[6][5]='2';
+        board[7][1]='2';
+        board[7][3]='9';
+        board[8][2]='4';
+        isValidSudoku(board);
 
-        board[0][0] = '5';
 
 
     }
