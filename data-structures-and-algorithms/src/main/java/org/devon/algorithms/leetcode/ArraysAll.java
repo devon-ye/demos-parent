@@ -4,6 +4,7 @@ package org.devon.algorithms.leetcode;
 import com.oracle.javafx.jmx.json.impl.JSONMessages;
 import jdk.nashorn.internal.parser.JSONParser;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -537,7 +538,49 @@ public class ArraysAll {
     }
 
 
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        Map<String,List<String>> map = new HashMap<>();
+        for (String str : strs) {
+            char[] ch = str.toCharArray();
+            Arrays.sort(ch);
+            String key = new String(ch);
+            List list =  map.getOrDefault(key, new ArrayList<String>());
+            list.add(str);
+            map.put(key, list);
+        }
+
+        List<List<String>> result = new ArrayList<>();
+        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+            result.add(entry.getValue());
+        }
+        return result;
+    }
+
+
+    public static boolean increasingTriplet(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            int index = i+1;
+            while(i<index && index < nums.length-1){
+                if(nums[index-1] < nums[index]){
+                    if(index-i==2){
+                        return true;
+                    }
+                    index++;
+                }else {
+                    i= index;
+                }
+            }
+        }
+        return false;
+    }
+
+
     public static void main(String[] args) {
+        increasingTriplet(new int[]{2,1,5,0,4,6});
+
+        increasingTriplet(new int[]{1,2,3,4,5,-1,-3});
+
+        increasingTriplet(new int[]{0,4,2,1,0,-1,-3});
         // ArraysAll.plusOne2(new int[]{9, 9, 9, 9});
         char[][] board = new char[9][9];
         for (char[] chars : board) {
@@ -560,6 +603,9 @@ public class ArraysAll {
         board[7][3]='9';
         board[8][2]='4';
         isValidSudoku(board);
+
+        groupAnagrams(new String[]{"eat","tea","tan","ate","nat","bat"});
+
 
 
 

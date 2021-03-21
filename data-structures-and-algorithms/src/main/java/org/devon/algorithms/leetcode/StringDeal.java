@@ -127,6 +127,7 @@ public class StringDeal {
         return result;
     }
 
+
     /**
      * @param s
      * @return
@@ -144,6 +145,15 @@ public class StringDeal {
             }
         }
         return s.substring(start, end + 1);
+    }
+
+    private int expandAroundCenter(String s, int left, int right) {
+        int L = left, R = right;
+        while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
+            L--;
+            R++;
+        }
+        return R - L - 1;
     }
 
     /**
@@ -176,14 +186,6 @@ public class StringDeal {
         return false;
     }
 
-    private int expandAroundCenter(String s, int left, int right) {
-        int L = left, R = right;
-        while (L >= 0 && R < s.length() && s.charAt(L) == s.charAt(R)) {
-            L--;
-            R++;
-        }
-        return R - L - 1;
-    }
 
     static Map<String, String> phone = new HashMap<String, String>() {{
         put("2", "abc");
@@ -397,7 +399,9 @@ public class StringDeal {
 
     public static boolean isPalindrome(String s) {
 
-        if (s == null || s.length() == 0) {return false;}
+        if (s == null || s.length() == 0) {
+            return false;
+        }
 
         int startIndex = 0;
         int endIndex = s.length() - 1;
@@ -416,7 +420,7 @@ public class StringDeal {
             char left = s.charAt(startIndex);
             char right = s.charAt(endIndex);
 
-            if (left >='A' && left <='Z') {
+            if (left >= 'A' && left <= 'Z') {
                 left = (char) (left + 32);
             }
 

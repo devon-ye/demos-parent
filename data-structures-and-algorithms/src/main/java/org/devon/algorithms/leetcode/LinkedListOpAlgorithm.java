@@ -328,6 +328,30 @@ public class LinkedListOpAlgorithm {
 	}
 
 
+	public ListNode oddEvenList2(ListNode head) {
+		if(head == null) return null;
+
+		ListNode odd = new ListNode(0);
+		ListNode even = new ListNode(0);
+		ListNode result = odd;
+		ListNode evenHead = even;
+		int index = 1;
+		while(head!=null){
+			if(index%2!=0){
+				odd.next = head;
+				odd = odd.next;
+			}else{
+				even.next = head;
+				even = even.next;
+			}
+			index++;
+			head = head.next;
+		}
+		odd.next = evenHead.next;
+		return result.next;
+	}
+
+
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		ListNode dummyHead = new ListNode(0);
 		ListNode curr = dummyHead;
