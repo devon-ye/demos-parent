@@ -15,4 +15,9 @@ public class StringDealTest {
 	public void letterCombinationsDP() {
 		StringDeal.letterCombinationsDP("23");
 	}
+
+    @Test
+    public void generateParenthesis() {
+		StringDeal.generateParenthesis(3);
+    }
 }
