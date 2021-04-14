@@ -4,12 +4,7 @@ package org.devon.algorithms.leetcode;
 import com.oracle.javafx.jmx.json.impl.JSONMessages;
 import jdk.nashorn.internal.parser.JSONParser;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ArraysAll {
     // duble index  method
@@ -255,6 +250,12 @@ public class ArraysAll {
         return res;
     }
 
+    /**
+     * 将整个数组二分后 在两个单调区间内进行索引偏移
+     * @param nums
+     * @param target
+     * @return
+     */
     public int search(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
@@ -516,11 +517,11 @@ public class ArraysAll {
                 }
 
                 // box check
-                byte boxTag = (byte) ((i / 3)*3 + j/3+1);
+                byte boxTag = (byte) ((i / 3) * 3 + j / 3 + 1);
                 if (box[j / 3][num] == boxTag) {
                     return false;
                 } else {
-                    box[j  / 3][num] = boxTag;
+                    box[j / 3][num] = boxTag;
                 }
 
                 //col check
@@ -539,12 +540,12 @@ public class ArraysAll {
 
 
     public static List<List<String>> groupAnagrams(String[] strs) {
-        Map<String,List<String>> map = new HashMap<>();
+        Map<String, List<String>> map = new HashMap<>();
         for (String str : strs) {
             char[] ch = str.toCharArray();
             Arrays.sort(ch);
             String key = new String(ch);
-            List list =  map.getOrDefault(key, new ArrayList<String>());
+            List list = map.getOrDefault(key, new ArrayList<String>());
             list.add(str);
             map.put(key, list);
         }
@@ -559,15 +560,15 @@ public class ArraysAll {
 
     public static boolean increasingTriplet(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            int index = i+1;
-            while(i<index && index < nums.length-1){
-                if(nums[index-1] < nums[index]){
-                    if(index-i==2){
+            int index = i + 1;
+            while (i < index && index < nums.length - 1) {
+                if (nums[index - 1] < nums[index]) {
+                    if (index - i == 2) {
                         return true;
                     }
                     index++;
-                }else {
-                    i= index;
+                } else {
+                    i = index;
                 }
             }
         }
@@ -575,38 +576,70 @@ public class ArraysAll {
     }
 
 
+    public int[][] merge(int[][] intervals) {
+        if (intervals.length < 2) return intervals;
+
+        int pre = 0;
+        int cur = 1;
+        int mergeSize = 0;
+        // 以区间左边界排序
+        Arrays.sort(intervals, (v1, v2) -> v1[0] - v2[0]);
+
+        while (cur < intervals.length) {
+            int preEnd = intervals[pre][1];
+            int curStart = intervals[cur][0];
+            if (preEnd >= curStart && intervals[pre][1] < intervals[cur][1]) {
+                //俩区间重叠,且第二个区间的右边界大于第一个右边界
+                intervals[pre][1] = intervals[cur][1];
+                mergeSize += 1;
+            }else if(intervals[pre][0]<= intervals[cur][0] && intervals[pre][1] >= intervals[cur][1]){
+                //俩区间重叠,第二个区间等于或包含在第一个区间内的
+                mergeSize += 1;
+                //大区间覆盖小区间
+                intervals[cur] = intervals[cur-1];
+            } else {
+                //pre 指针及前部分已merge, 未merge部分向前移动至pre+1指针处
+                if (cur - pre > 1 && intervals[pre][1] == intervals[cur - 1][1]) {
+                    intervals[pre+1] = intervals[cur];
+                }
+                pre += 1;
+            }
+            cur += 1;
+        }
+        return Arrays.copyOf(intervals, intervals.length - mergeSize);
+    }
+
+
     public static void main(String[] args) {
-        increasingTriplet(new int[]{2,1,5,0,4,6});
+        increasingTriplet(new int[]{2, 1, 5, 0, 4, 6});
 
-        increasingTriplet(new int[]{1,2,3,4,5,-1,-3});
+        increasingTriplet(new int[]{1, 2, 3, 4, 5, -1, -3});
 
-        increasingTriplet(new int[]{0,4,2,1,0,-1,-3});
+        increasingTriplet(new int[]{0, 4, 2, 1, 0, -1, -3});
         // ArraysAll.plusOne2(new int[]{9, 9, 9, 9});
         char[][] board = new char[9][9];
         for (char[] chars : board) {
             Arrays.fill(chars, '.');
         }
-        board[0][4]='5';
-        board[0][7]='1';
-        board[1][1]='4';
-        board[1][3]='3';
-        board[2][5]='3';
-        board[2][8]='1';
-        board[3][0]='8';
-        board[3][7]='2';
-        board[4][2]='2';
-        board[4][4]='7';
-        board[5][1]='1';
-        board[5][2]='5';
-        board[6][5]='2';
-        board[7][1]='2';
-        board[7][3]='9';
-        board[8][2]='4';
+        board[0][4] = '5';
+        board[0][7] = '1';
+        board[1][1] = '4';
+        board[1][3] = '3';
+        board[2][5] = '3';
+        board[2][8] = '1';
+        board[3][0] = '8';
+        board[3][7] = '2';
+        board[4][2] = '2';
+        board[4][4] = '7';
+        board[5][1] = '1';
+        board[5][2] = '5';
+        board[6][5] = '2';
+        board[7][1] = '2';
+        board[7][3] = '9';
+        board[8][2] = '4';
         isValidSudoku(board);
 
-        groupAnagrams(new String[]{"eat","tea","tan","ate","nat","bat"});
-
-
+        groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"});
 
 
     }

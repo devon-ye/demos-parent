@@ -21,8 +21,36 @@ public class Matrix {
     }
 
 
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int n = matrix.length;
+        int colSize = matrix[0].length - 1;
+        int rowIndex = 0;
+
+        while (rowIndex < n) {
+            int colLeft = 0;
+            int colRight = colSize;
+            //判断行开头元素是否大于 目标值，是直接返回false， 否则判断当前行内
+            if (matrix[rowIndex][colLeft] > target) {
+                return false;
+            }
+            //行内二分查找
+            while (colLeft <= colRight) {
+                int mid = (colLeft + colRight) / 2;
+                if (matrix[rowIndex][mid] == target) {
+                    return true;
+                } else if (matrix[rowIndex][mid] > target) {
+                    colRight = mid - 1;
+                } else if (matrix[rowIndex][mid] < target) {
+                    colLeft = mid + 1;
+                }
+            }
+            rowIndex++;
+        }
+        return false;
+    }
+
 
     public static void main(String[] args) {
-        rotate(new int[][]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}});
+        rotate(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}, {13, 14, 15, 16}});
     }
 }
