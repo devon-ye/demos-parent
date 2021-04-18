@@ -1,5 +1,7 @@
 package org.devon.algorithms.leetcode;
 
+import java.util.Arrays;
+
 /**
  * @author: devon.ye@foxmail.com
  * @datetime: 2021/3/13 12:13 PM
@@ -47,6 +49,27 @@ public class Matrix {
             rowIndex++;
         }
         return false;
+    }
+
+    /**
+     * m * n matrix  from matrix[0][0] to matrix[m][n] paths
+     *
+     * @param m
+     * @param n
+     * @return
+     */
+    public int uniquePaths(int m, int n) {
+        int[] row = new int[n];
+        Arrays.fill(row, 1);
+        for (int i = 1; i < m; i++) {
+            int leftPre = 1;
+            for (int j = 1; j < n; j++) {
+               row[j] = row[j] +leftPre;
+               leftPre = row[j];
+            }
+
+        }
+        return row[n];
     }
 
 

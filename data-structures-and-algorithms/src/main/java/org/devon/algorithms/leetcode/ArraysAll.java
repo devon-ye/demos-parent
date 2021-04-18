@@ -252,6 +252,7 @@ public class ArraysAll {
 
     /**
      * 将整个数组二分后 在两个单调区间内进行索引偏移
+     *
      * @param nums
      * @param target
      * @return
@@ -592,21 +593,51 @@ public class ArraysAll {
                 //俩区间重叠,且第二个区间的右边界大于第一个右边界
                 intervals[pre][1] = intervals[cur][1];
                 mergeSize += 1;
-            }else if(intervals[pre][0]<= intervals[cur][0] && intervals[pre][1] >= intervals[cur][1]){
+            } else if (intervals[pre][0] <= intervals[cur][0] && intervals[pre][1] >= intervals[cur][1]) {
                 //俩区间重叠,第二个区间等于或包含在第一个区间内的
                 mergeSize += 1;
                 //大区间覆盖小区间
-                intervals[cur] = intervals[cur-1];
+                intervals[cur] = intervals[cur - 1];
             } else {
                 //pre 指针及前部分已merge, 未merge部分向前移动至pre+1指针处
                 if (cur - pre > 1 && intervals[pre][1] == intervals[cur - 1][1]) {
-                    intervals[pre+1] = intervals[cur];
+                    intervals[pre + 1] = intervals[cur];
                 }
                 pre += 1;
             }
             cur += 1;
         }
         return Arrays.copyOf(intervals, intervals.length - mergeSize);
+    }
+
+
+    public int coinChange(int[] coins, int amount) {
+        int max = amount + 1;
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, max);
+        dp[0] = 0;
+        for (int i = 1; i <= amount; i++) {
+            for (int j = 0; j < coins.length; j++) {
+                if (coins[j] <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+                }
+            }
+        }
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+
+    public int maxIceCream(int[] costs, int coins) {
+        Arrays.sort(costs);
+
+        int result = 0;
+        for (int j = 0; j < costs.length; j++) {
+            coins = coins - costs[j];
+            if (coins < 0) {
+                return result;
+            }
+            result += 1;
+        }
+        return result;
     }
 
 

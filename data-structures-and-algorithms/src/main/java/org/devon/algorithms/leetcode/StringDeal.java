@@ -454,20 +454,22 @@ public class StringDeal {
         return ans;
     }
 
-    public static void backtrack(List<String> ans, String cur, int open, int close, int max){
+    public static void backtrack(List<String> ans, String cur, int open, int close, int max) {
         if (cur.length() == max * 2) {
             ans.add(cur);
             return;
         }
 
         if (open < max)
-            backtrack(ans, cur+"(", open+1, close, max);
+            backtrack(ans, cur + "(", open + 1, close, max);
         if (close < open)
-            backtrack(ans, cur+")", open, close+1, max);
+            backtrack(ans, cur + ")", open, close + 1, max);
     }
 
 
     public static void main(String[] args) {
+
+        checkIfPangram("thequickbrownfoxjumpsoverthelazydog");
         isPalindrome("aA");
         isPalindrome("Marge, let's \"[went].\" I await {news} telegram.");
         isPalindrome("race a car");
@@ -491,6 +493,24 @@ public class StringDeal {
 
         int tempB = "123".lastIndexOf(0);
         firstUniqChar2("leetcode");
+    }
+
+    public static boolean checkIfPangram(String sentence) {
+        if (sentence == null) return false;
+        int[] letters = new int[26];
+        char[] charArray = sentence.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            if(charArray[i]>='a' && charArray[i] <='z') {
+                int index = charArray[i] - 97;
+                letters[index] = 1;
+            }
+        }
+        int result = 0;
+        for (int i = 0; i < letters.length; i++) {
+            result += letters[i];
+        }
+        if (result == 26) return true;
+        return false;
     }
 
 
