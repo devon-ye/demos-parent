@@ -3,6 +3,7 @@ package org.devon.algorithms.leetcode;
 
 import com.oracle.javafx.jmx.json.impl.JSONMessages;
 import jdk.nashorn.internal.parser.JSONParser;
+import org.devon.data.structures.tree.TreeNode;
 
 import java.util.*;
 
@@ -639,6 +640,26 @@ public class ArraysAll {
         }
         return result;
     }
+
+    /**
+     *
+     * @param num int整型一维数组
+     * @return TreeNode类
+     */
+    public TreeNode sortedArrayToBST (int[] num) {
+        // write code he
+        return build(num,0,num.length);
+    }
+
+    private TreeNode build(int[] nums,int left,int right){
+        if(left >= right) return null;
+        int mid = (left+right)/2;
+        TreeNode  node  = new TreeNode(mid,nums[mid]);
+        node.left = build(nums,left,mid-1);
+        node.right = build(nums,mid+1,right);
+        return node;
+    }
+
 
 
     public static void main(String[] args) {
