@@ -57,9 +57,11 @@ public class MergeTwoSortedList {
          * 内层循环控制: 获取前后两个链表的合并，及合并后链表在数组中的位置
          */
         while (interval < lists.length) {
+
             for (int i = 0; i + interval < lists.length; i = i + interval * 2) {
                 lists[i] = mergeTwoList(lists[i], lists[i + interval]);
             }
+
             interval *= 2;
         }
         return lists[0];
