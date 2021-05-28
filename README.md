@@ -34,23 +34,23 @@
 ## 思维导图
 
 ### 数据结构与算法
- [![](https://github.com/devon-ye/demos-parent/blob/develop/data-structures-and-algorithms/img/data-structures-and-algorithms.png)](https://github.com/devon-ye/demos-parent/tree/develop/data-structures-and-algorithms)
+ [![](https://github.com/devon-ye/demos-parent/blob/develop/data-structures-and-algorithms/img/data-structures-and-algorithms.png?raw=true)](https://github.com/devon-ye/demos-parent/tree/develop/data-structures-and-algorithms)
   [processon](https://www.processon.com/mindmap/5d6035ebe4b06e49191f0716)
 
 ### 设计模式
-[![](https://github.com/devon-ye/demos-parent/blob/develop/design-pattern/img/design-pattern.png)](https://github.com/devon-ye/demos-parent/tree/develop/design-pattern)
+[![](https://github.com/devon-ye/demos-parent/blob/develop/design-pattern/img/design-pattern.png?raw=true)](https://github.com/devon-ye/demos-parent/tree/develop/design-pattern)
  [processon](https://www.processon.com/mindmap/5d692c3ce4b0b3a53a0ff329)
   
 ### Java
 
-[![](https://github.com/devon-ye/demos-parent/blob/develop/language/java/img/Java.png)](https://github.com/devon-ye/demos-parent/tree/develop/language/java)
+[![](https://github.com/devon-ye/demos-parent/blob/develop/language/java/img/Java.png?raw=true)](https://github.com/devon-ye/demos-parent/tree/develop/language/java)
  [processon](https://www.processon.com/mindmap/5d69f5dee4b0b3a53a102a3a)
 
 ### 分布式
- [![](https://github.com/devon-ye/demos-parent/blob/develop/distributed/img/distributed.png)](https://github.com/devon-ye/demos-parent/tree/develop/distributed)
+ [![](https://github.com/devon-ye/demos-parent/blob/develop/distributed/img/distributed.png?raw=true)](https://github.com/devon-ye/demos-parent/tree/develop/distributed)
  [processon](https://www.processon.com/mindmap/5d692d32e4b06e9d24cd71de)
 ### 架构设计
-  [![](https://github.com/devon-ye/demos-parent/blob/develop/docs/img/arch-design.png)](https://github.com/devon-ye/demos-parent/tree/develop/docs)
+  [![](https://github.com/devon-ye/demos-parent/blob/develop/docs/img/arch-design.png?raw=true)](https://github.com/devon-ye/demos-parent/tree/develop/docs)
   [processon](https://www.processon.com/mindmap/5c918057e4b0afc744183dc5)
 
 
