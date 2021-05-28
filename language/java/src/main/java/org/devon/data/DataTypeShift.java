@@ -14,6 +14,7 @@ public class DataTypeShift {
 	}
 
 	public byte[] long2Bytes(long longs) {
+		Byte
 		byte[] bytes = new byte[8];
 		for (int i = 0; i < 8; i++) {
 			bytes[i] = (byte) (longs >>> (56 - (i * 8)));

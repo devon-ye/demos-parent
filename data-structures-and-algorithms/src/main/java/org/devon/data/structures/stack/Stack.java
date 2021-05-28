@@ -3,7 +3,9 @@ package org.devon.data.structures.stack;
 import org.devon.algorithms.leetcode.ListNode;
 import org.devon.data.structures.tree.TreeNode;
 
+import java.util.Deque;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
@@ -53,42 +55,24 @@ public class Stack<Item> implements Iterable<Item> {
 	}
 
 
-	public boolean isSubTree(TreeNode parent, TreeNode child) {
-		if (parent == null && child == null) {
-			return true;
-		} else if (parent != null && child != null && parent.value == child.value) {
-			boolean left = isSubTree(parent.left, child.left);
-			boolean right = isSubTree(parent.right, child.right);
-			if (left == true && right == true) {
-				return true;
+	public int longestValidParentheses(String s) {
+		int maxans = 0;
+		Deque<Integer> stack = new LinkedList<Integer>();
+		stack.push(-1);
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == '(') {
+				stack.push(i);
 			} else {
-				return false;
+				stack.pop();
+				if (stack.isEmpty()) {
+					stack.push(i);
+				} else {
+					maxans = Math.max(maxans, i - stack.peek());
+				}
 			}
-		} else {
-			boolean result = isSubTree(parent.left, child);
-			if (result) {
-				return true;
-			}
-			result = isSubTree(parent.right, child);
-			if (result) {
-				return true;
-			}
-			return false;
 		}
+		return maxans;
 	}
 
-	public ListNode reverse(ListNode head) {
-		if (head == null) return null;
 
-		ListNode dummy = new ListNode(0);
-		ListNode current = null;
-		while (head != null) {
-			current = head;
-			current.next = dummy.next;
-			head = head.next;
-			dummy.next = current;
-		}
-
-		return dummy.next;
-	}
 }

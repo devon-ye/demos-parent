@@ -8,6 +8,10 @@ package org.devon.data.structures.heap;
 public class Heap {
     private Comparable[] pq;
     private  int N;
+
+
+
+
     private  boolean less(int i,int j){
          return pq[i].compareTo(pq[j]) < 0;
     }
@@ -18,6 +22,10 @@ public class Heap {
         pq[j] = t;
     }
 
+    /**
+     * 堆上浮
+     * @param k
+     */
     private void swim(int k){
         while ( k > 1 && less(k/2,k)){
             exch(k/2,k);
@@ -26,6 +34,10 @@ public class Heap {
 
     }
 
+    /**
+     * 堆下沉
+     * @param k
+     */
     private void sink(int k){
         while ( 2 * k <= N){
             int j = 2* k;

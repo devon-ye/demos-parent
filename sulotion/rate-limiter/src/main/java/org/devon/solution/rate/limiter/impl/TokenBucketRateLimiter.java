@@ -1,14 +1,14 @@
 package org.devon.solution.rate.limiter.impl;
 
 
-import org.devon.solution.rate.limiter.RateLimite;
+import org.devon.solution.rate.limiter.RateLimiter;
 
 /**
  * @author dewen.ye
  * @datetime 2019/12/7 10:18 AM
  * @since
  */
-public class TokenBucketRateLimiter implements RateLimite {
+public class TokenBucketRateLimiter implements RateLimiter {
 
 	private final long maxBucketSize;
 	private final long reFillRate;

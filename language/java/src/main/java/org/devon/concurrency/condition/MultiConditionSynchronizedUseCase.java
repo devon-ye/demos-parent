@@ -67,7 +67,7 @@ public class MultiConditionSynchronizedUseCase implements Runnable {
 				conditionWait1();
 				conditionWait2();
 				conditionWait3();
-				TimeUnit.SECONDS.sleep(1);
+				 TimeUnit.MILLISECONDS.sleep(50);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -76,9 +76,9 @@ public class MultiConditionSynchronizedUseCase implements Runnable {
 
 	public static void main(String[] args) {
 		MultiConditionSynchronizedUseCase condition = new MultiConditionSynchronizedUseCase();
-		Thread T1 = new Thread(condition);
-		Thread T2 = new Thread(condition);
-		Thread T3 = new Thread(condition);
+		Thread T1 = new Thread(condition,"A_WAIT_THREAD");
+		Thread T2 = new Thread(condition,"B_WAIT_THREAD");
+		Thread T3 = new Thread(condition,"C_WAIT_THREAD");
 		T1.start();
 		T2.start();
 		T3.start();

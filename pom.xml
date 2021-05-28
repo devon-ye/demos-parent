@@ -50,13 +50,13 @@
         <aspectjweaver_version>1.8.11</aspectjweaver_version>
         <aspectjrt_version>1.8.11</aspectjrt_version>
         <shiro.version>[1.4.2,)</shiro.version>
-        <mybatis_version>3.4.0</mybatis_version>
+        <mybatis_version>[3.5.6,)</mybatis_version>
         <mybatis-spring.version>1.1.1</mybatis-spring.version>
         <mybatis-generator_version>1.3.5</mybatis-generator_version>
 
 
         <protobuf-java_version>3.5.0</protobuf-java_version>
-        <guava.version>30.0-jre</guava.version>
+        <guava.version>[30.0-jre,)</guava.version>
         <jackson.version>[2.9.10.3,)</jackson.version>
         <jackson-mapper_version>1.9.13</jackson-mapper_version>
         <fastjson_version>1.2.30</fastjson_version>
@@ -66,7 +66,7 @@
         <jstl_version>1.2</jstl_version>
         <jsp-2.1_version>6.1.14</jsp-2.1_version>
         <commons-fileupload_version>1.3.3</commons-fileupload_version>
-        <poi_version>3.9</poi_version>
+        <poi_version>[3.17,)</poi_version>
         <jdom2_version>2.0.6</jdom2_version>
 
         <commons-dbcp_version>1.2.2</commons-dbcp_version>

@@ -1,5 +1,7 @@
 package org.devon.data.structures.linked;
 
+import org.devon.algorithms.leetcode.ListNode;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -67,6 +69,22 @@ public class ListUtils {
 			queue.add(child2);
 		}
 		return result;
+	}
+
+
+	public ListNode reverse(ListNode head) {
+		if (head == null) return null;
+
+		ListNode dummy = new ListNode(0);
+		ListNode current = null;
+		while (head != null) {
+			current = head;
+			current.next = dummy.next;
+			head = head.next;
+			dummy.next = current;
+		}
+
+		return dummy.next;
 	}
 
 
