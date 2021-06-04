@@ -44,7 +44,7 @@
         <logback_version>1.2.2</logback_version>
 
         <mail_version>1.4.7</mail_version>
-        <httpclient_version>4.5.2</httpclient_version>
+        <httpclient_version>4.5.13</httpclient_version>
 
         <spring.version>[5.2.5,)</spring.version>
         <aspectjweaver_version>1.8.11</aspectjweaver_version>
