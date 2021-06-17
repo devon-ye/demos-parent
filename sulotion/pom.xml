@@ -17,6 +17,7 @@
         <module>rate-limiter</module>
         <module>load-balance</module>
 	    <module>distributed-tracing</module>
+        <module>distributed-transaction</module>
     </modules>
 
 </project>
