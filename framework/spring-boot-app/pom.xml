@@ -8,11 +8,11 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.devon.framework.spring-framework</groupId>
-    <artifactId>spring-boot-app</artifactId>
+    <groupId>org.devon.framework.spring-boot</groupId>
+    <artifactId>spring-boot-apps</artifactId>
     <packaging>jar</packaging>
 
-    <name>spring-boot-app</name>
+    <name>spring-boot-apps</name>
 
 
     <properties>
@@ -184,6 +184,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.0.2.RELEASE</version>
             </plugin>
         </plugins>
     </build>

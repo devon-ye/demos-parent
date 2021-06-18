@@ -1,9 +1,7 @@
 package org.devon.concurrency.fork.join;
 
-import sun.nio.ch.ThreadPool;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -18,9 +16,6 @@ public class ForkJoinPoolFactory implements Runnable {
     private ReentrantLock lock = new ReentrantLock();
     private Condition condition = lock.newCondition();
     private CountDownLatch latch = new CountDownLatch(1);
-	public ForkJoinPool create() {
-		return new ForkJoinPool();
-	}
 
 	public static void main(String[] args) {
 		ForkJoinPoolFactory factory = new ForkJoinPoolFactory();
