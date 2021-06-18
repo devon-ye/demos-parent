@@ -1,14 +1,17 @@
 package org.devon.middleware.hbase;
 
+import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.Timer;
 import com.google.common.collect.Lists;
 import com.stumbleupon.async.Deferred;
+import jdk.internal.platform.cgroupv1.Metrics;
 import org.hbase.async.GetRequest;
 import org.hbase.async.HBaseClient;
 import org.hbase.async.KeyValue;
 import org.hbase.async.Scanner;
+import org.omg.CORBA.PRIVATE_MEMBER;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 
 import javax.annotation.Resource;
@@ -26,11 +29,11 @@ import java.util.concurrent.RecursiveTask;
  * @date 2019/10/11 12:20
  * @since
  */
-@Component
 public class HBaseSearchImpl extends RecursiveTask<ArrayList<ArrayList<ArrayList<KeyValue>>>> implements HBaseSearch {
 	private static final Logger LOG = LoggerFactory.getLogger(HBaseSearchImpl.class);
-
-	private Timer timer = Metrics.timer("hbase.read.time").get();
+	@Resource
+	private MetricRegistry metricRegistry;
+	private Timer timer = metricRegistry.timer("hbase.read.time");
 
 	@Resource(name = "hbaseClient")
 	private HBaseClient hbaseClient;
@@ -39,6 +42,8 @@ public class HBaseSearchImpl extends RecursiveTask<ArrayList<ArrayList<ArrayList
 	private ForkJoinPool forkJoinPool;
 
 	private ScanQueryParam scanQueryParam;
+
+	private static final Integer BATCH_SIZE = 100;
 
 	@Override
 	public List<KeyValue> getRequest(String table, String rowKey, String family) {
@@ -225,7 +230,7 @@ public class HBaseSearchImpl extends RecursiveTask<ArrayList<ArrayList<ArrayList
 		if (keyRangeTupleList == null || keyRangeTupleList.size() <= 0) {
 			return new ArrayList<>(0);
 		}
-		if (keyRangeTupleList.size() < SystemConfig.getBatchSize()) {
+		if (keyRangeTupleList.size() < BATCH_SIZE) {
 			Collection<Deferred<ArrayList<ArrayList<KeyValue>>>> deferredList = new ArrayList<>(keyRangeTupleList.size());
 			for (KeyRangeTuple keyRangeTuple : keyRangeTupleList) {
 				if (keyRangeTuple == null) continue;

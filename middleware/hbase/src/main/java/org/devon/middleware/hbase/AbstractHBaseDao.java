@@ -1,5 +1,7 @@
 package org.devon.middleware.hbase;
 
+import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.Timer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hbase.async.KeyValue;
 
@@ -17,6 +19,9 @@ public abstract class AbstractHBaseDao<T> extends RecursiveTask implements Dao {
 
 	@Resource
 	private HBaseSearch search;
+
+	@Resource
+	private MetricRegistry metricRegistry;
 
 	protected static final ObjectMapper MAPPER = new ObjectMapper();
 
@@ -66,7 +71,7 @@ public abstract class AbstractHBaseDao<T> extends RecursiveTask implements Dao {
 		} else {
 			result = new ArrayList<>(listListList.size() * 2);
 		}
-		Timer.Context context = Metrics.timer("transListListKeyValueToObject.timer").tag("size",listListList.size()+"").get().time();
+		Timer.Context timer = metricRegistry.timer("transListListKeyValueToObject.timer").time();
 		try {
 			for (ArrayList<KeyValue> keyValueArrayList : listListList) {
 				if (keyValueArrayList == null) continue;
@@ -74,7 +79,7 @@ public abstract class AbstractHBaseDao<T> extends RecursiveTask implements Dao {
 				result.add(row);
 			}
 		} finally {
-			context.stop();
+			timer.stop();
 		}
 		return result;
 	}
@@ -86,7 +91,7 @@ public abstract class AbstractHBaseDao<T> extends RecursiveTask implements Dao {
 		} else {
 			result = new ArrayList<>(keyValueListListList.size() * 2);
 		}
-		Timer.Context context = Metrics.timer("transListListListKeyValueToObject.timer").tag("size",keyValueListListList.size()+"").get().time();
+		Timer.Context context = metricRegistry.timer("transListListListKeyValueToObject.timer").time();
 		try {
 			for (ArrayList<ArrayList<KeyValue>> keyValueListList : keyValueListListList) {
 				if (keyValueListList == null) continue;
