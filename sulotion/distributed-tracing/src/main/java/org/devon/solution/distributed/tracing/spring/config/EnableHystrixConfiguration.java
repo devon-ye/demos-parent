@@ -3,7 +3,7 @@ package org.devon.solution.distributed.tracing.spring.config;
 import feign.Feign;
 import feign.hystrix.HystrixFeign;
 import okhttp3.ConnectionPool;
-import org.devon.solution.distributed.tracing.hystrix.TracingHystrixConcurrencyStrategy;
+import org.devon.solution.distributed.tracing.openfegin.TracingFeignInterceptor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
@@ -19,7 +19,7 @@ public class EnableHystrixConfiguration {
     @Bean
     @Scope("prototype")
     public Feign.Builder feignHystrixBuilder(@Qualifier("feignOkhttpClient") feign.okhttp.OkHttpClient okHttpClient) {
-        return HystrixFeign.builder().client(okHttpClient).requestInterceptor(new TracingHystrixConcurrencyStrategy());
+        return HystrixFeign.builder().client(okHttpClient).requestInterceptor(new TracingFeignInterceptor());
     }
 
 
