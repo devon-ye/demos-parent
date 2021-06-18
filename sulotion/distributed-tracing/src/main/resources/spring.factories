@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.devon.solution.distributed.tracing.spring.config.EnableHystrixConfiguration,\
+  org.devon.solution.distributed.tracing.spring.config.TraceFilterAutoConfiguration
