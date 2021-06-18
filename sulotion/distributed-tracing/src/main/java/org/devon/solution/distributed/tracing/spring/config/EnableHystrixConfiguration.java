@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Scope;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author chensk
+ * @author
  * @date 2020/5/6
  */
 public class EnableHystrixConfiguration {
