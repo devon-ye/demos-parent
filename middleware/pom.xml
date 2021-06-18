@@ -15,6 +15,7 @@
         <module>kafka</module>
         <module>redis</module>
         <module>elasticsearch</module>
+        <module>hbase</module>
     </modules>
 
     <dependencies>
