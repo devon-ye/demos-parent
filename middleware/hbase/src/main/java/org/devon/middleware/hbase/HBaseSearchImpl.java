@@ -4,17 +4,14 @@ import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
 import com.google.common.collect.Lists;
 import com.stumbleupon.async.Deferred;
-import jdk.internal.platform.cgroupv1.Metrics;
 import org.hbase.async.GetRequest;
 import org.hbase.async.HBaseClient;
 import org.hbase.async.KeyValue;
 import org.hbase.async.Scanner;
-import org.omg.CORBA.PRIVATE_MEMBER;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -31,14 +28,12 @@ import java.util.concurrent.RecursiveTask;
  */
 public class HBaseSearchImpl extends RecursiveTask<ArrayList<ArrayList<ArrayList<KeyValue>>>> implements HBaseSearch {
 	private static final Logger LOG = LoggerFactory.getLogger(HBaseSearchImpl.class);
-	@Resource
+
 	private MetricRegistry metricRegistry;
 	private Timer timer = metricRegistry.timer("hbase.read.time");
 
-	@Resource(name = "hbaseClient")
 	private HBaseClient hbaseClient;
 
-	@Resource
 	private ForkJoinPool forkJoinPool;
 
 	private ScanQueryParam scanQueryParam;

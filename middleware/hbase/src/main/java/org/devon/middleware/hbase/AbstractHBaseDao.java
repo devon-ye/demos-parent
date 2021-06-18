@@ -5,7 +5,6 @@ import com.codahale.metrics.Timer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hbase.async.KeyValue;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.RecursiveTask;
@@ -17,10 +16,8 @@ import java.util.concurrent.RecursiveTask;
  */
 public abstract class AbstractHBaseDao<T> extends RecursiveTask implements Dao {
 
-	@Resource
 	private HBaseSearch search;
 
-	@Resource
 	private MetricRegistry metricRegistry;
 
 	protected static final ObjectMapper MAPPER = new ObjectMapper();
