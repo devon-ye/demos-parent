@@ -6,20 +6,21 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.recursive;
+package org.devon.algorithms.recursive;
 
-import org.devon.algorithms.recursion.Ackerman;
+import org.devon.algorithms.recursion.Fibonacci;
 import org.junit.Test;
 
 /**
  * @author dewen.ye
- * @date 2019/2/17 11:11
+ * @date 2019/2/17 11:16
  */
-public class AckermanTest {
+public class FibonacciTest {
 
     @Test
-    public void acker() {
-        Ackerman ackerman = new Ackerman();
-        ackerman.acker(3,5);
+    public void fibonacci() {
+        Fibonacci fibonacci = new Fibonacci();
+        int result = fibonacci.fibonacci(5);
+        System.out.println(result);
     }
 }

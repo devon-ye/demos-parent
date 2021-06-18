@@ -6,22 +6,20 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.leetcode;
+package org.devon.algorithms.leetcode;
 
-import org.devon.algorithms.leetcode.Collections;
 import org.junit.Test;
 
 /**
  * @author dewen.ye
- * @date 2019/2/16 23:46
+ * @date 2019/2/17 11:24
  */
-public class CollectionsTest {
+public class RemoveRepeatableElementTest {
+    int[] array = new int[]{4, 2, 4, 8, 0, 1, 0, 3, 5, 7};
 
     @Test
-    public void mergeTwoLists() {
-        Collections collections = new Collections();
-        Collections.ListNode l1 = collections.buildLinkedNode(5);
-        Collections.ListNode l2 = collections.buildLinkedNode(8);
-        collections.mergeTwoLists(l1, l2);
+    public void removeDuplicates() {
+
+        RemoveRepeatableElement.removeDuplicates(array);
     }
 }

@@ -1,4 +1,4 @@
-package org.devon.algorithm.leetcode;
+package org.devon.algorithms.leetcode;
 
 import org.junit.Test;
 

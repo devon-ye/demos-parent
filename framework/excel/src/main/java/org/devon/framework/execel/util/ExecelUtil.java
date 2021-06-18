@@ -90,7 +90,7 @@ public class ExecelUtil {
                 List<Element> tds = tr.getChildren("td");
                 HSSFRow row = sheet.createRow(rownum);
                 HSSFCellStyle cellStyle = wb.createCellStyle();
-                cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+            //    cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
                 for (column = 0; column < tds.size(); column++) {
                     Element td = tds.get(column);
                     HSSFCell cell = row.createCell(column);
@@ -106,7 +106,7 @@ public class ExecelUtil {
                         //设置字体
                         HSSFFont font = wb.createFont();
                         font.setFontName("仿宋_GB2312");
-                        font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);//字体加粗
+                     //   font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);//字体加粗
 //						font.setFontHeight((short)12);
                         font.setFontHeightInPoints((short) 12);
                         cellStyle.setFont(font);

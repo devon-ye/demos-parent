@@ -6,21 +6,18 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.leetcode;
+package org.devon.algorithms.leetcode;
 
-import org.devon.algorithms.leetcode.RemoveRepeatableElement;
 import org.junit.Test;
+
 
 /**
  * @author dewen.ye
- * @date 2019/2/17 11:24
+ * @date 2019/2/17 11:30
  */
-public class RemoveRepeatableElementTest {
-    int[] array = new int[]{4, 2, 4, 8, 0, 1, 0, 3, 5, 7};
+public class ArrangementTest {
 
     @Test
-    public void removeDuplicates() {
-
-        RemoveRepeatableElement.removeDuplicates(array);
+    public void allArrange() {
     }
 }

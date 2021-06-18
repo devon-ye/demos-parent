@@ -6,31 +6,21 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.graph.theory;
+package org.devon.algorithms.leetcode;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @author dewen.ye
  * @date 2019/2/16 23:46
  */
-public class TriangleTest {
+public class CollectionsTest {
 
     @Test
-    public void isTriangle() {
-    }
-
-    @Test
-    public void area() {
-    }
-
-    @Test
-    public void maxLengthSide() {
-    }
-
-    @Test
-    public void minLengthSide() {
+    public void mergeTwoLists() {
+        Collections collections = new Collections();
+        Collections.ListNode l1 = collections.buildLinkedNode(5);
+        Collections.ListNode l2 = collections.buildLinkedNode(8);
+        collections.mergeTwoLists(l1, l2);
     }
 }

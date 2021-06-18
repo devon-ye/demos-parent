@@ -6,19 +6,19 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.leetcode;
+package org.devon.algorithms.search;
 
-import org.devon.algorithms.leetcode.PalindromeNumber;
 import org.junit.Test;
 
 /**
  * @author dewen.ye
- * @date 2019/2/17 11:28
+ * @date 2019/2/17 11:10
  */
-public class PalindromeNumberTest {
+public class BinarySearchTest {
 
     @Test
-    public void isPalindrome() {
-        PalindromeNumber.isPalindrome(121);
+    public void rank() {
+        int[] array01 = new int[]{1,4,6,8,9,10,15,156,147};
+        int position =  BinarySearch.search(array01,15);
     }
 }

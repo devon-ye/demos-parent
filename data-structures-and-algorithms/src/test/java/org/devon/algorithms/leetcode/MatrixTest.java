@@ -2,12 +2,13 @@ package org.devon.algorithms.leetcode;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
+@Ignore
 public class MatrixTest {
     private Matrix matrix;
+
     @Before
     public void setUp() throws Exception {
         matrix = new Matrix();
@@ -28,7 +29,6 @@ public class MatrixTest {
     @Test
     public void uniquePaths() {
         matrix.uniquePaths(2,5);
-
         matrix.uniquePaths(4,5);
     }
 

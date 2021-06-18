@@ -21,20 +21,15 @@ public class ArraysAllTest {
     public void tearDown() throws Exception {
     }
 
+
+
     @Test
     public void removeDuplicatesSortedArray() {
-    }
+        int[] a = {0, 0, 1, 2, 3, 3, 3, 4};
+        Assert.assertEquals(5, ArraysAll.removeDuplicatesSortedArray(a));
 
-    @Test
-    public void removeElement() {
-    }
-
-    @Test
-    public void findMedianSortedArrays() {
-    }
-
-    @Test
-    public void searchInsert() {
+        int[] b = {0, 1, 1, 2, 3, 3, 3, 4};
+        Assert.assertEquals(5,ArraysAll.removeDuplicatesSortedArray(b));
     }
 
 
@@ -83,5 +78,24 @@ public class ArraysAllTest {
     public void maxIceCream() {
         arraysAll.maxIceCream(new int[]{1, 2, 3,4,1}, 7);
 
+    }
+
+    @Test
+    public void removeElement() {
+        int[] b = {0, 1, 1, 2, 3, 3, 3, 4};
+        Assert.assertEquals(5,ArraysAll.removeElement(b, 3));
+    }
+
+    @Test
+    public void findMedianSortedArrays() {
+        int[] nums1 = {1, 3};
+        int[] nums2 = {2};
+        Assert.assertEquals(2.0D,ArraysAll.findMedianSortedArrays(nums1, nums2),0);
+    }
+
+    @Test
+    public void searchInsert() {
+        int[] nums1 = {1,2,5,7,9};
+        Assert.assertEquals(2,ArraysAll.searchInsert(nums1, 4));
     }
 }

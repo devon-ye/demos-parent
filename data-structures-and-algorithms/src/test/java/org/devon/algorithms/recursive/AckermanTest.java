@@ -6,19 +6,20 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.leetcode;
+package org.devon.algorithms.recursive;
 
+import org.devon.algorithms.recursion.Ackerman;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @author dewen.ye
- * @date 2019/2/17 11:29
+ * @date 2019/2/17 11:11
  */
-public class L838GraphReverseTest {
+public class AckermanTest {
 
     @Test
-    public void flipAndInvertImage() {
+    public void acker() {
+        Ackerman ackerman = new Ackerman();
+        ackerman.acker(3,5);
     }
 }

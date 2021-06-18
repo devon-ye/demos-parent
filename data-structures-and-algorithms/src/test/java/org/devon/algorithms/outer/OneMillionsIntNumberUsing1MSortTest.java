@@ -1,4 +1,4 @@
-package org.devon.algorithm.sort.outer;
+package org.devon.algorithms.outer;
 
 import org.devon.algorithms.sort.outer.OneMillionsIntNumberUsing1MSort;
 import org.junit.Before;

@@ -6,18 +6,18 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.leetcode;
+package org.devon.algorithms.leetcode;
 
 import org.junit.Test;
 
-
 /**
  * @author dewen.ye
- * @date 2019/2/17 11:30
+ * @date 2019/2/17 11:28
  */
-public class ArrangementTest {
+public class PalindromeNumberTest {
 
     @Test
-    public void allArrange() {
+    public void isPalindrome() {
+        PalindromeNumber.isPalindrome(121);
     }
 }

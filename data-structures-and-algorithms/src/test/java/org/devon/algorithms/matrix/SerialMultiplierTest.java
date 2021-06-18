@@ -6,10 +6,8 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.matrix;
+package org.devon.algorithms.matrix;
 
-import org.devon.algorithms.matrix.MatrixGenerator;
-import org.devon.algorithms.matrix.SerialMultiplier;
 import org.junit.Test;
 
 /**

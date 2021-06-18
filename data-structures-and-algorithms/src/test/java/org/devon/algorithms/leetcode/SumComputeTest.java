@@ -6,9 +6,8 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.leetcode;
+package org.devon.algorithms.leetcode;
 
-import org.devon.algorithms.leetcode.SumCompute;
 import org.junit.Test;
 
 /**

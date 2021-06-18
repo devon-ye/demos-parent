@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.recursive;
+package org.devon.algorithms.recursive;
 
 import org.devon.algorithms.recursion.HanoiTower;
 import org.junit.Test;

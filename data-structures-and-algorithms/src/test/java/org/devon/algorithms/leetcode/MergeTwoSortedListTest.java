@@ -1,7 +1,5 @@
-package org.devon.algorithm.leetcode;
+package org.devon.algorithms.leetcode;
 
-import org.devon.algorithms.leetcode.ListNode;
-import org.devon.algorithms.leetcode.MergeTwoSortedList;
 import org.junit.Test;
 
 

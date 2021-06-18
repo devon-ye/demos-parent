@@ -6,20 +6,31 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package org.devon.algorithm.search;
+package org.devon.algorithms.theory;
 
-import org.devon.algorithms.search.BinarySearch;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * @author dewen.ye
- * @date 2019/2/17 11:10
+ * @date 2019/2/16 23:46
  */
-public class BinarySearchTest {
+public class TriangleTest {
 
     @Test
-    public void rank() {
-        int[] array01 = new int[]{1,4,6,8,9,10,15,156,147};
-        int position =  BinarySearch.search(array01,15);
+    public void isTriangle() {
+    }
+
+    @Test
+    public void area() {
+    }
+
+    @Test
+    public void maxLengthSide() {
+    }
+
+    @Test
+    public void minLengthSide() {
     }
 }
