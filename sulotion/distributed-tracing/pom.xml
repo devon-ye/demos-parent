@@ -32,7 +32,6 @@
 		<dependency>
 			<groupId>io.grpc</groupId>
 			<artifactId>grpc-api</artifactId>
-			<version>1.29.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.github.openfeign</groupId>
@@ -48,12 +47,6 @@
 					<artifactId>archaius-core</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-api</artifactId>
-			<version>1.29.0</version>
-			<scope>compile</scope>
 		</dependency>
 	
 	</dependencies>

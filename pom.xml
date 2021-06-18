@@ -14,7 +14,6 @@
         <module>framework</module>
         <module>middleware</module>
         <module>docker</module>
-        <module>distributed</module>
         <module>language</module>
         <module>architecture-pattern</module>
         <module>sulotion</module>
@@ -37,7 +36,10 @@
         <swagger-annotations_version>1.5.17</swagger-annotations_version>
         <lombok_version>1.16.20</lombok_version>
 
+        <grpc.version>1.37.0</grpc.version>
         <ice.version>3.7.1</ice.version>
+        <feign-okhttp.version>11.1</feign-okhttp.version>
+        <feign-hystrix.version>11.1</feign-hystrix.version>
 
         <slf4j_version>1.7.25</slf4j_version>
         <over-slf4j.version>1.7.30</over-slf4j.version>
@@ -75,7 +77,7 @@
         <commons-lang3_version>3.7</commons-lang3_version>
         <jedis_version>2.9.0</jedis_version>
         <spring-data-redis_version>2.0.5.RELEASE</spring-data-redis_version>
-
+        <asynchbase.version>1.8.2</asynchbase.version>
         <jcl_version>1.2</jcl_version>
         <jmockit_version>1.33</jmockit_version>
         <cglib_version>3.2.4</cglib_version>
@@ -186,8 +188,27 @@
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient_version}</version>
             </dependency>
-
+    
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-okhttp</artifactId>
+                <version>${feign-okhttp.version}</version>
+            </dependency>
+    
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-hystrix</artifactId>
+                <version>${feign-hystrix.version}</version>
+            </dependency>
+    
+    
             <!-- Rpc -->
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-api</artifactId>
+                <version>${grpc.version}</version>
+            </dependency>
+            
             <dependency>
                 <groupId>com.zeroc</groupId>
                 <artifactId>ice</artifactId>
@@ -424,7 +445,14 @@
                 <artifactId>spring-data-redis</artifactId>
                 <version>${spring-data-redis_version}</version>
             </dependency>
-
+    
+            <dependency>
+                <groupId>org.hbase</groupId>
+                <artifactId>asynchbase</artifactId>
+                <version>${asynchbase.version}</version>
+            </dependency>
+    
+    
             <!-- restAPI lib -->
             <dependency>
                 <groupId>io.swagger</groupId>

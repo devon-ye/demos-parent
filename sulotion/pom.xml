@@ -19,5 +19,9 @@
 	    <module>distributed-tracing</module>
         <module>distributed-transaction</module>
     </modules>
+    
+    <dependencies>
+    
+    </dependencies>
 
 </project>
