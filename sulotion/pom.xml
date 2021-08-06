@@ -18,6 +18,7 @@
         <module>load-balance</module>
 	    <module>distributed-tracing</module>
         <module>distributed-transaction</module>
+        <module>service-discovery</module>
     </modules>
     
     <dependencies>
