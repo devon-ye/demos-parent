@@ -9,10 +9,10 @@
     </parent>
 
     <groupId>org.devon.framework.spring-boot</groupId>
-    <artifactId>spring-boot-apps</artifactId>
+    <artifactId>spring-boot-app</artifactId>
     <packaging>jar</packaging>
 
-    <name>spring-boot-apps</name>
+    <name>spring-boot-app</name>
 
 
     <properties>

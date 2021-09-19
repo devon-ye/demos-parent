@@ -19,7 +19,7 @@
         <module>servlet</module>
         <module>shiro</module>
         <module>spring-app</module>
-        <module>spring-boot-apps</module>
+        <module>spring-boot-app</module>
         <module>stream-processing</module>
         <module>netty</module>
         <module>instrumentation</module>
