@@ -29,7 +29,7 @@
 
         <flink.version>1.9.0</flink.version>
 
-        <junit_version>4.13.1</junit_version>
+        <junit_version>4.13.2</junit_version>
         <easymock_version>3.4</easymock_version>
         <jmockit_version>1.33</jmockit_version>
 
