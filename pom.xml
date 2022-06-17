@@ -61,7 +61,7 @@
         <guava.version>[30.0-jre,)</guava.version>
         <jackson.version>[2.9.10.3,)</jackson.version>
         <jackson-mapper_version>1.9.13</jackson-mapper_version>
-        <fastjson_version>1.2.30</fastjson_version>
+        <fastjson_version>1.2.83</fastjson_version>
 
         <javax.batch-api_version>1.0.1</javax.batch-api_version>
         <servlet_version>4.0.0</servlet_version>
